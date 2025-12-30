@@ -30,12 +30,12 @@ export default function HomePage() {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" asChild>
-                <Link href="#">
+                <Link href="/platform#onboarding">
                   Start Free <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="#">Watch Demo</Link>
+                <Link href="/demo">Watch Demo</Link>
               </Button>
             </div>
             <p className="mt-6 text-sm text-muted-foreground">
@@ -180,7 +180,7 @@ export default function HomePage() {
             </div>
             <div className="mt-12">
               <Button variant="outline" asChild>
-                <Link href="#">Explore Integrations</Link>
+                <Link href="/integrations">View Integrations</Link>
               </Button>
             </div>
           </div>
@@ -222,7 +222,7 @@ export default function HomePage() {
             </div>
             <div className="mt-8">
               <Button asChild>
-                <Link href="#">Connect Brain</Link>
+                <Link href="/docs/brain/ingestion">Connect Brain</Link>
               </Button>
             </div>
           </div>
@@ -386,12 +386,12 @@ export default function HomePage() {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" asChild>
-                <Link href="#">
+                <Link href="/platform#onboarding">
                   Start Free <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="#">Book Demo</Link>
+                <Link href="/company/contact?type=demo">Book Demo</Link>
               </Button>
             </div>
           </div>
