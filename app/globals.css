@@ -3,9 +3,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Complete IntegrateWise brand palette with Material-aligned scales */
+/* Complete IntegrateWise brand palette with full color scales */
 :root {
-  /* Primary Indigo Scale (Material-aligned) */
+  /* Primary Indigo scale (Material-aligned) */
   --blue-50: #e8eaf6;
   --blue-100: #c5cae9;
   --blue-200: #9fa8da;
@@ -17,7 +17,7 @@
   --blue-800: #283593;
   --blue-900: #1a237e;
 
-  /* Dark Navy Scale */
+  /* Dark Navy tints/shades */
   --navy-100: #2a3a63;
   --navy-200: #24355a;
   --navy-300: #213252;
@@ -28,7 +28,7 @@
   --navy-800: #0e1829;
   --navy-900: #0b1321;
 
-  /* Accent Pink Scale */
+  /* Accent Pink scale */
   --pink-100: #ffd2de;
   --pink-200: #ffadc2;
   --pink-300: #ff89ab;
@@ -39,7 +39,7 @@
   --pink-800: #8f2544;
   --pink-900: #6c1b35;
 
-  /* Semantic Role Mappings */
+  /* Semantic colors */
   --surface: #f3f4f6;
   --text: #1e2a4a;
   --success: #2bbe75;
@@ -47,135 +47,115 @@
   --info: #0ea5e9;
 
   /* Component tokens */
-  --color-primary: var(--blue-500);
-  --color-primary-hover: var(--blue-600);
-  --color-primary-active: var(--blue-700);
-  --color-primary-light: var(--blue-50);
-  --color-text: var(--navy-500);
-  --color-text-secondary: var(--navy-400);
-  --color-bg: #ffffff;
-  --color-bg-light: var(--surface);
-  --color-bg-drawer: #fafafa;
-  --color-accent: var(--pink-500);
-  --color-border: var(--navy-200);
-  --color-border-light: #e5e7eb;
-  --color-focus-ring: #9ca3af;
+  --background: #ffffff;
+  --foreground: var(--navy-500);
+  --card: #ffffff;
+  --card-foreground: var(--navy-500);
+  --popover: #ffffff;
+  --popover-foreground: var(--navy-500);
+  --primary: var(--blue-500);
+  --primary-foreground: #ffffff;
+  --secondary: var(--surface);
+  --secondary-foreground: var(--navy-500);
+  --muted: var(--surface);
+  --muted-foreground: var(--navy-300);
+  --accent: var(--pink-500);
+  --accent-foreground: #ffffff;
+  --destructive: var(--pink-600);
+  --destructive-foreground: #ffffff;
+  --border: var(--navy-200);
+  --input: var(--navy-200);
+  --ring: var(--blue-500);
+  --radius: 0.5rem;
 
-  /* Gradients */
-  --gradient-brand: linear-gradient(135deg, #3f51b5 0%, #1a237e 100%);
-  --gradient-accent: linear-gradient(135deg, #f54476 0%, #b32f55 100%);
+  /* Chart colors */
+  --chart-1: var(--blue-500);
+  --chart-2: var(--blue-300);
+  --chart-3: var(--navy-500);
+  --chart-4: var(--pink-500);
+  --chart-5: var(--success);
 
-  /* Semantic tokens for shadcn components */
-  --background: 0 0% 100%;
-  --foreground: 222 45% 21%;
-  --card: 0 0% 100%;
-  --card-foreground: 222 45% 21%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222 45% 21%;
-  --primary: 231 48% 48%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 220 14% 96%;
-  --secondary-foreground: 222 45% 21%;
-  --muted: 220 14% 96%;
-  --muted-foreground: 222 25% 45%;
-  --accent: 345 90% 61%;
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 222 24% 25%;
-  --input: 220 13% 91%;
-  --ring: 231 48% 48%;
-  --chart-1: 231 48% 48%;
-  --chart-2: 345 90% 61%;
-  --chart-3: 152 60% 45%;
-  --chart-4: 38 92% 50%;
-  --chart-5: 199 89% 48%;
-  --radius: 0.75rem;
-  --sidebar: 0 0% 99%;
-  --sidebar-foreground: 222 45% 21%;
-  --sidebar-primary: 231 48% 48%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 220 14% 96%;
-  --sidebar-accent-foreground: 222 45% 21%;
-  --sidebar-border: 220 13% 91%;
-  --sidebar-ring: 231 48% 48%;
+  /* Sidebar tokens */
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--navy-500);
+  --sidebar-primary: var(--blue-500);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--blue-50);
+  --sidebar-accent-foreground: var(--navy-500);
+  --sidebar-border: var(--navy-200);
+  --sidebar-ring: var(--blue-500);
 }
 
 .dark {
-  --background: 222 47% 11%;
-  --foreground: 0 0% 98%;
-  --card: 222 47% 11%;
-  --card-foreground: 0 0% 98%;
-  --popover: 222 47% 11%;
-  --popover-foreground: 0 0% 98%;
-  --primary: 231 48% 58%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 217 33% 17%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 217 33% 17%;
-  --muted-foreground: 215 20% 65%;
-  --accent: 345 90% 61%;
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 63% 31%;
-  --destructive-foreground: 0 85% 90%;
-  --border: 217 33% 17%;
-  --input: 217 33% 17%;
-  --ring: 231 48% 58%;
-  --chart-1: 231 48% 58%;
-  --chart-2: 345 90% 61%;
-  --chart-3: 152 60% 45%;
-  --chart-4: 38 92% 50%;
-  --chart-5: 199 89% 48%;
-  --sidebar: 222 47% 8%;
-  --sidebar-foreground: 0 0% 98%;
-  --sidebar-primary: 231 48% 58%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 217 33% 17%;
-  --sidebar-accent-foreground: 0 0% 98%;
-  --sidebar-border: 217 33% 17%;
-  --sidebar-ring: 231 48% 58%;
+  --background: var(--navy-900);
+  --foreground: #f3f4f6;
+  --card: var(--navy-800);
+  --card-foreground: #f3f4f6;
+  --popover: var(--navy-800);
+  --popover-foreground: #f3f4f6;
+  --primary: var(--blue-400);
+  --primary-foreground: #ffffff;
+  --secondary: var(--navy-700);
+  --secondary-foreground: #f3f4f6;
+  --muted: var(--navy-700);
+  --muted-foreground: var(--navy-200);
+  --accent: var(--pink-400);
+  --accent-foreground: #ffffff;
+  --destructive: var(--pink-500);
+  --destructive-foreground: #ffffff;
+  --border: var(--navy-600);
+  --input: var(--navy-600);
+  --ring: var(--blue-400);
+  --sidebar: var(--navy-800);
+  --sidebar-foreground: #f3f4f6;
+  --sidebar-primary: var(--blue-400);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--navy-700);
+  --sidebar-accent-foreground: #f3f4f6;
+  --sidebar-border: var(--navy-600);
+  --sidebar-ring: var(--blue-400);
 }
 
-/* Inter font family with system fallbacks */
+/* Updated font to Inter */
 @theme inline {
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback";
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
-  --color-chart-1: hsl(var(--chart-1));
-  --color-chart-2: hsl(var(--chart-2));
-  --color-chart-3: hsl(var(--chart-3));
-  --color-chart-4: hsl(var(--chart-4));
-  --color-chart-5: hsl(var(--chart-5));
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: hsl(var(--sidebar));
-  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
-  --color-sidebar-primary: hsl(var(--sidebar-primary));
-  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
-  --color-sidebar-accent: hsl(var(--sidebar-accent));
-  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
-  --color-sidebar-border: hsl(var(--sidebar-border));
-  --color-sidebar-ring: hsl(var(--sidebar-ring));
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {
@@ -187,46 +167,34 @@
   }
 }
 
-/* Utility classes for IntegrateWise brand colors */
-@layer utilities {
-  .btn-primary {
-    background-color: var(--blue-500);
-    color: #fff;
-  }
-  .btn-primary:hover {
-    background-color: var(--blue-600);
-  }
-  .btn-primary:active {
-    background-color: var(--blue-700);
-  }
-  .link {
-    color: var(--blue-600);
-  }
-  .link:hover {
-    color: var(--blue-700);
-  }
-  .card-surface {
-    background-color: var(--surface);
-    border: 1px solid var(--navy-200);
-    color: var(--text);
-  }
-  .badge-accent {
-    background-color: var(--pink-500);
-    color: #fff;
-  }
-  .gradient-brand {
-    background: var(--gradient-brand);
-  }
-  .gradient-accent {
-    background: var(--gradient-accent);
-  }
-  .text-brand {
-    color: var(--blue-500);
-  }
-  .text-navy {
-    color: var(--navy-500);
-  }
-  .bg-surface {
-    background-color: var(--surface);
-  }
+/* Utility classes for brand colors */
+.btn-primary {
+  background: var(--blue-500);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--blue-600);
+}
+.link {
+  color: var(--blue-600);
+}
+.link:hover {
+  color: var(--blue-700);
+}
+.card-surface {
+  background: var(--surface);
+  border: 1px solid var(--navy-200);
+  color: var(--text);
+}
+.badge-accent {
+  background: var(--pink-500);
+  color: #fff;
+}
+
+/* Brand gradients */
+.gradient-brand {
+  background: linear-gradient(135deg, #3f51b5 0%, #1a237e 100%);
+}
+.gradient-accent {
+  background: linear-gradient(135deg, #f54476 0%, #b32f55 100%);
 }
