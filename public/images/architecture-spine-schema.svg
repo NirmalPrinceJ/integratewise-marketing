@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="780" viewBox="0 0 1400 780">
+<style>
+  .t{font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:#1E2A4A}
+  .h{font-size:34px; font-weight:700}
+  .s{font-size:16px; font-weight:600; fill:#3F51B5}
+  .p{font-size:16px}
+  .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New"; font-size:14px}
+  .box{fill:#ffffff; stroke:rgba(30,42,74,0.15); stroke-width:2; rx:16; ry:16}
+  .pill{fill:#F3F4F6; stroke:rgba(30,42,74,0.15); stroke-width:2; rx:999; ry:999}
+  .arrow{stroke:#1E2A4A; stroke-width:2.5; marker-end:url(#m)}
+</style>
+<defs>
+  <marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+    <path d="M0,0 L8,3 L0,6 z" fill="#1E2A4A"/>
+  </marker>
+</defs>
+<text x="70" y="80" class="t h">Spine — Canonical Schema</text>
+<text x="70" y="115" class="t p">Meaning‑preserving normalization across tools (identity separate from source systems).</text>
+<rect x="70" y="160" width="620" height="560" class="box"/>
+<text x="95" y="200" class="t s">Canonical Entities</text>
+<text x="95" y="235" class="t p">Workspace</text>
+<text x="95" y="265" class="t p">User</text>
+<text x="95" y="295" class="t p">Account</text>
+<text x="95" y="325" class="t p">Contact</text>
+<text x="95" y="355" class="t p">Opportunity / Deal</text>
+<text x="95" y="385" class="t p">Task</text>
+<text x="95" y="415" class="t p">Document</text>
+<text x="95" y="445" class="t p">Interaction</text>
+<rect x="740" y="160" width="590" height="560" class="box"/>
+<text x="765" y="200" class="t s">Required Fields (on every object)</text>
+<text x="765" y="240" class="t mono">CanonicalID</text>
+<text x="765" y="270" class="t mono">ExternalID</text>
+<text x="765" y="300" class="t mono">SourceApp</text>
+<text x="765" y="330" class="t mono">SchemaVersion</text>
+<text x="765" y="360" class="t mono">Labels[]</text>
+<text x="765" y="390" class="t mono">CreatedAt</text>
+<text x="765" y="420" class="t mono">UpdatedAt</text>
+<text x="765" y="450" class="t mono">PIIClass</text>
+<rect x="740" y="490" width="590" height="190" class="pill"/>
+<text x="765" y="530" class="t p"><tspan class="t s">Why this matters:</tspan> one real object can exist across many tools</text>
+<text x="765" y="560" class="t p">without losing meaning, relationships, or auditability.</text>
+</svg>
