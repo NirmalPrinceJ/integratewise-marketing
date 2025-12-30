@@ -1,8 +1,8 @@
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { ContactForm } from "@/components/forms/ContactForm"
-import { Logo, integrationLogos } from "@/components/Logo"
 import { Mail, Phone, MapPin } from "lucide-react"
+import { TrustStrip } from "@/components/infographics/TrustStrip"
 
 export default function ContactPage() {
   return (
@@ -129,14 +129,7 @@ export default function ContactPage() {
         {/* Integrations Logo Grid */}
         <section className="border-t py-16" style={{ borderColor: "#E5E7EB", backgroundColor: "#FAFAFA" }}>
           <div className="mx-auto max-w-7xl px-6">
-            <h2 className="mb-8 text-center text-xl font-semibold" style={{ color: "#1E2A4A" }}>
-              Trusted integrations with leading platforms
-            </h2>
-            <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
-              {integrationLogos.map((name) => (
-                <Logo key={name} name={name} className="h-12 md:h-16" />
-              ))}
-            </div>
+            <TrustStrip />
           </div>
         </section>
       </main>

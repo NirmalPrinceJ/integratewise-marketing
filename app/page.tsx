@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import { KPITile } from "@/components/infographics/KPITile"
+import { Donut } from "@/components/infographics/Donut"
+import infographicsData from "@/data/infographics.json"
 
 export default function HomePage() {
   return (
@@ -41,6 +44,36 @@ export default function HomePage() {
             <p className="mt-6 text-sm text-muted-foreground">
               Works with modern teams and individuals. Full integration or safe, read-only mode. BYOM supported.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-border py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl" style={{ color: "#1E2A4A" }}>
+              Platform Performance
+            </h2>
+            <p className="mt-2 text-muted-foreground">Real-time metrics from IntegrateWise infrastructure</p>
+          </div>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {infographicsData.kpis.map((kpi) => (
+              <KPITile
+                key={kpi.key}
+                label={kpi.label}
+                current={kpi.current}
+                target={kpi.target}
+                unit={kpi.unit}
+                trend={kpi.trend}
+              />
+            ))}
+          </div>
+
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-8">
+            <Donut value={99.95} label="Uptime" />
+            <Donut value={100} label="Token Rotation" />
+            <Donut value={98.7} label="Ingest Rate" />
           </div>
         </div>
       </section>

@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import { Pipeline } from "@/components/infographics/Pipeline"
+import { KPITile } from "@/components/infographics/KPITile"
 
 export default function PlatformPage() {
   return (
@@ -40,26 +42,22 @@ export default function PlatformPage() {
             <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
               One platform. Many tools. One intelligent workflow.
             </h2>
+            <p className="mt-4 text-lg text-muted-foreground">Connect → Normalize → Automate → Render</p>
           </div>
 
-          <div className="mx-auto mt-16 max-w-4xl">
-            <div className="flex flex-wrap items-center justify-center gap-4 text-sm font-medium">
-              <div className="rounded-lg border border-border bg-card px-4 py-2">Tools</div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground" />
-              <div className="rounded-lg border border-border bg-card px-4 py-2">Webhooks/API</div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground" />
-              <div className="rounded-lg border-2 border-primary bg-primary/10 px-4 py-2 text-primary">Hub</div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground" />
-              <div className="rounded-lg border-2 border-accent bg-accent/10 px-4 py-2 text-accent">Spine</div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground" />
-              <div className="rounded-lg border border-border bg-card px-4 py-2">Loader/Brain</div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground" />
-              <div className="rounded-lg border border-border bg-card px-4 py-2">Agents</div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground" />
-              <div className="rounded-lg border border-border bg-card px-4 py-2">Render</div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground" />
-              <div className="rounded-lg border border-border bg-card px-4 py-2">Views</div>
-            </div>
+          <div className="mx-auto mt-12 flex justify-center">
+            <Pipeline />
+          </div>
+
+          {/* Throughput sparkline */}
+          <div className="mx-auto mt-12 max-w-md">
+            <KPITile
+              label="Throughput (events/sec)"
+              current={2450}
+              target={3000}
+              unit="count"
+              trend={[2100, 2200, 2350, 2450]}
+            />
           </div>
         </div>
       </section>

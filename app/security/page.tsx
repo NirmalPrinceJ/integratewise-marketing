@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button"
 import { Shield, Lock, Eye } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import { Donut } from "@/components/infographics/Donut"
+import { SecurityBar } from "@/components/infographics/SecurityBar"
+import infographicsData from "@/data/infographics.json"
 
 export default function SecurityPage() {
   return (
@@ -54,6 +57,29 @@ export default function SecurityPage() {
               </div>
               <h3 className="text-xl font-bold mb-2">Transparency</h3>
               <p className="text-gray-600">Audit trails, event logs, and policy enforcement designed for real ops.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Security Posture */}
+      <section className="px-6 pb-20">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold mb-8" style={{ color: "#1E2A4A" }}>
+            Security Posture
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Donut charts */}
+            <div className="flex flex-wrap items-center justify-center gap-6">
+              {infographicsData.security.map((metric) => (
+                <Donut key={metric.name} value={metric.score} label={metric.name} size={120} />
+              ))}
+            </div>
+
+            {/* Security bar list */}
+            <div>
+              <SecurityBar metrics={infographicsData.security} />
             </div>
           </div>
         </div>

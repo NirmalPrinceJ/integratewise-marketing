@@ -6,6 +6,8 @@ import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import { IntegrationGrid } from "@/components/infographics/IntegrationGrid"
+import infographicsData from "@/data/infographics.json"
 
 export default function IntegrationsPage() {
   return (
@@ -68,6 +70,16 @@ export default function IntegrationsPage() {
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Native Integrations */}
+      <section className="border-b border-border py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="mb-8 text-2xl font-bold" style={{ color: "#1E2A4A" }}>
+            Native Integrations
+          </h2>
+          <IntegrationGrid items={infographicsData.integrations} />
         </div>
       </section>
 
