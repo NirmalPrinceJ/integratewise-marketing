@@ -1,0 +1,79 @@
+$ref: "#/definitions/Conversation"
+definitions:
+  Conversation:
+    type: object
+    properties:
+      id:
+        type: string
+        minLength: 1
+        maxLength: 256
+      source_tool:
+        type: string
+        minLength: 1
+        maxLength: 128
+      external_ref:
+        type: object
+        properties:
+          tool:
+            $ref: "#/definitions/Conversation/properties/source_tool"
+          id:
+            type: string
+            minLength: 1
+            maxLength: 256
+          url:
+            type: string
+            format: uri
+        required:
+          - tool
+          - id
+        additionalProperties: false
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        $ref: "#/definitions/Conversation/properties/created_at"
+      _reserved:
+        type: object
+        properties:
+          workspace_id:
+            $ref: "#/definitions/Conversation/properties/id"
+          created_by:
+            $ref: "#/definitions/Conversation/properties/id"
+          updated_by:
+            $ref: "#/definitions/Conversation/properties/id"
+          request_id:
+            type: string
+            minLength: 1
+            maxLength: 128
+          policy_id:
+            type: string
+            minLength: 1
+            maxLength: 128
+        additionalProperties: false
+      source:
+        $ref: "#/definitions/Conversation/properties/source_tool"
+      message_count:
+        type: integer
+        minimum: 0
+      topic:
+        type: string
+        maxLength: 280
+      participants:
+        type: array
+        items:
+          type: string
+          minLength: 1
+          maxLength: 256
+        default: []
+      linkage_score:
+        type: number
+        minimum: 0
+        maximum: 1
+    required:
+      - id
+      - source_tool
+      - created_at
+      - source
+      - message_count
+    additionalProperties: false
+$schema: http://json-schema.org/draft-07/schema#

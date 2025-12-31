@@ -21,7 +21,7 @@ export default function CompliancePage() {
             </p>
             <div className="mt-10">
               <Button size="lg" asChild>
-                <Link href="#">
+                <Link href="/company/contact">
                   Talk to Compliance <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -61,7 +61,7 @@ export default function CompliancePage() {
             <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Start safe. Scale securely.</h2>
             <div className="mt-10">
               <Button size="lg" asChild>
-                <Link href="#">
+                <Link href="/company/contact">
                   Talk to Compliance <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>

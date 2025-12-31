@@ -31,7 +31,7 @@ export default function IntegrationsPage() {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" asChild>
-                <Link href="#">
+                <Link href="/demo">
                   Connect Your Tools <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -252,7 +252,7 @@ export default function IntegrationsPage() {
 
             <div className="mt-8 text-center">
               <Button asChild>
-                <Link href="#">View Webhook Docs</Link>
+                <Link href="/docs/webhooks">View Webhook Docs</Link>
               </Button>
             </div>
           </div>
@@ -349,7 +349,7 @@ export default function IntegrationsPage() {
 
           <div className="mt-8 text-center">
             <Button variant="outline" asChild>
-              <Link href="#">Compare Modes</Link>
+              <Link href="/docs/integrations/compare-modes">Compare Modes</Link>
             </Button>
           </div>
         </div>

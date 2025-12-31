@@ -1,0 +1,140 @@
+{
+  "$ref": "#/definitions/Plan",
+  "definitions": {
+    "Plan": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "source_tool": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "external_ref": {
+          "type": "object",
+          "properties": {
+            "tool": {
+              "$ref": "#/definitions/Plan/properties/source_tool"
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "tool",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/Plan/properties/created_at"
+        },
+        "_reserved": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "$ref": "#/definitions/Plan/properties/id"
+            },
+            "created_by": {
+              "$ref": "#/definitions/Plan/properties/id"
+            },
+            "updated_by": {
+              "$ref": "#/definitions/Plan/properties/id"
+            },
+            "request_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "policy_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            }
+          },
+          "additionalProperties": false
+        },
+        "objective": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "milestones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/Plan/properties/id"
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 280
+              },
+              "due_date": {
+                "$ref": "#/definitions/Plan/properties/created_at"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "todo",
+                  "in_progress",
+                  "done",
+                  "blocked"
+                ]
+              }
+            },
+            "required": [
+              "title"
+            ],
+            "additionalProperties": false
+          },
+          "default": []
+        },
+        "owner_id": {
+          "$ref": "#/definitions/Plan/properties/id"
+        },
+        "start_date": {
+          "$ref": "#/definitions/Plan/properties/created_at"
+        },
+        "end_date": {
+          "$ref": "#/definitions/Plan/properties/created_at"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "active",
+            "paused",
+            "completed",
+            "canceled"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "source_tool",
+        "created_at",
+        "objective",
+        "status"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

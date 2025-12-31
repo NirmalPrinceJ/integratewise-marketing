@@ -70,10 +70,46 @@
       "namedRegex": "^/docs(?:/)?$"
     },
     {
+      "page": "/docs/api",
+      "regex": "^/docs/api(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/api(?:/)?$"
+    },
+    {
+      "page": "/docs/concepts",
+      "regex": "^/docs/concepts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/concepts(?:/)?$"
+    },
+    {
+      "page": "/docs/integrations",
+      "regex": "^/docs/integrations(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/integrations(?:/)?$"
+    },
+    {
+      "page": "/docs/integrations/compare-modes",
+      "regex": "^/docs/integrations/compare\\-modes(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/integrations/compare\\-modes(?:/)?$"
+    },
+    {
       "page": "/docs/quickstart",
       "regex": "^/docs/quickstart(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/docs/quickstart(?:/)?$"
+    },
+    {
+      "page": "/docs/spine",
+      "regex": "^/docs/spine(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/spine(?:/)?$"
+    },
+    {
+      "page": "/docs/templates",
+      "regex": "^/docs/templates(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/templates(?:/)?$"
     },
     {
       "page": "/docs/webhooks",

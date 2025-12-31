@@ -1,0 +1,6 @@
+{
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm -C apps/integrationwise-os build",
+  "outputDirectory": "apps/integrationwise-os/.next"
+}
+

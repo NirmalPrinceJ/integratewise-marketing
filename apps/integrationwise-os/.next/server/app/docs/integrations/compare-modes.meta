@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/docs/layout,_N_T_/docs/integrations/layout,_N_T_/docs/integrations/compare-modes/layout,_N_T_/docs/integrations/compare-modes/page,_N_T_/docs/integrations/compare-modes"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/docs/integrations/compare-modes/__PAGE__",
+    "/docs/integrations/compare-modes",
+    "/docs/integrations",
+    "/docs",
+    "/_index",
+    "/_head"
+  ]
+}

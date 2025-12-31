@@ -2,11 +2,20 @@
   "name": "integratewise-os",
   "private": true,
   "packageManager": "pnpm@10.26.0",
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "next": "16.0.10",
+    "tsx": "^4.21.0",
+    "yaml": "^2.8.2",
+    "zod-to-json-schema": "^3.25.1"
+  },
   "scripts": {
     "dev": "pnpm -C apps/integrationwise-os dev",
     "build": "pnpm -C apps/integrationwise-os build",
     "start": "pnpm -C apps/integrationwise-os start",
-    "lint": "pnpm -C apps/integrationwise-os lint"
+    "lint": "pnpm -C apps/integrationwise-os lint",
+    "schemas:generate": "tsx scripts/generate-spine-schemas.ts",
+    "schemas:validate": "pnpm schemas:generate && tsx scripts/validate-spine-schemas.ts"
   }
 }
-

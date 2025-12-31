@@ -1,0 +1,110 @@
+{
+  "$ref": "#/definitions/HealthMetric",
+  "definitions": {
+    "HealthMetric": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "source_tool": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "external_ref": {
+          "type": "object",
+          "properties": {
+            "tool": {
+              "$ref": "#/definitions/HealthMetric/properties/source_tool"
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "tool",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/HealthMetric/properties/created_at"
+        },
+        "_reserved": {
+          "type": "object",
+          "properties": {
+            "workspace_id": {
+              "$ref": "#/definitions/HealthMetric/properties/id"
+            },
+            "created_by": {
+              "$ref": "#/definitions/HealthMetric/properties/id"
+            },
+            "updated_by": {
+              "$ref": "#/definitions/HealthMetric/properties/id"
+            },
+            "request_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "policy_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            }
+          },
+          "additionalProperties": false
+        },
+        "account_id": {
+          "$ref": "#/definitions/HealthMetric/properties/id"
+        },
+        "metric_type": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "value": {
+          "type": "number"
+        },
+        "weight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "period": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+        "computed_at": {
+          "$ref": "#/definitions/HealthMetric/properties/created_at"
+        }
+      },
+      "required": [
+        "id",
+        "source_tool",
+        "created_at",
+        "account_id",
+        "metric_type",
+        "value",
+        "period",
+        "computed_at"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

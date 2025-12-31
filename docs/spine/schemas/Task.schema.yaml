@@ -1,0 +1,86 @@
+$ref: "#/definitions/Task"
+definitions:
+  Task:
+    type: object
+    properties:
+      id:
+        type: string
+        minLength: 1
+        maxLength: 256
+      source_tool:
+        type: string
+        minLength: 1
+        maxLength: 128
+      external_ref:
+        type: object
+        properties:
+          tool:
+            $ref: "#/definitions/Task/properties/source_tool"
+          id:
+            type: string
+            minLength: 1
+            maxLength: 256
+          url:
+            type: string
+            format: uri
+        required:
+          - tool
+          - id
+        additionalProperties: false
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        $ref: "#/definitions/Task/properties/created_at"
+      _reserved:
+        type: object
+        properties:
+          workspace_id:
+            $ref: "#/definitions/Task/properties/id"
+          created_by:
+            $ref: "#/definitions/Task/properties/id"
+          updated_by:
+            $ref: "#/definitions/Task/properties/id"
+          request_id:
+            type: string
+            minLength: 1
+            maxLength: 128
+          policy_id:
+            type: string
+            minLength: 1
+            maxLength: 128
+        additionalProperties: false
+      title:
+        type: string
+        minLength: 1
+        maxLength: 280
+      description:
+        type: string
+        maxLength: 20000
+      status:
+        type: string
+        enum:
+          - todo
+          - in_progress
+          - blocked
+          - done
+          - canceled
+      priority:
+        type: string
+        enum:
+          - low
+          - medium
+          - high
+          - urgent
+      due_date:
+        $ref: "#/definitions/Task/properties/created_at"
+      assignee_id:
+        $ref: "#/definitions/Task/properties/id"
+    required:
+      - id
+      - source_tool
+      - created_at
+      - title
+      - status
+    additionalProperties: false
+$schema: http://json-schema.org/draft-07/schema#
