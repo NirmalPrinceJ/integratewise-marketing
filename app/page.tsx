@@ -11,34 +11,39 @@ export default function HomePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-background to-muted/20">
+      <section className="relative overflow-hidden border-b border-border">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 -z-10 h-full w-full bg-background bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+          <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-primary/20 opacity-20 blur-[100px]"></div>
+        </div>
+        
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-3xl text-center animate-in fade-in slide-in-from-bottom-8 duration-700">
             <h1 className="text-balance text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
               The Productivity OS for{" "}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Effortless Work
               </span>
             </h1>
-            <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+            <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150">
               IntegrateWise sits on top of the tools you already use—Notion, Coda, Slack, email, calendars, CRMs,
               billing tools, and even AI apps like ChatGPT, Claude, Gemini, Grok, and Perplexity.
             </p>
-            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
               It connects everything through a shared structure (the Spine), routes it securely (the Hub), and uses AI
               agents to turn your work into action—without migrations or rebuilding your world.
             </p>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Button size="lg" asChild>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500">
+              <Button size="lg" asChild className="h-12 px-8 text-base shadow-lg transition-transform hover:scale-105">
                 <Link href="#">
                   Start Free <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" asChild className="h-12 px-8 text-base transition-transform hover:scale-105">
                 <Link href="#">Watch Demo</Link>
               </Button>
             </div>
-            <p className="mt-6 text-sm text-muted-foreground">
+            <p className="mt-6 text-sm text-muted-foreground animate-in fade-in duration-700 delay-700">
               Works with modern teams and individuals. Full integration or safe, read-only mode. BYOM supported.
             </p>
           </div>
@@ -65,8 +70,8 @@ export default function HomePage() {
                 "Tasks fall between tools and never turn into a clear plan",
                 "Great ideas from AI brainstorms disappear as soon as the chat ends",
                 "Moving data breaks relationships, formulas, and logic",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
+              ].map((item, i) => (
+                <div key={item} className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
                   <div className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                   <p className="text-muted-foreground">{item}</p>
                 </div>
@@ -83,8 +88,8 @@ export default function HomePage() {
       </section>
 
       {/* Solution Section */}
-      <section className="border-b border-border bg-muted/20 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="border-b border-border bg-muted/20 py-24 sm:py-32 relative overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">What IntegrateWise Is</h2>
             <p className="mt-6 text-pretty text-xl leading-relaxed">
@@ -102,9 +107,9 @@ export default function HomePage() {
                 "Adds AI agents for insights, automation, and brainstorming",
                 "Lets you bring your own AI model (BYOM) when you're ready",
               ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                  <p className="text-muted-foreground">{item}</p>
+                <div key={item} className="flex items-start gap-3 group">
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent transition-transform group-hover:scale-110" />
+                  <p className="text-muted-foreground group-hover:text-foreground transition-colors">{item}</p>
                 </div>
               ))}
             </div>
@@ -117,7 +122,7 @@ export default function HomePage() {
       </section>
 
       {/* How It Works - Visual Steps */}
-      <section className="border-b border-border py-24 sm:py-32">
+      <section className="border-b border-border py-24 sm:py-32 bg-gradient-to-b from-background to-muted/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
@@ -140,9 +145,9 @@ export default function HomePage() {
               { icon: Layout, title: "Render", desc: "Universal output: docs, decks, emails, SOPs, plans." },
               { icon: Layout, title: "Views (Lenses)", desc: "Personal, Work, Business, and CS views." },
             ].map((step) => (
-              <Card key={step.title} className="border-border">
+              <Card key={step.title} className="border-border transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary/50 group">
                 <CardContent className="p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
                     <step.icon className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="mt-4 font-semibold">{step.title}</h3>
@@ -171,15 +176,15 @@ export default function HomePage() {
                 (tool) => (
                   <div
                     key={tool}
-                    className="flex h-16 w-32 items-center justify-center rounded-lg border border-border bg-card px-4"
+                    className="flex h-16 w-32 items-center justify-center rounded-lg border border-border bg-card px-4 transition-all hover:shadow-md hover:border-primary/50 hover:scale-105 cursor-default"
                   >
-                    <span className="text-sm font-medium text-muted-foreground">{tool}</span>
+                    <span className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">{tool}</span>
                   </div>
                 ),
               )}
             </div>
             <div className="mt-12">
-              <Button variant="outline" asChild>
+              <Button variant="outline" asChild className="hover:bg-primary hover:text-primary-foreground transition-colors">
                 <Link href="#">Explore Integrations</Link>
               </Button>
             </div>
@@ -188,7 +193,7 @@ export default function HomePage() {
       </section>
 
       {/* Second Brain Section */}
-      <section className="border-b border-border py-24 sm:py-32">
+      <section className="border-b border-border py-24 sm:py-32 bg-gradient-to-tr from-background via-muted/10 to-accent/5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
@@ -201,8 +206,8 @@ export default function HomePage() {
               IntegrateWise lets you stream AI chats from tools like ChatGPT, Claude, Gemini, Grok, and Perplexity into
               one place using secure webhooks.
             </p>
-            <div className="mt-8 rounded-lg border border-border bg-card p-8">
-              <h3 className="font-semibold">
+            <div className="mt-8 rounded-lg border border-border bg-card p-8 shadow-sm transition-shadow hover:shadow-md">
+              <h3 className="font-semibold text-lg text-primary">
                 A Brainstorming Layer turns scattered chats into a searchable Second Brain.
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">The Brain Agent helps you:</p>
@@ -221,7 +226,7 @@ export default function HomePage() {
               <p className="mt-6 font-medium">Your ideas stop disappearing—and start compounding.</p>
             </div>
             <div className="mt-8">
-              <Button asChild>
+              <Button asChild className="shadow-lg hover:shadow-xl transition-all">
                 <Link href="#">Connect Brain</Link>
               </Button>
             </div>
@@ -239,9 +244,9 @@ export default function HomePage() {
           </div>
 
           <div className="mx-auto mt-16 grid max-w-5xl gap-8 lg:grid-cols-2">
-            <Card className="border-2 border-primary">
+            <Card className="border-2 border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
               <CardContent className="p-8">
-                <h3 className="text-xl font-bold">Full Integration</h3>
+                <h3 className="text-xl font-bold text-primary">Full Integration</h3>
                 <div className="mt-6 space-y-4">
                   {[
                     "Two-way sync and automation",
@@ -257,9 +262,9 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-accent">
+            <Card className="border-2 border-accent transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
               <CardContent className="p-8">
-                <h3 className="text-xl font-bold">Render Only</h3>
+                <h3 className="text-xl font-bold text-accent">Render Only</h3>
                 <div className="mt-6 space-y-4">
                   {[
                     "Read-only dashboards + analytics",
@@ -297,10 +302,12 @@ export default function HomePage() {
               in control of what's stored, synced, or read-only.
             </p>
 
-            <Card className="mt-12 border-2 border-secondary">
+            <Card className="mt-12 border-2 border-secondary transition-all hover:shadow-lg">
               <CardContent className="p-8">
                 <div className="flex items-center justify-center">
-                  <Lock className="h-8 w-8 text-secondary" />
+                  <div className="p-3 rounded-full bg-secondary/10">
+                    <Lock className="h-8 w-8 text-secondary" />
+                  </div>
                 </div>
                 <h3 className="mt-4 text-xl font-bold">Bring Your Own AI Model (BYOM)</h3>
                 <p className="mt-4 leading-relaxed text-muted-foreground">
@@ -332,7 +339,7 @@ export default function HomePage() {
                 desc: "Specialized CS Intelligence lens (Health, ARR, Churn, Technical Health)",
               },
             ].map((solution) => (
-              <Card key={solution.title} className="border-border">
+              <Card key={solution.title} className="border-border transition-all hover:shadow-lg hover:-translate-y-1 hover:border-primary/50">
                 <CardContent className="p-6 text-center">
                   <h3 className="font-semibold">{solution.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{solution.desc}</p>
@@ -342,7 +349,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12 text-center">
-            <Button variant="outline" asChild>
+            <Button variant="outline" asChild className="hover:bg-primary hover:text-primary-foreground">
               <Link href="#">Explore Solutions</Link>
             </Button>
           </div>
@@ -350,7 +357,8 @@ export default function HomePage() {
       </section>
 
       {/* Outcome Section */}
-      <section className="border-b border-border py-24 sm:py-32">
+      <section className="border-b border-border py-24 sm:py-32 bg-background relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
@@ -364,7 +372,7 @@ export default function HomePage() {
                 "Your tools finally work together instead of against you",
                 "Decisions get easier because context is always within reach",
               ].map((item) => (
-                <div key={item} className="flex items-start justify-center gap-3">
+                <div key={item} className="flex items-start justify-center gap-3 p-2 rounded hover:bg-muted/30 transition-colors">
                   <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                   <p className="text-left text-muted-foreground">{item}</p>
                 </div>
@@ -385,12 +393,12 @@ export default function HomePage() {
               Start with IntegrateWise. Work smarter from day one—and let your tools finally work together.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Button size="lg" asChild>
+              <Button size="lg" asChild className="h-12 px-8 text-base shadow-lg transition-transform hover:scale-105">
                 <Link href="#">
                   Start Free <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" asChild className="h-12 px-8 text-base transition-transform hover:scale-105">
                 <Link href="#">Book Demo</Link>
               </Button>
             </div>
