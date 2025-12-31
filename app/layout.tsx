@@ -7,11 +7,13 @@ import "./globals.css"
 const geistSans = Geist({ 
   subsets: ["latin"],
   variable: "--font-geist-sans",
+  display: "swap", // Performance: prevent FOIT
 })
 
 const geistMono = Geist_Mono({ 
   subsets: ["latin"],
   variable: "--font-geist-mono",
+  display: "swap",
 })
 
 const siteUrl = "https://www.integratewise.co"
@@ -214,6 +216,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
+        {/* Performance: Preconnect to critical origins */}
+        <link rel="preconnect" href="https://os.integratewise.online" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
+        
+        {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
