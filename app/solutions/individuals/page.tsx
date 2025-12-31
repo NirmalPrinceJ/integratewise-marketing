@@ -25,7 +25,7 @@ export default function IndividualsPage() {
                 "Effortless planning and execution",
               ].map((outcome) => (
                 <li key={outcome} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-teal-600 shrink-0 mt-1" />
+                  <Check className="w-5 h-5 text-blue-600 shrink-0 mt-1" />
                   <span className="text-gray-700">{outcome}</span>
                 </li>
               ))}

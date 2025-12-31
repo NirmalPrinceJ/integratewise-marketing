@@ -49,8 +49,8 @@ export default function SecurityPage() {
               <p className="text-gray-600">Strict permissions and routing ensure automation stays safe and scoped.</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Eye className="w-6 h-6 text-teal-600" />
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Eye className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold mb-2">Transparency</h3>
               <p className="text-gray-600">Audit trails, event logs, and policy enforcement designed for real ops.</p>
@@ -179,7 +179,7 @@ export default function SecurityPage() {
                   "Safest default for compliance-first workflows",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-teal-600 rounded-full" />
+                    <div className="w-2 h-2 bg-blue-600 rounded-full" />
                     <span>{item}</span>
                   </li>
                 ))}

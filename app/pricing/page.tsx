@@ -50,7 +50,7 @@ export default function PricingPage() {
                   "Standard support",
                 ].map((feature) => (
                   <li key={feature} className="flex items-start gap-2 text-sm">
-                    <Check className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -79,7 +79,7 @@ export default function PricingPage() {
                   "Priority support",
                 ].map((feature) => (
                   <li key={feature} className="flex items-start gap-2 text-sm">
-                    <Check className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -104,7 +104,7 @@ export default function PricingPage() {
                   "SLA support",
                 ].map((feature) => (
                   <li key={feature} className="flex items-start gap-2 text-sm">
-                    <Check className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -130,7 +130,7 @@ export default function PricingPage() {
                   "Managed Ops packages available",
                 ].map((feature) => (
                   <li key={feature} className="flex items-start gap-2 text-sm">
-                    <Check className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <span>{feature}</span>
                   </li>
                 ))}
