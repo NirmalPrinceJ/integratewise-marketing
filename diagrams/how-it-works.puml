@@ -1,0 +1,71 @@
+@startuml How It Works - Canonical Sequence
+
+title IntegrateWise OS: Slack Message → Notion Write Flow
+
+actor User
+participant Slack
+participant Hub as "Hub\n(Auth/Policy/Router)"
+participant Loader as "AI Loader\n(Transform)"
+participant Spine as "Spine\n(Canonical Store)"
+participant Brain as "Brain\n(Memory)"
+participant Agents as "Agents\n(Workflow)"
+participant Approval as "Approval\n(Workflow)"
+participant Notion as "Notion API"
+participant Render as "Render\n(Output)"
+participant Audit as "Audit Log"
+
+User -> Slack: Send message
+Slack -> Hub: 1. Webhook (message.created)\nHeaders: X-IW-Signature, X-IW-Timestamp, X-IW-Idempotency-Key
+
+Hub -> Hub: 2. Authenticate (HMAC-SHA256)
+Hub -> Hub: 3. Evaluate policy (RBAC/ABAC)
+Hub -> Hub: 4. Route to Slack connector
+
+Hub -> Loader: 5. Authenticated request
+
+Loader -> Loader: 6. Parse Slack payload
+Loader -> Loader: 7. Map to Conversation entity
+Loader -> Loader: 8. Validate Spine constraints
+
+Loader -> Spine: 9. Create Conversation entity
+
+Spine -> Spine: 10. Create entity (UUID v4)
+Spine -> Spine: 11. Link to related entities
+
+Spine -> Brain: 12. Entity created event
+
+Brain -> Brain: 13. Index Conversation
+Brain -> Brain: 14. Compute linkage scores
+Brain -> Brain: 15. Check for duplicates
+
+Brain -> Agents: 16. Memory updated
+
+Agents -> Agents: 17. Evaluate triggers (Brain Agent)
+Agents -> Brain: 18. Retrieve relevant context
+Agents -> Agents: 19. Generate action plan\nAction: Create Notion page
+
+Agents -> Approval: 20. Request approval
+
+Approval -> Approval: 21. Check approval rules
+Approval -> Agents: 22. Approval granted
+
+Agents -> Hub: 23. Approved action
+
+Hub -> Hub: 24. Route to Notion connector (write)
+Hub -> Hub: 25. Check write permissions
+
+Hub -> Notion: 26. Create Notion page\n(Write API call)
+
+Notion -> Hub: 27. Success response
+
+Hub -> Render: 28. Render dashboard update (optional)
+
+Render -> Render: 29. Apply template
+Render -> Render: 30. Export to target
+
+Render -> Audit: 31. Render complete
+
+Hub -> Audit: 32. Log audit event\n{workspace_id, actor_id, action_type, resource_type, resource_id, timestamp, request_id, policy_id, outcome}
+Hub -> Hub: 33. Record usage metrics
+
+@enduml
