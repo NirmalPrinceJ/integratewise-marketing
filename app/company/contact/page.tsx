@@ -4,16 +4,20 @@ import type React from "react"
 
 import { useState } from "react"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Phone, Mail, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Card, CardContent } from "@/components/ui/card"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import { appConfig } from "@/config/app"
 
 export default function ContactPage() {
+  const { company } = appConfig
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,8 +41,66 @@ export default function ContactPage() {
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-balance text-5xl font-bold tracking-tight sm:text-6xl">Talk to us</h1>
             <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
-              Questions, partnerships, enterprise, services—we're here.
+              Questions, partnerships, enterprise, services—we&apos;re here.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Info Cards */}
+      <section className="border-b border-border py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <Card className="border-border text-center">
+              <CardContent className="p-6">
+                <div className="flex justify-center mb-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                    <Phone className="h-6 w-6 text-primary" />
+                  </div>
+                </div>
+                <h3 className="font-semibold">Phone</h3>
+                <a 
+                  href={`tel:${company.phoneTel}`}
+                  className="mt-2 text-primary hover:underline block"
+                >
+                  {company.phoneDisplay}
+                </a>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-border text-center">
+              <CardContent className="p-6">
+                <div className="flex justify-center mb-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                    <Mail className="h-6 w-6 text-primary" />
+                  </div>
+                </div>
+                <h3 className="font-semibold">Email</h3>
+                <a 
+                  href={`mailto:${company.email}`}
+                  className="mt-2 text-primary hover:underline block"
+                >
+                  {company.email}
+                </a>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-border text-center">
+              <CardContent className="p-6">
+                <div className="flex justify-center mb-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                    <MapPin className="h-6 w-6 text-primary" />
+                  </div>
+                </div>
+                <h3 className="font-semibold">Support</h3>
+                <a 
+                  href={`mailto:${company.supportEmail}`}
+                  className="mt-2 text-primary hover:underline block"
+                >
+                  {company.supportEmail}
+                </a>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

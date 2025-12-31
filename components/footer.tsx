@@ -1,19 +1,35 @@
 import Link from "next/link"
 import Image from "next/image"
+import { Phone, Mail } from "lucide-react"
+import { appConfig } from "@/config/app"
 
 export default function Footer() {
+  const { company } = appConfig
+  
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mb-8 flex items-center gap-2">
-          <Image
-            src="/images/integrateway-logo-markonly-transparent-indigo-v1.svg"
-            alt="IntegrateWise Logo"
-            width={32}
-            height={32}
-            className="h-8 w-8"
-          />
-          <span className="text-lg font-semibold">IntegrateWise</span>
+        <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <Image
+              src="/images/integrateway-logo-markonly-transparent-indigo-v1.svg"
+              alt="IntegrateWise Logo"
+              width={32}
+              height={32}
+              className="h-8 w-8"
+            />
+            <span className="text-lg font-semibold">IntegrateWise</span>
+          </div>
+          <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+            <a href={`tel:${company.phoneTel}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
+              <Phone className="h-4 w-4" />
+              {company.phoneDisplay}
+            </a>
+            <a href={`mailto:${company.email}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
+              <Mail className="h-4 w-4" />
+              {company.email}
+            </a>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
