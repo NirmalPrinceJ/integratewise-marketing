@@ -1,0 +1,10 @@
+{
+  "$schema": "../.github/schemas/current-sprint.schema.json",
+  "current_sprint_id": null,
+  "current_sprint_path": null,
+  "last_updated": null,
+  "updated_by": null,
+  "publish_status": "unpublished",
+  "next_publish_window": null,
+  "_comment": "This file is updated only on publish (not every agent commit). Manual or scheduled updates only."
+}

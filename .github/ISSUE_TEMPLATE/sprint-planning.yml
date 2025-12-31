@@ -1,0 +1,132 @@
+name: Sprint Planning
+description: Create a new sprint planning document
+title: "[Sprint] "
+labels: ["sprint", "planning"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## New Sprint Planning Request
+        
+        Use this template to request creation of a new sprint document.
+
+  - type: input
+    id: sprint_id
+    attributes:
+      label: Sprint ID
+      description: "Format: sprint-YYYY-MM or sprint-YYYY-MM-suffix"
+      placeholder: "sprint-2025-02"
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: Sprint Title
+      description: "Human-readable title for the sprint"
+      placeholder: "Q1 Platform Hardening"
+    validations:
+      required: true
+
+  - type: input
+    id: date_start
+    attributes:
+      label: Start Date
+      description: "Sprint start date (YYYY-MM-DD)"
+      placeholder: "2025-02-01"
+    validations:
+      required: true
+
+  - type: input
+    id: date_end
+    attributes:
+      label: End Date
+      description: "Sprint end date (YYYY-MM-DD)"
+      placeholder: "2025-02-14"
+    validations:
+      required: true
+
+  - type: input
+    id: owner
+    attributes:
+      label: Sprint Owner
+      description: "GitHub username of sprint owner"
+      placeholder: "@username"
+    validations:
+      required: true
+
+  - type: textarea
+    id: objectives
+    attributes:
+      label: Objectives
+      description: "List the sprint objectives (one per line)"
+      placeholder: |
+        - Complete Spine schema validation
+        - Implement webhook signature verification
+        - Deploy CS Health Pulse template
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: "List acceptance criteria (one per line)"
+      placeholder: |
+        - All schema validations pass CI
+        - Webhook verification handles all error cases
+        - CS Health score calculates correctly for test accounts
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: "List any dependent sprints or external dependencies"
+      placeholder: |
+        - sprint-2025-01 (must be completed)
+        - HubSpot API access provisioned
+    validations:
+      required: false
+
+  - type: dropdown
+    id: tags
+    attributes:
+      label: Tags
+      description: "Select applicable tags"
+      multiple: true
+      options:
+        - platform
+        - security
+        - integrations
+        - templates
+        - documentation
+        - infrastructure
+        - customer-success
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes
+      description: "Any other context or requirements"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: Sprint ID follows naming convention
+          required: true
+        - label: Dates are realistic and don't overlap with other sprints
+          required: true
+        - label: Owner has capacity to lead this sprint
+          required: true
+        - label: Objectives are specific and measurable
+          required: true
