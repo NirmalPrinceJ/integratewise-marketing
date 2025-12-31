@@ -53,6 +53,9 @@ export const appConfig = {
     foundedYear: 2024,
     email: "hello@integratewise.co",
     supportEmail: "support@integratewise.co",
+    phone: "+91 98458 23677",
+    phoneDisplay: "+91 98458 23677",
+    phoneTel: "+919845823677", // For tel: links
   },
 
   // Social links
