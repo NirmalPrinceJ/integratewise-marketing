@@ -7,6 +7,7 @@ import { ChevronDown, Menu } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useState } from "react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { siteConfig } from "@/lib/siteConfig"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -17,13 +18,13 @@ export default function Navbar() {
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/images/integrateway-logo-markonly-transparent-indigo-v1.svg"
-              alt="IntegrateWise"
+              src={siteConfig.logo.mark}
+              alt={siteConfig.logo.alt}
               width={28}
               height={28}
               className="h-7 w-7"
             />
-            <span className="text-lg font-semibold">IntegrateWise</span>
+            <span className="text-lg font-semibold">{siteConfig.name}</span>
           </Link>
 
           <div className="hidden items-center gap-1 lg:flex">

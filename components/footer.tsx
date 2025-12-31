@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import { siteConfig } from "@/lib/siteConfig"
 
 export default function Footer() {
   return (
@@ -7,13 +8,13 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-center gap-2">
           <Image
-            src="/images/integrateway-logo-markonly-transparent-indigo-v1.svg"
-            alt="IntegrateWise Logo"
+            src={siteConfig.logo.mark}
+            alt={siteConfig.logo.alt}
             width={32}
             height={32}
             className="h-8 w-8"
           />
-          <span className="text-lg font-semibold">IntegrateWise</span>
+          <span className="text-lg font-semibold">{siteConfig.name}</span>
         </div>
 
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
@@ -251,7 +252,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-border pt-8">
-          <p className="text-sm text-muted-foreground">© 2025 IntegrateWise. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">{siteConfig.copyright}</p>
         </div>
       </div>
     </footer>
