@@ -1,7 +1,22 @@
 import Link from "next/link"
-import { ArrowRight, Check, Database, Sparkles, Brain, Shield, Zap, Layout, GitBranch, Lock, Star, Users, TrendingUp, Clock, ChevronRight, Play, Workflow, Layers, Globe } from "lucide-react"
+import {
+  ArrowRight,
+  Check,
+  Database,
+  Sparkles,
+  Brain,
+  Shield,
+  Zap,
+  Layout,
+  GitBranch,
+  Lock,
+  Eye,
+  FileOutput,
+  Webhook,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 
@@ -10,197 +25,192 @@ export default function HomePage() {
     <div className="min-h-screen">
       <Navbar />
 
-      {/* Hero Section - Enhanced with animations and visual elements */}
-      <section className="relative overflow-hidden border-b border-border hero-gradient">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5 animate-float blur-3xl" />
-          <div className="absolute top-20 -left-20 w-60 h-60 rounded-full bg-secondary/5 animate-float-delayed blur-3xl" />
-          <div className="absolute bottom-20 right-1/4 w-40 h-40 rounded-full bg-accent/5 animate-pulse-glow blur-2xl" />
-        </div>
+      {/* Hero Section */}
+      <section
+        id="top"
+        className="relative overflow-hidden border-b border-border bg-gradient-to-b from-background to-muted/20"
+      >
+        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
+              <div className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+                <Badge variant="secondary" className="rounded-full px-3 py-1">
+                  <Webhook className="h-3.5 w-3.5" />
+                  Webhooks + BYOM ready
+                </Badge>
+                <Badge variant="outline" className="rounded-full px-3 py-1">
+                  No migrations
+                </Badge>
+                <Badge variant="outline" className="rounded-full px-3 py-1">
+                  Read-only mode
+                </Badge>
+              </div>
 
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 grid-pattern opacity-50" />
+              <h1 className="mt-6 text-balance text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
+                The Productivity OS for{" "}
+                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Effortless Work
+                </span>
+              </h1>
 
-        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:py-40 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
-            {/* Badge */}
-            <div className="animate-fade-in mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-medium text-primary">
-              <Sparkles className="h-4 w-4" />
-              <span>AI-Powered Productivity Platform</span>
-              <ChevronRight className="h-4 w-4" />
-            </div>
+              <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+                IntegrateWise connects the tools you already use—Notion, Coda, Slack, email, calendars, CRMs, billing
+                tools, and AI apps—into one system you can trust.
+              </p>
+              <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+                A shared structure (the Spine) preserves meaning. A control layer (the Hub) routes securely. AI agents
+                turn your work into action—without rebuilding your world.
+              </p>
 
-            <h1 className="animate-slide-up text-balance text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-              The Productivity OS for{" "}
-              <span className="gradient-text">
-                Effortless Work
-              </span>
-            </h1>
-            
-            <p className="animate-slide-up animation-delay-200 mt-6 text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl max-w-3xl mx-auto">
-              IntegrateWise sits on top of the tools you already use—Notion, Coda, Slack, email, calendars, CRMs,
-              billing tools, and AI apps like ChatGPT, Claude, Gemini, and more.
-            </p>
-            
-            <p className="animate-slide-up animation-delay-300 mt-4 text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl max-w-3xl mx-auto">
-              Connect everything through a shared structure, route it securely, and use AI agents to turn your work into action.
-            </p>
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+                <Button size="lg" asChild>
+                  <Link href="/pricing">
+                    Start Free <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/company/contact">Book a Demo</Link>
+                </Button>
+                <Button size="lg" variant="ghost" asChild>
+                  <Link href="/docs/quickstart">Read the Quickstart</Link>
+                </Button>
+              </div>
 
-            <div className="animate-slide-up animation-delay-400 mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Button size="lg" className="h-12 px-8 text-base shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow" asChild>
-                <Link href="https://app.integratewise.com/signup">
-                  Start Free <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="h-12 px-8 text-base group" asChild>
-                <Link href="https://app.integratewise.com/demo">
-                  <Play className="mr-2 h-4 w-4 group-hover:text-primary transition-colors" />
-                  Watch Demo
-                </Link>
-              </Button>
-            </div>
-
-            <p className="animate-fade-in animation-delay-500 mt-8 text-sm text-muted-foreground">
-              Works with modern teams and individuals • Full integration or read-only mode • BYOM supported
-            </p>
-          </div>
-
-          {/* Floating tool icons */}
-          <div className="hidden lg:block absolute left-10 top-1/3 animate-float opacity-60">
-            <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-lg border border-border">
-              <Database className="h-7 w-7 text-primary" />
-            </div>
-          </div>
-          <div className="hidden lg:block absolute right-10 top-1/4 animate-float-delayed opacity-60">
-            <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-lg border border-border">
-              <Brain className="h-7 w-7 text-secondary" />
-            </div>
-          </div>
-          <div className="hidden lg:block absolute left-20 bottom-20 animate-pulse-glow opacity-60">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-lg border border-border">
-              <Zap className="h-6 w-6 text-accent" />
-            </div>
-          </div>
-          <div className="hidden lg:block absolute right-20 bottom-32 animate-float opacity-60">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-lg border border-border">
-              <Sparkles className="h-6 w-6 text-primary" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof - Stats Section */}
-      <section className="border-b border-border bg-muted/30 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            {[
-              { value: "10K+", label: "Active Users", icon: Users },
-              { value: "50M+", label: "Tasks Automated", icon: Workflow },
-              { value: "99.9%", label: "Uptime SLA", icon: TrendingUp },
-              { value: "4.9/5", label: "Customer Rating", icon: Star },
-            ].map((stat, index) => (
-              <div key={stat.label} className="text-center">
-                <div className="flex justify-center mb-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                    <stat.icon className="h-6 w-6 text-primary" />
+              <div className="mt-10 grid gap-4 sm:grid-cols-3">
+                {[
+                  { title: "Connect", desc: "Your existing stack" },
+                  { title: "Control", desc: "Permissions + boundaries" },
+                  { title: "Act", desc: "Agents that execute" },
+                ].map((item) => (
+                  <div key={item.title} className="rounded-lg border border-border bg-background/60 p-4">
+                    <p className="text-sm font-semibold">{item.title}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
                   </div>
-                </div>
-                <div className="text-3xl font-bold tracking-tight sm:text-4xl gradient-text">{stat.value}</div>
-                <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Trusted By Section */}
-      <section className="border-b border-border py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm font-medium text-muted-foreground mb-8">
-            TRUSTED BY INNOVATIVE TEAMS WORLDWIDE
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            {["Notion", "Slack", "Salesforce", "HubSpot", "Google", "Microsoft", "Stripe", "Zendesk"].map((company) => (
-              <div key={company} className="text-lg font-semibold text-muted-foreground hover:text-foreground transition-colors">
-                {company}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Problem Section - Enhanced */}
-      <section className="border-b border-border py-24 sm:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 mesh-gradient opacity-50" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-destructive/20 bg-destructive/5 px-3 py-1 text-sm font-medium text-destructive mb-6">
-              <span className="flex h-2 w-2 rounded-full bg-destructive animate-pulse" />
-              The Challenge
+              <p className="mt-6 text-sm text-muted-foreground">
+                Built for individuals and modern teams. Start in safe read-only mode, then enable full integration when
+                ready.
+              </p>
             </div>
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">The Problem We All Face</h2>
+
+            <div className="mx-auto w-full max-w-xl">
+              <Card className="border-border bg-gradient-to-b from-background to-muted/30">
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="text-sm font-semibold">A single flow across tools</p>
+                    <Badge variant="outline" className="rounded-full">
+                      Preview
+                    </Badge>
+                  </div>
+
+                  <div className="mt-6 space-y-4">
+                    {[
+                      { label: "Slack", sub: "Signal, requests, context" },
+                      { label: "Spine", sub: "Normalize meaning + relationships" },
+                      { label: "Hub", sub: "Route securely (RBAC, audit, boundaries)" },
+                      { label: "Agent", sub: "Plan + write + update tools" },
+                      { label: "Notion", sub: "Docs, tasks, SOPs—kept in sync" },
+                    ].map((row, idx) => (
+                      <div key={row.label} className="flex items-start gap-4">
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                          <span className="text-sm font-semibold">{idx + 1}</span>
+                        </div>
+                        <div className="min-w-0">
+                          <p className="truncate font-medium">{row.label}</p>
+                          <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">{row.sub}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-8 flex flex-wrap items-center gap-2">
+                    <Badge variant="secondary" className="rounded-full">
+                      <Lock className="h-3.5 w-3.5" /> Encrypted transport
+                    </Badge>
+                    <Badge variant="secondary" className="rounded-full">
+                      <Shield className="h-3.5 w-3.5" /> Least privilege
+                    </Badge>
+                    <Badge variant="secondary" className="rounded-full">
+                      <Sparkles className="h-3.5 w-3.5" /> BYOM supported
+                    </Badge>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground lg:justify-start">
+                <span className="font-medium text-foreground">Works with:</span>
+                {["Notion", "Coda", "Slack", "Google Workspace", "Salesforce", "Stripe", "ChatGPT"].map((tool) => (
+                  <span key={tool} className="rounded-full border border-border bg-background/60 px-3 py-1">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Section */}
+      <section id="problem" className="border-b border-border py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">The Problem We All Face</h2>
             <p className="mt-6 text-pretty text-xl leading-relaxed text-muted-foreground">
-              Modern work isn&apos;t hard because people aren&apos;t capable.
+              Modern work isn't hard because people aren't capable.
               <br />
-              <strong className="text-foreground">It&apos;s hard because we&apos;re constantly fighting our tools.</strong>
+              <strong className="text-foreground">It's hard because we're constantly fighting our tools.</strong>
             </p>
             <p className="mt-6 text-pretty leading-relaxed text-muted-foreground">
               Every day, we jump between Notion, Coda, Slack, email, CRMs, calendars, billing tools—and now a growing
               list of AI apps—just to move one piece of work forward.
             </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="mt-8 space-y-3">
               {[
-                { text: "Information lives in different apps, tabs, and chat histories", icon: Layers },
-                { text: "Tasks fall between tools and never turn into a clear plan", icon: Workflow },
-                { text: "Great ideas from AI brainstorms disappear when the chat ends", icon: Brain },
-                { text: "Moving data breaks relationships, formulas, and logic", icon: Database },
+                "Information lives in different apps, tabs, and chat histories",
+                "Tasks fall between tools and never turn into a clear plan",
+                "Great ideas from AI brainstorms disappear as soon as the chat ends",
+                "Moving data breaks relationships, formulas, and logic",
               ].map((item) => (
-                <div key={item.text} className="flex items-start gap-3 p-4 rounded-lg bg-destructive/5 border border-destructive/10">
-                  <item.icon className="mt-0.5 h-5 w-5 shrink-0 text-destructive/70" />
-                  <p className="text-sm text-muted-foreground">{item.text}</p>
+                <div key={item} className="flex items-start gap-3">
+                  <div className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  <p className="text-muted-foreground">{item}</p>
                 </div>
               ))}
             </div>
             <p className="mt-8 text-pretty leading-relaxed text-muted-foreground">
               So we copy. Paste. Export. Import. Again and again.
             </p>
-            <p className="mt-4 text-pretty text-lg font-medium text-foreground">
-              It&apos;s exhausting. It kills momentum. And it quietly slows down even the best teams.
+            <p className="mt-4 text-pretty font-medium text-foreground">
+              It's exhausting. It kills momentum. And it quietly slows down even the best teams.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Solution Section - Enhanced */}
-      <section className="border-b border-border bg-gradient-to-b from-primary/5 to-background py-24 sm:py-32 relative">
-        <div className="absolute inset-0 dot-pattern opacity-30" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Solution Section */}
+      <section id="solution" className="border-b border-border bg-muted/20 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-sm font-medium text-accent mb-6">
-              <Sparkles className="h-4 w-4" />
-              The Solution
-            </div>
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">What IntegrateWise Is</h2>
+            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">What IntegrateWise Is</h2>
             <p className="mt-6 text-pretty text-xl leading-relaxed">
-              <strong className="gradient-text">IntegrateWise is the AI Agents Platform for Effortless Work.</strong>
+              <strong>IntegrateWise is the AI Agents Platform for Effortless Work.</strong>
             </p>
             <p className="mt-6 text-pretty leading-relaxed text-muted-foreground">
-              IntegrateWise sits on top of your tools. It doesn&apos;t replace them.
+              IntegrateWise sits on top of your tools. It doesn't replace them.
             </p>
             <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">Instead, it:</p>
-            <div className="mt-6 space-y-3">
+            <div className="mt-6 space-y-4">
               {[
                 "Connects your existing tools securely",
                 "Organizes data through a shared structural layer (the Spine)",
                 "Routes and secures information through a control layer (the Hub)",
                 "Adds AI agents for insights, automation, and brainstorming",
                 "Lets you bring your own AI model (BYOM) when you're ready",
-              ].map((item, index) => (
-                <div key={item} className="flex items-start gap-3 p-3 rounded-lg bg-accent/5 border border-accent/10 hover:bg-accent/10 transition-colors">
-                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-accent text-accent-foreground text-xs font-bold">
-                    {index + 1}
-                  </div>
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                   <p className="text-muted-foreground">{item}</p>
                 </div>
               ))}
@@ -213,44 +223,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How It Works - Visual Steps Enhanced */}
-      <section className="border-b border-border py-24 sm:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-30" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium text-primary mb-6">
-              <Workflow className="h-4 w-4" />
-              How It Works
-            </div>
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+      {/* How It Works - Visual Steps */}
+      <section id="how-it-works" className="border-b border-border py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
               Connect once. Everything flows.
             </h2>
-            <p className="mt-4 text-muted-foreground text-lg">
-              A seamless architecture that brings all your tools together
-            </p>
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: GitBranch, title: "Connect Tools", desc: "Plug in the tools you already use.", color: "primary" },
-              { icon: Database, title: "Spine (Structure)", desc: "Normalize and preserve meaning across systems.", color: "secondary" },
-              { icon: Shield, title: "Hub (Control)", desc: "Secure routing + permissions + boundaries.", color: "accent" },
-              { icon: Zap, title: "AI Loader", desc: "One-click import that preserves context and logic.", color: "primary" },
-              { icon: Brain, title: "Brain + Brainstorm", desc: "Your thinking becomes searchable memory.", color: "secondary" },
-              { icon: Sparkles, title: "Agents", desc: "Automate, plan, and act—without chaos.", color: "accent" },
-              { icon: Layout, title: "Render", desc: "Universal output: docs, decks, emails, SOPs, plans.", color: "primary" },
-              { icon: Globe, title: "Views (Lenses)", desc: "Personal, Work, Business, and CS views.", color: "secondary" },
-            ].map((step, index) => (
-              <Card key={step.title} className="border-border card-hover group relative overflow-hidden">
-                <div className={`absolute inset-0 bg-gradient-to-br from-${step.color}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity`} />
-                <CardContent className="relative p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-${step.color}/10 group-hover:bg-${step.color}/20 transition-colors`}>
-                      <step.icon className={`h-6 w-6 text-${step.color}`} />
-                    </div>
-                    <span className="text-xs font-mono text-muted-foreground">0{index + 1}</span>
+              { icon: GitBranch, title: "Connect Tools", desc: "Plug in the tools you already use." },
+              {
+                icon: Database,
+                title: "Spine (Structure Layer)",
+                desc: "Normalize and preserve meaning across systems.",
+              },
+              { icon: Shield, title: "Hub (Control Layer)", desc: "Secure routing + permissions + boundaries." },
+              { icon: Zap, title: "AI Loader", desc: "Import that preserves context and relationships." },
+              { icon: Brain, title: "Brain + Brainstorming", desc: "Your thinking becomes searchable memory." },
+              { icon: Sparkles, title: "Agents", desc: "Automate, plan, and act—without chaos." },
+              { icon: FileOutput, title: "Render", desc: "Universal output: docs, decks, emails, SOPs, plans." },
+              { icon: Eye, title: "Views (Lenses)", desc: "Personal, Work, Business, and CS views." },
+            ].map((step) => (
+              <Card key={step.title} className="border-border">
+                <CardContent className="p-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                    <step.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-lg">{step.title}</h3>
+                  <h3 className="mt-4 font-semibold">{step.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
                 </CardContent>
               </Card>
@@ -259,159 +261,94 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Integrations Section - Enhanced with animation */}
-      <section className="border-b border-border bg-muted/20 py-24 sm:py-32 relative overflow-hidden">
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Integrations Section */}
+      <section id="integrations" className="border-b border-border bg-muted/20 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/5 px-3 py-1 text-sm font-medium text-secondary mb-6">
-              <GitBranch className="h-4 w-4" />
-              Integrations
-            </div>
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Connect what you already use</h2>
+            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Connect what you already use</h2>
             <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
               No migrations. No rebuilding. You plug in the tools you rely on—once, securely.
             </p>
             <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-              IntegrateWise handles the complexity in the background, so you don&apos;t have to restart your system every
+              IntegrateWise handles the complexity in the background, so you don't have to restart your system every
               time your tool stack changes.
             </p>
-          </div>
-          
-          {/* Animated Integration Grid */}
-          <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {[
-              { name: "Notion", category: "Productivity" },
-              { name: "Coda", category: "Docs" },
-              { name: "Slack", category: "Communication" },
-              { name: "Google Workspace", category: "Suite" },
-              { name: "Salesforce", category: "CRM" },
-              { name: "HubSpot", category: "Marketing" },
-              { name: "Stripe", category: "Payments" },
-              { name: "ChatGPT", category: "AI" },
-              { name: "Claude", category: "AI" },
-              { name: "Gemini", category: "AI" },
-              { name: "Jira", category: "Project" },
-              { name: "Linear", category: "Project" },
-            ].map((tool) => (
-              <div
-                key={tool.name}
-                className="group flex flex-col items-center justify-center rounded-xl border border-border bg-card p-6 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 card-hover"
-              >
-                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
-                  <span className="text-lg font-bold text-primary">{tool.name.charAt(0)}</span>
-                </div>
-                <span className="text-sm font-medium">{tool.name}</span>
-                <span className="text-xs text-muted-foreground mt-1">{tool.category}</span>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-12 text-center">
-            <Button variant="outline" className="group" asChild>
-              <Link href="/integrations">
-                Explore All Integrations 
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Second Brain Section - Enhanced */}
-      <section className="border-b border-border py-24 sm:py-32 relative">
-        <div className="absolute inset-0 mesh-gradient opacity-30" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/5 px-3 py-1 text-sm font-medium text-secondary mb-6">
-                <Brain className="h-4 w-4" />
-                Second Brain
-              </div>
-              <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                Your AI Conversations, Preserved
-              </h2>
-              <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
-                Your ideas don&apos;t only live in docs. They live in conversations—especially AI conversations.
-              </p>
-              <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-                IntegrateWise lets you stream AI chats from ChatGPT, Claude, Gemini, Grok, and Perplexity into
-                one place using secure webhooks.
-              </p>
-              <div className="mt-8">
-                <Button asChild>
-                  <Link href="https://app.integratewise.com/connect/brain">
-                    Connect Brain <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-8">
+              {["Notion", "Coda", "Slack", "Google Workspace", "Salesforce", "HubSpot", "Stripe", "ChatGPT"].map(
+                (tool) => (
+                  <div
+                    key={tool}
+                    className="flex h-16 w-32 items-center justify-center rounded-lg border border-border bg-card px-4"
+                  >
+                    <span className="text-sm font-medium text-muted-foreground">{tool}</span>
+                  </div>
+                ),
+              )}
             </div>
-            
-            <div className="relative">
-              <Card className="border-2 border-secondary/20 bg-gradient-to-br from-secondary/5 to-background">
-                <CardContent className="p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/20">
-                      <Brain className="h-5 w-5 text-secondary" />
-                    </div>
-                    <h3 className="font-semibold text-lg">
-                      Brainstorming Layer → Searchable Second Brain
-                    </h3>
-                  </div>
-                  <p className="text-sm leading-relaxed text-muted-foreground mb-6">The Brain Agent helps you:</p>
-                  <div className="space-y-4">
-                    {[
-                      "Revisit and refine your thinking",
-                      "Connect ideas across tools and time",
-                      "Turn raw brainstorming into structured plans, tasks, and documents",
-                    ].map((item) => (
-                      <div key={item} className="flex items-start gap-3">
-                        <div className="flex h-6 w-6 items-center justify-center rounded-full bg-accent/20">
-                          <Check className="h-4 w-4 text-accent" />
-                        </div>
-                        <p className="text-sm text-muted-foreground">{item}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-6 pt-6 border-t border-border">
-                    <p className="font-medium text-foreground">Your ideas stop disappearing—and start compounding.</p>
-                  </div>
-                </CardContent>
-              </Card>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-secondary/10 blur-2xl" />
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-full bg-accent/10 blur-2xl" />
+            <div className="mt-12">
+              <Button variant="outline" asChild>
+                <Link href="/integrations">Explore Integrations</Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Modes Section - Enhanced */}
-      <section className="border-b border-border bg-gradient-to-b from-background to-muted/30 py-24 sm:py-32">
+      {/* Second Brain Section */}
+      <section id="brain" className="border-b border-border py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium text-primary mb-6">
-              <Shield className="h-4 w-4" />
-              Flexible Modes
-            </div>
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-              Full integration or Render Only
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+              Your Second Brain — Brainstorming Layer + Brain Agent
             </h2>
-            <p className="mt-4 text-muted-foreground text-lg">
-              Choose the level of access that fits your security and workflow needs
+            <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
+              Your ideas don't only live in docs. They live in conversations—especially AI conversations.
             </p>
+            <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
+              IntegrateWise lets you stream AI chats from tools like ChatGPT, Claude, Gemini, Grok, and Perplexity into
+              one place using secure webhooks.
+            </p>
+            <div className="mt-8 rounded-lg border border-border bg-card p-8">
+              <h3 className="font-semibold">
+                A Brainstorming Layer turns scattered chats into a searchable Second Brain.
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">The Brain Agent helps you:</p>
+              <div className="mt-4 space-y-3">
+                {[
+                  "Revisit and refine your thinking",
+                  "Connect ideas across tools and time",
+                  "Turn raw brainstorming into structured plans, tasks, and documents",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                    <p className="text-sm text-muted-foreground">{item}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-6 font-medium">Your ideas stop disappearing—and start compounding.</p>
+            </div>
+            <div className="mt-8">
+              <Button asChild>
+                <Link href="/docs/webhooks">Connect Brain</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Modes Section */}
+      <section id="modes" className="border-b border-border bg-muted/20 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+              Full integration or Render Only — your choice
+            </h2>
           </div>
 
           <div className="mx-auto mt-16 grid max-w-5xl gap-8 lg:grid-cols-2">
-            <Card className="border-2 border-primary relative overflow-hidden card-hover">
-              <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-bl-lg">
-                RECOMMENDED
-              </div>
+            <Card className="border-2 border-primary">
               <CardContent className="p-8">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 mb-6">
-                  <Zap className="h-7 w-7 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold">Full Integration</h3>
-                <p className="mt-2 text-muted-foreground">Complete automation and sync capabilities</p>
+                <h3 className="text-xl font-bold">Full Integration</h3>
                 <div className="mt-6 space-y-4">
                   {[
                     "Two-way sync and automation",
@@ -427,13 +364,9 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-accent card-hover">
+            <Card className="border-2 border-accent">
               <CardContent className="p-8">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10 mb-6">
-                  <Shield className="h-7 w-7 text-accent" />
-                </div>
-                <h3 className="text-2xl font-bold">Render Only</h3>
-                <p className="mt-2 text-muted-foreground">Safe, read-only access for sensitive environments</p>
+                <h3 className="text-xl font-bold">Render Only</h3>
                 <div className="mt-6 space-y-4">
                   {[
                     "Read-only dashboards + analytics",
@@ -456,191 +389,91 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Security & BYOM Section - Enhanced */}
-      <section className="border-b border-border py-24 sm:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 dot-pattern opacity-30" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-sm font-medium text-accent mb-6">
-                <Lock className="h-4 w-4" />
-                Security First
-              </div>
-              <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                Secure, seamless, and in your control
-              </h2>
-              <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
-                IntegrateWise runs on secure global cloud infrastructure with modern authentication and strict boundaries.
-              </p>
-              <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-                In many cases, IntegrateWise acts as a secure router and normaliser—not a permanent data owner—so you stay
-                in control of what&apos;s stored, synced, or read-only.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                {["SOC 2", "GDPR", "HIPAA Ready", "SSO"].map((badge) => (
-                  <div key={badge} className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2">
-                    <Shield className="h-4 w-4 text-accent" />
-                    <span className="text-sm font-medium">{badge}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+      {/* Security & BYOM Section */}
+      <section id="security" className="border-b border-border py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+              Secure, seamless, and in your control
+            </h2>
+            <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
+              IntegrateWise runs on secure global cloud infrastructure with modern authentication and strict boundaries.
+            </p>
+            <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
+              In many cases, IntegrateWise acts as a secure router and normaliser—not a permanent data owner—so you stay
+              in control of what's stored, synced, or read-only.
+            </p>
 
-            <Card className="border-2 border-secondary bg-gradient-to-br from-secondary/5 to-background">
-              <CardContent className="p-8 text-center">
-                <div className="flex justify-center mb-6">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-secondary/20">
-                    <Lock className="h-8 w-8 text-secondary" />
-                  </div>
+            <Card className="mt-12 border-2 border-secondary">
+              <CardContent className="p-8">
+                <div className="flex items-center justify-center">
+                  <Lock className="h-8 w-8 text-secondary" />
                 </div>
-                <h3 className="text-2xl font-bold">Bring Your Own AI Model</h3>
-                <p className="text-sm text-muted-foreground mt-1">BYOM Support</p>
-                <p className="mt-6 leading-relaxed text-muted-foreground">
-                  Start with built-in models for a smooth experience. When you&apos;re ready, connect your own
+                <h3 className="mt-4 text-xl font-bold">Bring Your Own AI Model (BYOM)</h3>
+                <p className="mt-4 leading-relaxed text-muted-foreground">
+                  Start with built-in models for a smooth experience. When you're ready, connect your own
                   model—commercial or self-hosted—using your API key.
                 </p>
-                <div className="mt-6 flex flex-wrap justify-center gap-2">
-                  {["OpenAI", "Anthropic", "Google AI", "Custom"].map((model) => (
-                    <span key={model} className="rounded-full bg-secondary/10 px-3 py-1 text-xs font-medium text-secondary">
-                      {model}
-                    </span>
-                  ))}
-                </div>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Solutions Section - Enhanced */}
-      <section className="border-b border-border bg-muted/20 py-24 sm:py-32">
+      {/* Solutions Section */}
+      <section id="solutions" className="border-b border-border bg-muted/20 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium text-primary mb-6">
-              <Users className="h-4 w-4" />
-              Solutions
-            </div>
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+          <div className="text-center">
+            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
               Built for anyone. Specialized when you need it.
             </h2>
-            <p className="mt-4 text-muted-foreground text-lg">
-              Whether you work solo or lead a team, IntegrateWise adapts to your needs
-            </p>
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { title: "For Individuals", desc: "Personal productivity OS. Organize your life, work, and ideas in one place.", icon: Users, color: "primary" },
-              { title: "For Teams", desc: "Shared tasks, shared context. Collaborate seamlessly across tools and time zones.", icon: Workflow, color: "secondary" },
-              { title: "For Business Ops", desc: "Workflows, analytics, automation. Scale operations without scaling complexity.", icon: TrendingUp, color: "accent" },
-              { title: "For Customer Success", desc: "CS Intelligence lens with Health, ARR, Churn, and Technical Health insights.", icon: Star, color: "primary" },
+              { title: "For Individuals", desc: "Personal productivity OS" },
+              { title: "For Teams", desc: "Shared tasks, shared context" },
+              { title: "For Business Ops", desc: "Workflows, analytics, automation" },
+              {
+                title: "For Customer Success",
+                desc: "Specialized CS Intelligence lens (Health, ARR, Churn, Technical Health)",
+              },
             ].map((solution) => (
-              <Card key={solution.title} className="border-border card-hover group">
-                <CardContent className="p-6">
-                  <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-${solution.color}/10 group-hover:bg-${solution.color}/20 transition-colors mb-4`}>
-                    <solution.icon className={`h-6 w-6 text-${solution.color}`} />
-                  </div>
-                  <h3 className="font-semibold text-lg">{solution.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{solution.desc}</p>
-                  <Link href="/solutions" className="inline-flex items-center text-sm font-medium text-primary mt-4 group-hover:underline">
-                    Learn more <ChevronRight className="ml-1 h-4 w-4" />
-                  </Link>
+              <Card key={solution.title} className="border-border">
+                <CardContent className="p-6 text-center">
+                  <h3 className="font-semibold">{solution.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{solution.desc}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Testimonials Section - New */}
-      <section className="border-b border-border py-24 sm:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 mesh-gradient opacity-30" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-sm font-medium text-accent mb-6">
-              <Star className="h-4 w-4" />
-              Testimonials
-            </div>
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-              Loved by teams everywhere
-            </h2>
-            <p className="mt-4 text-muted-foreground text-lg">
-              See what our customers have to say about IntegrateWise
-            </p>
-          </div>
-
-          <div className="mt-16 grid gap-8 md:grid-cols-3">
-            {[
-              {
-                quote: "IntegrateWise transformed how our team collaborates. We finally have a single source of truth across all our tools.",
-                author: "Sarah Chen",
-                role: "Head of Operations",
-                company: "TechFlow Inc",
-                rating: 5,
-              },
-              {
-                quote: "The AI agents are game-changing. Tasks that used to take hours now happen automatically. Our productivity has doubled.",
-                author: "Marcus Johnson",
-                role: "CTO",
-                company: "ScaleUp Labs",
-                rating: 5,
-              },
-              {
-                quote: "The Second Brain feature means I never lose a great idea from my AI conversations. It's like having perfect memory.",
-                author: "Emily Rodriguez",
-                role: "Product Manager",
-                company: "InnovateCo",
-                rating: 5,
-              },
-            ].map((testimonial, index) => (
-              <Card key={index} className="border-border card-hover">
-                <CardContent className="p-6">
-                  <div className="flex gap-1 mb-4">
-                    {Array(testimonial.rating).fill(null).map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed italic">&ldquo;{testimonial.quote}&rdquo;</p>
-                  <div className="mt-6 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                      <span className="text-sm font-semibold text-primary">{testimonial.author.charAt(0)}</span>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm">{testimonial.author}</p>
-                      <p className="text-xs text-muted-foreground">{testimonial.role} at {testimonial.company}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="mt-12 text-center">
+            <Button variant="outline" asChild>
+              <Link href="/solutions">Explore Solutions</Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Outcome Section - Enhanced */}
-      <section className="border-b border-border bg-gradient-to-b from-background to-primary/5 py-24 sm:py-32">
+      {/* Outcome Section */}
+      <section id="outcomes" className="border-b border-border py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-sm font-medium text-accent mb-6">
-              <Sparkles className="h-4 w-4" />
-              The Outcome
-            </div>
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
               This is what Effortless Work really looks like
             </h2>
             <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">With IntegrateWise:</p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 max-w-2xl mx-auto">
+            <div className="mt-8 space-y-4">
               {[
-                { text: "You spend less time organizing and more time doing", icon: Clock },
-                { text: "Your ideas don't vanish—they build on each other", icon: Brain },
-                { text: "Your tools finally work together instead of against you", icon: Workflow },
-                { text: "Decisions get easier because context is always within reach", icon: TrendingUp },
+                "You spend less time organizing and more time doing",
+                "Your ideas don't vanish—they build on each other",
+                "Your tools finally work together instead of against you",
+                "Decisions get easier because context is always within reach",
               ].map((item) => (
-                <div key={item.text} className="flex items-start gap-4 p-4 rounded-xl bg-accent/5 border border-accent/10 text-left">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/20 shrink-0">
-                    <item.icon className="h-5 w-5 text-accent" />
-                  </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{item.text}</p>
+                <div key={item} className="flex items-start justify-center gap-3">
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                  <p className="text-left text-muted-foreground">{item}</p>
                 </div>
               ))}
             </div>
@@ -648,43 +481,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA - Enhanced */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-primary/10" />
-        <div className="absolute inset-0 dot-pattern opacity-30" />
-        
-        {/* Floating elements */}
-        <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-primary/10 blur-3xl animate-pulse-glow" />
-        <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-accent/10 blur-3xl animate-float" />
-
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Final CTA */}
+      <section id="get-started" className="bg-gradient-to-b from-background to-primary/5 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-8">
-              <Sparkles className="h-4 w-4" />
-              Start Your Journey
-            </div>
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-              Ready to experience <span className="gradient-text">Effortless Work</span>?
+            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+              Ready to experience Effortless Work?
             </h2>
             <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
               Start with IntegrateWise. Work smarter from day one—and let your tools finally work together.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Button size="lg" className="h-14 px-10 text-base shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all" asChild>
-                <Link href="https://app.integratewise.com/signup">
-                  Start Free <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" asChild>
+                <Link href="/pricing">
+                  Start Free <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="h-14 px-10 text-base" asChild>
-                <Link href="https://app.integratewise.com/demo">
-                  Book Demo
-                </Link>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/company/contact">Book Demo</Link>
               </Button>
             </div>
-            <p className="mt-8 text-sm text-muted-foreground">
-              No credit card required • Free 14-day trial • Cancel anytime
-            </p>
           </div>
         </div>
       </section>
