@@ -289,6 +289,82 @@ export default function IntegrationsPage() {
         </div>
       </section>
 
+      <section className="border-b border-border bg-muted/20 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+              Real-time orchestration with secure webhooks
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">Event-driven workflows with industry-standard security</p>
+          </div>
+
+          <div className="mx-auto max-w-5xl mb-12">
+            <img
+              src="/images/infographics/05-webhooks.svg"
+              alt="Orchestrate events and webhooks showing real-time event flow"
+              className="w-full h-auto rounded-lg"
+            />
+          </div>
+
+          <div className="mx-auto max-w-3xl">
+            <div className="flex items-center justify-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-accent/10">
+                <Zap className="h-8 w-8 text-accent" />
+              </div>
+            </div>
+            <h2 className="mt-6 text-balance text-center text-3xl font-bold tracking-tight sm:text-4xl">
+              Secure Webhooks for real-time work + AI conversation streaming
+            </h2>
+            <p className="mt-6 text-pretty text-center text-lg leading-relaxed text-muted-foreground">
+              IntegrateWise supports webhook ingestion so your workflows are event-driven, not manual.
+            </p>
+
+            <Card className="mt-12 border-2 border-accent">
+              <CardContent className="p-8">
+                <h3 className="font-semibold">Use webhooks for:</h3>
+                <div className="mt-4 space-y-3">
+                  {[
+                    "Brainstorming + Second Brain ingestion",
+                    "Real-time triggers and updates",
+                    "Sending events from internal systems",
+                    "Safe read-only pipelines (Render Only mode)",
+                  ].map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                      <p className="text-muted-foreground">{item}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8">
+                  <h4 className="text-sm font-semibold">Security features:</h4>
+                  <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                    {[
+                      "Signed requests (HMAC)",
+                      "Timestamp validation (anti-replay)",
+                      "Idempotency keys",
+                      "Retries + DLQ handling",
+                      "Monitoring and alerts",
+                    ].map((feature) => (
+                      <div key={feature} className="flex items-center gap-2">
+                        <Shield className="h-4 w-4 text-accent" />
+                        <span className="text-sm text-muted-foreground">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="mt-8 text-center">
+              <Button asChild>
+                <Link href="#">View Webhook Docs</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Spine Sync */}
       <section className="border-b border-border py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

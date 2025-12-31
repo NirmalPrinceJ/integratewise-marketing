@@ -62,6 +62,55 @@ export default function PlatformPage() {
         </div>
       </section>
 
+      {/* Data Flow Infographic Section */}
+      <section className="border-b border-border bg-muted/20 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+              Seamless data ingestion and normalization
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Connect any source and automatically normalize to the Spine
+            </p>
+          </div>
+
+          <div className="mx-auto mt-12 max-w-5xl">
+            <img
+              src="/images/infographics/04-data-flow.svg"
+              alt="Data flow showing connectors and sources being normalized into the Spine"
+              className="w-full h-auto rounded-lg"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Architecture Section */}
+      <section className="border-b border-border py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+              One platform. Many tools. One intelligent workflow.
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">Connect → Normalize → Automate → Render</p>
+          </div>
+
+          <div className="mx-auto mt-12 flex justify-center">
+            <Pipeline />
+          </div>
+
+          {/* Throughput sparkline */}
+          <div className="mx-auto mt-12 max-w-md">
+            <KPITile
+              label="Throughput (events/sec)"
+              current={2450}
+              target={3000}
+              unit="count"
+              trend={[2100, 2200, 2350, 2450]}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Event Flow Diagram */}
       <section className="border-b border-border py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -264,11 +313,11 @@ export default function PlatformPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="flex items-center justify-center lg:order-1">
-              <div className="aspect-square w-full max-w-md rounded-2xl border-2 border-accent/20 bg-gradient-to-br from-accent/5 to-accent/20 p-12">
-                <div className="flex h-full items-center justify-center">
-                  <Database className="h-32 w-32 text-accent/40" />
-                </div>
-              </div>
+              <img
+                src="/images/infographics/03-spine.svg"
+                alt="Spine unified entity model showing 3D cube with schema constraints and governance"
+                className="w-full h-auto max-w-md rounded-lg"
+              />
             </div>
             <div className="lg:order-2">
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10">
@@ -502,6 +551,28 @@ export default function PlatformPage() {
             <p className="mt-6 leading-relaxed text-muted-foreground">
               Agents operate through the Hub + Spine so the system remains consistent and secure.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Agents Infographic Section */}
+      <section className="border-b border-border bg-muted/20 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+              AI agents that automate your workflows
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Intelligent automation with guardrails and deterministic routing
+            </p>
+          </div>
+
+          <div className="mx-auto mt-12 max-w-5xl">
+            <img
+              src="/images/infographics/06-ai-agents.svg"
+              alt="AI Agents automation showing robotic figure connected to workflows, triggers, guardrails, and tools"
+              className="w-full h-auto rounded-lg"
+            />
           </div>
         </div>
       </section>

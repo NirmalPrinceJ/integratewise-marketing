@@ -146,30 +146,46 @@ export default function SecurityPage() {
 
       {/* DataSentinel */}
       <section className="px-6 pb-20 bg-indigo-50">
-        <div className="max-w-4xl mx-auto py-16">
-          <h2 className="text-3xl font-bold mb-6">DataSentinel: policy, privacy, and lineage</h2>
-          <p className="text-lg text-gray-600 mb-6">DataSentinel helps you:</p>
-          <ul className="space-y-3 mb-8">
-            {[
-              "Detect and redact PII",
-              "Enforce policy rules",
-              "Track lineage across workflows",
-              "Keep audit trails for outputs and decisions",
-            ].map((item) => (
-              <li key={item} className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-indigo-600 rounded-full" />
-                <span className="text-gray-700">{item}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="text-gray-600">
-            This is especially powerful when using Render outputs (docs/emails/decks), agent automation, and cross-tool
-            data unification.
-          </p>
+        <div className="max-w-7xl mx-auto py-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-6">DataSentinel: policy, privacy, and lineage</h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Comprehensive security and governance for all your data workflows
+            </p>
+          </div>
+
+          <div className="mx-auto max-w-5xl mb-12">
+            <img
+              src="/images/infographics/07-datasentinel.svg"
+              alt="DataSentinel security and governance showing shield with database protection"
+              className="w-full h-auto rounded-lg"
+            />
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <p className="text-lg text-gray-600 mb-6">DataSentinel helps you:</p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "Detect and redact PII",
+                "Enforce policy rules",
+                "Track lineage across workflows",
+                "Keep audit trails for outputs and decisions",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-indigo-600 rounded-full" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-gray-600">
+              This is especially powerful when using Render outputs (docs/emails/decks), agent automation, and
+              cross-tool data unification.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* BYOM */}
+      {/* Bring your own AI model */}
       <section className="px-6 pb-20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-6">Bring your own AI model</h2>
