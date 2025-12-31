@@ -4,9 +4,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
-import { KPITile } from "@/components/infographics/KPITile"
-import { Donut } from "@/components/infographics/Donut"
-import infographicsData from "@/data/infographics.json"
 
 export default function HomePage() {
   return (
@@ -33,91 +30,17 @@ export default function HomePage() {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" asChild>
-                <Link href="/platform#onboarding">
+                <Link href="#">
                   Start Free <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/demo">Watch Demo</Link>
+                <Link href="#">Watch Demo</Link>
               </Button>
             </div>
             <p className="mt-6 text-sm text-muted-foreground">
               Works with modern teams and individuals. Full integration or safe, read-only mode. BYOM supported.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Ecosystem Logos Section */}
-      <section className="border-b border-border py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
-              Connect your entire tool ecosystem
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Integrate with the tools you already use, from productivity apps to AI assistants
-            </p>
-          </div>
-
-          <div className="mx-auto mt-12 max-w-6xl">
-            <img
-              src="/images/infographics/01-ecosystem-logos.svg"
-              alt="Connected ecosystem showing integrations with Google, Slack, Salesforce, HubSpot, Stripe, and Notion"
-              className="w-full h-auto rounded-lg"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* OS Core Section */}
-      <section className="border-b border-border bg-muted/20 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
-              Built on a unified operating system
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              The IntegrateWise OS Core orchestrates data, agents, and workflows seamlessly
-            </p>
-          </div>
-
-          <div className="mx-auto mt-12 max-w-5xl">
-            <img
-              src="/images/infographics/02-os-core.svg"
-              alt="IntegrateWise OS Core showing the central runtime with Spine, Webhooks, AI Agents, and DataSentinel"
-              className="w-full h-auto rounded-lg"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-border py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl" style={{ color: "#1E2A4A" }}>
-              Platform Performance
-            </h2>
-            <p className="mt-2 text-muted-foreground">Real-time metrics from IntegrateWise infrastructure</p>
-          </div>
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {infographicsData.kpis.map((kpi) => (
-              <KPITile
-                key={kpi.key}
-                label={kpi.label}
-                current={kpi.current}
-                target={kpi.target}
-                unit={kpi.unit}
-                trend={kpi.trend}
-              />
-            ))}
-          </div>
-
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-8">
-            <Donut value={99.95} label="Uptime" />
-            <Donut value={100} label="Token Rotation" />
-            <Donut value={98.7} label="Ingest Rate" />
           </div>
         </div>
       </section>
@@ -257,7 +180,7 @@ export default function HomePage() {
             </div>
             <div className="mt-12">
               <Button variant="outline" asChild>
-                <Link href="/integrations">View Integrations</Link>
+                <Link href="#">Explore Integrations</Link>
               </Button>
             </div>
           </div>
@@ -299,7 +222,7 @@ export default function HomePage() {
             </div>
             <div className="mt-8">
               <Button asChild>
-                <Link href="/docs/brain/ingestion">Connect Brain</Link>
+                <Link href="#">Connect Brain</Link>
               </Button>
             </div>
           </div>
@@ -463,12 +386,12 @@ export default function HomePage() {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" asChild>
-                <Link href="/platform#onboarding">
+                <Link href="#">
                   Start Free <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/company/contact?type=demo">Book Demo</Link>
+                <Link href="#">Book Demo</Link>
               </Button>
             </div>
           </div>
