@@ -1,0 +1,260 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/company/about",
+      "regex": "^/company/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/company/about(?:/)?$"
+    },
+    {
+      "page": "/company/careers",
+      "regex": "^/company/careers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/company/careers(?:/)?$"
+    },
+    {
+      "page": "/company/contact",
+      "regex": "^/company/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/company/contact(?:/)?$"
+    },
+    {
+      "page": "/demo",
+      "regex": "^/demo(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/demo(?:/)?$"
+    },
+    {
+      "page": "/docs",
+      "regex": "^/docs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs(?:/)?$"
+    },
+    {
+      "page": "/docs/quickstart",
+      "regex": "^/docs/quickstart(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/quickstart(?:/)?$"
+    },
+    {
+      "page": "/docs/webhooks",
+      "regex": "^/docs/webhooks(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/webhooks(?:/)?$"
+    },
+    {
+      "page": "/integrations",
+      "regex": "^/integrations(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/integrations(?:/)?$"
+    },
+    {
+      "page": "/platform",
+      "regex": "^/platform(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/platform(?:/)?$"
+    },
+    {
+      "page": "/pricing",
+      "regex": "^/pricing(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/pricing(?:/)?$"
+    },
+    {
+      "page": "/product",
+      "regex": "^/product(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/product(?:/)?$"
+    },
+    {
+      "page": "/resources/api",
+      "regex": "^/resources/api(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/resources/api(?:/)?$"
+    },
+    {
+      "page": "/resources/blog",
+      "regex": "^/resources/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/resources/blog(?:/)?$"
+    },
+    {
+      "page": "/resources/case-studies",
+      "regex": "^/resources/case\\-studies(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/resources/case\\-studies(?:/)?$"
+    },
+    {
+      "page": "/resources/changelog",
+      "regex": "^/resources/changelog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/resources/changelog(?:/)?$"
+    },
+    {
+      "page": "/resources/community",
+      "regex": "^/resources/community(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/resources/community(?:/)?$"
+    },
+    {
+      "page": "/resources/docs",
+      "regex": "^/resources/docs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/resources/docs(?:/)?$"
+    },
+    {
+      "page": "/security",
+      "regex": "^/security(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/security(?:/)?$"
+    },
+    {
+      "page": "/security/compliance",
+      "regex": "^/security/compliance(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/security/compliance(?:/)?$"
+    },
+    {
+      "page": "/security/datasentinel",
+      "regex": "^/security/datasentinel(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/security/datasentinel(?:/)?$"
+    },
+    {
+      "page": "/security/privacy",
+      "regex": "^/security/privacy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/security/privacy(?:/)?$"
+    },
+    {
+      "page": "/services",
+      "regex": "^/services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services(?:/)?$"
+    },
+    {
+      "page": "/services/assessments",
+      "regex": "^/services/assessments(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/assessments(?:/)?$"
+    },
+    {
+      "page": "/services/implementations",
+      "regex": "^/services/implementations(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/implementations(?:/)?$"
+    },
+    {
+      "page": "/services/managed-ops",
+      "regex": "^/services/managed\\-ops(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/managed\\-ops(?:/)?$"
+    },
+    {
+      "page": "/services/mulesoft",
+      "regex": "^/services/mulesoft(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/mulesoft(?:/)?$"
+    },
+    {
+      "page": "/services/training",
+      "regex": "^/services/training(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services/training(?:/)?$"
+    },
+    {
+      "page": "/solutions",
+      "regex": "^/solutions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/solutions(?:/)?$"
+    },
+    {
+      "page": "/solutions/business-ops",
+      "regex": "^/solutions/business\\-ops(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/solutions/business\\-ops(?:/)?$"
+    },
+    {
+      "page": "/solutions/customer-success",
+      "regex": "^/solutions/customer\\-success(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/solutions/customer\\-success(?:/)?$"
+    },
+    {
+      "page": "/solutions/individuals",
+      "regex": "^/solutions/individuals(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/solutions/individuals(?:/)?$"
+    },
+    {
+      "page": "/solutions/teams",
+      "regex": "^/solutions/teams(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/solutions/teams(?:/)?$"
+    },
+    {
+      "page": "/templates",
+      "regex": "^/templates(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/templates(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

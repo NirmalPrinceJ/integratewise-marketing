@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/solutions/layout,_N_T_/solutions/business-ops/layout,_N_T_/solutions/business-ops/page,_N_T_/solutions/business-ops"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/solutions/business-ops/__PAGE__",
+    "/solutions/business-ops",
+    "/solutions",
+    "/_index",
+    "/_head"
+  ]
+}
