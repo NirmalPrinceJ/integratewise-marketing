@@ -44,9 +44,14 @@ export default function SolutionsPage() {
             IntegrateWise is universal by default—built for anyone. Lenses are optional views designed for different
             roles and workflows.
           </p>
-          <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700">
-            Start Free
-          </Button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/demo">Watch Demo</Link>
+            </Button>
+            <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700" asChild>
+              <Link href="/demo#book">Book Demo</Link>
+            </Button>
+          </div>
         </div>
       </section>
 

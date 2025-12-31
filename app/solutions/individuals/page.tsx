@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Check } from "lucide-react"
 import Navbar from "@/components/navbar"
@@ -49,9 +50,14 @@ export default function IndividualsPage() {
             </ul>
           </div>
 
-          <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700">
-            Start Free
-          </Button>
+          <div className="flex flex-wrap gap-4">
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/demo">Watch Demo</Link>
+            </Button>
+            <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700" asChild>
+              <Link href="/demo#book">Book Demo</Link>
+            </Button>
+          </div>
         </div>
       </section>
 

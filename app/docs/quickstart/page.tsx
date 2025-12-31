@@ -58,7 +58,7 @@ export default function QuickstartPage() {
                         1
                       </div>
                       <div>
-                        <p className="font-medium">Go to Start Free</p>
+                        <p className="font-medium">Book a demo to get started</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { User, Users, Briefcase, TrendingUp, Zap, Brain } from "lucide-react"
 import Navbar from "@/components/navbar"
@@ -47,11 +48,11 @@ export default function TemplatesPage() {
             tools.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700">
-              Browse Templates
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/demo">Watch Demo</Link>
             </Button>
-            <Button size="lg" variant="outline">
-              Start Free
+            <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700" asChild>
+              <Link href="/demo#book">Book Demo</Link>
             </Button>
           </div>
         </div>

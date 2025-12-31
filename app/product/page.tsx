@@ -41,13 +41,13 @@ export default function ProductPage() {
               Render outputs.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Button size="lg" asChild>
-                <Link href="#">
-                  Start Free <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/platform">Explore Platform</Link>
+                <Link href="/demo">Watch Demo</Link>
+              </Button>
+              <Button size="lg" asChild>
+                <Link href="/demo#book">
+                  Book Demo <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </div>
             <p className="mt-6 text-sm text-muted-foreground">
@@ -464,13 +464,13 @@ export default function ProductPage() {
               Start with one workflow. Let your tools finally work together.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Button size="lg" asChild>
-                <Link href="#">
-                  Start Free <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="#">Book Demo</Link>
+                <Link href="/demo">Watch Demo</Link>
+              </Button>
+              <Button size="lg" asChild>
+                <Link href="/demo#book">
+                  Book Demo <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </div>
           </div>

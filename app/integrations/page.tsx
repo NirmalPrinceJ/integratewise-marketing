@@ -7,8 +7,6 @@ import { Badge } from "@/components/ui/badge"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 
-import { IntegrationMatrix } from "@/components/integrations/integration-matrix"
-
 export default function IntegrationsPage() {
   return (
     <div className="min-h-screen">
@@ -142,19 +140,6 @@ export default function IntegrationsPage() {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Capability Matrix */}
-      <section className="border-b border-border py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight">Technical Capability Matrix</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Detailed specifications for architects and security teams.
-            </p>
-          </div>
-          <IntegrationMatrix />
         </div>
       </section>
 
@@ -364,7 +349,7 @@ export default function IntegrationsPage() {
 
           <div className="mt-8 text-center">
             <Button variant="outline" asChild>
-              <Link href="/docs/integrations/compare-modes">Compare Modes</Link>
+              <Link href="#">Compare Modes</Link>
             </Button>
           </div>
         </div>
@@ -453,13 +438,13 @@ export default function IntegrationsPage() {
               Start with one integration. Install a template. Let the OS do the rest.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Button size="lg" asChild>
-                <Link href="#">
-                  Start Free <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/templates">Browse Templates</Link>
+                <Link href="/demo">Watch Demo</Link>
+              </Button>
+              <Button size="lg" asChild>
+                <Link href="/demo#book">
+                  Book Demo <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </div>
           </div>

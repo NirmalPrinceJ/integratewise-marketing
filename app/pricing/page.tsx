@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Check } from "lucide-react"
 import Navbar from "@/components/navbar"
@@ -19,11 +20,11 @@ export default function PricingPage() {
             specialized lenses like Customer Success.
           </p>
           <div className="flex flex-wrap gap-4 justify-center mb-6">
-            <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700">
-              Start Free
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/demo">Watch Demo</Link>
             </Button>
-            <Button size="lg" variant="outline">
-              Book Demo
+            <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700" asChild>
+              <Link href="/demo#book">Book Demo</Link>
             </Button>
           </div>
           <p className="text-sm text-gray-500">No migrations. No lock-in. Full Integration or Render Only.</p>
@@ -55,7 +56,9 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
-              <Button className="w-full bg-indigo-600 hover:bg-indigo-700">Start Free</Button>
+              <Button className="w-full bg-indigo-600 hover:bg-indigo-700" asChild>
+                <Link href="/demo#book">Book Demo</Link>
+              </Button>
             </div>
 
             {/* Team */}
@@ -84,7 +87,9 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
-              <Button className="w-full bg-indigo-600 hover:bg-indigo-700">Start Team Plan</Button>
+              <Button className="w-full bg-indigo-600 hover:bg-indigo-700" asChild>
+                <Link href="/demo#book">Book Demo</Link>
+              </Button>
             </div>
 
             {/* Business */}
