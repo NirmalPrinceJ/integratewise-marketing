@@ -1,0 +1,344 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.integratewise.co/spine/v1",
+  "title": "IntegrateWise Spine Schemas",
+  "description": "Canonical entity schemas for the IntegrateWise Spine",
+  "definitions": {
+    "ISODateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 date-time string in UTC"
+    },
+    "ISODate": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO 8601 date string (YYYY-MM-DD)"
+    },
+    "EntityId": {
+      "type": "string",
+      "pattern": "^(task|note|conv|plan|hm)_[a-zA-Z0-9]{8,32}$",
+      "description": "Prefixed unique entity identifier"
+    },
+    "SourceTool": {
+      "type": "string",
+      "enum": [
+        "notion", "slack", "gmail", "google_calendar", "hubspot",
+        "stripe", "salesforce", "jira", "asana", "todoist",
+        "coda", "confluence", "chatgpt", "claude", "gemini",
+        "grok", "perplexity", "custom"
+      ]
+    },
+    "ExternalRef": {
+      "type": "object",
+      "required": ["source", "external_id", "synced_at", "sync_status"],
+      "properties": {
+        "source": { "$ref": "#/definitions/SourceTool" },
+        "external_id": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "synced_at": { "$ref": "#/definitions/ISODateTime" },
+        "sync_status": {
+          "type": "string",
+          "enum": ["synced", "pending", "failed", "stale"]
+        }
+      }
+    },
+    "BaseEntity": {
+      "type": "object",
+      "required": ["id", "created_at", "updated_at", "source_tool", "external_ref", "workspace_id"],
+      "properties": {
+        "id": { "$ref": "#/definitions/EntityId" },
+        "created_at": { "$ref": "#/definitions/ISODateTime" },
+        "updated_at": { "$ref": "#/definitions/ISODateTime" },
+        "source_tool": { "$ref": "#/definitions/SourceTool" },
+        "external_ref": { "$ref": "#/definitions/ExternalRef" },
+        "workspace_id": { "type": "string", "minLength": 1 }
+      }
+    },
+    "Task": {
+      "allOf": [
+        { "$ref": "#/definitions/BaseEntity" },
+        {
+          "type": "object",
+          "required": ["_type", "title", "status", "priority"],
+          "properties": {
+            "_type": { "const": "task" },
+            "title": { "type": "string", "minLength": 1, "maxLength": 500 },
+            "description": { "type": "string", "maxLength": 50000 },
+            "status": {
+              "type": "string",
+              "enum": ["backlog", "todo", "in_progress", "blocked", "in_review", "done", "cancelled"]
+            },
+            "priority": {
+              "type": "string",
+              "enum": ["critical", "high", "medium", "low", "none"]
+            },
+            "due_date": { "$ref": "#/definitions/ISODate" },
+            "due_datetime": { "$ref": "#/definitions/ISODateTime" },
+            "assignee_id": { "type": "string" },
+            "reporter_id": { "type": "string" },
+            "parent_task_id": { "$ref": "#/definitions/EntityId" },
+            "project_id": { "type": "string" },
+            "tags": {
+              "type": "array",
+              "items": { "type": "string", "pattern": "^[a-z0-9_]{1,50}$" }
+            },
+            "estimated_hours": { "type": "number", "minimum": 0 },
+            "logged_hours": { "type": "number", "minimum": 0 },
+            "completion_percent": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "linked_entity_ids": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/EntityId" }
+            },
+            "custom_fields": { "type": "object" }
+          }
+        }
+      ]
+    },
+    "Note": {
+      "allOf": [
+        { "$ref": "#/definitions/BaseEntity" },
+        {
+          "type": "object",
+          "required": ["_type", "title", "body_md", "tags", "linked_entity_ids"],
+          "properties": {
+            "_type": { "const": "note" },
+            "title": { "type": "string", "minLength": 1, "maxLength": 500 },
+            "body_md": { "type": "string", "maxLength": 500000 },
+            "excerpt": { "type": "string", "maxLength": 1000 },
+            "tags": {
+              "type": "array",
+              "items": { "type": "string", "pattern": "^[a-z0-9_]{1,50}$" }
+            },
+            "parent_note_id": { "$ref": "#/definitions/EntityId" },
+            "linked_entity_ids": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/EntityId" }
+            },
+            "author_id": { "type": "string" },
+            "last_editor_id": { "type": "string" },
+            "word_count": { "type": "integer", "minimum": 0 },
+            "is_template": { "type": "boolean" },
+            "visibility": {
+              "type": "string",
+              "enum": ["private", "workspace", "public"]
+            },
+            "properties": { "type": "object" }
+          }
+        }
+      ]
+    },
+    "Participant": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "role": {
+          "type": "string",
+          "enum": ["sender", "recipient", "cc", "bcc", "participant", "ai_assistant"]
+        }
+      }
+    },
+    "Conversation": {
+      "allOf": [
+        { "$ref": "#/definitions/BaseEntity" },
+        {
+          "type": "object",
+          "required": ["_type", "source", "message_count", "participants", "started_at", "last_message_at"],
+          "properties": {
+            "_type": { "const": "conversation" },
+            "source": {
+              "type": "string",
+              "enum": ["email", "slack", "teams", "chat", "ai_session", "support_ticket", "other"]
+            },
+            "message_count": { "type": "integer", "minimum": 0 },
+            "topic": { "type": "string", "maxLength": 500 },
+            "participants": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Participant" },
+              "minItems": 1
+            },
+            "topic_labels": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "linkage_score": { "type": "number", "minimum": 0, "maximum": 1 },
+            "started_at": { "$ref": "#/definitions/ISODateTime" },
+            "last_message_at": { "$ref": "#/definitions/ISODateTime" },
+            "is_closed": { "type": "boolean" },
+            "sentiment_score": { "type": "number", "minimum": -1, "maximum": 1 },
+            "linked_entity_ids": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/EntityId" }
+            },
+            "thread_ref": {
+              "type": "object",
+              "properties": {
+                "channel_id": { "type": "string" },
+                "thread_id": { "type": "string" },
+                "channel_name": { "type": "string" }
+              }
+            },
+            "summary": { "type": "string", "maxLength": 5000 }
+          }
+        }
+      ]
+    },
+    "Milestone": {
+      "type": "object",
+      "required": ["id", "title", "status"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" },
+        "target_date": { "$ref": "#/definitions/ISODate" },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "in_progress", "completed", "missed"]
+        },
+        "completed_at": { "$ref": "#/definitions/ISODateTime" },
+        "task_ids": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/EntityId" }
+        }
+      }
+    },
+    "Plan": {
+      "allOf": [
+        { "$ref": "#/definitions/BaseEntity" },
+        {
+          "type": "object",
+          "required": ["_type", "objective", "milestones", "owner_id", "start_date", "end_date", "status"],
+          "properties": {
+            "_type": { "const": "plan" },
+            "objective": { "type": "string", "minLength": 1, "maxLength": 500 },
+            "description": { "type": "string", "maxLength": 10000 },
+            "milestones": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Milestone" }
+            },
+            "owner_id": { "type": "string" },
+            "team_id": { "type": "string" },
+            "start_date": { "$ref": "#/definitions/ISODate" },
+            "end_date": { "$ref": "#/definitions/ISODate" },
+            "status": {
+              "type": "string",
+              "enum": ["draft", "active", "on_track", "at_risk", "delayed", "completed", "cancelled"]
+            },
+            "progress_percent": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "key_results": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["id", "title", "target_value", "current_value"],
+                "properties": {
+                  "id": { "type": "string" },
+                  "title": { "type": "string" },
+                  "target_value": { "type": "number" },
+                  "current_value": { "type": "number" },
+                  "unit": { "type": "string" }
+                }
+              }
+            },
+            "parent_plan_id": { "$ref": "#/definitions/EntityId" },
+            "task_ids": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/EntityId" }
+            },
+            "note_ids": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/EntityId" }
+            },
+            "review_cadence": {
+              "type": "string",
+              "enum": ["daily", "weekly", "biweekly", "monthly", "quarterly"]
+            },
+            "next_review_date": { "$ref": "#/definitions/ISODate" }
+          }
+        }
+      ]
+    },
+    "HealthMetric": {
+      "allOf": [
+        { "$ref": "#/definitions/BaseEntity" },
+        {
+          "type": "object",
+          "required": ["_type", "account_id", "metric_type", "value", "weight", "period", "computed_at"],
+          "properties": {
+            "_type": { "const": "health_metric" },
+            "account_id": { "type": "string" },
+            "metric_type": {
+              "type": "string",
+              "enum": [
+                "usage_score", "nps_score", "ticket_severity", "renewal_proximity",
+                "engagement_score", "adoption_rate", "feature_utilization",
+                "support_sentiment", "contract_value", "expansion_potential",
+                "churn_risk", "custom"
+              ]
+            },
+            "value": { "type": "number", "minimum": 0, "maximum": 100 },
+            "raw_value": { "type": "number" },
+            "unit": { "type": "string" },
+            "weight": { "type": "number", "minimum": 0, "maximum": 1 },
+            "period": {
+              "type": "string",
+              "enum": ["daily", "weekly", "monthly", "quarterly", "yearly", "trailing_30d", "trailing_90d"]
+            },
+            "period_start": { "$ref": "#/definitions/ISODate" },
+            "period_end": { "$ref": "#/definitions/ISODate" },
+            "computed_at": { "$ref": "#/definitions/ISODateTime" },
+            "data_sources": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "trend": {
+              "type": "string",
+              "enum": ["improving", "stable", "declining"]
+            },
+            "trend_percent": { "type": "number" },
+            "thresholds": {
+              "type": "object",
+              "properties": {
+                "warning": { "type": "number" },
+                "critical": { "type": "number" },
+                "current_state": {
+                  "type": "string",
+                  "enum": ["normal", "warning", "critical"]
+                }
+              }
+            },
+            "computation_notes": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "EntityRelationship": {
+      "type": "object",
+      "required": ["id", "from_entity_id", "from_entity_type", "to_entity_id", "to_entity_type", "relationship_type", "created_at", "created_by"],
+      "properties": {
+        "id": { "type": "string" },
+        "from_entity_id": { "$ref": "#/definitions/EntityId" },
+        "from_entity_type": {
+          "type": "string",
+          "enum": ["task", "note", "conversation", "plan", "health_metric"]
+        },
+        "to_entity_id": { "$ref": "#/definitions/EntityId" },
+        "to_entity_type": {
+          "type": "string",
+          "enum": ["task", "note", "conversation", "plan", "health_metric"]
+        },
+        "relationship_type": {
+          "type": "string",
+          "enum": [
+            "parent_of", "child_of", "blocks", "blocked_by", "relates_to",
+            "duplicates", "created_from", "references", "mentions", "derived_from"
+          ]
+        },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "created_at": { "$ref": "#/definitions/ISODateTime" },
+        "created_by": { "type": "string" }
+      }
+    }
+  }
+}

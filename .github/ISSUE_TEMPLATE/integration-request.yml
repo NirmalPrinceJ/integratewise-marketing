@@ -1,0 +1,156 @@
+name: Integration Request
+description: Request a new integration connector
+title: "[Integration] "
+labels: ["integration-request", "enhancement"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## New Integration Request
+        
+        Help us prioritize integrations by providing details about your use case.
+
+  - type: input
+    id: tool_name
+    attributes:
+      label: Tool Name
+      description: "Name of the tool you want to integrate"
+      placeholder: "e.g., Monday.com, Airtable, Zendesk"
+    validations:
+      required: true
+
+  - type: input
+    id: tool_url
+    attributes:
+      label: Tool Website
+      description: "URL of the tool"
+      placeholder: "https://example.com"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Integration Mode
+      description: "What level of integration do you need?"
+      options:
+        - Full Integration (read + write)
+        - Render Only (read-only)
+        - Webhook-only (inbound events)
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: auth_type
+    attributes:
+      label: Authentication Type
+      description: "How does the tool authenticate? (if known)"
+      options:
+        - OAuth2
+        - API Key
+        - Service Account / JWT
+        - Basic Auth
+        - Not sure
+    validations:
+      required: false
+
+  - type: textarea
+    id: entities
+    attributes:
+      label: Entities to Sync
+      description: "What data types do you need to sync?"
+      placeholder: |
+        - Tasks / Items
+        - Projects / Boards
+        - Users / Members
+        - Comments
+        - Custom fields
+    validations:
+      required: true
+
+  - type: textarea
+    id: workflows
+    attributes:
+      label: Workflow Description
+      description: "Describe the workflows you want to enable"
+      placeholder: |
+        Example: When a task is completed in Monday.com, update the corresponding 
+        task in our Notion workspace and notify the team in Slack.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sync_direction
+    attributes:
+      label: Sync Direction
+      description: "Which direction does data need to flow?"
+      options:
+        - Bidirectional (two-way sync)
+        - Inbound only (tool → IntegrateWise)
+        - Outbound only (IntegrateWise → tool)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: "How critical is this integration for your workflow?"
+      options:
+        - Critical - Blocking adoption
+        - High - Needed soon
+        - Medium - Nice to have
+        - Low - Future consideration
+    validations:
+      required: true
+
+  - type: input
+    id: sla_requirements
+    attributes:
+      label: SLA Requirements
+      description: "Any specific latency or uptime requirements?"
+      placeholder: "e.g., Sync within 5 minutes, 99.9% uptime"
+    validations:
+      required: false
+
+  - type: textarea
+    id: current_workaround
+    attributes:
+      label: Current Workaround
+      description: "How are you currently handling this integration?"
+      placeholder: "Manual export/import, Zapier, custom scripts, etc."
+    validations:
+      required: false
+
+  - type: input
+    id: company
+    attributes:
+      label: Company (Optional)
+      description: "Your company name for prioritization"
+      placeholder: "Acme Corp"
+    validations:
+      required: false
+
+  - type: input
+    id: email
+    attributes:
+      label: Contact Email (Optional)
+      description: "Email for updates on this request"
+      placeholder: "you@company.com"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched existing issues and this integration hasn't been requested
+          required: true
+        - label: I have checked the [Integration Matrix](/docs/integrations/matrix.md) and this tool is not listed
+          required: true
+        - label: I can provide API documentation or developer access if needed
+          required: false

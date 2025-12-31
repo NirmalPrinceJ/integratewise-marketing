@@ -1,0 +1,252 @@
+name: Sprint Docs Validation
+
+on:
+  pull_request:
+    paths:
+      - 'docs/sprints/**'
+      - 'docs/planning/**'
+    branches:
+      - main
+      - docs/sprints-staging
+
+jobs:
+  validate-schema:
+    name: Validate Sprint Document Schema
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install -g ajv-cli ajv-formats js-yaml
+
+      - name: Extract and validate YAML front matter
+        run: |
+          #!/bin/bash
+          set -e
+          
+          SCHEMA_PATH=".github/schemas/sprint-doc.schema.json"
+          ERRORS=0
+          
+          for file in $(find docs/sprints docs/planning -name "*.md" 2>/dev/null || true); do
+            echo "Validating: $file"
+            
+            # Extract YAML front matter
+            if head -1 "$file" | grep -q "^---$"; then
+              # Extract content between --- markers
+              sed -n '/^---$/,/^---$/p' "$file" | sed '1d;$d' > /tmp/frontmatter.yaml
+              
+              # Convert to JSON for validation
+              node -e "
+                const yaml = require('js-yaml');
+                const fs = require('fs');
+                const content = fs.readFileSync('/tmp/frontmatter.yaml', 'utf8');
+                const doc = yaml.load(content);
+                console.log(JSON.stringify(doc, null, 2));
+              " > /tmp/frontmatter.json
+              
+              # Validate against schema
+              if ! ajv validate -s "$SCHEMA_PATH" -d /tmp/frontmatter.json --spec=draft2020 --all-errors; then
+                echo "❌ Schema validation failed for $file"
+                ERRORS=$((ERRORS + 1))
+              else
+                echo "✅ Schema valid: $file"
+              fi
+            else
+              echo "❌ Missing YAML front matter in $file"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+          
+          if [ $ERRORS -gt 0 ]; then
+            echo "❌ $ERRORS file(s) failed validation"
+            exit 1
+          fi
+          
+          echo "✅ All sprint documents validated successfully"
+
+  check-edit-lock:
+    name: Check Edit Lock Status
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check for locked files
+        run: |
+          #!/bin/bash
+          set -e
+          
+          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
+          ERRORS=0
+          
+          for file in $(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -E "^docs/(sprints|planning)/.*\.md$" || true); do
+            if [ -f "$file" ]; then
+              # Extract edit_lock status
+              LOCK_STATUS=$(sed -n '/^---$/,/^---$/p' "$file" | grep "^edit_lock:" | awk '{print $2}' || echo "false")
+              LOCKED_BY=$(sed -n '/^---$/,/^---$/p' "$file" | grep "^locked_by:" | awk '{print $2}' || echo "")
+              
+              if [ "$LOCK_STATUS" = "true" ]; then
+                if [ "$LOCKED_BY" != "$PR_AUTHOR" ] && [ -n "$LOCKED_BY" ]; then
+                  echo "❌ File $file is locked by $LOCKED_BY (PR author: $PR_AUTHOR)"
+                  ERRORS=$((ERRORS + 1))
+                else
+                  echo "⚠️ File $file is locked but author matches or no locked_by specified"
+                fi
+              fi
+            fi
+          done
+          
+          if [ $ERRORS -gt 0 ]; then
+            echo "❌ Cannot merge: $ERRORS file(s) are locked by other users"
+            exit 1
+          fi
+          
+          echo "✅ Edit lock check passed"
+
+  check-conventional-commits:
+    name: Validate Conventional Commits
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check commit messages
+        run: |
+          #!/bin/bash
+          set -e
+          
+          PATTERN="^docs\(sprint\):|^docs\(planning\):|^Merge"
+          ERRORS=0
+          
+          for commit in $(git log --format="%H" origin/${{ github.base_ref }}...HEAD); do
+            MSG=$(git log --format="%s" -n 1 $commit)
+            if ! echo "$MSG" | grep -qE "$PATTERN"; then
+              echo "❌ Invalid commit message: $MSG"
+              echo "   Expected: docs(sprint): <description> or docs(planning): <description>"
+              ERRORS=$((ERRORS + 1))
+            else
+              echo "✅ Valid: $MSG"
+            fi
+          done
+          
+          if [ $ERRORS -gt 0 ]; then
+            echo "❌ $ERRORS commit(s) do not follow conventional commit format"
+            exit 1
+          fi
+          
+          echo "✅ All commits follow conventional format"
+
+  check-pr-template:
+    name: Validate PR Description
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check required PR fields
+        run: |
+          #!/bin/bash
+          set -e
+          
+          PR_BODY="${{ github.event.pull_request.body }}"
+          ERRORS=0
+          
+          # Check required fields
+          REQUIRED_FIELDS=("sprint_id" "request_id" "actor_id" "scope_lock_change" "schema_valid" "conventional_commit_used" "edit_lock_respected")
+          
+          for field in "${REQUIRED_FIELDS[@]}"; do
+            if ! echo "$PR_BODY" | grep -qi "$field"; then
+              echo "❌ Missing required field: $field"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+          
+          if [ $ERRORS -gt 0 ]; then
+            echo "❌ PR description missing required fields. Please use the sprint PR template."
+            exit 1
+          fi
+          
+          echo "✅ PR description contains all required fields"
+
+  no-concurrent-edits:
+    name: Check for Concurrent Edit Conflicts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check open PRs for same files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          #!/bin/bash
+          set -e
+          
+          CURRENT_PR=${{ github.event.pull_request.number }}
+          ERRORS=0
+          
+          # Get files changed in this PR
+          CHANGED_FILES=$(gh pr view $CURRENT_PR --json files -q '.files[].path' | grep -E "^docs/(sprints|planning)/.*\.md$" || true)
+          
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "✅ No sprint/planning docs changed"
+            exit 0
+          fi
+          
+          # Check other open PRs
+          for file in $CHANGED_FILES; do
+            OTHER_PRS=$(gh pr list --state open --json number,files -q ".[] | select(.number != $CURRENT_PR) | select(.files[].path == \"$file\") | .number")
+            
+            if [ -n "$OTHER_PRS" ]; then
+              echo "❌ File $file is being edited in other open PR(s): $OTHER_PRS"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+          
+          if [ $ERRORS -gt 0 ]; then
+            echo "❌ Concurrent edit conflict detected. Please wait for other PRs to merge or coordinate."
+            exit 1
+          fi
+          
+          echo "✅ No concurrent edit conflicts"
+
+  generate-changelog:
+    name: Generate Sprint Changelog Entry
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Append to changelog
+        run: |
+          #!/bin/bash
+          
+          CHANGELOG="docs/sprints/CHANGELOG.md"
+          DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          AUTHOR="${{ github.event.pull_request.user.login }}"
+          
+          # Create changelog if doesn't exist
+          if [ ! -f "$CHANGELOG" ]; then
+            echo "# Sprint Documentation Changelog" > "$CHANGELOG"
+            echo "" >> "$CHANGELOG"
+          fi
+          
+          # Prepend new entry
+          ENTRY="## $DATE\n\n- **PR #$PR_NUMBER**: $PR_TITLE\n- **Author**: $AUTHOR\n- **Files changed**:\n"
+          
+          for file in $(git diff --name-only HEAD~1 | grep -E "^docs/(sprints|planning)/" || true); do
+            ENTRY="$ENTRY  - \`$file\`\n"
+          done
+          
+          ENTRY="$ENTRY\n---\n\n"
+          
+          # Prepend to changelog (after header)
+          sed -i "3i\\$ENTRY" "$CHANGELOG"
+          
+          echo "✅ Changelog updated"
