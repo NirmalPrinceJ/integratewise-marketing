@@ -49,12 +49,12 @@ export default function HomePage() {
 
             <div className="animate-slide-up animation-delay-400 mt-10 flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" className="h-12 px-8 text-base shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow" asChild>
-                <Link href="#">
+                <Link href="https://app.integratewise.com/signup">
                   Start Free <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="h-12 px-8 text-base group" asChild>
-                <Link href="#">
+                <Link href="https://app.integratewise.com/demo">
                   <Play className="mr-2 h-4 w-4 group-hover:text-primary transition-colors" />
                   Watch Demo
                 </Link>
@@ -339,7 +339,7 @@ export default function HomePage() {
               </p>
               <div className="mt-8">
                 <Button asChild>
-                  <Link href="#">
+                  <Link href="https://app.integratewise.com/connect/brain">
                     Connect Brain <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -672,12 +672,12 @@ export default function HomePage() {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" className="h-14 px-10 text-base shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all" asChild>
-                <Link href="#">
+                <Link href="https://app.integratewise.com/signup">
                   Start Free <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="h-14 px-10 text-base" asChild>
-                <Link href="#">
+                <Link href="https://app.integratewise.com/demo">
                   Book Demo
                 </Link>
               </Button>
