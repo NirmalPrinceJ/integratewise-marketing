@@ -1,0 +1,44 @@
+# IntegrateWise CODEOWNERS
+# 
+# These owners will be requested for review when changes are made to matching paths.
+# For sprint docs: Required review from Code Owners OR Maintainers (agents can propose)
+
+# Default owners for everything
+* @integratewise/maintainers
+
+# Documentation - General
+/docs/ @integratewise/docs-team @integratewise/maintainers
+
+# Sprint and Planning Documentation
+# Agents can propose changes; Code Owners or Maintainers must approve
+/docs/sprints/ @integratewise/maintainers @integratewise/product-leads
+/docs/planning/ @integratewise/maintainers @integratewise/product-leads
+
+# Core Platform Documentation
+/docs/api/ @integratewise/platform-team @integratewise/docs-team
+/docs/security/ @integratewise/security-team @integratewise/maintainers
+/docs/architecture/ @integratewise/platform-team @integratewise/maintainers
+
+# Spine Schemas (Critical - Requires Platform Team)
+/lib/spine/ @integratewise/platform-team @integratewise/maintainers
+/docs/spine/ @integratewise/platform-team @integratewise/docs-team
+
+# Webhooks and Examples
+/docs/webhooks/ @integratewise/platform-team @integratewise/docs-team
+/examples/ @integratewise/platform-team @integratewise/docs-team
+
+# Templates and Services
+/docs/templates/ @integratewise/product-leads @integratewise/docs-team
+/docs/services/ @integratewise/product-leads @integratewise/docs-team
+
+# CI/CD and Workflows
+/.github/ @integratewise/platform-team @integratewise/maintainers
+
+# Application Code
+/app/ @integratewise/frontend-team @integratewise/maintainers
+/components/ @integratewise/frontend-team @integratewise/maintainers
+/lib/ @integratewise/platform-team @integratewise/maintainers
+
+# Configuration
+/package.json @integratewise/maintainers
+/tsconfig.json @integratewise/platform-team
