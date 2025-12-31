@@ -85,11 +85,12 @@ export default function Navbar() {
             size="sm"
             className="hidden hover:bg-transparent sm:inline-flex"
             style={{ color: "#232323" }}
+            asChild
           >
-            Login
+            <Link href="https://app.integratewise.com/login">Login</Link>
           </Button>
-          <Button size="sm" className="hidden sm:inline-flex" style={{ backgroundColor: "#3F51B5", color: "#ffffff" }}>
-            Start Free
+          <Button size="sm" className="hidden sm:inline-flex" style={{ backgroundColor: "#3F51B5", color: "#ffffff" }} asChild>
+            <Link href="https://app.integratewise.com/signup">Start Free</Link>
           </Button>
 
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -169,11 +170,12 @@ export default function Navbar() {
                     variant="outline"
                     className="w-full bg-transparent"
                     style={{ color: "#232323", borderColor: "#E5E7EB" }}
+                    asChild
                   >
-                    Login
+                    <Link href="https://app.integratewise.com/login">Login</Link>
                   </Button>
-                  <Button className="w-full" style={{ backgroundColor: "#3F51B5", color: "#ffffff" }}>
-                    Start Free
+                  <Button className="w-full" style={{ backgroundColor: "#3F51B5", color: "#ffffff" }} asChild>
+                    <Link href="https://app.integratewise.com/signup">Start Free</Link>
                   </Button>
                 </div>
               </div>

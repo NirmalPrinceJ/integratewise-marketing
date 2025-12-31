@@ -1,0 +1,19 @@
+<svg width="100%" height="100%" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Orchestrate: Events and Webhooks</title>
+  <desc id="desc">Lightning and circular arrows indicating real-time orchestration</desc>
+  <rect width="1200" height="800" fill="#1E2A4A"/>
+  <circle cx="600" cy="400" r="180" fill="none" stroke="#3F51B5" stroke-width="6"/>
+  <circle cx="600" cy="400" r="210" fill="none" stroke="#3F51B577" stroke-dasharray="12 8"/>
+  <g fill="#F54476">
+    <polygon points="560,360 590,360 570,420 610,420 550,500 570,430 540,430"/>
+    <polygon points="650,320 680,320 660,380 700,380 640,460 660,390 630,390"/>
+  </g>
+  <g stroke="#F3F4F6" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M600 220 A180 180 0 0 1 780 400"/>
+    <polygon points="780,400 770,380 800,380" fill="#F3F4F6"/>
+    <path d="M420 400 A180 180 0 0 1 600 220"/>
+    <polygon points="600,220 580,230 580,200" fill="#F3F4F6"/>
+  </g>
+  <text x="60" y="80" fill="#F3F4F6" font-family="Inter" font-weight="600" font-size="36">Orchestrate: Events and Webhooks</text>
+  <text x="60" y="120" fill="#C7CBD6" font-family="Inter" font-size="20">Providers: Stripe, Razorpay, PhonePe, Cashfree, Slack</text>
+</svg>
