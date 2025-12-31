@@ -4,7 +4,13 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* IntegrateWise Brand Colors - Clean, Professional, Tech-forward */
+  /* IntegrateWise Brand Colors - Enterprise Integrations
+   * Primary: #3F51B5 (Indigo)
+   * Light: #F3F4F6
+   * Dark: #1E2A4A
+   * Accent: #F54476 (Pink)
+   * DO NOT USE: #0A1833
+   */
   --background: oklch(0.99 0 0); /* Off-white background */
   --foreground: oklch(0.15 0.01 264); /* Deep navy text */
   --card: oklch(1 0 0); /* Pure white cards */
