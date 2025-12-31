@@ -17,7 +17,8 @@
   --secondary-foreground: oklch(0.99 0 0);
   --muted: oklch(0.96 0.005 264);
   --muted-foreground: oklch(0.52 0.015 264);
-  --accent: oklch(0.65 0.24 142); /* Teal for highlights */
+  /* Blue-only palette: keep highlights in the blue family */
+  --accent: oklch(0.58 0.21 250); /* Same hue family as secondary */
   --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.99 0 0);
@@ -53,7 +54,7 @@
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.65 0.24 142);
+  --accent: oklch(0.58 0.21 250);
   --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);

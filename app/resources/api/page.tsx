@@ -92,7 +92,7 @@ export default function APIPage() {
                   <div className="flex flex-wrap items-center gap-4">
                     <span
                       className={`rounded px-2 py-1 font-mono text-xs font-medium ${
-                        item.method === "GET" ? "bg-blue-500/10 text-blue-500" : "bg-green-500/10 text-green-500"
+                        item.method === "GET" ? "bg-blue-500/10 text-blue-600" : "bg-indigo-500/10 text-indigo-600"
                       }`}
                     >
                       {item.method}

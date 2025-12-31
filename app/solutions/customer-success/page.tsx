@@ -21,13 +21,13 @@ export default function CustomerSuccessPage() {
             <h2 className="text-2xl font-bold mb-6">CS Views</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {[
-                { icon: Activity, title: "Health Scores", color: "indigo" },
-                { icon: DollarSign, title: "ARR + Renewals", color: "blue" },
-                { icon: AlertTriangle, title: "Churn Risk", color: "red" },
-                { icon: Shield, title: "Technical Health", color: "teal" },
+                { icon: Activity, title: "Health Scores", iconClassName: "text-indigo-600" },
+                { icon: DollarSign, title: "ARR + Renewals", iconClassName: "text-blue-600" },
+                { icon: AlertTriangle, title: "Churn Risk", iconClassName: "text-sky-600" },
+                { icon: Shield, title: "Technical Health", iconClassName: "text-indigo-600" },
               ].map((view) => (
                 <div key={view.title} className="border border-gray-200 rounded-xl p-6">
-                  <view.icon className={`w-8 h-8 text-${view.color}-600 mb-3`} />
+                  <view.icon className={`w-8 h-8 ${view.iconClassName} mb-3`} />
                   <h3 className="font-semibold">{view.title}</h3>
                 </div>
               ))}
