@@ -1,0 +1,29 @@
+{
+  "name": "IntegrateWise",
+  "short_name": "IntegrateWise",
+  "description": "The Productivity OS for Effortless Work - Connect your tools through AI agents",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3F51B5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/integrateway-favicon-16x16-v1.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/integrateway-logo-markonly-transparent-256px-v1.webp",
+      "sizes": "256x256",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/integrateway-appicon-1024-v1.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "business", "utilities"]
+}
