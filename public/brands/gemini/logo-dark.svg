@@ -1,0 +1,14 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M50 10C50 10 30 30 30 50s20 40 20 40" stroke="url(#gemini-grad-dark)" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M50 10C50 10 70 30 70 50s-20 40-20 40" stroke="url(#gemini-grad-dark-2)" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <defs>
+    <linearGradient id="gemini-grad-dark" x1="30" y1="10" x2="30" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8AB4F8"/>
+      <stop offset="1" stop-color="#81C995"/>
+    </linearGradient>
+    <linearGradient id="gemini-grad-dark-2" x1="70" y1="10" x2="70" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F28B82"/>
+      <stop offset="1" stop-color="#FDD663"/>
+    </linearGradient>
+  </defs>
+</svg>

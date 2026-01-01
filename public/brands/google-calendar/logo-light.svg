@@ -1,0 +1,7 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M75 10H25c-8.3 0-15 6.7-15 15v50c0 8.3 6.7 15 15 15h50c8.3 0 15-6.7 15-15V25c0-8.3-6.7-15-15-15z" fill="#fff" stroke="#4285F4" stroke-width="4"/>
+  <path d="M25 10h50c8.3 0 15 6.7 15 15v10H10V25c0-8.3 6.7-15 15-15z" fill="#4285F4"/>
+  <circle cx="30" cy="20" r="3" fill="#fff"/>
+  <circle cx="70" cy="20" r="3" fill="#fff"/>
+  <text x="50" y="65" font-family="Arial" font-size="32" font-weight="bold" fill="#4285F4" text-anchor="middle">31</text>
+</svg>

@@ -19,6 +19,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import BrandsGrid from "@/components/BrandsGrid"
 
 export default function HomePage() {
   return (
@@ -139,13 +140,9 @@ export default function HomePage() {
                 </CardContent>
               </Card>
 
-              <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground lg:justify-start">
-                <span className="font-medium text-foreground">Works with:</span>
-                {["Notion", "Coda", "Slack", "Google Workspace", "Salesforce", "Stripe", "ChatGPT"].map((tool) => (
-                  <span key={tool} className="rounded-full border border-border bg-background/60 px-3 py-1">
-                    {tool}
-                  </span>
-                ))}
+              <div className="mt-6 text-sm text-muted-foreground">
+                <span className="mb-3 block font-medium text-foreground lg:text-left text-center">Works with:</span>
+                <BrandsGrid heroOnly compact />
               </div>
             </div>
           </div>
@@ -264,7 +261,7 @@ export default function HomePage() {
       {/* Integrations Section */}
       <section id="integrations" className="border-b border-border bg-muted/20 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Connect what you already use</h2>
             <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
               No migrations. No rebuilding. You plug in the tools you rely on—once, securely.
@@ -273,18 +270,11 @@ export default function HomePage() {
               IntegrateWise handles the complexity in the background, so you don't have to restart your system every
               time your tool stack changes.
             </p>
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-8">
-              {["Notion", "Coda", "Slack", "Google Workspace", "Salesforce", "HubSpot", "Stripe", "ChatGPT"].map(
-                (tool) => (
-                  <div
-                    key={tool}
-                    className="flex h-16 w-32 items-center justify-center rounded-lg border border-border bg-card px-4"
-                  >
-                    <span className="text-sm font-medium text-muted-foreground">{tool}</span>
-                  </div>
-                ),
-              )}
-            </div>
+            <BrandsGrid
+              slugs={["notion", "coda", "slack", "google-workspace", "salesforce", "hubspot", "stripe", "chatgpt"]}
+              showMicrocopy
+              className="mt-12"
+            />
             <div className="mt-12">
               <Button variant="outline" asChild>
                 <Link href="/integrations">Explore Integrations</Link>

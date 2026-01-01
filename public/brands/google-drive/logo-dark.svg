@@ -1,0 +1,8 @@
+<svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M35 5l-30 52h30l30-52H35z" fill="#4D9EFF"/>
+  <path d="M65 5L35 57h30l30-52H65z" fill="#5BC67A"/>
+  <path d="M5 57l15 28h60l15-28H5z" fill="#FFD54F"/>
+  <path d="M35 57L20 85h30l15-28H35z" fill="#4CAF50"/>
+  <path d="M65 57l15 28h-30L35 57h30z" fill="#64B5F6"/>
+  <path d="M35 57h30l-15-28-15 28z" fill="#EF5350"/>
+</svg>

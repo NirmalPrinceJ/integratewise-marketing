@@ -8,6 +8,7 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 
 import { IntegrationMatrix } from "@/components/integrations/integration-matrix"
+import BrandsGrid, { BrandLogo } from "@/components/BrandsGrid"
 
 export default function IntegrationsPage() {
   return (
@@ -82,41 +83,49 @@ export default function IntegrationsPage() {
             {[
               {
                 name: "Notion",
+                slug: "notion",
                 desc: "Docs + databases. Spine normalizes structure and preserves context.",
                 badge: "Full Integration",
               },
               {
                 name: "Slack",
+                slug: "slack",
                 desc: "Events, notifications, workflows. Great for Brainstorming + agent triggers.",
                 badge: "Webhook-ready",
               },
               {
                 name: "Google Sheets",
+                slug: "google-sheets",
                 desc: "Structured data + analytics. Great for reporting + dashboards.",
                 badge: "Two-way sync",
               },
               {
                 name: "Google Calendar",
+                slug: "google-calendar",
                 desc: "Schedules and reminders. Ideal for follow-ups and planning agents.",
                 badge: "Full Integration",
               },
               {
                 name: "HubSpot",
+                slug: "hubspot",
                 desc: "Customer context, pipeline, renewals. Powers insights and specialized lenses.",
                 badge: "Full Integration",
               },
               {
                 name: "Gmail",
+                slug: "gmail",
                 desc: "Capture conversations, summaries, follow-ups.",
                 badge: "Full Integration",
               },
               {
                 name: "Stripe",
+                slug: "stripe",
                 desc: "Revenue signals, ARR patterns, subscription lifecycle.",
                 badge: "Full Integration",
               },
               {
                 name: "ChatGPT",
+                slug: "chatgpt",
                 desc: "Stream AI conversations for Second Brain ingestion.",
                 badge: "Webhook-ready",
               },
@@ -124,10 +133,8 @@ export default function IntegrationsPage() {
               <Card key={integration.name} className="border-border">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-background">
-                      <span className="text-sm font-semibold text-muted-foreground">
-                        {integration.name.slice(0, 2)}
-                      </span>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-background p-2">
+                      <BrandLogo slug={integration.slug} size="md" />
                     </div>
                     <Badge variant="secondary" className="text-xs">
                       {integration.badge}
@@ -167,37 +174,77 @@ export default function IntegrationsPage() {
             {[
               {
                 title: "Docs & Knowledge",
-                tools: ["Notion", "Coda", "Confluence", "Google Drive"],
+                tools: [
+                  { name: "Notion", slug: "notion" },
+                  { name: "Coda", slug: "coda" },
+                  { name: "Confluence", slug: "confluence" },
+                  { name: "Google Drive", slug: "google-drive" },
+                ],
               },
               {
                 title: "Communication",
-                tools: ["Slack", "Gmail", "Outlook", "Teams"],
+                tools: [
+                  { name: "Slack", slug: "slack" },
+                  { name: "Gmail", slug: "gmail" },
+                  { name: "Outlook", slug: "outlook" },
+                  { name: "Teams", slug: "microsoft-teams" },
+                ],
               },
               {
                 title: "Productivity",
-                tools: ["Calendar", "Todoist", "Asana", "Jira"],
+                tools: [
+                  { name: "Google Calendar", slug: "google-calendar" },
+                  { name: "Todoist", slug: "todoist" },
+                  { name: "Asana", slug: "asana" },
+                  { name: "Jira", slug: "jira" },
+                ],
               },
               {
                 title: "CRM / Revenue",
-                tools: ["HubSpot", "Salesforce", "Stripe", "Chargebee"],
+                tools: [
+                  { name: "HubSpot", slug: "hubspot" },
+                  { name: "Salesforce", slug: "salesforce" },
+                  { name: "Stripe", slug: "stripe" },
+                  { name: "Chargebee", slug: "chargebee" },
+                ],
               },
               {
                 title: "AI Tools (Brain ingestion)",
-                tools: ["ChatGPT", "Claude", "Gemini", "Grok", "Perplexity"],
+                tools: [
+                  { name: "ChatGPT", slug: "chatgpt" },
+                  { name: "Claude", slug: "claude" },
+                  { name: "Gemini", slug: "gemini" },
+                  { name: "Grok", slug: "grok" },
+                  { name: "Perplexity", slug: "perplexity" },
+                ],
               },
               {
                 title: "Data / Analytics",
-                tools: ["BigQuery", "Snowflake", "Postgres", "Sheets"],
+                tools: [
+                  { name: "Google Sheets", slug: "google-sheets" },
+                  { name: "BigQuery", slug: null },
+                  { name: "Snowflake", slug: null },
+                  { name: "Postgres", slug: null },
+                ],
               },
             ].map((category) => (
               <div key={category.title}>
                 <h3 className="text-xl font-semibold">{category.title}</h3>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   {category.tools.map((tool) => (
-                    <Card key={tool} className="border-border">
+                    <Card key={tool.name} className="border-border">
                       <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
-                          <span className="font-medium">{tool}</span>
+                        <div className="flex items-center gap-3">
+                          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-background p-1">
+                            {tool.slug ? (
+                              <BrandLogo slug={tool.slug} size="sm" />
+                            ) : (
+                              <span className="text-xs font-semibold text-muted-foreground">
+                                {tool.name.slice(0, 2)}
+                              </span>
+                            )}
+                          </div>
+                          <span className="flex-1 truncate font-medium">{tool.name}</span>
                           <Button variant="ghost" size="sm">
                             Connect
                           </Button>
