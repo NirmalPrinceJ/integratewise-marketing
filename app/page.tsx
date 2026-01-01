@@ -19,6 +19,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import BrandsGrid from "@/components/BrandsGrid"
 
 export default function HomePage() {
   return (
@@ -139,14 +140,7 @@ export default function HomePage() {
                 </CardContent>
               </Card>
 
-              <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground lg:justify-start">
-                <span className="font-medium text-foreground">Works with:</span>
-                {["Notion", "Coda", "Slack", "Google Workspace", "Salesforce", "Stripe", "ChatGPT"].map((tool) => (
-                  <span key={tool} className="rounded-full border border-border bg-background/60 px-3 py-1">
-                    {tool}
-                  </span>
-                ))}
-              </div>
+              <BrandsGrid />
             </div>
           </div>
         </div>
@@ -273,18 +267,7 @@ export default function HomePage() {
               IntegrateWise handles the complexity in the background, so you don't have to restart your system every
               time your tool stack changes.
             </p>
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-8">
-              {["Notion", "Coda", "Slack", "Google Workspace", "Salesforce", "HubSpot", "Stripe", "ChatGPT"].map(
-                (tool) => (
-                  <div
-                    key={tool}
-                    className="flex h-16 w-32 items-center justify-center rounded-lg border border-border bg-card px-4"
-                  >
-                    <span className="text-sm font-medium text-muted-foreground">{tool}</span>
-                  </div>
-                ),
-              )}
-            </div>
+            <BrandsGrid className="mt-12" />
             <div className="mt-12">
               <Button variant="outline" asChild>
                 <Link href="/integrations">Explore Integrations</Link>
