@@ -22,8 +22,32 @@ export default function Footer() {
             <h3 className="text-sm font-semibold">Product</h3>
             <ul className="mt-4 space-y-3">
               <li>
-                <Link href="/product" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                  Product Hub
+                <Link href="/ai-insights" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  AI Insights
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/ai-loader"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  AI Loader
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/templates"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Templates
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/agents"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  AI Agents
                 </Link>
               </li>
               <li>
@@ -40,14 +64,6 @@ export default function Footer() {
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Integrations
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/templates"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Templates
                 </Link>
               </li>
               <li>

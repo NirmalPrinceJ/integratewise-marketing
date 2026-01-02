@@ -39,7 +39,16 @@ export default function Navbar() {
                   <Link href="/platform">Platform</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/templates">Templates</Link>
+                  <Link href="/ai-insights">AI Insights</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/products/ai-loader">AI Loader</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/products/templates">Templates</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/products/agents">AI Agents</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link href="/integrations">Integrations</Link>
@@ -94,11 +103,25 @@ export default function Navbar() {
                   Platform
                 </Link>
                 <Link
+                  href="/ai-insights"
+                  className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  AI Insights
+                </Link>
+                <Link
+                  href="/products/ai-loader"
+                  className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  AI Loader
+                </Link>
+                <Link
                   href="/templates"
                   className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
                   onClick={() => setIsOpen(false)}
                 >
-                  Templates
+                  Template Forge
                 </Link>
                 <Link
                   href="/integrations"

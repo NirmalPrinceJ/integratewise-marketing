@@ -4,87 +4,87 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* IntegrateWise Brand Colors - Enterprise Integrations
-   * Primary: #3F51B5 (Indigo)
-   * Light: #F3F4F6
-   * Dark: #1E2A4A
-   * Accent: #F54476 (Pink)
-   * DO NOT USE: #0A1833
-   */
-  --background: oklch(0.99 0 0); /* Off-white background */
-  --foreground: oklch(0.15 0.01 264); /* Deep navy text */
-  --card: oklch(1 0 0); /* Pure white cards */
-  --card-foreground: oklch(0.15 0.01 264);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.01 264);
-  --primary: oklch(0.42 0.19 264); /* Rich indigo - primary brand */
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.58 0.21 250); /* Bright blue accent */
-  --secondary-foreground: oklch(0.99 0 0);
-  --muted: oklch(0.96 0.005 264);
-  --muted-foreground: oklch(0.52 0.015 264);
-  /* Blue-only palette: keep highlights in the blue family */
-  --accent: oklch(0.58 0.21 250); /* Same hue family as secondary */
-  --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.92 0.005 264);
-  --input: oklch(0.92 0.005 264);
-  --ring: oklch(0.42 0.19 264);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  /* SSOT v2 Design System (locked) */
+  --iw-dark-blue: #0a1833;
+  --iw-indigo: #3f51b5;
+  --iw-gold: #d4af37;
+  --iw-pastel-green: #8bc4b8;
+  --iw-teal: #44a069;
+  --iw-red: #e63946;
+  --iw-silver: #c0c0c0;
+  --iw-light: #f3f4f6;
+  --iw-white: #ffffff;
+
+  /* Semantic tokens (used by components) */
+  --background: var(--iw-white);
+  --foreground: var(--iw-dark-blue);
+  --card: var(--iw-white);
+  --card-foreground: var(--iw-dark-blue);
+  --popover: var(--iw-white);
+  --popover-foreground: var(--iw-dark-blue);
+  --primary: var(--iw-indigo);
+  --primary-foreground: var(--iw-white);
+  --secondary: var(--iw-pastel-green);
+  --secondary-foreground: var(--iw-dark-blue);
+  --muted: var(--iw-light);
+  --muted-foreground: color-mix(in srgb, var(--iw-dark-blue) 65%, var(--iw-white));
+  --accent: var(--iw-gold);
+  --accent-foreground: var(--iw-dark-blue);
+  --destructive: var(--iw-red);
+  --destructive-foreground: var(--iw-white);
+  --border: color-mix(in srgb, var(--iw-silver) 60%, var(--iw-white));
+  --input: color-mix(in srgb, var(--iw-silver) 60%, var(--iw-white));
+  --ring: var(--iw-indigo);
+  --chart-1: var(--iw-indigo);
+  --chart-2: var(--iw-pastel-green);
+  --chart-3: var(--iw-teal);
+  --chart-4: var(--iw-gold);
+  --chart-5: var(--iw-red);
   --radius: 0.75rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.42 0.19 264);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: var(--iw-white);
+  --sidebar-foreground: var(--iw-dark-blue);
+  --sidebar-primary: var(--iw-indigo);
+  --sidebar-primary-foreground: var(--iw-white);
+  --sidebar-accent: var(--iw-light);
+  --sidebar-accent-foreground: var(--iw-dark-blue);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--iw-indigo);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.58 0.21 250);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.58 0.21 250);
-  --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: var(--iw-dark-blue);
+  --foreground: var(--iw-white);
+  --card: color-mix(in srgb, var(--iw-dark-blue) 92%, var(--iw-white));
+  --card-foreground: var(--iw-white);
+  --popover: color-mix(in srgb, var(--iw-dark-blue) 92%, var(--iw-white));
+  --popover-foreground: var(--iw-white);
+  --primary: var(--iw-indigo);
+  --primary-foreground: var(--iw-white);
+  --secondary: var(--iw-pastel-green);
+  --secondary-foreground: var(--iw-dark-blue);
+  --muted: color-mix(in srgb, var(--iw-dark-blue) 85%, var(--iw-white));
+  --muted-foreground: color-mix(in srgb, var(--iw-white) 70%, var(--iw-silver));
+  --accent: var(--iw-gold);
+  --accent-foreground: var(--iw-dark-blue);
+  --destructive: var(--iw-red);
+  --destructive-foreground: var(--iw-white);
+  --border: color-mix(in srgb, var(--iw-silver) 30%, var(--iw-dark-blue));
+  --input: color-mix(in srgb, var(--iw-silver) 30%, var(--iw-dark-blue));
+  --ring: var(--iw-indigo);
+  --sidebar: color-mix(in srgb, var(--iw-dark-blue) 92%, var(--iw-white));
+  --sidebar-foreground: var(--iw-white);
+  --sidebar-primary: var(--iw-indigo);
+  --sidebar-primary-foreground: var(--iw-white);
+  --sidebar-accent: var(--muted);
+  --sidebar-accent-foreground: var(--iw-white);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--iw-indigo);
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

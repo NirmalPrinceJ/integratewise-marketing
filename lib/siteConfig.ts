@@ -1,22 +1,27 @@
 /**
  * IntegrateWise Brand Configuration
  * Centralized brand strings and metadata
- * 
- * Color tokens (DO NOT CHANGE):
- * --color-primary: #3F51B5 (Indigo)
- * --color-light: #F3F4F6 (Light gray)
- * --color-dark: #1E2A4A (Dark navy)
- * --color-pink: #F54476 (Accent pink)
- * 
- * DO NOT USE: #0A1833
+ *
+ * SSOT v2 design system colors (locked):
+ * - Dark Blue: #0A1833
+ * - Indigo: #3F51B5
+ * - Gold: #D4AF37
+ * - Pastel Green: #8BC4B8
+ * - Teal: #44A069
+ * - Red: #E63946
+ * - Silver: #C0C0C0
+ * - Light: #F3F4F6
+ * - White: #FFFFFF
  */
 
 export const siteConfig = {
   name: "IntegrateWise",
   shortName: "IntegrateWise",
-  tagline: "Enterprise integrations",
-  description: "IntegrateWise connects your tools through a shared structure, routes securely, and uses AI agents to turn your work into action—without migrations.",
-  longDescription: "The AI Agents Platform for Effortless Work. IntegrateWise sits on top of your existing tools—Notion, Coda, Slack, email, calendars, CRMs, billing tools, and AI apps—providing a unified structure and intelligent automation.",
+  tagline: "The Automation Infrastructure for Modern Work",
+  description:
+    "IntegrateWise is the Universal AI OS: persona-aware views, BYOM + BYOT, and a shared Spine that turns scattered work into structured output—securely and at scale.",
+  longDescription:
+    "IntegrateWise is the Universal AI OS for modern work. A shared Spine preserves meaning, persona-aware views adapt to you, and BYOM + BYOT let you choose models and templates. Start with AI Insights, then expand into Loader, Templates, and Agents.",
   
   // URLs
   url: "https://integratewise.co",
@@ -49,14 +54,17 @@ export const siteConfig = {
   // SEO
   keywords: [
     "IntegrateWise",
-    "enterprise integrations",
+    "Universal AI OS",
+    "automation infrastructure",
+    "persona-aware views",
+    "AI Insights",
+    "pattern recognition",
+    "BYOM",
+    "BYOT",
+    "AI Loader",
+    "templates",
     "AI agents",
-    "workflow automation",
-    "productivity OS",
-    "Notion integration",
-    "Slack integration",
-    "CRM integration",
-    "API platform",
+    "Render universal",
   ],
 } as const
 
