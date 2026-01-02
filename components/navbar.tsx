@@ -27,6 +27,7 @@ export default function Navbar() {
             <span className="text-lg font-semibold">{siteConfig.name}</span>
           </Link>
 
+          {/* SSOT v2 Navigation */}
           <div className="hidden items-center gap-1 lg:flex">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -39,43 +40,65 @@ export default function Navbar() {
                   <Link href="/platform">Platform</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
+                  <Link href="/products/ai-loader">AI Loader</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
                   <Link href="/templates">Templates</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/integrations">Integrations</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/solutions">Solutions</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/services">Services</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/security">Security</Link>
+                  <Link href="/products/agents">Agents</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="/ai-insights">AI Insights</Link>
+            </Button>
+
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="/templates">Templates</Link>
+            </Button>
+
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="/integrations">Integrations</Link>
+            </Button>
 
             <Button variant="ghost" size="sm" asChild>
               <Link href="/pricing">Pricing</Link>
             </Button>
 
             <Button variant="ghost" size="sm" asChild>
-              <Link href="/docs">Docs</Link>
+              <Link href="/services">Services</Link>
             </Button>
 
             <Button variant="ghost" size="sm" asChild>
-              <Link href="/company/contact">Contact</Link>
+              <Link href="/security">Security</Link>
             </Button>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="gap-1">
+                  Company <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <DropdownMenuItem asChild>
+                  <Link href="/company/about">About</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/company/contact">Contact</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/company/careers">Careers</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="sm" asChild className="hidden sm:inline-flex">
-            <Link href="/docs">Docs</Link>
-          </Button>
           <Button size="sm" asChild className="hidden sm:inline-flex">
-            <Link href="/pricing">Start Free</Link>
+            <Link href="/ai-insights">Try AI Insights Free</Link>
           </Button>
 
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -87,11 +110,25 @@ export default function Navbar() {
             <SheetContent side="right" className="w-80 lg:hidden">
               <div className="flex flex-col gap-4 py-8">
                 <Link
+                  href="/ai-insights"
+                  className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  AI Insights
+                </Link>
+                <Link
                   href="/platform"
                   className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
                   onClick={() => setIsOpen(false)}
                 >
                   Platform
+                </Link>
+                <Link
+                  href="/products/ai-loader"
+                  className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  AI Loader
                 </Link>
                 <Link
                   href="/templates"
@@ -101,6 +138,13 @@ export default function Navbar() {
                   Templates
                 </Link>
                 <Link
+                  href="/products/agents"
+                  className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Agents
+                </Link>
+                <Link
                   href="/integrations"
                   className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
                   onClick={() => setIsOpen(false)}
@@ -108,11 +152,11 @@ export default function Navbar() {
                   Integrations
                 </Link>
                 <Link
-                  href="/solutions"
+                  href="/pricing"
                   className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
                   onClick={() => setIsOpen(false)}
                 >
-                  Solutions
+                  Pricing
                 </Link>
                 <Link
                   href="/services"
@@ -129,18 +173,11 @@ export default function Navbar() {
                   Security
                 </Link>
                 <Link
-                  href="/docs"
+                  href="/company/about"
                   className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
                   onClick={() => setIsOpen(false)}
                 >
-                  Docs
-                </Link>
-                <Link
-                  href="/pricing"
-                  className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Pricing
+                  About
                 </Link>
                 <Link
                   href="/company/contact"
@@ -150,14 +187,9 @@ export default function Navbar() {
                   Contact
                 </Link>
                 <div className="mt-4 flex flex-col gap-2 px-4">
-                  <Button variant="outline" className="w-full bg-transparent" asChild>
-                    <Link href="/docs" onClick={() => setIsOpen(false)}>
-                      Docs
-                    </Link>
-                  </Button>
                   <Button className="w-full" asChild>
-                    <Link href="/pricing" onClick={() => setIsOpen(false)}>
-                      Start Free
+                    <Link href="/ai-insights" onClick={() => setIsOpen(false)}>
+                      Try AI Insights Free
                     </Link>
                   </Button>
                 </div>
