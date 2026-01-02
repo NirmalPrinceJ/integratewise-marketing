@@ -1,14 +1,29 @@
-// CMS Client - Unified interface for both Sanity and Notion
-
 import { sanity } from "./adapters/sanity"
 import { notion } from "./adapters/notion"
 import type { CMSProvider, BlogPost, ChangelogEntry, DocPage, CaseStudy } from "./types"
 
 class CMSClient {
-  private provider: CMSProvider = "sanity" // Default to Sanity
+  private provider: CMSProvider
+
+  constructor() {
+    const notionToken = process.env.NOTION_TOKEN || process.env.NOTION_API_KEY
+    const sanityProjectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+
+    if (notionToken) {
+      this.provider = "notion"
+      console.log("[v0] CMS: Using Notion as content provider")
+    } else if (sanityProjectId) {
+      this.provider = "sanity"
+      console.log("[v0] CMS: Using Sanity as content provider")
+    } else {
+      this.provider = "sanity" // Default fallback
+      console.warn("[v0] CMS: No provider configured, defaulting to Sanity")
+    }
+  }
 
   setProvider(provider: CMSProvider) {
     this.provider = provider
+    console.log(`[v0] CMS: Switched to ${provider}`)
   }
 
   getProvider(): CMSProvider {
