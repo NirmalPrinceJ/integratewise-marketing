@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { cms } from "@/lib/cms"
+import { CloudinaryImage } from "@/components/media/CloudinaryImage"
 
 interface BlogPostPageProps {
   params: {
@@ -66,6 +67,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               )}
             </div>
           </header>
+
+          {post.coverImagePublicId && (
+            <div className="mt-12">
+              <CloudinaryImage
+                publicId={post.coverImagePublicId}
+                alt={post.title}
+                width={1200}
+                height={630}
+                className="w-full rounded-lg object-cover"
+                priority
+              />
+            </div>
+          )}
 
           {/* Article Content */}
           <div className="prose prose-lg prose-slate mt-12 max-w-none dark:prose-invert">

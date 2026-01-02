@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { cms } from "@/lib/cms"
+import { CloudinaryImage } from "@/components/media/CloudinaryImage"
 
 export default async function BlogPage() {
   const posts = await cms.getBlogPosts()
@@ -66,6 +67,17 @@ export default async function BlogPage() {
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {posts.map((post) => (
                 <Card key={post.slug} className="flex flex-col border-border transition-colors hover:border-primary">
+                  {post.coverImagePublicId && (
+                    <CloudinaryImage
+                      publicId={post.coverImagePublicId}
+                      alt={post.title}
+                      width={600}
+                      height={400}
+                      className="w-full rounded-t-lg object-cover"
+                      crop="fill"
+                      gravity="auto"
+                    />
+                  )}
                   <CardContent className="flex flex-1 flex-col p-6">
                     <div className="mb-4 inline-block w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
                       {post.category}

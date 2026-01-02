@@ -13,7 +13,8 @@ export interface BlogPost {
   publishedAt: string
   category: string
   tags: string[]
-  coverImage?: string
+  coverImage?: string // Can be Cloudinary public ID or full URL
+  coverImagePublicId?: string // Cloudinary public ID for transformations
   readTime?: number
 }
 
@@ -51,7 +52,8 @@ export interface CaseStudy {
   slug: string
   company: string
   industry: string
-  logo?: string
+  logo?: string // Can be Cloudinary public ID or full URL
+  logoPublicId?: string // Cloudinary public ID for transformations
   excerpt: string
   content: string
   results: {

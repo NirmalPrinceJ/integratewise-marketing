@@ -1,6 +1,6 @@
 # CMS Setup Guide
 
-IntegrateWise supports both **Sanity** and **Notion** as CMS providers.
+IntegrateWise supports both **Sanity** and **Notion** as CMS providers, with **Cloudinary** for media management.
 
 ## Notion Setup
 
@@ -24,6 +24,7 @@ Create four databases in Notion with the following properties:
 - **Read Time** (Number)
 - **Featured** (Checkbox)
 - **Status** (Status: Draft, Published)
+- **Cover Image Public ID** (Text) // New field for Cloudinary image
 
 #### Changelog Database
 - **Version** (Title)
@@ -49,6 +50,7 @@ Create four databases in Notion with the following properties:
 - **Logo** (Files)
 - **Published Date** (Date)
 - **Status** (Status: Draft, Published)
+- **Cover Image Public ID** (Text) // New field for Cloudinary image
 
 ### 3. Share Databases with Integration
 1. Open each database
@@ -62,6 +64,9 @@ NOTION_BLOG_DATABASE_ID=database_id_here
 NOTION_CHANGELOG_DATABASE_ID=database_id_here
 NOTION_DOCS_DATABASE_ID=database_id_here
 NOTION_CASE_STUDIES_DATABASE_ID=database_id_here
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 ```
 
 ## Sanity Setup
@@ -76,10 +81,99 @@ npm create sanity@latest
 NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
 NEXT_PUBLIC_SANITY_DATASET=production
 SANITY_API_TOKEN=your_api_token
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 ```
 
 ### 3. Define Schemas
 See `lib/cms/adapters/sanity.ts` for schema definitions.
+
+#### Example Schema Update for Blog
+```javascript
+{
+  name: 'blog',
+  type: 'document',
+  fields: [
+    // existing fields...
+    {
+      name: 'coverImagePublicId',
+      type: 'string',
+      title: 'Cloudinary Public ID'
+    }
+  ]
+}
+```
+
+## Cloudinary Setup
+
+### 1. Create Cloudinary Account
+1. Sign up at https://cloudinary.com
+2. Go to Dashboard → Settings → Access Keys
+3. Copy your Cloud Name, API Key, and API Secret
+
+### 2. Set Environment Variables
+```bash
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+```
+
+### 3. Upload Images
+Images can be uploaded to Cloudinary via:
+- Cloudinary Dashboard (Media Library)
+- Cloudinary Upload API (server-side)
+- Notion/Sanity CMS (store Cloudinary public IDs in content)
+
+### 4. Using Images in CMS
+
+#### In Notion:
+Store the Cloudinary public ID in a text field:
+```
+integratewise/blog/effortless-work-hero
+```
+
+#### In Sanity:
+Add Cloudinary public ID field to your schemas:
+```javascript
+{
+  name: 'coverImagePublicId',
+  type: 'string',
+  title: 'Cloudinary Public ID'
+}
+```
+
+### 5. Image Transformations
+The CloudinaryImage component automatically handles:
+- Responsive sizing
+- Format optimization (WebP, AVIF)
+- Quality optimization
+- Lazy loading
+- Error handling
+
+Example usage:
+```tsx
+<CloudinaryImage
+  publicId="integratewise/blog/my-image"
+  alt="Blog post cover"
+  width={1200}
+  height={630}
+  quality="auto"
+  format="auto"
+/>
+```
+
+## Image Organization
+
+Recommended folder structure in Cloudinary:
+```
+integratewise/
+  ├── blog/           # Blog post covers
+  ├── case-studies/   # Customer logos and images
+  ├── team/           # Team member photos
+  ├── products/       # Product screenshots
+  └── marketing/      # Marketing assets
+```
 
 ## Switching Providers
 

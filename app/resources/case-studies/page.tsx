@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { cms } from "@/lib/cms"
+import { CloudinaryImage } from "@/components/media/CloudinaryImage"
 
 export default async function CaseStudiesPage() {
   const caseStudies = await cms.getCaseStudies()
@@ -44,6 +45,18 @@ export default async function CaseStudiesPage() {
                   <CardContent className="p-8 lg:p-12">
                     <div className="grid gap-12 lg:grid-cols-2">
                       <div>
+                        {study.logoPublicId && (
+                          <div className="mb-6">
+                            <CloudinaryImage
+                              publicId={study.logoPublicId}
+                              alt={`${study.company} logo`}
+                              width={200}
+                              height={60}
+                              className="h-12 w-auto object-contain"
+                              crop="fit"
+                            />
+                          </div>
+                        )}
                         <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
                           {study.industry}
                         </div>
