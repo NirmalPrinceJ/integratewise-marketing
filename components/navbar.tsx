@@ -4,7 +4,13 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Menu } from "lucide-react"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu"
 import { useState } from "react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
@@ -32,18 +38,55 @@ export default function Navbar() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="gap-1 hover:bg-transparent" style={{ color: "#232323" }}>
-                  Products <ChevronDown className="h-4 w-4" />
+                  Product <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="bg-white">
+              <DropdownMenuContent align="start" className="w-56 bg-white">
                 <DropdownMenuItem asChild>
-                  <Link href="/platform" style={{ color: "#232323" }}>
-                    Platform
+                  <Link href="/product" style={{ color: "#232323" }}>
+                    Product Overview
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <Link href="/hubs/sales" style={{ color: "#232323" }}>
+                    Sales Hub
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/templates" style={{ color: "#232323" }}>
-                    Templates
+                  <Link href="/hubs/marketing" style={{ color: "#232323" }}>
+                    Marketing Hub
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/hubs/operations" style={{ color: "#232323" }}>
+                    Operations Hub
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/hubs/technology" style={{ color: "#232323" }}>
+                    Technology Hub
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/hubs/customer-success" style={{ color: "#232323" }}>
+                    Customer Success Hub
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/hubs/content" style={{ color: "#232323" }}>
+                    Content Hub
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/hubs/website" style={{ color: "#232323" }}>
+                    Website Hub
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <Link href="/agents" style={{ color: "#232323" }}>
+                    Agent Marketplace
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
@@ -51,19 +94,74 @@ export default function Navbar() {
                     Integrations
                   </Link>
                 </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="gap-1 hover:bg-transparent" style={{ color: "#232323" }}>
+                  Solutions <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-white">
                 <DropdownMenuItem asChild>
                   <Link href="/solutions" style={{ color: "#232323" }}>
-                    Solutions
+                    Overview
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/services" style={{ color: "#232323" }}>
-                    Services
+                  <Link href="/solutions/individuals" style={{ color: "#232323" }}>
+                    For Individuals
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/security" style={{ color: "#232323" }}>
-                    Security
+                  <Link href="/solutions/teams" style={{ color: "#232323" }}>
+                    For Teams
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/solutions/business-ops" style={{ color: "#232323" }}>
+                    For Business Ops
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/solutions/customer-success" style={{ color: "#232323" }}>
+                    For Customer Success
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="gap-1 hover:bg-transparent" style={{ color: "#232323" }}>
+                  Resources <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-white">
+                <DropdownMenuItem asChild>
+                  <Link href="/docs" style={{ color: "#232323" }}>
+                    Docs
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/docs/api" style={{ color: "#232323" }}>
+                    API Reference
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/resources/blog" style={{ color: "#232323" }}>
+                    Blog
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/resources/case-studies" style={{ color: "#232323" }}>
+                    Case Studies
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/resources/changelog" style={{ color: "#232323" }}>
+                    Changelog
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -74,7 +172,7 @@ export default function Navbar() {
             </Button>
 
             <Button variant="ghost" size="sm" asChild className="hover:bg-transparent" style={{ color: "#232323" }}>
-              <Link href="/contact">Contact</Link>
+              <Link href="/company/contact">Contact</Link>
             </Button>
           </div>
         </div>
@@ -89,9 +187,10 @@ export default function Navbar() {
             Login
           </Button>
           <Button size="sm" className="hidden sm:inline-flex" style={{ backgroundColor: "#3F51B5", color: "#ffffff" }}>
-            Start Free
+            Start Free Trial
           </Button>
 
+          {/* Mobile menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="sm" style={{ color: "#232323" }}>
@@ -101,65 +200,57 @@ export default function Navbar() {
             <SheetContent side="right" className="w-80 lg:hidden" style={{ backgroundColor: "#FAFAFA" }}>
               <div className="flex flex-col gap-4 py-8">
                 <Link
-                  href="/platform"
-                  className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
-                  style={{ color: "#232323", outlineColor: "#9CA3AF" }}
+                  href="/product"
+                  className="px-4 py-2 text-base font-medium"
+                  style={{ color: "#232323" }}
                   onClick={() => setIsOpen(false)}
                 >
-                  Platform
-                </Link>
-                <Link
-                  href="/templates"
-                  className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
-                  style={{ color: "#232323", outlineColor: "#9CA3AF" }}
-                  onClick={() => setIsOpen(false)}
-                >
-                  Templates
-                </Link>
-                <Link
-                  href="/integrations"
-                  className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
-                  style={{ color: "#232323", outlineColor: "#9CA3AF" }}
-                  onClick={() => setIsOpen(false)}
-                >
-                  Integrations
+                  Product
                 </Link>
                 <Link
                   href="/solutions"
-                  className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
-                  style={{ color: "#232323", outlineColor: "#9CA3AF" }}
+                  className="px-4 py-2 text-base font-medium"
+                  style={{ color: "#232323" }}
                   onClick={() => setIsOpen(false)}
                 >
                   Solutions
                 </Link>
                 <Link
-                  href="/services"
-                  className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
-                  style={{ color: "#232323", outlineColor: "#9CA3AF" }}
+                  href="/integrations"
+                  className="px-4 py-2 text-base font-medium"
+                  style={{ color: "#232323" }}
                   onClick={() => setIsOpen(false)}
                 >
-                  Services
+                  Integrations
                 </Link>
                 <Link
-                  href="/security"
-                  className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
-                  style={{ color: "#232323", outlineColor: "#9CA3AF" }}
+                  href="/agents"
+                  className="px-4 py-2 text-base font-medium"
+                  style={{ color: "#232323" }}
                   onClick={() => setIsOpen(false)}
                 >
-                  Security
+                  Agents
+                </Link>
+                <Link
+                  href="/docs"
+                  className="px-4 py-2 text-base font-medium"
+                  style={{ color: "#232323" }}
+                  onClick={() => setIsOpen(false)}
+                >
+                  Docs
                 </Link>
                 <Link
                   href="/pricing"
-                  className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
-                  style={{ color: "#232323", outlineColor: "#9CA3AF" }}
+                  className="px-4 py-2 text-base font-medium"
+                  style={{ color: "#232323" }}
                   onClick={() => setIsOpen(false)}
                 >
                   Pricing
                 </Link>
                 <Link
-                  href="/contact"
-                  className="px-4 py-2 text-base font-medium rounded-md focus:outline-none focus:ring-2"
-                  style={{ color: "#232323", outlineColor: "#9CA3AF" }}
+                  href="/company/contact"
+                  className="px-4 py-2 text-base font-medium"
+                  style={{ color: "#232323" }}
                   onClick={() => setIsOpen(false)}
                 >
                   Contact
@@ -173,7 +264,7 @@ export default function Navbar() {
                     Login
                   </Button>
                   <Button className="w-full" style={{ backgroundColor: "#3F51B5", color: "#ffffff" }}>
-                    Start Free
+                    Start Free Trial
                   </Button>
                 </div>
               </div>

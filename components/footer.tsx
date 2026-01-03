@@ -22,15 +22,52 @@ export default function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <Link href="/product" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                  Product Hub
+                  Product Overview
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/platform"
+                  href="/hubs/sales"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Platform
+                  Sales Hub
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/hubs/marketing"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Marketing Hub
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/hubs/operations"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Operations Hub
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/hubs/technology"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Technology Hub
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/hubs/customer-success"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Customer Success Hub
+                </Link>
+              </li>
+              <li>
+                <Link href="/agents" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  Agent Marketplace
                 </Link>
               </li>
               <li>
@@ -39,14 +76,6 @@ export default function Footer() {
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Integrations
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/templates"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Templates
                 </Link>
               </li>
               <li>
@@ -65,7 +94,7 @@ export default function Footer() {
                   href="/solutions/individuals"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Individuals
+                  For Individuals
                 </Link>
               </li>
               <li>
@@ -73,7 +102,7 @@ export default function Footer() {
                   href="/solutions/teams"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Teams
+                  For Teams
                 </Link>
               </li>
               <li>
@@ -81,7 +110,7 @@ export default function Footer() {
                   href="/solutions/business-ops"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Business Ops
+                  For Business Ops
                 </Link>
               </li>
               <li>
@@ -89,7 +118,7 @@ export default function Footer() {
                   href="/solutions/customer-success"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Customer Success
+                  For Customer Success
                 </Link>
               </li>
             </ul>
@@ -99,11 +128,24 @@ export default function Footer() {
             <h3 className="text-sm font-semibold">Resources</h3>
             <ul className="mt-4 space-y-3">
               <li>
+                <Link href="/docs" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  Docs
+                </Link>
+              </li>
+              <li>
                 <Link
-                  href="/resources/docs"
+                  href="/docs/api"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Docs
+                  API Reference
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/docs/developers"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Developer Docs
                 </Link>
               </li>
               <li>
@@ -116,22 +158,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/resources/changelog"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Changelog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/resources/api"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  API Reference
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/resources/case-studies"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
@@ -140,10 +166,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/resources/community"
+                  href="/resources/changelog"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Community
+                  Changelog
                 </Link>
               </li>
             </ul>
@@ -208,18 +234,18 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/company/contact"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/company/careers"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Careers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/company/contact"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Contact
                 </Link>
               </li>
               <li>
@@ -232,18 +258,28 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/security/privacy"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Privacy
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/security/compliance"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Compliance
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/security/privacy"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/support" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  Support
                 </Link>
               </li>
             </ul>
@@ -251,7 +287,23 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-border pt-8">
-          <p className="text-sm text-muted-foreground">© 2025 IntegrateWise. All rights reserved.</p>
+          <p className="text-sm font-medium">IntegrateWise AI Workspace — An AI Agents Production House</p>
+          <p className="mt-1 text-sm text-muted-foreground">Normalize Once. Render Anywhere.</p>
+          <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+            <p className="text-sm text-muted-foreground">
+              Website:{" "}
+              <a href="https://integratewise.ai" className="hover:text-foreground">
+                integratewise.ai
+              </a>
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Email:{" "}
+              <a href="mailto:connect@integratewise.co" className="hover:text-foreground">
+                connect@integratewise.co
+              </a>
+            </p>
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground">© 2026 IntegrateWise LLP. All rights reserved.</p>
         </div>
       </div>
     </footer>

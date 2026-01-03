@@ -1,12 +1,11 @@
-import { Suspense } from "react"
 import { getCurrentUser } from "@/lib/admin/auth"
 import { cms } from "@/lib/cms"
-import { Globe, FileText, ImageIcon, Settings, Plus, Eye, Edit, MoreHorizontal, RefreshCw } from "lucide-react"
+import { Globe, FileText, ImageIcon, Settings, Plus, Eye, Edit, MoreHorizontal, Search, RefreshCw } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { SearchInput } from "@/components/admin/search-input"
 
 const statusColors = {
   draft: "bg-gray-100 text-gray-700",
@@ -121,9 +120,10 @@ export default async function WebsiteHubPage() {
               <CardTitle className="text-[#1E2A4A]">Recent Pages</CardTitle>
               <CardDescription>Latest page updates and drafts</CardDescription>
             </div>
-            <Suspense fallback={<div className="w-64 h-10 bg-gray-100 rounded animate-pulse" />}>
-              <SearchInput placeholder="Search pages..." />
-            </Suspense>
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9CA3AF]" />
+              <Input placeholder="Search pages..." className="pl-9 w-64 border-[#E5E7EB]" />
+            </div>
           </div>
         </CardHeader>
         <CardContent>

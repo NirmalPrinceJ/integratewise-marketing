@@ -1,12 +1,11 @@
-import { Suspense } from "react"
 import { getCurrentUser } from "@/lib/admin/auth"
 import { cms } from "@/lib/cms"
-import { FileText, BookOpen, ImageIcon, Plus, Eye, Edit, MoreHorizontal, Filter, Briefcase } from "lucide-react"
+import { FileText, BookOpen, ImageIcon, Plus, Eye, Edit, MoreHorizontal, Search, Filter, Briefcase } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { SearchInput } from "@/components/admin/search-input"
 
 const statusColors = {
   draft: "bg-gray-100 text-gray-700",
@@ -119,9 +118,10 @@ export default async function ContentHubPage() {
               <CardDescription>Latest content updates</CardDescription>
             </div>
             <div className="flex items-center gap-2">
-              <Suspense fallback={<div className="w-48 h-10 bg-gray-100 rounded animate-pulse" />}>
-                <SearchInput placeholder="Search..." className="w-48" />
-              </Suspense>
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9CA3AF]" />
+                <Input placeholder="Search..." className="pl-9 w-48 border-[#E5E7EB]" />
+              </div>
               <Button variant="outline" size="sm" className="border-[#E5E7EB] bg-transparent">
                 <Filter className="h-4 w-4 mr-2" />
                 Filter
