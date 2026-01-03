@@ -8,9 +8,9 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "IntegrateWise - The Productivity OS for Effortless Work",
+  title: "IntegrateWise AI Workspace — One workspace. All your tools. AI-powered.",
   description:
-    "IntegrateWise connects your tools through a shared structure, routes securely, and uses AI agents to turn your work into action—without migrations.",
+    "A shared AI workspace that connects your tools and organizes work with AI insights and governed outputs. Normalize once, render anywhere.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -30,6 +30,18 @@ export const metadata: Metadata = {
       },
     ],
     apple: "/images/integrateway-appicon-1024-v1.png",
+  },
+  openGraph: {
+    title: "IntegrateWise AI Workspace — One workspace. All your tools. AI-powered.",
+    description:
+      "A shared AI workspace that connects your tools and organizes work with AI insights and governed outputs.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IntegrateWise AI Workspace — One workspace. All your tools. AI-powered.",
+    description:
+      "A shared AI workspace that connects your tools and organizes work with AI insights and governed outputs.",
   },
 }
 

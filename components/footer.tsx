@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mb-8 flex items-center gap-2">
+        <div className="mb-8 flex items-center gap-3">
           <Image
             src="/images/integrateway-logo-markonly-transparent-indigo-v1.svg"
             alt="IntegrateWise Logo"
@@ -13,7 +13,10 @@ export default function Footer() {
             height={32}
             className="h-8 w-8"
           />
-          <span className="text-lg font-semibold">IntegrateWise</span>
+          <div>
+            <span className="text-lg font-semibold">IntegrateWise</span>
+            <p className="text-xs text-muted-foreground">AI Workspace</p>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
@@ -22,52 +25,15 @@ export default function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <Link href="/product" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                  Product Overview
+                  Product Hub
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/hubs/sales"
+                  href="/platform"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Sales Hub
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/hubs/marketing"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Marketing Hub
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/hubs/operations"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Operations Hub
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/hubs/technology"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Technology Hub
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/hubs/customer-success"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Customer Success Hub
-                </Link>
-              </li>
-              <li>
-                <Link href="/agents" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                  Agent Marketplace
+                  Platform
                 </Link>
               </li>
               <li>
@@ -76,6 +42,14 @@ export default function Footer() {
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Integrations
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/templates"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Templates
                 </Link>
               </li>
               <li>
@@ -94,7 +68,7 @@ export default function Footer() {
                   href="/solutions/individuals"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  For Individuals
+                  Individuals
                 </Link>
               </li>
               <li>
@@ -102,7 +76,7 @@ export default function Footer() {
                   href="/solutions/teams"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  For Teams
+                  Teams
                 </Link>
               </li>
               <li>
@@ -110,7 +84,7 @@ export default function Footer() {
                   href="/solutions/business-ops"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  For Business Ops
+                  Business Ops
                 </Link>
               </li>
               <li>
@@ -118,7 +92,7 @@ export default function Footer() {
                   href="/solutions/customer-success"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  For Customer Success
+                  Customer Success
                 </Link>
               </li>
             </ul>
@@ -128,24 +102,11 @@ export default function Footer() {
             <h3 className="text-sm font-semibold">Resources</h3>
             <ul className="mt-4 space-y-3">
               <li>
-                <Link href="/docs" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                <Link
+                  href="/resources/docs"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
                   Docs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/docs/api"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  API Reference
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/docs/developers"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Developer Docs
                 </Link>
               </li>
               <li>
@@ -158,6 +119,22 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/resources/changelog"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Changelog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/resources/api"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  API Reference
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/resources/case-studies"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
@@ -166,10 +143,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/resources/changelog"
+                  href="/resources/community"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Changelog
+                  Community
                 </Link>
               </li>
             </ul>
@@ -234,18 +211,18 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/company/careers"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/company/contact"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/company/careers"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Careers
                 </Link>
               </li>
               <li>
@@ -258,28 +235,18 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/security/compliance"
+                  href="/security/privacy"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Compliance
+                  Privacy
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/security/privacy"
+                  href="/security/compliance"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link href="/support" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                  Support
+                  Compliance
                 </Link>
               </li>
             </ul>
@@ -287,23 +254,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-border pt-8">
-          <p className="text-sm font-medium">IntegrateWise AI Workspace — An AI Agents Production House</p>
-          <p className="mt-1 text-sm text-muted-foreground">Normalize Once. Render Anywhere.</p>
-          <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
-            <p className="text-sm text-muted-foreground">
-              Website:{" "}
-              <a href="https://integratewise.ai" className="hover:text-foreground">
-                integratewise.ai
-              </a>
-            </p>
-            <p className="text-sm text-muted-foreground">
-              Email:{" "}
-              <a href="mailto:connect@integratewise.co" className="hover:text-foreground">
-                connect@integratewise.co
-              </a>
-            </p>
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+            <p className="text-sm text-muted-foreground">© 2025 IntegrateWise. All rights reserved.</p>
+            <p className="text-sm font-medium text-muted-foreground">Normalize Once. Render Anywhere.</p>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground">© 2026 IntegrateWise LLP. All rights reserved.</p>
         </div>
       </div>
     </footer>
