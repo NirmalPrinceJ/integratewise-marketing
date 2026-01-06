@@ -1,8 +1,9 @@
 import type React from "react"
-import type { Metadata } from "next/config"
+import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import { siteConfig } from "@/lib/siteConfig"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -15,21 +16,32 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/images/integrateway-favicon-16x16-v1.png",
-        sizes: "16x16",
-        type: "image/png",
+        url: "/brand/logo.svg",
+        width: 1200,
+        height: 630,
+        alt: siteConfig.logo.alt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} - ${siteConfig.tagline}`,
+    description: siteConfig.description,
+    creator: siteConfig.social.twitter,
+    images: ["/brand/logo.svg"],
+  },
+  icons: {
+    icon: [
+      {
+        url: "/favicon.svg",
+        type: "image/svg+xml",
       },
       {
-        url: "/images/integrateway-logo-markonly-transparent-256px-v1.webp",
-        sizes: "256x256",
-        type: "image/webp",
-      },
-      {
-        url: "/images/integrateway-logo-markonly-transparent-indigo-v1.svg",
+        url: "/brand/logo-mark.svg",
         type: "image/svg+xml",
       },
     ],
-    apple: "/images/integrateway-appicon-1024-v1.png",
+    apple: "/apple-icon.png",
   },
   openGraph: {
     title: "IntegrateWise AI Workspace — One workspace. All your tools. AI-powered.",
