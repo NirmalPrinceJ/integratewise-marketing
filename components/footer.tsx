@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mb-8 flex items-center gap-2">
+        <div className="mb-8 flex items-center gap-3">
           <Image
             src={siteConfig.logo.mark}
             alt={siteConfig.logo.alt}
@@ -14,7 +14,10 @@ export default function Footer() {
             height={32}
             className="h-8 w-8"
           />
-          <span className="text-lg font-semibold">{siteConfig.name}</span>
+          <div>
+            <span className="text-lg font-semibold">IntegrateWise</span>
+            <p className="text-xs text-muted-foreground">AI Workspace</p>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
@@ -257,7 +260,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-border pt-8">
-          <p className="text-sm text-muted-foreground">{siteConfig.copyright}</p>
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+            <p className="text-sm text-muted-foreground">© 2025 IntegrateWise. All rights reserved.</p>
+            <p className="text-sm font-medium text-muted-foreground">Normalize Once. Render Anywhere.</p>
+          </div>
         </div>
       </div>
     </footer>

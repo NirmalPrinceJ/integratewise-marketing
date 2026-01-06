@@ -4,8 +4,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import { cms } from "@/lib/cms"
+import { CloudinaryImage } from "@/components/media/CloudinaryImage"
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await cms.getBlogPosts()
+
   const categories = [
     "All Posts",
     "Productivity OS",
@@ -16,99 +20,6 @@ export default function BlogPage() {
     "Render",
     "Customer Success",
     "Security",
-  ]
-
-  const posts = [
-    {
-      title: "Effortless Work: Why Modern Tools Make Work Harder (and How to Fix It)",
-      excerpt:
-        "Modern work isn't hard because people aren't capable. It's hard because we're constantly fighting our tools. Here's how to break free from tool chaos.",
-      author: "IntegrateWise Team",
-      date: "Jan 15, 2025",
-      category: "Productivity OS",
-      slug: "effortless-work-why-tools-make-work-harder",
-    },
-    {
-      title: 'The Productivity OS: What It Is and Why "Another Tool" Won\'t Help',
-      excerpt:
-        "You don't need another app. You need a layer that connects what you already use. Learn what a Productivity OS really means.",
-      author: "Sarah Chen",
-      date: "Jan 12, 2025",
-      category: "Productivity OS",
-      slug: "productivity-os-what-it-is",
-    },
-    {
-      title: "Second Brain for AI Conversations: Stop Losing Your Best Thinking",
-      excerpt:
-        "Your best ideas happen in AI chats with ChatGPT, Claude, and Gemini. But they disappear when the conversation ends. Here's how to capture and compound your thinking.",
-      author: "Michael Torres",
-      date: "Jan 10, 2025",
-      category: "Second Brain",
-      slug: "second-brain-ai-conversations",
-    },
-    {
-      title: "Render Only vs Full Integration: How to Choose the Safest AI Setup",
-      excerpt:
-        "Two modes. One platform. Learn which setup protects your data while giving you the insights and automation you need.",
-      author: "Emily Rodriguez",
-      date: "Jan 8, 2025",
-      category: "Security",
-      slug: "render-only-vs-full-integration",
-    },
-    {
-      title: "AI Loader: Turning Messy Notes into Structured Workflows in One Click",
-      excerpt:
-        "Paste your meeting notes, project plans, or brainstorming dumps. AI Loader converts them into structured, actionable workflows instantly.",
-      author: "David Kim",
-      date: "Jan 5, 2025",
-      category: "Automation & Agents",
-      slug: "ai-loader-messy-notes-to-workflows",
-    },
-    {
-      title: "Spine + Hub Explained: The Architecture Behind Calm, Connected Work",
-      excerpt:
-        "How IntegrateWise uses two foundational layers—Spine for structure and Hub for control—to connect your tools without chaos.",
-      author: "Alex Johnson",
-      date: "Jan 3, 2025",
-      category: "Architecture",
-      slug: "spine-hub-architecture-explained",
-    },
-    {
-      title: "How Webhooks Turn Your Workflow into a Real-Time System (No More Manual Sync)",
-      excerpt:
-        "Stop copying and pasting between tools. Learn how webhooks stream events in real time to keep everything connected automatically.",
-      author: "Jordan Lee",
-      date: "Dec 30, 2024",
-      category: "Integrations",
-      slug: "webhooks-real-time-workflow",
-    },
-    {
-      title: "Why Context Matters More Than Automation (and How Agents Actually Help)",
-      excerpt:
-        "Automation without context creates chaos. Learn how AI agents use your unified data to make intelligent decisions—not just execute blind scripts.",
-      author: "Priya Patel",
-      date: "Dec 27, 2024",
-      category: "Automation & Agents",
-      slug: "context-matters-more-than-automation",
-    },
-    {
-      title: "Customer Success as a Lens: Health, ARR, Churn & Technical Health Without New Tools",
-      excerpt:
-        "CS teams don't need another platform. They need a lens that unifies what they already have. Explore the CS Intelligence Suite.",
-      author: "Marcus Williams",
-      date: "Dec 23, 2024",
-      category: "Customer Success",
-      slug: "customer-success-lens-explained",
-    },
-    {
-      title: "BYOM (Bring Your Own Model): How to Use Your Preferred AI Without Losing Shared Intelligence",
-      excerpt:
-        "Want to use your own AI model? Learn how BYOM lets you connect commercial or self-hosted models while keeping your team's shared context intact.",
-      author: "Nina Sharma",
-      date: "Dec 20, 2024",
-      category: "Architecture",
-      slug: "byom-bring-your-own-model",
-    },
   ]
 
   return (
@@ -143,41 +54,63 @@ export default function BlogPage() {
       {/* Blog Posts */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <Card key={post.slug} className="flex flex-col border-border transition-colors hover:border-primary">
-                <CardContent className="flex flex-1 flex-col p-6">
-                  <div className="mb-4 inline-block w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-                    {post.category}
-                  </div>
-                  <h3 className="text-balance text-xl font-bold leading-tight">
-                    <Link href={`/resources/blog/${post.slug}`} className="hover:text-primary">
-                      {post.title}
+          {posts.length === 0 ? (
+            <div className="text-center">
+              <p className="text-muted-foreground">
+                No blog posts found. Connect your Sanity or Notion CMS to manage content.
+              </p>
+              <Button className="mt-6" asChild>
+                <Link href="/docs">View Documentation</Link>
+              </Button>
+            </div>
+          ) : (
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {posts.map((post) => (
+                <Card key={post.slug} className="flex flex-col border-border transition-colors hover:border-primary">
+                  {post.coverImagePublicId && (
+                    <CloudinaryImage
+                      publicId={post.coverImagePublicId}
+                      alt={post.title}
+                      width={600}
+                      height={400}
+                      className="w-full rounded-t-lg object-cover"
+                      crop="fill"
+                      gravity="auto"
+                    />
+                  )}
+                  <CardContent className="flex flex-1 flex-col p-6">
+                    <div className="mb-4 inline-block w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                      {post.category}
+                    </div>
+                    <h3 className="text-balance text-xl font-bold leading-tight">
+                      <Link href={`/resources/blog/${post.slug}`} className="hover:text-primary">
+                        {post.title}
+                      </Link>
+                    </h3>
+                    <p className="mt-3 flex-1 text-pretty text-sm leading-relaxed text-muted-foreground">
+                      {post.excerpt}
+                    </p>
+                    <div className="mt-6 flex items-center gap-4 border-t border-border pt-4 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <User className="h-3 w-3" />
+                        <span>{post.author.name}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Calendar className="h-3 w-3" />
+                        <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
+                      </div>
+                    </div>
+                    <Link
+                      href={`/resources/blog/${post.slug}`}
+                      className="mt-4 inline-flex items-center text-sm font-medium text-primary hover:underline"
+                    >
+                      Read article <ArrowRight className="ml-1 h-3 w-3" />
                     </Link>
-                  </h3>
-                  <p className="mt-3 flex-1 text-pretty text-sm leading-relaxed text-muted-foreground">
-                    {post.excerpt}
-                  </p>
-                  <div className="mt-6 flex items-center gap-4 border-t border-border pt-4 text-xs text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <User className="h-3 w-3" />
-                      <span>{post.author}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-3 w-3" />
-                      <span>{post.date}</span>
-                    </div>
-                  </div>
-                  <Link
-                    href={`/resources/blog/${post.slug}`}
-                    className="mt-4 inline-flex items-center text-sm font-medium text-primary hover:underline"
-                  >
-                    Read article <ArrowRight className="ml-1 h-3 w-3" />
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

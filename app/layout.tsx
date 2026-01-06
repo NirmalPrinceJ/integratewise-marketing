@@ -9,24 +9,12 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: {
-    default: `${siteConfig.name} — The Automation Infrastructure for Modern Work`,
-    template: `%s | ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  keywords: [...siteConfig.keywords],
-  authors: [{ name: siteConfig.company }],
-  creator: siteConfig.company,
-  publisher: siteConfig.company,
-  metadataBase: new URL(siteConfig.url),
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: `${siteConfig.name} - ${siteConfig.tagline}`,
-    description: siteConfig.description,
-    images: [
+  title: "IntegrateWise AI Workspace — One workspace. All your tools. AI-powered.",
+  description:
+    "A shared AI workspace that connects your tools and organizes work with AI insights and governed outputs. Normalize once, render anywhere.",
+  generator: "v0.app",
+  icons: {
+    icon: [
       {
         url: "/brand/logo.svg",
         width: 1200,
@@ -55,7 +43,18 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-  manifest: "/site.webmanifest",
+  openGraph: {
+    title: "IntegrateWise AI Workspace — One workspace. All your tools. AI-powered.",
+    description:
+      "A shared AI workspace that connects your tools and organizes work with AI insights and governed outputs.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IntegrateWise AI Workspace — One workspace. All your tools. AI-powered.",
+    description:
+      "A shared AI workspace that connects your tools and organizes work with AI insights and governed outputs.",
+  },
 }
 
 export default function RootLayout({

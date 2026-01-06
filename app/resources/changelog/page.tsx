@@ -3,8 +3,11 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import { cms } from "@/lib/cms"
 
-export default function ChangelogPage() {
+export default async function ChangelogPage() {
+  const entries = await cms.getChangelogEntries()
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -33,123 +36,60 @@ export default function ChangelogPage() {
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="space-y-12">
-            {/* Version 0.9.0 - Template Entry */}
-            <Card>
-              <CardContent className="p-8">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h2 className="text-2xl font-bold">v0.9.0</h2>
-                    <p className="mt-1 text-sm text-muted-foreground">2025-01-15</p>
-                  </div>
-                  <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
-                    Latest
-                  </span>
-                </div>
-
-                <div className="mt-8 space-y-6">
-                  <div>
-                    <h3 className="font-semibold text-primary">Highlights</h3>
-                    <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                      <li>
-                        <strong>Added:</strong> CS Intelligence Suite with 4 integrated dashboards (Health Scores, ARR &
-                        Revenue, Churn Risk, Technical Health)
-                      </li>
-                      <li>
-                        <strong>Improved:</strong> DataSentinel now detects and masks PII in real-time across all data
-                        flows
-                      </li>
-                      <li>
-                        <strong>Fixed:</strong> Webhook signature validation edge cases for high-volume ingestion
-                      </li>
-                    </ul>
+            {entries.map((entry, index) => (
+              <Card key={entry.id}>
+                <CardContent className="p-8">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h2 className="text-2xl font-bold">v{entry.version}</h2>
+                      <p className="mt-1 text-sm text-muted-foreground">{new Date(entry.date).toLocaleDateString()}</p>
+                    </div>
+                    {index === 0 && (
+                      <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
+                        Latest
+                      </span>
+                    )}
                   </div>
 
-                  <div>
-                    <h3 className="font-semibold text-secondary">Integrations</h3>
-                    <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                      <li>
-                        <strong>Added:</strong> Coda, Airtable, Monday.com native connectors
-                      </li>
-                      <li>
-                        <strong>Improved:</strong> Salesforce sync performance (2x faster for large datasets)
-                      </li>
-                    </ul>
+                  <div className="mt-6">
+                    <p className="text-muted-foreground">{entry.description}</p>
                   </div>
 
-                  <div>
-                    <h3 className="font-semibold text-accent">Templates</h3>
-                    <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                      <li>
-                        <strong>Added:</strong> "CS Health Pulse" template with pre-configured health scoring logic
-                      </li>
-                      <li>
-                        <strong>Improved:</strong> Template versioning and rollback support
-                      </li>
-                    </ul>
-                  </div>
+                  <div className="mt-8 space-y-6">
+                    {entry.highlights && entry.highlights.length > 0 && (
+                      <div>
+                        <h3 className="font-semibold text-primary">Highlights</h3>
+                        <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                          {entry.highlights.map((highlight, idx) => (
+                            <li key={idx}>{highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
 
-                  <div>
-                    <h3 className="font-semibold">Brain + Agents</h3>
-                    <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                      <li>
-                        <strong>Added:</strong> Brain Agent can now auto-tag and categorize ingested conversations
-                      </li>
-                      <li>
-                        <strong>Improved:</strong> Agent orchestration with better retry logic and DLQ handling
-                      </li>
-                    </ul>
-                  </div>
+                    {/* Group changes by type */}
+                    {["feature", "improvement", "fix", "breaking"].map((type) => {
+                      const typeChanges = entry.changes.filter((c) => c.type === type)
+                      if (typeChanges.length === 0) return null
 
-                  <div>
-                    <h3 className="font-semibold">Security</h3>
-                    <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                      <li>
-                        <strong>Added:</strong> Audit logs for all Render actions
-                      </li>
-                      <li>
-                        <strong>Improved:</strong> RBAC with granular permission controls for workspaces
-                      </li>
-                    </ul>
+                      return (
+                        <div key={type}>
+                          <h3 className="font-semibold capitalize">{type}s</h3>
+                          <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                            {typeChanges.map((change, idx) => (
+                              <li key={idx}>
+                                <strong>{type === "feature" ? "Added" : type === "fix" ? "Fixed" : "Improved"}:</strong>{" "}
+                                {change.description}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )
+                    })}
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Version 0.8.0 */}
-            <Card>
-              <CardContent className="p-8">
-                <div>
-                  <h2 className="text-2xl font-bold">v0.8.0</h2>
-                  <p className="mt-1 text-sm text-muted-foreground">2024-12-01</p>
-                </div>
-
-                <div className="mt-8 space-y-6">
-                  <div>
-                    <h3 className="font-semibold text-primary">Highlights</h3>
-                    <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                      <li>
-                        <strong>Added:</strong> Render Only mode for compliance-first organizations
-                      </li>
-                      <li>
-                        <strong>Added:</strong> BYOM (Bring Your Own Model) support for custom AI models
-                      </li>
-                      <li>
-                        <strong>Improved:</strong> Second Brain ingestion now supports batch imports
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="font-semibold text-secondary">Integrations</h3>
-                    <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                      <li>
-                        <strong>Added:</strong> Claude, Gemini, Grok webhook support for AI chat ingestion
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            ))}
 
             {/* Coming Next */}
             <Card className="border-2 border-dashed border-primary/50">
