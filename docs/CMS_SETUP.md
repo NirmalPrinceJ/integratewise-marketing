@@ -58,7 +58,7 @@ Create four databases in Notion with the following properties:
 3. Add your integration
 
 ### 4. Set Environment Variables
-```bash
+\`\`\`bash
 NOTION_TOKEN=your_integration_token
 NOTION_BLOG_DATABASE_ID=database_id_here
 NOTION_CHANGELOG_DATABASE_ID=database_id_here
@@ -67,30 +67,30 @@ NOTION_CASE_STUDIES_DATABASE_ID=database_id_here
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
-```
+\`\`\`
 
 ## Sanity Setup
 
 ### 1. Create Sanity Project
-```bash
+\`\`\`bash
 npm create sanity@latest
-```
+\`\`\`
 
 ### 2. Set Environment Variables
-```bash
+\`\`\`bash
 NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
 NEXT_PUBLIC_SANITY_DATASET=production
 SANITY_API_TOKEN=your_api_token
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
-```
+\`\`\`
 
 ### 3. Define Schemas
 See `lib/cms/adapters/sanity.ts` for schema definitions.
 
 #### Example Schema Update for Blog
-```javascript
+\`\`\`javascript
 {
   name: 'blog',
   type: 'document',
@@ -103,7 +103,7 @@ See `lib/cms/adapters/sanity.ts` for schema definitions.
     }
   ]
 }
-```
+\`\`\`
 
 ## Cloudinary Setup
 
@@ -113,11 +113,11 @@ See `lib/cms/adapters/sanity.ts` for schema definitions.
 3. Copy your Cloud Name, API Key, and API Secret
 
 ### 2. Set Environment Variables
-```bash
+\`\`\`bash
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
-```
+\`\`\`
 
 ### 3. Upload Images
 Images can be uploaded to Cloudinary via:
@@ -129,19 +129,19 @@ Images can be uploaded to Cloudinary via:
 
 #### In Notion:
 Store the Cloudinary public ID in a text field:
-```
+\`\`\`
 integratewise/blog/effortless-work-hero
-```
+\`\`\`
 
 #### In Sanity:
 Add Cloudinary public ID field to your schemas:
-```javascript
+\`\`\`javascript
 {
   name: 'coverImagePublicId',
   type: 'string',
   title: 'Cloudinary Public ID'
 }
-```
+\`\`\`
 
 ### 5. Image Transformations
 The CloudinaryImage component automatically handles:
@@ -152,7 +152,7 @@ The CloudinaryImage component automatically handles:
 - Error handling
 
 Example usage:
-```tsx
+\`\`\`tsx
 <CloudinaryImage
   publicId="integratewise/blog/my-image"
   alt="Blog post cover"
@@ -161,19 +161,19 @@ Example usage:
   quality="auto"
   format="auto"
 />
-```
+\`\`\`
 
 ## Image Organization
 
 Recommended folder structure in Cloudinary:
-```
+\`\`\`
 integratewise/
   ├── blog/           # Blog post covers
   ├── case-studies/   # Customer logos and images
   ├── team/           # Team member photos
   ├── products/       # Product screenshots
   └── marketing/      # Marketing assets
-```
+\`\`\`
 
 ## Switching Providers
 
@@ -183,6 +183,6 @@ The CMS client auto-detects the provider based on environment variables:
 - Default → Sanity
 
 You can also manually switch:
-```typescript
+\`\`\`typescript
 import { cms } from '@/lib/cms'
 cms.setProvider('notion')

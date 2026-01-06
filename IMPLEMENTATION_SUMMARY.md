@@ -179,7 +179,7 @@ All 12 agents have been implemented with acceptance criteria met.
 
 ## File Structure
 
-```
+\`\`\`
 /workspace/
 ├── docs/
 │   ├── integrations/
@@ -236,7 +236,7 @@ All 12 agents have been implemented with acceptance criteria met.
 │       ├── bug-report.md
 │       └── feature-request.md
 └── README.md
-```
+\`\`\`
 
 ## Next Steps
 

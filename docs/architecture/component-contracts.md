@@ -7,7 +7,7 @@ Detailed input/output specifications for each IntegrateWise OS component.
 ### Authentication Adapter
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface Credentials {
   type: 'oauth2' | 'api_key' | 'service_account';
   token?: string;
@@ -15,10 +15,10 @@ interface Credentials {
   serviceAccountKey?: string;
   refreshToken?: string;
 }
-```
+\`\`\`
 
 **Output:**
-```typescript
+\`\`\`typescript
 interface AuthResult {
   authenticated: boolean;
   userId?: string;
@@ -27,7 +27,7 @@ interface AuthResult {
   expiresAt?: string; // ISO 8601
   error?: string;
 }
-```
+\`\`\`
 
 **Error Codes:**
 - `AUTH_INVALID_TOKEN`: Token expired or invalid
@@ -37,7 +37,7 @@ interface AuthResult {
 ### Policy Engine
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface PolicyRequest {
   userId: string;
   workspaceId: string;
@@ -46,17 +46,17 @@ interface PolicyRequest {
   action: string;
   context?: Record<string, unknown>;
 }
-```
+\`\`\`
 
 **Output:**
-```typescript
+\`\`\`typescript
 interface PolicyDecision {
   allowed: boolean;
   reason?: string;
   policyId?: string;
   conditions?: Record<string, unknown>;
 }
-```
+\`\`\`
 
 **Policy Types:**
 - RBAC: Role-based access control
@@ -67,17 +67,17 @@ interface PolicyDecision {
 ### Router
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface RoutedRequest {
   source: string; // connector identifier
   workspaceId: string;
   operation: 'read' | 'write' | 'webhook';
   mode?: 'full' | 'render_only';
 }
-```
+\`\`\`
 
 **Output:**
-```typescript
+\`\`\`typescript
 interface RoutingDirective {
   connector: string;
   mode: 'full' | 'render_only';
@@ -85,12 +85,12 @@ interface RoutingDirective {
   endpoint?: string;
   rateLimit?: RateLimit;
 }
-```
+\`\`\`
 
 ### Audit Sink
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface AuditEvent {
   workspace_id: string;
   actor_id: string;
@@ -103,7 +103,7 @@ interface AuditEvent {
   outcome: 'success' | 'failure' | 'denied';
   metadata?: Record<string, unknown>;
 }
-```
+\`\`\`
 
 **Output:**
 - Stored in audit log (retention: 7 years)
@@ -112,7 +112,7 @@ interface AuditEvent {
 ### Usage Meter
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface UsageEvent {
   workspace_id: string;
   resource_type: string;
@@ -120,39 +120,39 @@ interface UsageEvent {
   count: number;
   timestamp: string; // ISO 8601
 }
-```
+\`\`\`
 
 **Output:**
-```typescript
+\`\`\`typescript
 interface UsageStats {
   workspace_id: string;
   period: 'daily' | 'weekly' | 'monthly';
   totals: Record<string, number>;
   breakdown: UsageBreakdown[];
 }
-```
+\`\`\`
 
 ## Spine
 
 ### Entity Store
 
 **Input (Create):**
-```typescript
+\`\`\`typescript
 interface CreateRequest<T extends SpineEntity> {
   entity: Omit<T, 'id' | 'created_at' | 'updated_at'>;
 }
-```
+\`\`\`
 
 **Input (Update):**
-```typescript
+\`\`\`typescript
 interface UpdateRequest<T extends SpineEntity> {
   id: string;
   updates: Partial<Omit<T, 'id' | 'created_at'>>;
 }
-```
+\`\`\`
 
 **Input (Query):**
-```typescript
+\`\`\`typescript
 interface QueryFilters {
   entityType: string;
   filters?: {
@@ -169,7 +169,7 @@ interface QueryFilters {
     direction: 'asc' | 'desc';
   };
 }
-```
+\`\`\`
 
 **Output:**
 - Entity or array of entities
@@ -184,14 +184,14 @@ interface QueryFilters {
 ### Relationship Manager
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface LinkRequest {
   sourceId: string;
   targetId: string;
   relationshipType: string;
   metadata?: Record<string, unknown>;
 }
-```
+\`\`\`
 
 **Output:**
 - Success confirmation
@@ -202,17 +202,17 @@ interface LinkRequest {
 ### Source Parser
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface SourcePayload {
   connector: string;
   eventType: string;
   payload: unknown;
   headers: Record<string, string>;
 }
-```
+\`\`\`
 
 **Output:**
-```typescript
+\`\`\`typescript
 interface SourceData {
   connector: string;
   eventType: string;
@@ -223,12 +223,12 @@ interface SourceData {
     sourceTool: string;
   };
 }
-```
+\`\`\`
 
 ### Transform Mapper
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface MappingConfig {
   connector: string;
   sourceEntity: string;
@@ -236,7 +236,7 @@ interface MappingConfig {
   fieldMappings: FieldMapping[];
   transformations?: Transformation[];
 }
-```
+\`\`\`
 
 **Output:**
 - Normalized Spine entity
@@ -244,36 +244,36 @@ interface MappingConfig {
 ### Conflict Resolver
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface Conflict {
   existing: SpineEntity;
   incoming: SpineEntity;
   conflictType: 'duplicate' | 'update' | 'merge';
 }
-```
+\`\`\`
 
 **Output:**
-```typescript
+\`\`\`typescript
 interface ConflictResolution {
   strategy: 'keep_existing' | 'use_incoming' | 'merge';
   resolved: SpineEntity;
 }
-```
+\`\`\`
 
 ## Brain
 
 ### Memory Store
 
 **Input (Index):**
-```typescript
+\`\`\`typescript
 interface IndexRequest {
   entity: SpineEntity;
   embeddings?: number[];
 }
-```
+\`\`\`
 
 **Input (Search):**
-```typescript
+\`\`\`typescript
 interface SearchQuery {
   query: string;
   entityTypes?: string[];
@@ -281,26 +281,26 @@ interface SearchQuery {
   limit?: number;
   threshold?: number; // relevance threshold (0-1)
 }
-```
+\`\`\`
 
 **Output:**
-```typescript
+\`\`\`typescript
 interface SearchResult {
   entity: SpineEntity;
   relevanceScore: number; // 0-1
   matchedFields: string[];
 }
-```
+\`\`\`
 
 ### Linker
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface LinkRequest {
   entityIds: string[];
   threshold: number; // minimum linkage score (0-100)
 }
-```
+\`\`\`
 
 **Output:**
 - Linked entity graph
@@ -311,28 +311,28 @@ interface LinkRequest {
 ### Trigger Evaluator
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface TriggerEvent {
   type: 'webhook' | 'schedule' | 'manual';
   source: string;
   payload: unknown;
   context: AgentContext;
 }
-```
+\`\`\`
 
 **Output:**
-```typescript
+\`\`\`typescript
 interface TriggerResult {
   triggered: boolean;
   agentId?: string;
   confidence?: number; // 0-1
 }
-```
+\`\`\`
 
 ### Approval Flow
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface ApprovalRequest {
   agentId: string;
   action: AgentAction;
@@ -340,10 +340,10 @@ interface ApprovalRequest {
   workspaceId: string;
   priority?: 'low' | 'medium' | 'high' | 'urgent';
 }
-```
+\`\`\`
 
 **Output:**
-```typescript
+\`\`\`typescript
 interface ApprovalResult {
   approvalId: string;
   status: 'pending' | 'approved' | 'denied';
@@ -351,12 +351,12 @@ interface ApprovalResult {
   approvedAt?: string; // ISO 8601
   reason?: string;
 }
-```
+\`\`\`
 
 ### Context Retriever
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface ContextQuery {
   query: string;
   entityTypes?: string[];
@@ -364,23 +364,23 @@ interface ContextQuery {
   userId: string;
   limit?: number;
 }
-```
+\`\`\`
 
 **Output:**
-```typescript
+\`\`\`typescript
 interface AgentContext {
   entities: SpineEntity[];
   relationships: Relationship[];
   metadata: Record<string, unknown>;
 }
-```
+\`\`\`
 
 ## Render
 
 ### Template Engine
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface RenderParams {
   templateId: string;
   version?: string;
@@ -388,10 +388,10 @@ interface RenderParams {
   entityIds?: string[];
   options?: RenderOptions;
 }
-```
+\`\`\`
 
 **Output:**
-```typescript
+\`\`\`typescript
 interface RenderedContent {
   content: string; // markdown, HTML, etc.
   format: 'markdown' | 'html' | 'pdf' | 'json';
@@ -401,28 +401,28 @@ interface RenderedContent {
     renderedAt: string; // ISO 8601
   };
 }
-```
+\`\`\`
 
 ### Output Target
 
 **Input:**
-```typescript
+\`\`\`typescript
 interface OutputTarget {
   type: 'notion' | 'gmail' | 'file' | 'api';
   destination: string;
   options?: Record<string, unknown>;
 }
-```
+\`\`\`
 
 **Output:**
-```typescript
+\`\`\`typescript
 interface ExportResult {
   success: boolean;
   targetId?: string;
   url?: string;
   error?: string;
 }
-```
+\`\`\`
 
 ## See Also
 

@@ -157,7 +157,7 @@ IntegrateWise OS is built with security-first principles, implementing industry-
 
 ### Audit Event Schema
 
-```typescript
+\`\`\`typescript
 interface AuditEvent {
   workspace_id: string;
   actor_id: string;
@@ -170,7 +170,7 @@ interface AuditEvent {
   outcome: 'success' | 'failure' | 'denied';
   metadata?: Record<string, unknown>;
 }
-```
+\`\`\`
 
 ### Event Categories
 
@@ -251,13 +251,13 @@ interface AuditEvent {
 - `Permissions-Policy`: Restrict browser features
 
 **Example Configuration:**
-```
+\`\`\`
 Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'
 X-Frame-Options: DENY
 X-Content-Type-Options: nosniff
 Referrer-Policy: strict-origin-when-cross-origin
 Permissions-Policy: geolocation=(), microphone=(), camera=()
-```
+\`\`\`
 
 ## See Also
 

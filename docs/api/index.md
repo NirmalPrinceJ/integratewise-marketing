@@ -38,15 +38,15 @@ All list endpoints support:
 
 ### Example Query
 
-```
+\`\`\`
 GET /v1/tasks?limit=50&order=desc&filter[status][eq]=in_progress&filter[priority][in]=high,urgent
-```
+\`\`\`
 
 ## Error Model
 
 All errors follow this structure:
 
-```json
+\`\`\`json
 {
   "error": {
     "code": "ERROR_CODE",
@@ -57,7 +57,7 @@ All errors follow this structure:
     "request_id": "req_1234567890"
   }
 }
-```
+\`\`\`
 
 ### Error Codes
 
@@ -79,9 +79,9 @@ All errors follow this structure:
 
 #### List Tasks
 
-```
+\`\`\`
 GET /v1/tasks
-```
+\`\`\`
 
 **Query Parameters:**
 - `limit`, `cursor`, `order`
@@ -91,7 +91,7 @@ GET /v1/tasks
 - `filter[due_date][gte]`: Filter by due date
 
 **Response:**
-```json
+\`\`\`json
 {
   "data": [
     {
@@ -112,16 +112,16 @@ GET /v1/tasks
     "has_more": true
   }
 }
-```
+\`\`\`
 
 #### Get Task
 
-```
+\`\`\`
 GET /v1/tasks/{id}
-```
+\`\`\`
 
 **Response:**
-```json
+\`\`\`json
 {
   "data": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
@@ -136,16 +136,16 @@ GET /v1/tasks/{id}
     "updated_at": "2024-11-05T14:30:00Z"
   }
 }
-```
+\`\`\`
 
 #### Create Task
 
-```
+\`\`\`
 POST /v1/tasks
-```
+\`\`\`
 
 **Request Body:**
-```json
+\`\`\`json
 {
   "title": "New task",
   "description": "Task description",
@@ -156,10 +156,10 @@ POST /v1/tasks
   "source_tool": "api",
   "external_ref": "api-ref-123"
 }
-```
+\`\`\`
 
 **Response:**
-```json
+\`\`\`json
 {
   "data": {
     "id": "550e8400-e29b-41d4-a716-446655440001",
@@ -170,24 +170,24 @@ POST /v1/tasks
     "updated_at": "2024-11-01T10:00:00Z"
   }
 }
-```
+\`\`\`
 
 #### Update Task
 
-```
+\`\`\`
 PATCH /v1/tasks/{id}
-```
+\`\`\`
 
 **Request Body:**
-```json
+\`\`\`json
 {
   "status": "completed",
   "priority": "high"
 }
-```
+\`\`\`
 
 **Response:**
-```json
+\`\`\`json
 {
   "data": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
@@ -196,15 +196,15 @@ PATCH /v1/tasks/{id}
     "updated_at": "2024-11-05T15:00:00Z"
   }
 }
-```
+\`\`\`
 
 ### Notes
 
 #### List Notes
 
-```
+\`\`\`
 GET /v1/notes
-```
+\`\`\`
 
 **Query Parameters:**
 - `filter[tags][contains]`: Filter by tags
@@ -213,18 +213,18 @@ GET /v1/notes
 
 #### Get Note
 
-```
+\`\`\`
 GET /v1/notes/{id}
-```
+\`\`\`
 
 #### Create Note
 
-```
+\`\`\`
 POST /v1/notes
-```
+\`\`\`
 
 **Request Body:**
-```json
+\`\`\`json
 {
   "title": "Note title",
   "body_md": "# Markdown content",
@@ -233,15 +233,15 @@ POST /v1/notes
   "external_ref": "api-ref-123",
   "linked_entity_ids": ["550e8400-e29b-41d4-a716-446655440000"]
 }
-```
+\`\`\`
 
 ### Conversations
 
 #### List Conversations
 
-```
+\`\`\`
 GET /v1/conversations
-```
+\`\`\`
 
 **Query Parameters:**
 - `filter[source][eq]`: Filter by source (slack, gmail, chatgpt, etc.)
@@ -252,9 +252,9 @@ GET /v1/conversations
 
 #### List Plans
 
-```
+\`\`\`
 GET /v1/plans
-```
+\`\`\`
 
 **Query Parameters:**
 - `filter[status][eq]`: Filter by status
@@ -262,12 +262,12 @@ GET /v1/plans
 
 #### Get Plan with Milestones
 
-```
+\`\`\`
 GET /v1/plans/{id}?include=milestones
-```
+\`\`\`
 
 **Response:**
-```json
+\`\`\`json
 {
   "data": {
     "id": "880e8400-e29b-41d4-a716-446655440003",
@@ -286,18 +286,18 @@ GET /v1/plans/{id}?include=milestones
     "updated_at": "2024-11-05T15:00:00Z"
   }
 }
-```
+\`\`\`
 
 ### Spine Traversal
 
 #### Get Entity with Relationships
 
-```
+\`\`\`
 GET /v1/entities/{id}?include=relationships
-```
+\`\`\`
 
 **Response:**
-```json
+\`\`\`json
 {
   "data": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
@@ -320,13 +320,13 @@ GET /v1/entities/{id}?include=relationships
     }
   }
 }
-```
+\`\`\`
 
 #### Traverse Relationships
 
-```
+\`\`\`
 GET /v1/entities/{id}/relationships?type=linked_notes&depth=2
-```
+\`\`\`
 
 **Query Parameters:**
 - `type`: Relationship type to traverse
@@ -334,21 +334,21 @@ GET /v1/entities/{id}/relationships?type=linked_notes&depth=2
 
 **Example: Accounts → Subscriptions → Invoices**
 
-```
+\`\`\`
 GET /v1/entities/account-123/relationships?type=subscriptions&depth=2
 GET /v1/entities/subscription-456/relationships?type=invoices&depth=1
-```
+\`\`\`
 
 ## Agent Invocation
 
 ### Invoke Agent
 
-```
+\`\`\`
 POST /v1/agents/{agent_id}/invoke
-```
+\`\`\`
 
 **Request Body:**
-```json
+\`\`\`json
 {
   "input": {
     "query": "Create a plan for Q4 product launch",
@@ -363,10 +363,10 @@ POST /v1/agents/{agent_id}/invoke
     "approval_required": true
   }
 }
-```
+\`\`\`
 
 **Response:**
-```json
+\`\`\`json
 {
   "data": {
     "invocation_id": "inv_1234567890",
@@ -375,16 +375,16 @@ POST /v1/agents/{agent_id}/invoke
     "created_at": "2024-11-01T10:00:00Z"
   }
 }
-```
+\`\`\`
 
 ### Get Invocation Status
 
-```
+\`\`\`
 GET /v1/agents/invocations/{invocation_id}
-```
+\`\`\`
 
 **Response:**
-```json
+\`\`\`json
 {
   "data": {
     "invocation_id": "inv_1234567890",
@@ -398,7 +398,7 @@ GET /v1/agents/invocations/{invocation_id}
     "completed_at": "2024-11-01T10:05:00Z"
   }
 }
-```
+\`\`\`
 
 ### Agent Context Resolution
 
@@ -426,7 +426,7 @@ Agents automatically resolve context from:
 
 ### JavaScript/TypeScript
 
-```typescript
+\`\`\`typescript
 import { IntegrateWiseClient } from '@integratewise/sdk';
 
 const client = new IntegrateWiseClient({
@@ -472,11 +472,11 @@ const invocation = await client.agents.invoke('planning-agent', {
 
 // Check invocation status
 const status = await client.agents.getInvocationStatus(invocation.invocation_id);
-```
+\`\`\`
 
 ### Python
 
-```python
+\`\`\`python
 from integratewise import IntegrateWiseClient
 
 client = IntegrateWiseClient(
@@ -523,11 +523,11 @@ invocation = client.agents.invoke('planning-agent', {
 
 # Check invocation status
 status = client.agents.get_invocation_status(invocation.invocation_id)
-```
+\`\`\`
 
 ### cURL Examples
 
-```bash
+\`\`\`bash
 # List tasks
 curl -X GET "https://api.integratewise.co/v1/tasks?limit=50&filter[status][eq]=in_progress" \
   -H "Authorization: Bearer $TOKEN"
@@ -562,7 +562,7 @@ curl -X POST "https://api.integratewise.co/v1/agents/planning-agent/invoke" \
       "approval_required": true
     }
   }'
-```
+\`\`\`
 
 ## Rate Limits
 

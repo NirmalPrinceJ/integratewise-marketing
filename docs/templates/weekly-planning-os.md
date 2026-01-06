@@ -53,7 +53,7 @@ The Weekly Planning OS template automates weekly planning workflows by:
 ### Notion Database Row
 
 **Database Schema:**
-```json
+\`\`\`json
 {
   "columns": {
     "date": {
@@ -81,7 +81,7 @@ The Weekly Planning OS template automates weekly planning workflows by:
     }
   }
 }
-```
+\`\`\`
 
 **Computed Fields:**
 - `next_action_date`: Formula that adds 7 days to `date`
@@ -186,17 +186,17 @@ The Weekly Planning OS template automates weekly planning workflows by:
 ## Example Execution
 
 **Input:**
-```json
+\`\`\`json
 {
   "workspace_id": "workspace-123",
   "planning_day": "monday",
   "priority_threshold": "medium",
   "calendar_id": "calendar-abc"
 }
-```
+\`\`\`
 
 **Output:**
-```json
+\`\`\`json
 {
   "notion_row_id": "notion-row-xyz",
   "calendar_event_id": "event-123",
@@ -204,7 +204,7 @@ The Weekly Planning OS template automates weekly planning workflows by:
   "tasks_linked": 15,
   "execution_time": "2024-11-04T09:00:00Z"
 }
-```
+\`\`\`
 
 ## See Also
 

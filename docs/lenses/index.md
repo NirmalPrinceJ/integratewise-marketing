@@ -33,9 +33,9 @@ Lenses are opinionated views over Spine data that transform raw entities into do
 - `context_count`: Number of linked entities
 
 **Example Query:**
-```
+\`\`\`
 GET /v1/lenses/personal?user_id=user-123&filter[priority][in]=high,urgent
-```
+\`\`\`
 
 ### Work Lens
 
@@ -58,9 +58,9 @@ GET /v1/lenses/personal?user_id=user-123&filter[priority][in]=high,urgent
 - `blocked`: Boolean (has uncompleted dependencies)
 
 **Example Query:**
-```
+\`\`\`
 GET /v1/lenses/work?workspace_id=workspace-123&filter[sla_status][eq]=at_risk
-```
+\`\`\`
 
 ### Business Ops Lens
 
@@ -84,9 +84,9 @@ GET /v1/lenses/work?workspace_id=workspace-123&filter[sla_status][eq]=at_risk
 - Cohort retention
 
 **Example Query:**
-```
+\`\`\`
 GET /v1/lenses/business-ops?period=monthly&cohort_id=2024-Q1&aggregate=arr,churn_rate
-```
+\`\`\`
 
 ### CS Intelligence Lens
 
@@ -109,15 +109,15 @@ GET /v1/lenses/business-ops?period=monthly&cohort_id=2024-Q1&aggregate=arr,churn
 - `renewal_proximity`: Days until renewal
 
 **Example Query:**
-```
+\`\`\`
 GET /v1/lenses/cs-intelligence?filter[risk_flag][eq]=red&filter[health_score][lt]=40
-```
+\`\`\`
 
 ## CS Health Score Formula
 
 ### Formula
 
-```
+\`\`\`
 health_score = weighted_sum(
   normalize(usage) * 0.3,
   normalize(nps) * 0.2,
@@ -125,7 +125,7 @@ health_score = weighted_sum(
   normalize(renewal_proximity_inverse) * 0.15,
   normalize(engagement) * 0.15
 )
-```
+\`\`\`
 
 ### Components
 

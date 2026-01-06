@@ -15,7 +15,7 @@ Each connector implements a mapping function that transforms source tool data in
 ### Notion Page → Note
 
 **Source (Notion API):**
-```json
+\`\`\`json
 {
   "id": "abc123",
   "properties": {
@@ -25,10 +25,10 @@ Each connector implements a mapping function that transforms source tool data in
   "created_time": "2024-10-15T09:00:00Z",
   "last_edited_time": "2024-11-01T16:20:00Z"
 }
-```
+\`\`\`
 
 **Spine (Note):**
-```json
+\`\`\`json
 {
   "id": "660e8400-e29b-41d4-a716-446655440001",
   "title": "Product Strategy",
@@ -44,12 +44,12 @@ Each connector implements a mapping function that transforms source tool data in
     "notion_database_id": "db-xyz"
   }
 }
-```
+\`\`\`
 
 ### Notion Database Row → Task
 
 **Source (Notion API):**
-```json
+\`\`\`json
 {
   "id": "row-456",
   "properties": {
@@ -60,10 +60,10 @@ Each connector implements a mapping function that transforms source tool data in
     "Assignee": {"people": [{"id": "user-123"}]}
   }
 }
-```
+\`\`\`
 
 **Spine (Task):**
-```json
+\`\`\`json
 {
   "id": "550e8400-e29b-41d4-a716-446655440000",
   "title": "Review budget",
@@ -79,14 +79,14 @@ Each connector implements a mapping function that transforms source tool data in
     "notion_database_id": "db-xyz"
   }
 }
-```
+\`\`\`
 
 ## Slack → Spine
 
 ### Slack Message Thread → Conversation
 
 **Source (Slack API):**
-```json
+\`\`\`json
 {
   "channel": "C01234ABCD",
   "ts": "1698840000.123456",
@@ -95,10 +95,10 @@ Each connector implements a mapping function that transforms source tool data in
   "user": "U01234ABCD",
   "replies": 12
 }
-```
+\`\`\`
 
 **Spine (Conversation):**
-```json
+\`\`\`json
 {
   "id": "770e8400-e29b-41d4-a716-446655440002",
   "source": "slack",
@@ -113,14 +113,14 @@ Each connector implements a mapping function that transforms source tool data in
     "slack_workspace_id": "T01234ABCD"
   }
 }
-```
+\`\`\`
 
 ## HubSpot → Spine
 
 ### HubSpot Deal → Task (Business Ops Lens)
 
 **Source (HubSpot API):**
-```json
+\`\`\`json
 {
   "id": "deal-123",
   "properties": {
@@ -131,10 +131,10 @@ Each connector implements a mapping function that transforms source tool data in
     "hubspot_owner_id": "owner-456"
   }
 }
-```
+\`\`\`
 
 **Spine (Task):**
-```json
+\`\`\`json
 {
   "id": "550e8400-e29b-41d4-a716-446655440000",
   "title": "Enterprise Contract Q4",
@@ -153,7 +153,7 @@ Each connector implements a mapping function that transforms source tool data in
     "owner_id": "owner-456"
   }
 }
-```
+\`\`\`
 
 **Mapping Logic:**
 - `dealname` → `title`
@@ -167,7 +167,7 @@ Each connector implements a mapping function that transforms source tool data in
 ### Gmail Message → Conversation
 
 **Source (Gmail API):**
-```json
+\`\`\`json
 {
   "id": "msg-789",
   "threadId": "thread-abc",
@@ -181,10 +181,10 @@ Each connector implements a mapping function that transforms source tool data in
     ]
   }
 }
-```
+\`\`\`
 
 **Spine (Conversation):**
-```json
+\`\`\`json
 {
   "id": "770e8400-e29b-41d4-a716-446655440002",
   "source": "gmail",
@@ -202,7 +202,7 @@ Each connector implements a mapping function that transforms source tool data in
     "received_at": "2024-11-01T10:00:00Z"
   }
 }
-```
+\`\`\`
 
 **Mapping Logic:**
 - `threadId` → `metadata.thread_id`
@@ -215,7 +215,7 @@ Each connector implements a mapping function that transforms source tool data in
 ### Stripe Subscription → HealthMetric (CS Lens)
 
 **Source (Stripe API):**
-```json
+\`\`\`json
 {
   "id": "sub_abc123",
   "customer": "cus_xyz789",
@@ -230,10 +230,10 @@ Each connector implements a mapping function that transforms source tool data in
     }]
   }
 }
-```
+\`\`\`
 
 **Spine (HealthMetric):**
-```json
+\`\`\`json
 {
   "id": "990e8400-e29b-41d4-a716-446655440004",
   "account_id": "cus_xyz789",
@@ -250,14 +250,14 @@ Each connector implements a mapping function that transforms source tool data in
     "renewal_date": "2024-12-01T00:00:00Z"
   }
 }
-```
+\`\`\`
 
 ## AI Tools (ChatGPT/Claude/Gemini) → Spine
 
 ### AI Conversation → Conversation
 
 **Source (Webhook payload):**
-```json
+\`\`\`json
 {
   "conversation_id": "conv-123",
   "model": "gpt-4",
@@ -267,10 +267,10 @@ Each connector implements a mapping function that transforms source tool data in
   ],
   "timestamp": "2024-11-01T14:00:00Z"
 }
-```
+\`\`\`
 
 **Spine (Conversation):**
-```json
+\`\`\`json
 {
   "id": "770e8400-e29b-41d4-a716-446655440002",
   "source": "chatgpt",
@@ -287,7 +287,7 @@ Each connector implements a mapping function that transforms source tool data in
     "tool": "chatgpt"
   }
 }
-```
+\`\`\`
 
 ## Mapping Best Practices
 

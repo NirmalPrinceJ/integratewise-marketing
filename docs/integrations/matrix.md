@@ -91,7 +91,7 @@ This catalog details the capabilities, constraints, and operational parameters f
 ## Event Payload Examples
 
 ### Slack Message
-```json
+\`\`\`json
 {
   "type": "event_callback",
   "event_id": "Ev012345",
@@ -104,10 +104,10 @@ This catalog details the capabilities, constraints, and operational parameters f
     "ts": "1612345678.0001"
   }
 }
-```
+\`\`\`
 
 ### Stripe Invoice Paid
-```json
+\`\`\`json
 {
   "id": "evt_123456789",
   "object": "event",
@@ -123,4 +123,4 @@ This catalog details the capabilities, constraints, and operational parameters f
     }
   }
 }
-```
+\`\`\`

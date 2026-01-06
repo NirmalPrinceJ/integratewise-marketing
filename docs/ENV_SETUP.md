@@ -6,54 +6,54 @@ Add these to your Vercel project or `.env.local` file.
 
 ### Core (Required)
 
-```bash
+\`\`\`bash
 NODE_ENV=production
 NEXT_PUBLIC_APP_URL=https://your-domain.com
 VERCEL_ENV=production  # Set automatically by Vercel
-```
+\`\`\`
 
 ### CMS - Sanity (Option A)
 
-```bash
+\`\`\`bash
 SANITY_PROJECT_ID=your-project-id
 SANITY_DATASET=production
 SANITY_API_TOKEN=your-api-token
 SANITY_PREVIEW_SECRET=your-preview-secret  # Used for draft previews and webhooks
-```
+\`\`\`
 
 ### CMS - Notion (Option B)
 
-```bash
+\`\`\`bash
 NOTION_TOKEN=your-integration-token
 NOTION_BLOG_DATABASE_ID=database-id-for-blog
 NOTION_CHANGELOG_DATABASE_ID=database-id-for-changelog
 NOTION_DOCS_DATABASE_ID=database-id-for-docs
 NOTION_CASE_STUDIES_DATABASE_ID=database-id-for-case-studies
-```
+\`\`\`
 
 ### Cloudinary (Required for media)
 
-```bash
+\`\`\`bash
 CLOUDINARY_CLOUD_NAME=your-cloud-name
 CLOUDINARY_API_KEY=your-api-key
 CLOUDINARY_API_SECRET=your-api-secret
 CLOUDINARY_SECURE=true
-```
+\`\`\`
 
 ### Analytics
 
-```bash
+\`\`\`bash
 GA_MEASUREMENT_ID=G-XXXXXXXXXX
-```
+\`\`\`
 
 ### AI (Optional - for assistant features)
 
-```bash
+\`\`\`bash
 OPENAI_API_KEY=sk-...
 # OR
 ANTHROPIC_API_KEY=sk-ant-...
 AI_GATEWAY_URL=https://gateway.ai.cloudflare.com/v1/...
-```
+\`\`\`
 
 ## Webhook Setup
 
@@ -68,24 +68,24 @@ AI_GATEWAY_URL=https://gateway.ai.cloudflare.com/v1/...
    - HTTP Headers: `x-revalidate-secret: YOUR_SANITY_PREVIEW_SECRET`
    - HTTP Method: POST
    - Projection:
-     ```json
+     \`\`\`json
      {
        "type": _type,
        "slug": slug.current
      }
-     ```
+     \`\`\`
 
 ### Preview Mode
 
 Access draft content at:
-```
+\`\`\`
 /api/preview?secret=YOUR_SANITY_PREVIEW_SECRET&slug=my-post&type=article
-```
+\`\`\`
 
 Disable preview:
-```
+\`\`\`
 /api/preview/disable
-```
+\`\`\`
 
 ## QA Gates
 
@@ -96,4 +96,4 @@ Target metrics:
 - TTFB: ≤500ms
 
 Run Lighthouse CI on: `/`, `/product`, `/pricing`, `/agents`, `/blog/[slug]`
-```
+\`\`\`

@@ -33,9 +33,9 @@ What actually happened.
 
 ## Logs/Error Messages
 
-```
+\`\`\`
 [Paste error messages or logs here]
-```
+\`\`\`
 
 ## Additional Context
 

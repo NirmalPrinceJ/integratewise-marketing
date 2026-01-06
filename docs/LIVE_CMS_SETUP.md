@@ -32,7 +32,7 @@ A complete live CMS system with admin dashboard, real-time updates, visual editi
 
 ### 1. Environment Variables
 
-```env
+\`\`\`env
 # Authentication (use NextAuth or similar in production)
 NEXTAUTH_SECRET=your-secret-key
 NEXTAUTH_URL=http://localhost:3000
@@ -44,7 +44,7 @@ NEXT_PUBLIC_SANITY_DATASET=production
 
 # Cloudinary (from existing setup)
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your-cloud-name
-```
+\`\`\`
 
 ### 2. Access the Admin Panel
 
@@ -85,7 +85,7 @@ For instant real-time updates, set up webhooks:
 #### Sanity
 1. Install @sanity/webhook package
 2. Configure webhook in sanity.config.ts:
-```typescript
+\`\`\`typescript
 export default defineConfig({
   // ... existing config
   webhooks: {
@@ -93,11 +93,11 @@ export default defineConfig({
     events: ['create', 'update', 'delete']
   }
 })
-```
+\`\`\`
 
 ## Architecture
 
-```
+\`\`\`
 app/admin/
 ├── layout.tsx           # Admin shell with sidebar navigation
 ├── page.tsx             # Dashboard overview
@@ -115,7 +115,7 @@ lib/admin/
 ├── auth.ts             # Authentication and RBAC
 ├── realtime.ts         # Real-time content sync
 └── editor.ts           # Visual editor logic
-```
+\`\`\`
 
 ## Security
 

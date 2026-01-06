@@ -18,7 +18,7 @@ IntegrateWise OS sits on top of your existing tools—Notion, Coda, Slack, email
 
 ### Component Boundaries
 
-```
+\`\`\`
 ┌─────────┐     ┌─────────┐     ┌─────────┐
 │  Hub    │────▶│  Spine  │────▶│  Brain  │
 │(Auth/   │     │(Canonical│     │(Memory) │
@@ -30,16 +30,16 @@ IntegrateWise OS sits on top of your existing tools—Notion, Coda, Slack, email
 │ AI      │     │ Agents  │     │ Render  │
 │ Loader  │     │(Workflow)│    │(Output) │
 └─────────┘     └─────────┘     └─────────┘
-```
+\`\`\`
 
 ### Sequence Flow
 
 See [How It Works](./docs/architecture/how-it-works.md) for detailed sequence diagrams.
 
 **Canonical Flow:**
-```
+\`\`\`
 Webhook → Hub (Auth/Policy) → AI Loader → Spine → Brain → Agents → Approval → Render → Audit
-```
+\`\`\`
 
 ## Quick Start
 
@@ -51,7 +51,7 @@ Webhook → Hub (Auth/Policy) → AI Loader → Spine → Brain → Agents → A
 
 ### Installation
 
-```bash
+\`\`\`bash
 # Clone repository
 git clone https://github.com/NirmalPrinceJ/integratewise-os.git
 cd integratewise-os
@@ -60,21 +60,21 @@ cd integratewise-os
 npm install
 # or
 pip install -r requirements.txt
-```
+\`\`\`
 
 ### Configuration
 
-```bash
+\`\`\`bash
 # Set environment variables
 export INTEGRATEWISE_API_KEY=your-api-key
 export INTEGRATEWISE_WORKSPACE_ID=your-workspace-id
 export INTEGRATEWISE_BASE_URL=https://api.integratewise.co/v1
-```
+\`\`\`
 
 ### Example Usage
 
 **JavaScript/TypeScript:**
-```javascript
+\`\`\`javascript
 import { IntegrateWiseClient } from '@integratewise/sdk';
 
 const client = new IntegrateWiseClient({
@@ -85,17 +85,17 @@ const client = new IntegrateWiseClient({
 const tasks = await client.tasks.list({
   filter: { status: { eq: 'in_progress' } }
 });
-```
+\`\`\`
 
 **Python:**
-```python
+\`\`\`python
 from integratewise import IntegrateWiseClient
 
 client = IntegrateWiseClient(api_key=os.environ.get('INTEGRATEWISE_API_KEY'))
 
 # List tasks
 tasks = client.tasks.list(filters={'status': {'eq': 'in_progress'}})
-```
+\`\`\`
 
 ## Documentation
 
@@ -157,7 +157,7 @@ See [docs/spine/mapping-guides.md](./docs/spine/mapping-guides.md) for:
 
 ### Project Structure
 
-```
+\`\`\`
 integratewise-os/
 ├── docs/                 # Documentation
 │   ├── architecture/     # Architecture docs
@@ -171,11 +171,11 @@ integratewise-os/
 │   └── python/          # Python examples
 ├── diagrams/             # Architecture diagrams
 └── .github/              # CI/CD workflows
-```
+\`\`\`
 
 ### Local Development
 
-```bash
+\`\`\`bash
 # Install dependencies
 npm install
 
@@ -187,7 +187,7 @@ npm run typecheck
 
 # Run tests
 npm test
-```
+\`\`\`
 
 ### CI/CD
 

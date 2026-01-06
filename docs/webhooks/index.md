@@ -27,12 +27,12 @@ All webhook requests must include:
 ### Algorithm: HMAC-SHA256
 
 **Signature Format:**
-```
+\`\`\`
 X-IW-Signature: sha256=<hex-encoded-hmac>
-```
+\`\`\`
 
 **Signature Calculation:**
-```javascript
+\`\`\`javascript
 const crypto = require('crypto');
 
 function calculateSignature(secret, timestamp, body) {
@@ -41,10 +41,10 @@ function calculateSignature(secret, timestamp, body) {
   hmac.update(payload);
   return `sha256=${hmac.digest('hex')}`;
 }
-```
+\`\`\`
 
 **Verification:**
-```javascript
+\`\`\`javascript
 function verifySignature(secret, timestamp, body, signature) {
   const expected = calculateSignature(secret, timestamp, body);
   return crypto.timingSafeEqual(
@@ -52,7 +52,7 @@ function verifySignature(secret, timestamp, body, signature) {
     Buffer.from(expected)
   );
 }
-```
+\`\`\`
 
 ### Clock Skew Tolerance
 
@@ -61,13 +61,13 @@ function verifySignature(secret, timestamp, body, signature) {
 - **Replay Protection**: Timestamps are checked against a sliding window
 
 **Verification Logic:**
-```javascript
+\`\`\`javascript
 function isTimestampValid(timestamp, toleranceSeconds = 300) {
   const now = Math.floor(Date.now() / 1000);
   const diff = Math.abs(now - timestamp);
   return diff <= toleranceSeconds;
 }
-```
+\`\`\`
 
 ### Replay Window
 
@@ -181,7 +181,7 @@ function isTimestampValid(timestamp, toleranceSeconds = 300) {
 
 ### Node.js
 
-```javascript
+\`\`\`javascript
 const crypto = require('crypto');
 const express = require('express');
 
@@ -259,11 +259,11 @@ function verifySignature(secret, timestamp, body, signature) {
     Buffer.from(expected)
   );
 }
-```
+\`\`\`
 
 ### Python
 
-```python
+\`\`\`python
 import hmac
 import hashlib
 import time
@@ -322,7 +322,7 @@ async def webhook_handler(connector):
         # Send to DLQ
         await send_to_dlq(connector, request.json, error)
         return jsonify({'error': 'Processing failed'}), 500
-```
+\`\`\`
 
 ## Failure Modes
 

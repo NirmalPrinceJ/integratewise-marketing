@@ -15,7 +15,7 @@ Templates are pre-configured workflows that automate common tasks across Integra
 
 ## Template Structure
 
-```yaml
+\`\`\`yaml
 template:
   id: string
   name: string
@@ -59,7 +59,7 @@ template:
   installation:
     steps: string[]
     verification: string[]
-```
+\`\`\`
 
 ## Featured Templates
 
@@ -68,7 +68,7 @@ template:
 **Purpose**: Automate weekly planning with tasks, priorities, and calendar integration.
 
 **Variables:**
-```yaml
+\`\`\`yaml
 variables:
   - name: workspace_id
     type: string
@@ -91,7 +91,7 @@ variables:
     type: string
     required: false
     description: Google Calendar ID for blocking time
-```
+\`\`\`
 
 **Inputs:**
 - Tools: Notion, Google Calendar, Slack
@@ -147,7 +147,7 @@ variables:
 **Purpose**: Convert AI conversation streams into actionable tasks and notes.
 
 **Variables:**
-```yaml
+\`\`\`yaml
 variables:
   - name: webhook_endpoint
     type: string
@@ -171,7 +171,7 @@ variables:
     default: {}
     required: false
     description: Rules for task/note generation
-```
+\`\`\`
 
 **Inputs:**
 - Tools: ChatGPT, Claude, Gemini (webhook-only)
@@ -184,12 +184,12 @@ variables:
 - Notion Page: Optional, if Notion connected
 
 **Webhook Endpoint:**
-```
+\`\`\`
 POST /webhooks/ai-brainstream
-```
+\`\`\`
 
 **Payload Contract:**
-```json
+\`\`\`json
 {
   "conversation_id": "conv-123",
   "message_id": "msg-456",
@@ -198,7 +198,7 @@ POST /webhooks/ai-brainstream
   "timestamp": "2024-11-01T14:00:00Z",
   "user_id": "user-123"
 }
-```
+\`\`\`
 
 **Deduplication Keys:**
 - Strategy: `{source}-{conversation-id}-{message-id}`
@@ -256,7 +256,7 @@ POST /webhooks/ai-brainstream
 **Purpose**: Generate customer success health reports with playbook recommendations.
 
 **Variables:**
-```yaml
+\`\`\`yaml
 variables:
   - name: cs_lens_required
     type: boolean
@@ -284,7 +284,7 @@ variables:
     default: "weekly"
     required: false
     description: Report frequency (daily, weekly, monthly)
-```
+\`\`\`
 
 **Inputs:**
 - Tools: HubSpot, Stripe, Zendesk (CS Lens required)
@@ -302,7 +302,7 @@ variables:
 - **Zendesk**: Ticket data, severity, resolution time
 
 **Health Score Formula:**
-```
+\`\`\`
 health_score = weighted_sum(
   normalize(usage) * 0.3,
   normalize(nps) * 0.2,
@@ -310,7 +310,7 @@ health_score = weighted_sum(
   normalize(renewal_proximity_inverse) * 0.15,
   normalize(engagement) * 0.15
 )
-```
+\`\`\`
 
 **Playbook Mapping:**
 - Green (≥70): No action required

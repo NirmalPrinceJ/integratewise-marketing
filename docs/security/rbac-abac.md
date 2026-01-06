@@ -111,7 +111,7 @@ Detailed role-based and attribute-based access control matrix for IntegrateWise 
 
 **Policy:** "Users in Finance department can access financial data"
 
-```yaml
+\`\`\`yaml
 policy:
   id: finance-access
   description: Finance department access to financial data
@@ -123,13 +123,13 @@ policy:
       actions:
         - read
         - write
-```
+\`\`\`
 
 #### High-Sensitivity Resource Protection
 
 **Policy:** "High-sensitivity resources require approval"
 
-```yaml
+\`\`\`yaml
 policy:
   id: high-sensitivity-approval
   description: Approval required for high-sensitivity resources
@@ -141,13 +141,13 @@ policy:
       actions:
         - write
         - delete
-```
+\`\`\`
 
 #### Time-Based Access
 
 **Policy:** "Access from untrusted IPs requires MFA"
 
-```yaml
+\`\`\`yaml
 policy:
   id: untrusted-ip-mfa
   description: MFA required for untrusted IPs
@@ -159,13 +159,13 @@ policy:
       actions:
         - write
         - delete
-```
+\`\`\`
 
 #### Geographic Restrictions
 
 **Policy:** "EU data can only be accessed from EU locations"
 
-```yaml
+\`\`\`yaml
 policy:
   id: eu-data-geo-restriction
   description: EU data geographic restriction
@@ -177,7 +177,7 @@ policy:
       actions:
         - read
         - write
-```
+\`\`\`
 
 ## Workspace Isolation
 
