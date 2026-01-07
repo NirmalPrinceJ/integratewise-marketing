@@ -2,12 +2,11 @@
  * IntegrateWise Brand Configuration — SSOT v2
  * Centralized brand strings and metadata
  * 
- * Color tokens (DO NOT CHANGE):
- * --color-primary: #3F51B5 (Indigo)
- * --color-light: #F3F4F6 (Light gray)
- * --color-dark: #1E2A4A (Dark navy)
- * --color-pink: #F54476 (Accent pink)
- * --color-spine: #8BC4B8 (Pastel Green - Spine)
+ * Color tokens (UPDATED to MailerLite Style):
+ * --color-primary: #00A154 (Green)
+ * --color-light: #FFFFFF (White)
+ * --color-dark: #333333 (Dark Gray)
+ * --color-accent: #E6F7EF (Light Green)
  * 
  * DO NOT USE: #0A1833
  * 

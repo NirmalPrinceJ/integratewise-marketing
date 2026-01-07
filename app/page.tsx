@@ -47,7 +47,7 @@ export default function HomePage() {
 
               <h1 className="mt-6 text-balance text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
                 The Automation Infrastructure for{" "}
-                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                   Modern Work
                 </span>
               </h1>
@@ -94,12 +94,12 @@ export default function HomePage() {
                     ].map((row, idx) => (
                       <div key={row.label} className="flex items-start gap-4">
                         <div
-                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${row.highlight ? "bg-[#8BC4B8]/20 text-[#8BC4B8]" : "bg-primary/10 text-primary"}`}
+                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${row.highlight ? "bg-chart-3/20 text-chart-3" : "bg-primary/10 text-primary"}`}
                         >
                           <span className="text-sm font-semibold">{idx + 1}</span>
                         </div>
                         <div className="min-w-0">
-                          <p className={`truncate font-medium ${row.highlight ? "text-[#8BC4B8]" : ""}`}>{row.label}</p>
+                          <p className={`truncate font-medium ${row.highlight ? "text-chart-3" : ""}`}>{row.label}</p>
                           <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">{row.sub}</p>
                         </div>
                       </div>
@@ -191,9 +191,9 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="flex justify-center">
-                <div className="rounded-lg border-2 border-[#8BC4B8] bg-[#8BC4B8]/10 px-6 py-4 text-center">
-                  <Database className="mx-auto h-8 w-8 text-[#8BC4B8]" />
-                  <p className="mt-2 font-bold text-[#8BC4B8]">Spine</p>
+                <div className="rounded-lg border-2 border-chart-3 bg-chart-3/10 px-6 py-4 text-center">
+                  <Database className="mx-auto h-8 w-8 text-chart-3" />
+                  <p className="mt-2 font-bold text-chart-3">Spine</p>
                 </div>
               </div>
               <div className="rounded-lg border border-border bg-card p-4 text-center lg:col-span-2">
