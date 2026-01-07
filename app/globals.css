@@ -4,87 +4,98 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* IntegrateWise Brand Colors - Enterprise Integrations
-   * Primary: #3F51B5 (Indigo)
-   * Light: #F3F4F6
-   * Dark: #1E2A4A
-   * Accent: #F54476 (Pink)
-   * DO NOT USE: #0A1833
+  /* MailerLite-Inspired Color Palette
+   * Primary: #09C269 (MailerLite Green)
+   * Secondary: #0066FF (Bright Blue)
+   * Accent: #FF6B6B (Coral/Salmon)
+   * Background: Clean whites and soft grays
    */
-  --background: oklch(0.99 0 0); /* Off-white background */
-  --foreground: oklch(0.15 0.01 264); /* Deep navy text */
+  --background: oklch(0.995 0 0); /* Pure white background */
+  --foreground: oklch(0.20 0.02 250); /* Dark charcoal text */
   --card: oklch(1 0 0); /* Pure white cards */
-  --card-foreground: oklch(0.15 0.01 264);
+  --card-foreground: oklch(0.20 0.02 250);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.01 264);
-  --primary: oklch(0.42 0.19 264); /* Rich indigo - primary brand */
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.58 0.21 250); /* Bright blue accent */
-  --secondary-foreground: oklch(0.99 0 0);
-  --muted: oklch(0.96 0.005 264);
-  --muted-foreground: oklch(0.52 0.015 264);
-  /* Blue-only palette: keep highlights in the blue family */
-  --accent: oklch(0.58 0.21 250); /* Same hue family as secondary */
-  --accent-foreground: oklch(0.99 0 0);
+  --popover-foreground: oklch(0.20 0.02 250);
+  
+  /* MailerLite Green - Primary */
+  --primary: oklch(0.68 0.19 155); /* #09C269 */
+  --primary-foreground: oklch(1 0 0);
+  
+  /* Bright Blue - Secondary */
+  --secondary: oklch(0.55 0.22 260); /* #0066FF */
+  --secondary-foreground: oklch(1 0 0);
+  
+  /* Muted colors */
+  --muted: oklch(0.97 0.005 250);
+  --muted-foreground: oklch(0.50 0.015 250);
+  
+  /* Coral Accent */
+  --accent: oklch(0.68 0.17 25); /* #FF6B6B */
+  --accent-foreground: oklch(1 0 0);
+  
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.92 0.005 264);
-  --input: oklch(0.92 0.005 264);
-  --ring: oklch(0.42 0.19 264);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.42 0.19 264);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --border: oklch(0.93 0.005 250);
+  --input: oklch(0.93 0.005 250);
+  --ring: oklch(0.68 0.19 155);
+  
+  /* Chart colors - MailerLite style */
+  --chart-1: oklch(0.68 0.19 155); /* Green */
+  --chart-2: oklch(0.55 0.22 260); /* Blue */
+  --chart-3: oklch(0.68 0.17 25); /* Coral */
+  --chart-4: oklch(0.75 0.15 80); /* Yellow */
+  --chart-5: oklch(0.60 0.20 300); /* Purple */
+  
+  --radius: 1rem; /* Rounded corners - MailerLite style */
+  
+  --sidebar: oklch(0.99 0 0);
+  --sidebar-foreground: oklch(0.20 0.02 250);
+  --sidebar-primary: oklch(0.68 0.19 155);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.97 0.005 250);
+  --sidebar-accent-foreground: oklch(0.20 0.02 250);
+  --sidebar-border: oklch(0.93 0.005 250);
+  --sidebar-ring: oklch(0.68 0.19 155);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.58 0.21 250);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.58 0.21 250);
-  --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: oklch(0.14 0.02 250);
+  --foreground: oklch(0.97 0 0);
+  --card: oklch(0.18 0.02 250);
+  --card-foreground: oklch(0.97 0 0);
+  --popover: oklch(0.18 0.02 250);
+  --popover-foreground: oklch(0.97 0 0);
+  --primary: oklch(0.72 0.18 155);
+  --primary-foreground: oklch(0.14 0.02 250);
+  --secondary: oklch(0.60 0.20 260);
+  --secondary-foreground: oklch(0.97 0 0);
+  --muted: oklch(0.25 0.02 250);
+  --muted-foreground: oklch(0.65 0.01 250);
+  --accent: oklch(0.72 0.16 25);
+  --accent-foreground: oklch(0.97 0 0);
+  --destructive: oklch(0.50 0.20 25);
+  --destructive-foreground: oklch(0.97 0 0);
+  --border: oklch(0.28 0.02 250);
+  --input: oklch(0.28 0.02 250);
+  --ring: oklch(0.72 0.18 155);
+  --chart-1: oklch(0.72 0.18 155);
+  --chart-2: oklch(0.60 0.20 260);
+  --chart-3: oklch(0.72 0.16 25);
+  --chart-4: oklch(0.78 0.14 80);
+  --chart-5: oklch(0.65 0.18 300);
+  --sidebar: oklch(0.18 0.02 250);
+  --sidebar-foreground: oklch(0.97 0 0);
+  --sidebar-primary: oklch(0.72 0.18 155);
+  --sidebar-primary-foreground: oklch(0.14 0.02 250);
+  --sidebar-accent: oklch(0.25 0.02 250);
+  --sidebar-accent-foreground: oklch(0.97 0 0);
+  --sidebar-border: oklch(0.28 0.02 250);
+  --sidebar-ring: oklch(0.72 0.18 155);
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-sans: "Inter", "Geist", "Geist Fallback", system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -113,6 +124,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -128,38 +140,42 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-semibold;
   }
 }
 
-/* Animation Keyframes */
+/* Animation Keyframes - MailerLite Style */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-12px); }
 }
 
 @keyframes float-delayed {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
 }
 
 @keyframes slide-up {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slide-in-left {
-  from { opacity: 0; transform: translateX(-30px); }
+  from { opacity: 0; transform: translateX(-24px); }
   to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slide-in-right {
-  from { opacity: 0; transform: translateX(30px); }
+  from { opacity: 0; transform: translateX(24px); }
   to { opacity: 1; transform: translateX(0); }
 }
 
@@ -179,61 +195,72 @@
   100% { transform: translateX(-50%); }
 }
 
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 @keyframes bounce-subtle {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 /* Animation Utilities */
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
 }
 
 .animate-float-delayed {
-  animation: float-delayed 5s ease-in-out infinite;
-  animation-delay: 1s;
+  animation: float-delayed 4s ease-in-out infinite;
+  animation-delay: 0.5s;
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
+  animation: pulse-glow 2.5s ease-in-out infinite;
 }
 
 .animate-slide-up {
-  animation: slide-up 0.6s ease-out forwards;
+  animation: slide-up 0.5s ease-out forwards;
 }
 
 .animate-slide-in-left {
-  animation: slide-in-left 0.6s ease-out forwards;
+  animation: slide-in-left 0.5s ease-out forwards;
 }
 
 .animate-slide-in-right {
-  animation: slide-in-right 0.6s ease-out forwards;
+  animation: slide-in-right 0.5s ease-out forwards;
 }
 
 .animate-fade-in {
-  animation: fade-in 0.8s ease-out forwards;
+  animation: fade-in 0.6s ease-out forwards;
 }
 
 .animate-gradient {
   background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
+  animation: gradient-shift 6s ease infinite;
 }
 
 .animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
+  animation: marquee 25s linear infinite;
 }
 
 .animate-bounce-subtle {
   animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out forwards;
 }
 
 /* Animation Delays */
@@ -245,59 +272,242 @@
 .animation-delay-700 { animation-delay: 700ms; }
 .animation-delay-1000 { animation-delay: 1000ms; }
 
-/* Glass morphism effect */
+/* MailerLite-inspired Glass Effect */
 .glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Card hover effects */
+.glass-dark {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* MailerLite-style Card Effects */
 .card-hover {
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px -12px rgba(9, 194, 105, 0.15), 
+              0 8px 16px -8px rgba(0, 0, 0, 0.08);
 }
 
-/* Gradient text */
+.card-interactive {
+  transition: all 0.2s ease;
+}
+
+.card-interactive:hover {
+  border-color: oklch(0.68 0.19 155 / 0.5);
+  box-shadow: 0 0 0 4px oklch(0.68 0.19 155 / 0.1);
+}
+
+/* MailerLite Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+  background: linear-gradient(135deg, oklch(0.68 0.19 155) 0%, oklch(0.55 0.22 260) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Hero gradient background */
-.hero-gradient {
-  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(66, 66, 170, 0.15), transparent),
-              radial-gradient(ellipse 60% 40% at 80% 60%, rgba(88, 166, 255, 0.1), transparent),
-              radial-gradient(ellipse 50% 30% at 20% 80%, rgba(101, 200, 142, 0.1), transparent);
+.gradient-text-warm {
+  background: linear-gradient(135deg, oklch(0.68 0.19 155) 0%, oklch(0.68 0.17 25) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Mesh gradient */
+/* MailerLite Hero Gradient */
+.hero-gradient {
+  background: linear-gradient(180deg, 
+    oklch(0.98 0.02 155 / 0.3) 0%,
+    oklch(0.99 0 0) 50%,
+    oklch(0.97 0.01 260 / 0.2) 100%
+  );
+}
+
+.hero-gradient-green {
+  background: linear-gradient(135deg, 
+    oklch(0.68 0.19 155 / 0.08) 0%,
+    oklch(0.99 0 0) 50%,
+    oklch(0.55 0.22 260 / 0.05) 100%
+  );
+}
+
+/* MailerLite Mesh Gradient */
 .mesh-gradient {
   background: 
-    radial-gradient(at 40% 20%, rgba(66, 66, 170, 0.12) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(88, 166, 255, 0.1) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, rgba(101, 200, 142, 0.08) 0px, transparent 50%),
-    radial-gradient(at 80% 50%, rgba(66, 66, 170, 0.08) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(88, 166, 255, 0.08) 0px, transparent 50%);
+    radial-gradient(at 20% 20%, oklch(0.68 0.19 155 / 0.12) 0px, transparent 50%),
+    radial-gradient(at 80% 10%, oklch(0.55 0.22 260 / 0.08) 0px, transparent 50%),
+    radial-gradient(at 40% 80%, oklch(0.68 0.17 25 / 0.06) 0px, transparent 50%),
+    radial-gradient(at 90% 70%, oklch(0.75 0.15 80 / 0.06) 0px, transparent 50%);
 }
 
-/* Dot pattern background */
+/* MailerLite Dot Pattern */
 .dot-pattern {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-image: radial-gradient(oklch(0.68 0.19 155 / 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-/* Grid pattern background */
+/* MailerLite Grid Pattern */
 .grid-pattern {
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(oklch(0.68 0.19 155 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.68 0.19 155 / 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* MailerLite-style Buttons */
+.btn-mailerlite {
+  @apply inline-flex items-center justify-center rounded-xl font-semibold transition-all;
+  @apply bg-primary text-primary-foreground;
+  @apply hover:brightness-110 hover:shadow-lg hover:shadow-primary/25;
+  @apply active:scale-[0.98];
+}
+
+.btn-mailerlite-outline {
+  @apply inline-flex items-center justify-center rounded-xl font-semibold transition-all;
+  @apply border-2 border-primary text-primary bg-transparent;
+  @apply hover:bg-primary hover:text-primary-foreground;
+  @apply active:scale-[0.98];
+}
+
+/* MailerLite Badge */
+.badge-mailerlite {
+  @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+  @apply bg-primary/10 text-primary;
+}
+
+/* MailerLite Section Backgrounds */
+.section-light {
+  @apply bg-gradient-to-b from-background to-muted/30;
+}
+
+.section-green {
+  @apply bg-gradient-to-br from-primary/5 via-background to-secondary/5;
+}
+
+.section-dark {
+  background: linear-gradient(180deg, 
+    oklch(0.18 0.03 155) 0%,
+    oklch(0.14 0.02 250) 100%
+  );
+}
+
+/* MailerLite Input Styles */
+.input-mailerlite {
+  @apply w-full rounded-xl border-2 border-border bg-background px-4 py-3;
+  @apply text-foreground placeholder:text-muted-foreground;
+  @apply transition-all duration-200;
+  @apply focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/10;
+}
+
+/* MailerLite Feature Card */
+.feature-card {
+  @apply relative overflow-hidden rounded-2xl border border-border bg-card p-8;
+  @apply transition-all duration-300;
+  @apply hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5;
+}
+
+.feature-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity;
+}
+
+.feature-card:hover::before {
+  @apply opacity-100;
+}
+
+/* MailerLite Icon Container */
+.icon-container {
+  @apply flex h-14 w-14 items-center justify-center rounded-2xl;
+  @apply bg-gradient-to-br from-primary/10 to-primary/5;
+  @apply text-primary;
+}
+
+.icon-container-lg {
+  @apply flex h-20 w-20 items-center justify-center rounded-3xl;
+  @apply bg-gradient-to-br from-primary/10 to-primary/5;
+  @apply text-primary;
+}
+
+/* MailerLite Testimonial Card */
+.testimonial-card {
+  @apply relative rounded-2xl border border-border bg-card p-8;
+  @apply before:absolute before:-top-3 before:left-8 before:text-6xl before:text-primary/20 before:content-['"'];
+}
+
+/* MailerLite Stats */
+.stat-number {
+  @apply text-5xl font-bold tracking-tight;
+  background: linear-gradient(135deg, oklch(0.68 0.19 155) 0%, oklch(0.55 0.22 260) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* MailerLite CTA Section */
+.cta-section {
+  @apply relative overflow-hidden rounded-3xl p-12;
+  background: linear-gradient(135deg, 
+    oklch(0.68 0.19 155) 0%,
+    oklch(0.60 0.20 155) 50%,
+    oklch(0.55 0.22 170) 100%
+  );
+}
+
+.cta-section::before {
+  content: '';
+  @apply absolute inset-0;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.2) 0%, transparent 50%);
+}
+
+/* Scrollbar styling - MailerLite clean */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(0.97 0 0);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(0.85 0 0);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.75 0 0);
+}
+
+/* Selection color - MailerLite green */
+::selection {
+  background: oklch(0.68 0.19 155 / 0.2);
+  color: oklch(0.20 0.02 250);
+}
+
+/* Focus visible - MailerLite style */
+:focus-visible {
+  outline: 2px solid oklch(0.68 0.19 155);
+  outline-offset: 2px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* MailerLite Link Style */
+.link-mailerlite {
+  @apply text-primary font-medium transition-colors;
+  @apply hover:text-primary/80;
+  @apply underline underline-offset-4 decoration-primary/30;
+  @apply hover:decoration-primary/60;
 }

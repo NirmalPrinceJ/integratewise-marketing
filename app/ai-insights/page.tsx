@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, Check, Sparkles, Brain, Users, Briefcase, Target, Zap, Heart, Search, Award, Globe } from "lucide-react"
+import { ArrowRight, Check, Sparkles, Brain, Users, Briefcase, Target, Zap, Heart, Search, Award, Globe, Star, Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -18,139 +18,197 @@ export const metadata: Metadata = {
 }
 
 const archetypes = [
-  { icon: Target, title: "Leader", desc: "Decisive, visionary, action-oriented" },
-  { icon: Users, title: "Diplomat", desc: "Harmonizing, empathetic, bridge-builder" },
-  { icon: Zap, title: "Communicator", desc: "Expressive, influential, connector" },
-  { icon: Briefcase, title: "Builder", desc: "Practical, reliable, systematic" },
-  { icon: Search, title: "Explorer", desc: "Curious, adaptable, versatile" },
-  { icon: Heart, title: "Nurturer", desc: "Supportive, caring, community-focused" },
-  { icon: Brain, title: "Thinker", desc: "Analytical, introspective, deep" },
-  { icon: Award, title: "Achiever", desc: "Ambitious, disciplined, results-driven" },
-  { icon: Globe, title: "Humanitarian", desc: "Idealistic, progressive, service-oriented" },
+  { icon: Target, title: "Leader", desc: "Decisive, visionary, action-oriented", color: "from-rose-500 to-orange-500" },
+  { icon: Users, title: "Diplomat", desc: "Harmonizing, empathetic, bridge-builder", color: "from-sky-500 to-blue-500" },
+  { icon: Zap, title: "Communicator", desc: "Expressive, influential, connector", color: "from-amber-500 to-yellow-500" },
+  { icon: Briefcase, title: "Builder", desc: "Practical, reliable, systematic", color: "from-emerald-500 to-green-500" },
+  { icon: Search, title: "Explorer", desc: "Curious, adaptable, versatile", color: "from-violet-500 to-purple-500" },
+  { icon: Heart, title: "Nurturer", desc: "Supportive, caring, community-focused", color: "from-pink-500 to-rose-500" },
+  { icon: Brain, title: "Thinker", desc: "Analytical, introspective, deep", color: "from-indigo-500 to-blue-500" },
+  { icon: Award, title: "Achiever", desc: "Ambitious, disciplined, results-driven", color: "from-primary to-emerald-400" },
+  { icon: Globe, title: "Humanitarian", desc: "Idealistic, progressive, service-oriented", color: "from-teal-500 to-cyan-500" },
 ]
 
 export default function AIInsightsPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Dark Hero - SSOT v2 */}
-      <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-slate-900 to-slate-800 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Hero Section - MailerLite Style with Dark Theme */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
+          <div className="absolute bottom-20 right-20 h-96 w-96 rounded-full bg-secondary/10 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-primary/5 blur-3xl" />
+        </div>
+        
+        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <Badge variant="secondary" className="mb-6 rounded-full px-4 py-1">
+            <Badge className="mb-8 bg-primary/20 text-primary border-primary/30 px-4 py-2">
               <Sparkles className="mr-2 h-4 w-4" />
-              AI-Powered Pattern Recognition
+              AI-Powered • Free Forever
             </Badge>
 
             <h1 className="text-balance text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Discover Your Working Style in{" "}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                10 Seconds
+              Discover your working style in{" "}
+              <span className="bg-gradient-to-r from-primary via-emerald-400 to-primary bg-clip-text text-transparent">
+                10 seconds
               </span>
             </h1>
 
-            <p className="mt-6 text-pretty text-lg leading-relaxed text-slate-300 sm:text-xl">
+            <p className="mt-8 text-pretty text-xl leading-relaxed text-slate-300">
               AI Insights uses language pattern recognition to generate a{" "}
-              <strong className="text-white">profile pattern</strong> and suggestions that evolve over time. Not
-              astrology. Not guessing. Just AI-powered analysis.
+              <strong className="text-white">profile pattern</strong> and suggestions that evolve over time. 
+              Not astrology. Not guessing. Just AI-powered analysis.
             </p>
 
-            <div className="mt-10">
-              <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100" asChild>
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+              <Button size="xl" className="bg-white text-slate-900 hover:bg-slate-100 shadow-xl shadow-white/20" asChild>
                 <Link href="#demo">
-                  Reveal My Profile <ArrowRight className="ml-2 h-4 w-4" />
+                  Reveal My Profile <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
+              <Button size="lg" variant="outline" className="border-2 border-white/20 text-white hover:bg-white/10 bg-transparent" asChild>
+                <Link href="#how-it-works">
+                  <Play className="mr-2 h-4 w-4" />
+                  See How It Works
+                </Link>
+              </Button>
+            </div>
+
+            <div className="mt-12 flex items-center justify-center gap-2 text-slate-400">
+              <div className="flex -space-x-2">
+                {[...Array(4)].map((_, i) => (
+                  <div key={i} className="h-8 w-8 rounded-full bg-slate-600 border-2 border-slate-800 flex items-center justify-center text-xs text-white">
+                    {String.fromCharCode(65 + i)}
+                  </div>
+                ))}
+              </div>
+              <span className="ml-3 text-sm">
+                <strong className="text-white">10,000+</strong> professionals discovered their style
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Demo - SSOT v2 */}
-      <section id="demo" className="border-b border-border py-24 sm:py-32">
+      {/* Main Demo - MailerLite Style */}
+      <section id="demo" className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-md">
-            <Card className="border-2 border-primary shadow-lg">
-              <CardContent className="p-8">
-                <div className="text-center">
-                  <Sparkles className="mx-auto h-12 w-12 text-primary" />
-                  <h2 className="mt-4 text-2xl font-bold">Reveal Your Profile</h2>
-                  <p className="mt-2 text-muted-foreground">Enter your name to discover your working style</p>
-                </div>
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+            <div>
+              <Badge variant="secondary" className="mb-6">
+                <Sparkles className="h-4 w-4" />
+                Try It Now
+              </Badge>
+              <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+                Your profile pattern is waiting
+              </h2>
+              <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+                Enter your name and discover insights about your natural working style, communication preferences, 
+                and collaboration patterns. Get personalized suggestions that help you work smarter.
+              </p>
 
-                <div className="mt-8 space-y-4">
-                  <div>
-                    <label htmlFor="name" className="text-sm font-medium">
-                      Your name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      placeholder="Enter your name"
-                      className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    />
+              <div className="mt-8 space-y-4">
+                {[
+                  "Your default decision-making style",
+                  "Your strongest communication mode",
+                  "Your best environment for focus",
+                  "Team collaboration preferences",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10">
+                      <Check className="h-4 w-4 text-primary" />
+                    </div>
+                    <span className="text-muted-foreground">{item}</span>
                   </div>
-                  <Button className="w-full" size="lg">
-                    Reveal My Profile
-                  </Button>
-                </div>
+                ))}
+              </div>
+            </div>
 
-                <div className="mt-8 rounded-lg border border-border bg-muted/50 p-4">
-                  <p className="text-center text-sm font-medium text-muted-foreground">
-                    Generating your profile pattern...
-                  </p>
-                  <div className="mt-4 space-y-3">
-                    <div className="h-4 w-full animate-pulse rounded bg-muted" />
-                    <div className="h-4 w-3/4 animate-pulse rounded bg-muted" />
-                    <div className="h-4 w-5/6 animate-pulse rounded bg-muted" />
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-primary/20 via-secondary/10 to-primary/20 blur-2xl" />
+              <Card className="relative border-2 border-primary/20 shadow-2xl rounded-3xl overflow-hidden">
+                <CardContent className="p-8 sm:p-10">
+                  <div className="text-center mb-8">
+                    <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-primary to-emerald-400 shadow-lg shadow-primary/30">
+                      <Sparkles className="h-10 w-10 text-white" />
+                    </div>
+                    <h3 className="mt-6 text-2xl font-bold">Reveal Your Profile</h3>
+                    <p className="mt-2 text-muted-foreground">Enter your name to discover your working style</p>
                   </div>
-                </div>
 
-                <div className="mt-6 rounded-lg border-2 border-primary/20 bg-primary/5 p-4">
-                  <p className="text-center text-sm font-semibold">Result Preview</p>
-                  <p className="mt-2 text-center text-lg font-bold text-primary">Profile Pattern: [X]</p>
-                  <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-accent" /> Your decision-making style
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-accent" /> Your communication defaults
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-accent" /> Your focus + collaboration balance
-                    </li>
-                  </ul>
-                </div>
+                  <div className="space-y-4">
+                    <div>
+                      <label htmlFor="name" className="text-sm font-medium">
+                        Your name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        className="mt-2 input-mailerlite"
+                      />
+                    </div>
+                    <Button className="w-full shadow-lg shadow-primary/25" size="lg">
+                      Reveal My Profile <Sparkles className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
 
-                <Button variant="outline" className="mt-6 w-full">
-                  Save My Profile
-                </Button>
-              </CardContent>
-            </Card>
+                  <div className="mt-8 rounded-2xl bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/10 p-6">
+                    <p className="text-center text-sm font-medium text-muted-foreground mb-4">
+                      Result Preview
+                    </p>
+                    <div className="text-center">
+                      <p className="text-2xl font-bold gradient-text">Profile Pattern: [X]</p>
+                    </div>
+                    <div className="mt-4 grid grid-cols-3 gap-2 text-center text-xs">
+                      <div className="rounded-xl bg-background p-3">
+                        <p className="font-semibold text-primary">Decision</p>
+                        <p className="text-muted-foreground mt-1">Analytical</p>
+                      </div>
+                      <div className="rounded-xl bg-background p-3">
+                        <p className="font-semibold text-secondary">Comms</p>
+                        <p className="text-muted-foreground mt-1">Direct</p>
+                      </div>
+                      <div className="rounded-xl bg-background p-3">
+                        <p className="font-semibold text-accent">Focus</p>
+                        <p className="text-muted-foreground mt-1">Deep Work</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Type Gallery - 9 Archetypes - SSOT v2 */}
-      <section className="border-b border-border bg-muted/20 py-24 sm:py-32">
+      {/* Type Gallery - MailerLite Style */}
+      <section className="py-24 sm:py-32 bg-muted/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">9 Working Style Archetypes</h2>
-            <p className="mt-4 text-muted-foreground">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-6">
+              <Brain className="h-4 w-4" />
+              9 Archetypes
+            </Badge>
+            <h2 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl">
+              Working Style Archetypes
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
               Discover which archetype best matches your natural working patterns
             </p>
           </div>
 
-          <div className="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {archetypes.map((archetype) => (
-              <Card key={archetype.title} className="border-border hover:border-primary/50 transition-colors">
-                <CardContent className="p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                    <archetype.icon className="h-6 w-6 text-primary" />
+              <Card key={archetype.title} className="group border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-xl overflow-hidden">
+                <CardContent className="p-8">
+                  <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${archetype.color} shadow-lg`}>
+                    <archetype.icon className="h-7 w-7 text-white" />
                   </div>
-                  <h3 className="mt-4 font-bold">{archetype.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{archetype.desc}</p>
+                  <h3 className="mt-6 text-xl font-bold">{archetype.title}</h3>
+                  <p className="mt-2 text-muted-foreground">{archetype.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -158,64 +216,118 @@ export default function AIInsightsPage() {
         </div>
       </section>
 
-      {/* How It Works - SSOT v2 */}
-      <section className="border-b border-border py-24 sm:py-32">
+      {/* How It Works - MailerLite Style */}
+      <section id="how-it-works" className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="text-balance text-center text-3xl font-bold tracking-tight sm:text-4xl">How It Works</h2>
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-6">
+              <Zap className="h-4 w-4" />
+              Process
+            </Badge>
+            <h2 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl">How It Works</h2>
+          </div>
 
-            <div className="mt-12 space-y-8">
-              {[
-                { step: 1, title: "Language Pattern Analysis", desc: "We analyze the patterns in your name input" },
-                { step: 2, title: "AI Profile Matching", desc: "Our AI matches patterns to working style archetypes" },
-                {
-                  step: 3,
-                  title: "Personalized Insights (that evolve)",
-                  desc: "Get suggestions that improve as you use the platform",
-                },
-              ].map((item) => (
-                <div key={item.step} className="flex gap-6">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white">
-                    <span className="font-bold">{item.step}</span>
+          <div className="mx-auto max-w-4xl">
+            <div className="relative">
+              {/* Connection line */}
+              <div className="absolute left-8 top-12 bottom-12 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent hidden sm:block" />
+              
+              <div className="space-y-12">
+                {[
+                  { 
+                    step: 1, 
+                    title: "Language Pattern Analysis", 
+                    desc: "We analyze the patterns in your name input using advanced AI models",
+                    icon: Search,
+                    color: "from-primary to-emerald-400"
+                  },
+                  { 
+                    step: 2, 
+                    title: "AI Profile Matching", 
+                    desc: "Our AI matches patterns to working style archetypes across 9 dimensions",
+                    icon: Brain,
+                    color: "from-secondary to-blue-400"
+                  },
+                  { 
+                    step: 3, 
+                    title: "Personalized Insights", 
+                    desc: "Get suggestions that improve and evolve as you use the platform",
+                    icon: Sparkles,
+                    color: "from-accent to-rose-400"
+                  },
+                ].map((item) => (
+                  <div key={item.step} className="relative flex gap-8 items-start">
+                    <div className={`relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${item.color} shadow-lg`}>
+                      <item.icon className="h-8 w-8 text-white" />
+                    </div>
+                    <div className="pt-2">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-sm font-bold text-primary">Step {item.step}</span>
+                      </div>
+                      <h3 className="text-xl font-bold">{item.title}</h3>
+                      <p className="mt-2 text-muted-foreground max-w-md">{item.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold">{item.title}</h3>
-                    <p className="mt-1 text-muted-foreground">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
-            <div className="mt-12 rounded-lg border border-border bg-muted/50 p-6 text-center">
-              <p className="text-sm text-muted-foreground">
-                <strong className="text-foreground">Note:</strong> AI Insights is a productivity model. It does not use
-                astrology.
+            <div className="mt-16 rounded-2xl border border-border/50 bg-muted/30 p-6 text-center">
+              <p className="text-muted-foreground">
+                <strong className="text-foreground">Important:</strong> AI Insights is a productivity model. 
+                It does not use astrology or pseudoscience—just pattern recognition and AI.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Use Cases - SSOT v2 */}
-      <section className="border-b border-border bg-muted/20 py-24 sm:py-32">
+      {/* Use Cases - MailerLite Style */}
+      <section className="py-24 sm:py-32 bg-muted/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Use Cases</h2>
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-6">
+              <Target className="h-4 w-4" />
+              Use Cases
+            </Badge>
+            <h2 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl">
+              Perfect for every team
+            </h2>
           </div>
 
-          <div className="mx-auto mt-16 grid max-w-4xl gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { title: "Team Formation", desc: "Build balanced teams based on complementary working styles" },
-              {
-                title: "Communication & Collaboration",
-                desc: "Understand how team members prefer to communicate and work together",
+              { 
+                icon: Users, 
+                title: "Team Formation", 
+                desc: "Build balanced teams based on complementary working styles",
+                color: "from-sky-500 to-blue-500"
               },
-              { title: "Hiring & Onboarding", desc: "Match candidates to roles and help new hires integrate faster" },
-              { title: "Personal Productivity Patterns", desc: "Discover your optimal work rhythms and environments" },
+              {
+                icon: Zap,
+                title: "Communication", 
+                desc: "Understand how team members prefer to communicate and collaborate",
+                color: "from-amber-500 to-orange-500"
+              },
+              { 
+                icon: Briefcase, 
+                title: "Hiring & Onboarding", 
+                desc: "Match candidates to roles and help new hires integrate faster",
+                color: "from-emerald-500 to-green-500"
+              },
+              { 
+                icon: Target, 
+                title: "Personal Productivity", 
+                desc: "Discover your optimal work rhythms and environments",
+                color: "from-violet-500 to-purple-500"
+              },
             ].map((useCase) => (
-              <Card key={useCase.title} className="border-border">
-                <CardContent className="p-6">
-                  <h3 className="font-bold">{useCase.title}</h3>
+              <Card key={useCase.title} className="border-border/50 hover:border-primary/30 transition-all hover:shadow-xl">
+                <CardContent className="p-8">
+                  <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${useCase.color}`}>
+                    <useCase.icon className="h-7 w-7 text-white" />
+                  </div>
+                  <h3 className="mt-6 font-bold text-lg">{useCase.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{useCase.desc}</p>
                 </CardContent>
               </Card>
@@ -224,89 +336,78 @@ export default function AIInsightsPage() {
         </div>
       </section>
 
-      {/* Testimonials - SSOT v2 */}
-      <section className="border-b border-border py-24 sm:py-32">
+      {/* Testimonials - MailerLite Style */}
+      <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 md:grid-cols-2">
-            <Card className="border-border">
-              <CardContent className="p-6">
-                <p className="text-muted-foreground leading-relaxed">
-                  "We used AI Insights to align how we communicate. It reduced misunderstandings immediately."
-                </p>
-                <div className="mt-6">
-                  <p className="font-semibold">People Manager</p>
-                  <p className="text-sm text-muted-foreground">Tech Company</p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border">
-              <CardContent className="p-6">
-                <p className="text-muted-foreground leading-relaxed">
-                  "It's the fastest way to understand working styles without long assessments."
-                </p>
-                <div className="mt-6">
-                  <p className="font-semibold">Founder</p>
-                  <p className="text-sm text-muted-foreground">Startup</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Stay Tuned Teaser - SSOT v2 */}
-      <section className="border-b border-border bg-muted/20 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">More coming soon</h2>
-
-            <div className="mt-8 space-y-4 text-left">
-              <div className="rounded-lg border border-border bg-card p-4">
-                <p className="font-medium">January 2026</p>
-                <p className="text-sm text-muted-foreground">Loader / OS / Templates expansion</p>
-              </div>
-              <div className="rounded-lg border border-border bg-card p-4">
-                <p className="font-medium">Q1 2026</p>
-                <p className="text-sm text-muted-foreground">AI Agents rollout</p>
-              </div>
-            </div>
-
-            <div className="mt-8">
-              <div className="mx-auto max-w-md">
-                <div className="flex gap-2">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="flex-1 rounded-lg border border-border bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
-                  />
-                  <Button>Get updates</Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA - SSOT v2 */}
-      <section className="bg-gradient-to-b from-background to-primary/5 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
-              Join 10,000+ professionals discovering their working style
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-6">
+              <Star className="h-4 w-4 text-amber-500" />
+              Testimonials
+            </Badge>
+            <h2 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl">
+              What people are saying
             </h2>
-            <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Start with AI Insights for free. Build your OS from there.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Button size="lg" asChild>
-                <Link href="#demo">
-                  Reveal My Profile <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/pricing">View Pricing</Link>
-              </Button>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+            {[
+              {
+                quote: "We used AI Insights to align how we communicate. It reduced misunderstandings immediately and helped us work better as a team.",
+                author: "People Manager",
+                company: "Tech Company",
+              },
+              {
+                quote: "It's the fastest way to understand working styles without long assessments. My team loves it!",
+                author: "Founder",
+                company: "Startup",
+              },
+            ].map((testimonial, idx) => (
+              <Card key={idx} className="border-border/50 hover:border-primary/20 transition-all hover:shadow-lg">
+                <CardContent className="p-8">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed text-lg">&ldquo;{testimonial.quote}&rdquo;</p>
+                  <div className="mt-6 pt-6 border-t border-border/50">
+                    <p className="font-semibold">{testimonial.author}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA - MailerLite Style */}
+      <section className="py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary via-primary to-emerald-500 p-12 sm:p-16 shadow-2xl shadow-primary/30">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.2),transparent_50%)]" />
+            <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+            
+            <div className="relative z-10 mx-auto max-w-2xl text-center">
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-white/20 mb-8">
+                <Sparkles className="h-10 w-10 text-white" />
+              </div>
+              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                Ready to discover your working style?
+              </h2>
+              <p className="mt-6 text-xl text-white/80">
+                Join 10,000+ professionals who&apos;ve already found their profile pattern.
+              </p>
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+                <Button size="xl" className="bg-white text-primary hover:bg-white/90 shadow-xl" asChild>
+                  <Link href="#demo">
+                    Reveal My Profile <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 bg-transparent" asChild>
+                  <Link href="/pricing">View Pricing</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
