@@ -1,0 +1,38 @@
+# IntegrateWise Marketing — Cloudflare Workers (static assets)
+# Deploy: pnpm build && pnpm exec wrangler deploy
+# URL: integratewise-maketingsite.connect-a1b.workers.dev
+# Custom domains: integratewise.ai, integratewise.co
+
+name = "integratewise-maketingsite"
+compatibility_date = "2024-12-01"
+
+assets = { directory = "./dist", not_found_handling = "single-page-application" }
+workers_dev = true
+
+# Custom domains — integratewise.ai (primary) + integratewise.co (backup)
+[[routes]]
+pattern = "integratewise.ai"
+zone_name = "integratewise.ai"
+custom_domain = true
+
+[[routes]]
+pattern = "integratewise.co"
+zone_name = "integratewise.co"
+custom_domain = true
+
+# Existing bindings from the remote Worker
+[[kv_namespaces]]
+id = "18aa20dfeb304f0ba592d9070964dd31"
+binding = "binding"
+
+[[d1_databases]]
+binding = "lead"
+database_id = "e978cc9d-d2d9-4750-aad6-c13b3f550f3d"
+
+[[services]]
+binding = "service"
+service = "integratewise-maketingsite"
+environment = "production"
+
+[observability.logs]
+enabled = true
