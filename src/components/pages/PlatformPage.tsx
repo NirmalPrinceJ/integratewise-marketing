@@ -535,7 +535,7 @@ export function PlatformPage() {
             </h2>
             <p className="max-w-2xl mx-auto text-muted-foreground">
               Structured truth, unstructured context, and AI session memory converge
-              in the Spine — powering the Think Engine, passing through the Governance
+              in the Unified Intelligence Layer — powering the Think Engine, passing through the Governance
               Gate, and rendering as role-specific workspaces.
             </p>
           </FadeIn>
@@ -570,7 +570,7 @@ export function PlatformPage() {
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mt-6">
               {[
                 { label: "Kernel", desc: "Loading, normalizing, securing all enterprise data" },
-                { label: "Memory", desc: "The Spine — fusing data, context, and AI memory" },
+                { label: "Memory", desc: "The Unified Intelligence Layer — fusing data, context, and AI memory" },
                 { label: "Think Engine", desc: "Background intelligence evolving the workspace" },
                 { label: "Governance Gate", desc: "Nothing executes without human review and audit" },
                 { label: "Work Layer", desc: "Sales, CS, Finance — role-specific views" },

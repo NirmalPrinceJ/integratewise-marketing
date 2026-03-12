@@ -70,7 +70,7 @@ export function Hero() {
                   <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                 </div>
                 <div>
-                  <div className="text-[9px] text-slate-400 font-bold uppercase">Spine Health</div>
+                  <div className="text-[9px] text-slate-400 font-bold uppercase">Unified Intelligence Layer Health</div>
                   <div className="text-base font-black text-emerald-600">94.1%</div>
                 </div>
               </div>

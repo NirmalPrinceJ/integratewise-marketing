@@ -43,7 +43,7 @@ All assets (including `public/images` and `public/images/industries`) are part o
 ## Scope
 
 - **Routes:** `/`, `/platform`, `/who-its-for`, `/pricing`, `/integrations`, `/security`, `/story`, `/book-demo`, `/contact`, `/problem`, `/architecture`, `/technical`, and generic `/:pageId`.
-- **Core message:** Pain-led narrative — the Chennai divide, the CS paradox, tool sprawl. One universal Spine, one product for everyone. 4-column comparison (Automation Tools, CRMs, AI-Native Apps vs IntegrateWise).
+- **Core message:** Pain-led narrative — the Chennai divide, the CS paradox, tool sprawl. One Unified Intelligence Layer, one product for everyone. 4-column comparison (Automation Tools, CRMs, AI-Native Apps vs IntegrateWise).
 - **Product category:** The Infrastructure for Modern Work.
 - **Content:** Sanity CMS (optional). Set `VITE_SANITY_PROJECT_ID` and `VITE_SANITY_DATASET` for editable content.
 - **Integrations:** Calendly (Book Demo), Google Apps Script (Contact + Demo fallback forms).

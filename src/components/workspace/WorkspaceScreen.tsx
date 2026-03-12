@@ -623,7 +623,7 @@ function L2SignalBar({
 
 /* ═══════════════════════════════════════════════════════════════════════
    L1 — Multi-Domain WorkspaceScreen
-   L1 changes per role. L2 shows cognitive signals from the Spine.
+   L1 changes per role. L2 shows cognitive signals from the Unified Intelligence Layer.
    ═══════════════════════════════════════════════════════════════════════ */
 export function WorkspaceScreen() {
   const ref = useRef(null);
@@ -853,7 +853,7 @@ export function WorkspaceScreen() {
           <div className="w-3 h-1.5 rounded-full bg-foreground" />
           <span>
             <strong className="text-foreground">L2</strong> — Cognitive Layer
-            (the Spine's signals)
+            (the Unified Intelligence Layer's signals)
           </span>
         </div>
       </div>
@@ -901,7 +901,7 @@ export function SpineVisualization() {
     >
       <div className="px-5 py-4 border-b bg-muted/20 flex items-center gap-3">
         <Layers className="h-4 w-4" />
-        <span className="text-sm">The Spine — Connected Intelligence</span>
+        <span className="text-sm">The Unified Intelligence Layer — Connected Intelligence</span>
         <span className="ml-auto text-xs text-muted-foreground">
           Universal Data Layer
         </span>
@@ -952,7 +952,7 @@ export function SpineVisualization() {
             transition={{ delay: 0.5, duration: 0.6 }}
           >
             <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-2">
-              The Spine (One Truth)
+              The Unified Intelligence Layer (One Truth)
             </p>
             <div className="inline-flex flex-wrap gap-1 justify-center max-w-[220px]">
               {fields.map((f, i) => (

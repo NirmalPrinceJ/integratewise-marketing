@@ -39,7 +39,7 @@ export function ValueDeliveryCTA() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              One Spine. One product. Value in under a minute.
+              One Unified Intelligence Layer. One product. Value in under a minute.
             </motion.h2>
 
             <motion.p

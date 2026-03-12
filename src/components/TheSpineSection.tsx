@@ -6,15 +6,15 @@ export function TheSpineSection() {
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 ag-text-balance">
-            Your team manages <span className="text-emerald-500">too many tabs.</span>
+            The <span className="text-emerald-500">Unified Intelligence Layer</span>: one nervous system for everything.
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto ag-text-balance">
-            Sales works in CRM. Support works in tickets. Finance lives in spreadsheets. <span className="font-bold text-foreground">When everyone looks at different systems, customers fall through the cracks.</span> We fix the scattered data problem without replacing the tools your team loves.
+            IntegrateWise doesn't add another app — it adds <span className="font-bold text-foreground">intelligent plumbing</span> that connects CRM, Tally, WhatsApp, machines, emails, bots, product usage, and historical data into a single living nervous system. The Unified Intelligence Layer is adaptive: it fits students, working professionals, and business people alike. Industry-agnostic and department-agnostic — and it grows with you.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-24">
-          {/* Without Spine */}
+          {/* Without Unified Intelligence Layer */}
           <div className="bg-white border-2 border-red-100 rounded-2xl p-8 relative shadow-sm">
             <div className="absolute -top-3 left-6 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
               TODAY
@@ -44,14 +44,14 @@ export function TheSpineSection() {
             <div className="absolute -top-3 left-6 bg-emerald-500 text-slate-900 text-xs font-bold px-3 py-1 rounded-full z-10">
               WITH INTEGRATEWISE
             </div>
-            <h3 className="text-xl font-bold text-emerald-400 mb-6">One powerful hub connecting it all.</h3>
+            <h3 className="text-xl font-bold text-emerald-400 mb-6">One Unified Intelligence Layer connecting it all.</h3>
             <ul className="space-y-4 relative z-10">
               {[
-                "We pull data from your tools automatically",
-                "Sales, CS, and Ops see the exact same metrics",
+                "We pull data from your tools automatically into the Unified Intelligence Layer",
+                "Everyone sees the same source of truth — tailored to their role",
                 "AI cleans and organizes messy data invisibly",
-                "Everyone works from a single source of truth",
-                "Instantly know the health of any account"
+                "Single living nervous system — CRM, email, bots, usage, history",
+                "Adapts to you; grows with you. Industry- and department-agnostic"
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-slate-300">
                   <div className="mt-1 bg-emerald-500 p-1 rounded-full shrink-0">
@@ -66,10 +66,10 @@ export function TheSpineSection() {
 
         <div className="bg-gray-50 border border-gray-200 rounded-3xl p-8 md:p-12 text-center">
           <h3 className="text-3xl font-bold text-foreground mb-4">
-            One underlying truth. <span className="text-emerald-500">Perfectly tailored views.</span>
+            One Unified Intelligence Layer. <span className="text-emerald-500">Tailored to your walk of life.</span>
           </h3>
           <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-            Instead of logging into five different dashboards, your teams get exactly the intelligence they need, automatically personalized for their role.
+            Whether you're a student, working professional, or business person — one Unified Intelligence Layer, one living nervous system. Everyone gets the intelligence they need, automatically personalized. The Unified Intelligence Layer adapts and grows with you.
           </p>
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">

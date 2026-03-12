@@ -130,7 +130,7 @@ export function ArchitectureVisualization() {
             >
                <div className={`absolute inset-0 rounded-full border border-[#4ADE80]/30 opacity-0 group-hover:opacity-100 transition-opacity ${isRunning ? "animate-pulse" : ""}`} />
                {isRunning ? <span className="animate-spin text-[#4ADE80]">⟳</span> : <Zap className="w-3.5 h-3.5 text-[#4ADE80]" />}
-               <span className="relative z-10">{isRunning ? "Scanning Spine..." : "Run Intelligence Cycle"}</span>
+               <span className="relative z-10">{isRunning ? "Scanning Unified Intelligence Layer..." : "Run Intelligence Cycle"}</span>
             </button>
             
             {lastResult && (
@@ -281,7 +281,7 @@ export function ArchitectureVisualization() {
                     </span>
                   </div>
                   <p className="text-xs text-slate-500 mb-4 max-w-2xl">
-                    AI reasoning on Spine data. Edge corrections, dual-context analysis, situation convergence, and goal alignment.
+                    AI reasoning on Unified Intelligence Layer data. Edge corrections, dual-context analysis, situation convergence, and goal alignment.
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     {[
@@ -329,15 +329,15 @@ export function ArchitectureVisualization() {
                   <div className="flex items-center gap-3 mb-1.5">
                     <h3 className="text-lg font-bold tracking-tight text-white group-hover:text-[#3B82F6] transition-colors">Truth Layer</h3>
                     <span className="text-[9px] font-bold uppercase tracking-wider bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/20 rounded-full px-2.5 py-0.5">
-                      The Spine (SSOT)
+                      Unified Intelligence Layer
                     </span>
                   </div>
                   <p className="text-xs text-slate-500 mb-4 max-w-2xl">
-                    Canonical Spine — single source of truth. Cross-tool entity matching, provenance tracking, schema enforcement, and digital twin.
+                    Unified Intelligence Layer — single source of truth. Cross-tool entity matching, provenance tracking, schema enforcement, and digital twin.
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     {[
-                      { icon: Database, label: "Canonical Spine", detail: `${stats.spineEntities} entities`, color: "text-[#3B82F6]" },
+                      { icon: Database, label: "Unified Intelligence Layer", detail: `${stats.spineEntities} entities`, color: "text-[#3B82F6]" },
                       { icon: Layers, label: "Digital Twin", detail: "Multi-source", color: "text-slate-400" },
                       { icon: FileText, label: "Evidence Drawer", detail: "Provenance", color: "text-slate-400" },
                       { icon: GitBranch, label: "Schema Health", detail: stats.schemaMatch, color: "text-[#4ADE80]" },

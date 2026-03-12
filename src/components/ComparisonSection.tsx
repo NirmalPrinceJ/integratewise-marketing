@@ -1,5 +1,5 @@
 /**
- * Pain-led: scattered data, scattered teams → One Spine, one product for everyone.
+ * Pain-led: scattered data, scattered teams → One Unified Intelligence Layer, one product for everyone.
  * 4-column comparison: Automation Tools, CRMs, AI-Native Apps vs IntegrateWise
  */
 import { useRef } from "react";
@@ -74,10 +74,10 @@ export function ComparisonSection() {
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
             <span className="text-[#111827]">Scattered data. Scattered teams.</span>
             <br />
-            <span className="text-[#EC4899]">One Spine. One product. Everyone aligned.</span>
+            <span className="text-[#EC4899]">One Unified Intelligence Layer. One product. Everyone aligned.</span>
           </h2>
           <p className="max-w-2xl mx-auto text-lg text-gray-500">
-            The same universal Spine solves the Chennai divide, the CS paradox, and tool sprawl—for every team, in one place.
+            The same Unified Intelligence Layer solves the Chennai divide, the CS paradox, and tool sprawl—for every team, in one place.
           </p>
         </FadeIn>
 

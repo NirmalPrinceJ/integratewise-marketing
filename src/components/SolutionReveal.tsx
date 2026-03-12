@@ -44,7 +44,7 @@ export function SolutionReveal() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.15, duration: 0.8 }}
           >
-            One workspace. One Spine. Same reality for every team.
+            One workspace. One Unified Intelligence Layer. Same reality for every team.
           </motion.h2>
 
           <motion.div
@@ -60,7 +60,7 @@ export function SolutionReveal() {
               CRM. Finance. Conversations. Support. Wherever your team sits—Chennai or HQ.
             </p>
             <p>
-              One universal Spine so the Chennai divide, the CS paradox, and tool sprawl stop being three separate problems. One product. Everyone connected.
+              One Unified Intelligence Layer so the Chennai divide, the CS paradox, and tool sprawl stop being three separate problems. One product. Everyone connected.
             </p>
           </motion.div>
 

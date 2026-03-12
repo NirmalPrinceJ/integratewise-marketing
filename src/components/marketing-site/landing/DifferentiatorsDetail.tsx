@@ -3,14 +3,14 @@ import React from "react";
 export function DifferentiatorsDetail() {
   const diffs = [
     { title: "L0–L3 Cognitive Architecture", desc: "A strict 4-layer stack that ensures data integrity from raw event to executive KPI." },
-    { title: "Canonical Spine", desc: "A single source of truth for entities like 'Account' and 'User' that persists across all tool changes." },
+    { title: "Unified Intelligence Layer", desc: "A single source of truth for entities like 'Account' and 'User' that persists across all tool changes." },
     { title: "Intelligence Overlay", desc: "A governed AI layer that reasons across tools but requires human sign-off before acting." },
     { title: "Dual-Context Alignment", desc: "Every metric must serve both vendor growth (NRR) and client outcomes (ROI)." },
     { title: "Edge Correction Library", desc: "A cumulative moat of human corrections that makes the AI smarter every day." },
     { title: "MCP-Native Design", desc: "Built to be discovered and used by AI agents using the Model Context Protocol." },
     { title: "Self-Healing Schemas", desc: "AI detects when an upstream API changes and automatically suggests a mapping fix." },
     { title: "Work Preservation Layer", desc: "Intelligence is delivered into existing tools (Slack, Salesforce) so workflows never break." },
-    { title: "Truth-Spine Linkage", desc: "Deterministic linking of disparate tool IDs into a single canonical record." },
+    { title: "Truth Layer Linkage", desc: "Deterministic linking of disparate tool IDs into a single canonical record." },
     { title: "Semantic Context Graph", desc: "Captures unstructured data from calls and tickets to enrich structured records." },
     { title: "Governance Guardrails", desc: "Strict policies that prevent AI from making 'hallucinated' updates to financial records." },
     { title: "NRR Expansion Signals", desc: "Proprietary models that detect expansion opportunities before the customer asks." },

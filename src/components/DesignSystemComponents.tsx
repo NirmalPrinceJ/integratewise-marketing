@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Check, X } from "lucide-react";
 
 /* ═══════════════════════════════════════════════════════════════════════
-   COMPARISON CARDS - "Without Spine" vs "With Spine"
+   COMPARISON CARDS - "Without Unified Intelligence Layer" vs "With Unified Intelligence Layer"
    Based on Figma Design System patterns
    ═══════════════════════════════════════════════════════════════════════ */
 
@@ -160,7 +160,7 @@ export function NumberedFeatureCard({
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
-   FEATURE GRID - "How Can One Spine Serve All Businesses?"
+   FEATURE GRID - "How Can One Unified Intelligence Layer Serve All Businesses?"
    ═══════════════════════════════════════════════════════════════════════ */
 
 interface Feature {

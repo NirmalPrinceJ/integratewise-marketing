@@ -42,7 +42,7 @@ export function NarrativeSection() {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            One workspace. <span className="font-serif italic text-emerald-500">One Spine. Same truth for everyone.</span>
+            One workspace. <span className="font-serif italic text-emerald-500">One Unified Intelligence Layer. Same truth for everyone.</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Your dashboard shows what matters—churn risk, pipeline, compliance—so CS, sales, and ops don’t work from different playbooks. Intelligence surfaces; you approve.

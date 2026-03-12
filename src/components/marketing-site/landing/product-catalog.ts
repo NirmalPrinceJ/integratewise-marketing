@@ -162,7 +162,7 @@ export const PRICING_TIERS: PricingTier[] = [
       "Connectors": "3",
       "Events/month": "1,000",
       "Team members": "2",
-      "Canonical Spine": true,
+      "Unified Intelligence Layer": true,
       "Entity resolution": "Basic",
       "Think Engine": "Basic",
       "Dual-context scoring": false,
@@ -220,7 +220,7 @@ export const PRICING_TIERS: PricingTier[] = [
       "Connectors": "10",
       "Events/month": "25,000",
       "Team members": "Up to 15",
-      "Canonical Spine": true,
+      "Unified Intelligence Layer": true,
       "Entity resolution": "99.4%",
       "Think Engine": "Full",
       "Dual-context scoring": true,
@@ -284,7 +284,7 @@ export const PRICING_TIERS: PricingTier[] = [
       "Connectors": "Unlimited",
       "Events/month": "200,000",
       "Team members": "Unlimited",
-      "Canonical Spine": true,
+      "Unified Intelligence Layer": true,
       "Entity resolution": "99.4%",
       "Think Engine": "Full + Memory",
       "Dual-context scoring": true,
@@ -346,7 +346,7 @@ export const PRICING_TIERS: PricingTier[] = [
       "Connectors": "Unlimited",
       "Events/month": "Unlimited",
       "Team members": "Unlimited",
-      "Canonical Spine": true,
+      "Unified Intelligence Layer": true,
       "Entity resolution": "99.4% + Custom",
       "Think Engine": "Full + Custom Models",
       "Dual-context scoring": true,
@@ -529,7 +529,7 @@ export const FEATURE_COMPARISON: FeatureComparisonRow[] = [
   { feature: "Workspace Planes", category: "Capacity", starter: "Workspace", growth: "Workspace + Connect", professional: "All 3", enterprise: "All 3" },
 
   // ── Intelligence ──
-  { feature: "Canonical Spine", category: "Intelligence", starter: true, growth: true, professional: true, enterprise: true, tooltip: "Unified entity model across all connected tools" },
+  { feature: "Unified Intelligence Layer", category: "Intelligence", starter: true, growth: true, professional: true, enterprise: true, tooltip: "Unified entity model across all connected tools" },
   { feature: "Entity Resolution", category: "Intelligence", starter: "Basic", growth: "99.4%", professional: "99.4%", enterprise: "99.4% + Custom", tooltip: "Cross-tool identity matching accuracy" },
   { feature: "Think Engine", category: "Intelligence", starter: "Basic", growth: "Full", professional: "Full + Memory", enterprise: "Full + Custom Models" },
   { feature: "Dual-Context Scoring", category: "Intelligence", starter: false, growth: true, professional: true, enterprise: true, tooltip: "Provider Growth + Client Value scoring" },
@@ -569,7 +569,7 @@ export const PRICING_FAQ = [
   },
   {
     question: "What counts as an 'event'?",
-    answer: "An event is any data change, sync operation, or API call processed through IntegrateWise. This includes: new records created in connected tools, field updates, deletions, webhook triggers, and Spine recalculations. Schema health checks and internal AI processing do not count toward your event limit.",
+    answer: "An event is any data change, sync operation, or API call processed through IntegrateWise. This includes: new records created in connected tools, field updates, deletions, webhook triggers, and Unified Intelligence Layer recalculations. Schema health checks and internal AI processing do not count toward your event limit.",
   },
   {
     question: "Is there a free trial of paid plans?",

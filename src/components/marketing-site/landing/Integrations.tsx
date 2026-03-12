@@ -40,7 +40,7 @@ export function Integrations() {
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-extrabold text-[#4152A1] mb-4">Integrate with your entire ecosystem</h2>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            IntegrateWise connects to over 100+ platforms out of the box, unifying their data into our Canonical Spine for L3 intelligence.
+            IntegrateWise connects to over 100+ platforms out of the box, unifying their data into our Unified Intelligence Layer for L3 intelligence.
           </p>
         </div>
 

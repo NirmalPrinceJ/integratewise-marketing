@@ -38,7 +38,7 @@ export function SpeedToValueSection() {
                 <div>
                   <h3 className="text-xl font-bold text-foreground mb-2">Phase 2: Deep Context (~24h)</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    While you work, our system pulls the full historical depth in the background. Your Adaptive Spine grows richer every hour, unlocking deeper intelligence automatically.
+                    While you work, our system pulls the full historical depth in the background. Your Unified Intelligence Layer grows richer every hour, unlocking deeper intelligence automatically.
                   </p>
                 </div>
               </div>

@@ -99,7 +99,7 @@ const useCasesData = [
     id: "bizops",
     label: "Business Operations",
     title: "Business Operations",
-    description: "The central nervous system of your company. Automate cross-functional workflows, ensure compliance, and maintain a single source of truth across all tools.",
+    description: "The Unified Intelligence Layer — central nervous system of your company. Automate cross-functional workflows, ensure compliance, and maintain a single source of truth across all tools.",
     stats: [
       { value: "60%", label: "Process automation" },
       { value: "100%", label: "Audit readiness" },
@@ -132,7 +132,7 @@ export function UseCasesSection() {
             <span className="text-emerald-500">Every department.</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            IntegrateWise adapts to how each team works — same data spine, different views, tailored intelligence.
+            IntegrateWise adapts to how each team works — same Unified Intelligence Layer, different views, tailored intelligence.
           </p>
         </div>
 

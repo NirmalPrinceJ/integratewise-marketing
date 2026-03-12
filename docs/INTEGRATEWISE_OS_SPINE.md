@@ -5,6 +5,17 @@
 
 > **The Spine is the Adaptive Spine** — an **adaptive schema**. **Whatever happens in the workspace** — connectors, onboarding, data schema, every screen, every module, every domain, every use case — must be **based on the adaptive schema only**. **Only then** is value delivered for that particular domain or that particular use case. No component defines its own schema or exists independently of the Adaptive Spine. See [ARCHITECTURE.md](ARCHITECTURE.md) §0.
 
+### Marketing clarity — product name: Unified Intelligence Layer
+
+**Internal/technical name:** Spine / Spine V2 (architecture and code). **Product/marketing name:** **Unified Intelligence Layer**.
+
+For the marketing site and external messaging, use the name **Unified Intelligence Layer** and this definition:
+
+- The **Unified Intelligence Layer** is **intelligent plumbing** that connects all business systems — CRM, Tally, WhatsApp, machines, emails, bots, product usage, and historical data — into a **single living nervous system**.
+- It is **adaptive**: it dynamically fits and caters to any user, whether **Student**, **Working Professional**, or **Business Person**.
+- It is **industry-agnostic** and **department-agnostic**.
+- The Unified Intelligence Layer **grows with the user** and becomes stronger over time.
+
 ---
 
 ## Core Principle

@@ -54,7 +54,7 @@ const SHARED_FAQ = [
   { question: "Do I need technical expertise to use IntegrateWise?", answer: "No. IntegrateWise is designed for business operators — CSMs, RevOps, and leadership teams. Connector setup is OAuth-based (one click), and the AI surfaces insights in plain language. Developers can access our API for custom integrations." },
   { question: "How does IntegrateWise handle data security?", answer: "We employ encryption at rest and in transit, role-based access control, audit trails for every action, and governance gates at every layer. We're SOC 2 Type II compliant and GDPR-ready. Data never leaves your region without explicit configuration." },
   { question: "What integrations are supported?", answer: "We support 12+ native connectors including Salesforce, HubSpot, Zendesk, Stripe, Slack, Jira, Intercom, Snowflake, and more. Custom connectors can be built via our API. New integrations are added monthly based on customer demand." },
-  { question: "How is this different from Zapier or Workato?", answer: "Traditional iPaaS tools move data. IntegrateWise understands data. We don't just sync — we normalize into a Canonical Spine, reason with AI, detect patterns, and surface actionable intelligence. Think of us as the intelligence layer on top of your integrations." },
+  { question: "How is this different from Zapier or Workato?", answer: "Traditional iPaaS tools move data. IntegrateWise understands data. We don't just sync — we normalize into the Unified Intelligence Layer, reason with AI, detect patterns, and surface actionable intelligence. Think of us as the intelligence layer on top of your integrations." },
   { question: "Is there a free tier?", answer: "Yes. Our Starter plan includes up to 3 connectors, 1,000 events/month, and access to the core intelligence features. It's designed for small teams and students who want to learn integration intelligence." },
 ];
 
@@ -139,7 +139,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
       subtitle: "From connector setup to intelligent insights — every layer is designed for trust, transparency, and human control.",
       items: [
         { icon: Network, title: "Universal Connectors", description: "One-click OAuth setup for Salesforce, HubSpot, Zendesk, Stripe, Slack, Jira, and 6 more. New connectors added monthly." },
-        { icon: Database, title: "Canonical Spine", description: "Single source of truth. Every entity normalized, deduplicated, and resolved across all connected tools. 99.4% match rate." },
+        { icon: Database, title: "Unified Intelligence Layer", description: "Single source of truth. Every entity normalized, deduplicated, and resolved across all connected tools. 99.4% match rate." },
         { icon: BrainCircuit, title: "Think Engine", description: "AI reasoning with session memory, edge correction, and dual-context scoring. Surfaces what matters, not just what changed." },
         { icon: ShieldCheck, title: "Governance Gates", description: "Every AI-suggested action requires human approval. Full audit trail, RBAC, and provenance tracking at every layer." },
         { icon: Activity, title: "Real-Time Intelligence", description: "1,247+ events processed per minute. Schema drift auto-detected and corrected. Data freshness under 2 minutes." },
@@ -151,7 +151,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     featureWithImage: {
       badge: "Normalize Once",
       title: "Normalize Once. Render Anywhere.",
-      description: "Data enters the Spine once — from any connector, in any format — and is immediately available across every context mode, module, and intelligence layer.",
+      description: "Data enters the Unified Intelligence Layer once — from any connector, in any format — and is immediately available across every context mode, module, and intelligence layer.",
       bulletPoints: [
         "Cross-tool entity resolution with 99.4% accuracy",
         "Automatic schema inference and type mapping",
@@ -370,7 +370,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
       subtitle: "From zero to intelligence in under two weeks.",
       steps: [
         { title: "Connect Your Tools", description: "OAuth-based one-click setup for each connector. Automatic schema discovery and field mapping." },
-        { title: "Spine Calibration", description: "The Canonical Spine resolves entities across tools — matching accounts, contacts, and interactions with 99.4% accuracy." },
+        { title: "Unified Intelligence Layer Calibration", description: "The Unified Intelligence Layer resolves entities across tools — matching accounts, contacts, and interactions with 99.4% accuracy." },
         { title: "Intelligence Training", description: "The Think Engine learns your business context — goals, metrics, team structure, and historical patterns." },
         { title: "Go Live", description: "Your team gets real-time intelligence, AI insights, and governance-gated actions from day one." },
       ],
@@ -415,7 +415,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     ],
     cta: {
       title: "Next: Context",
-      description: "Once connected, data flows into the Context layer where it's normalized into the Canonical Spine.",
+      description: "Once connected, data flows into the Context layer where it's normalized into the Unified Intelligence Layer.",
       primaryCta: { label: "Explore Context", hash: "context" },
       secondaryCta: { label: "Back to All Pillars", hash: "platform-overview" },
       dark: true,
@@ -427,8 +427,8 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
       badge: "AI Pillar 2 of 7",
       title: "Context — The Single",
       highlight: "Source of Truth",
-      description: "Transform raw data into structured truth. The Canonical Spine normalizes, deduplicates, and creates a unified entity model across all connected tools.",
-      primaryCta: { label: "See the Spine", hash: "app" },
+      description: "Transform raw data into structured truth. The Unified Intelligence Layer normalizes, deduplicates, and creates a unified entity model across all connected tools.",
+      primaryCta: { label: "See the Unified Intelligence Layer", hash: "app" },
       image: IMG.dataUnify,
       layout: "split",
     },
@@ -436,7 +436,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
       badge: "Context",
       title: "From Chaos to Clarity",
       items: [
-        { icon: Database, title: "Canonical Spine", description: "Single source of truth for every entity — accounts, contacts, interactions, and metrics." },
+        { icon: Database, title: "Unified Intelligence Layer", description: "Single source of truth for every entity — accounts, contacts, interactions, and metrics." },
         { icon: Users, title: "Digital Twin", description: "Multi-source composite view of each customer, combining data from every connected tool." },
         { icon: GitBranch, title: "Entity Resolution", description: "Cross-tool matching with 99.4% accuracy using fuzzy matching, ML scoring, and human validation." },
         { icon: FileText, title: "Provenance Tracking", description: "Know exactly where every data point came from, when it arrived, and how it was transformed." },
@@ -463,7 +463,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
       badge: "AI Pillar 3 of 7",
       title: "Cognition — AI That",
       highlight: "Reasons, Not Reports",
-      description: "The Think Engine reasons over Spine data — detecting patterns, converging situations, and generating dual-context insights anchored to your strategic goals.",
+      description: "The Think Engine reasons over Unified Intelligence Layer data — detecting patterns, converging situations, and generating dual-context insights anchored to your strategic goals.",
       primaryCta: { label: "Try Think Engine", hash: "app" },
       image: IMG.aiVision,
       layout: "split",
@@ -704,7 +704,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     featureWithImage2: {
       badge: "The Solution",
       title: "One Canonical Customer Entity",
-      description: "IntegrateWise resolves every customer identity across all tools into a single Spine entity — with 99.4% match accuracy and full provenance tracking.",
+      description: "IntegrateWise resolves every customer identity across all tools into a single Unified Intelligence Layer entity — with 99.4% match accuracy and full provenance tracking.",
       bulletPoints: [
         "Cross-tool entity resolution in real time",
         "Automatic conflict resolution for competing data",
@@ -956,7 +956,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
       items: [
         { icon: Briefcase, title: "Workspace Plane", description: "Where teams do daily work — dashboards, tasks, intelligence feed, and AI chat." },
         { icon: Network, title: "Connect Plane", description: "Where integrations are managed, monitored, configured, and health-checked." },
-        { icon: Server, title: "System Plane", description: "Where the Canonical Spine, Think Engine, and infrastructure operate." },
+        { icon: Server, title: "System Plane", description: "Where the Unified Intelligence Layer, Think Engine, and infrastructure operate." },
         { icon: Layers, title: "Unified Context", description: "Switch between planes without losing context. Data flows seamlessly across boundaries." },
       ],
       columns: 2,
@@ -1220,7 +1220,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
       steps: [
         { title: "Sign Up Free", description: "Create your account and access the student sandbox." },
         { title: "Connect Sample Tools", description: "Use our demo connectors to simulate real integrations." },
-        { title: "Explore the Spine", description: "See how data normalizes into a canonical entity model." },
+        { title: "Explore the Unified Intelligence Layer", description: "See how data normalizes into a canonical entity model." },
         { title: "Ask the Think Engine", description: "Try natural language queries and see AI reasoning in action." },
         { title: "Get Certified", description: "Complete the learning path and earn your certification." },
       ],
@@ -1243,7 +1243,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     },
     blog: [
       { title: "Why Integration Intelligence Will Replace iPaaS", excerpt: "The evolution from data pipes to intelligent operating systems — and what it means for B2B SaaS teams.", category: "Thought Leadership", date: "Feb 8, 2026", readTime: "8 min", image: IMG.gradient },
-      { title: "Building a Canonical Data Spine: Architecture Deep Dive", excerpt: "How we designed a single source of truth that resolves entities across 12+ tools with 99.4% accuracy.", category: "Technical", date: "Feb 5, 2026", readTime: "12 min", image: IMG.dataUnify },
+      { title: "Building the Unified Intelligence Layer: Architecture Deep Dive", excerpt: "How we designed a single source of truth that resolves entities across 12+ tools with 99.4% accuracy.", category: "Technical", date: "Feb 5, 2026", readTime: "12 min", image: IMG.dataUnify },
       { title: "How TechServe Saved 12 Hours/Week with Data Unification", excerpt: "A customer story about eliminating manual reconciliation and discovering hidden revenue opportunities.", category: "Case Study", date: "Feb 1, 2026", readTime: "6 min", image: IMG.customerMeeting },
       { title: "From Fragments to Flow: How IntegrateWise Works", excerpt: "Truth, Context, Intelligence, Control — the four layers that turn scattered tools into a living workspace.", category: "Product", date: "Jan 28, 2026", readTime: "10 min", image: IMG.integration },
       { title: "Human-in-the-Loop: Why AI Governance Matters", excerpt: "Why every AI action should require human approval — and how IntegrateWise makes governance seamless.", category: "Governance", date: "Jan 24, 2026", readTime: "7 min", image: IMG.team },
@@ -1297,7 +1297,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     timeline: {
       title: "Recommended Reading Order",
       steps: [
-        { title: "Getting Started (15 min)", description: "Account setup, first connector, and your initial Spine calibration." },
+        { title: "Getting Started (15 min)", description: "Account setup, first connector, and your initial Unified Intelligence Layer calibration." },
         { title: "Connector Deep Dives (30 min each)", description: "Detailed guides for Salesforce, HubSpot, Zendesk, Stripe, and more." },
         { title: "Intelligence Configuration (20 min)", description: "Set up goals, configure context modes, and calibrate the Think Engine." },
         { title: "Team Onboarding (15 min)", description: "Invite team members, set up RBAC, and configure approval workflows." },
@@ -1498,9 +1498,9 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     featureWithImage2: {
       badge: "The Solution",
       title: "Integration Intelligence: A New Category",
-      description: "Integration Intelligence doesn't just sync — it normalizes data into a canonical truth layer (the Spine), reasons over it with AI (the Think Engine), and surfaces actionable insights through governed, human-approved execution. Every cycle makes the system smarter.",
+      description: "Integration Intelligence doesn't just sync — it normalizes data into the Unified Intelligence Layer, reasons over it with AI (the Think Engine), and surfaces actionable insights through governed, human-approved execution. Every cycle makes the system smarter.",
       bulletPoints: [
-        "Canonical Spine creates a single source of truth across all tools",
+        "Unified Intelligence Layer creates a single source of truth across all tools",
         "Think Engine reasons with organizational context, not just data",
         "Every AI suggestion requires human approval before execution",
         "Self-healing pipelines detect and correct drift automatically",

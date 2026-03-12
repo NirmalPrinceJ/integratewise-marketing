@@ -21,7 +21,7 @@ function ArchitectureDiagram() {
           },
           {
             layer: "02",
-            label: "Truth Layer — Canonical Spine",
+            label: "Truth Layer — Unified Intelligence Layer",
             desc: "Single source of truth, deduplicated & normalized",
             icon: <Layers className="w-3.5 h-3.5" />,
             color: "bg-[#059669]",

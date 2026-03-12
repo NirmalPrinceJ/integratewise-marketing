@@ -103,13 +103,13 @@ export function TechnicalPage() {
               {
                 layer: "02", name: "Truth Layer", icon: <Database className="w-6 h-6" />,
                 color: "bg-[#059669]", borderColor: "border-[#059669]/20",
-                desc: "The Canonical Spine — single source of truth. Cross-tool entity matching, provenance tracking, and schema enforcement.",
+                desc: "The Unified Intelligence Layer — single source of truth. Cross-tool entity matching, provenance tracking, and schema enforcement.",
                 items: ["2,847 spine entities", "99.4% match rate", "12 orphan records"],
               },
               {
                 layer: "03", name: "Intelligence Layer", icon: <BrainCircuit className="w-6 h-6" />,
                 color: "bg-[#7B5EA7]", borderColor: "border-[#7B5EA7]/20",
-                desc: "AI reasoning on Spine data. Edge corrections, dual-context analysis, and goal alignment — governed by HITL.",
+                desc: "AI reasoning on Unified Intelligence Layer data. Edge corrections, dual-context analysis, and goal alignment — governed by HITL.",
                 items: ["847 corrections", "91.3% schema health", "Dual-context scoring"],
               },
               {
@@ -154,7 +154,7 @@ export function TechnicalPage() {
               <h2 className="text-3xl font-extrabold text-[#4152A1] mb-6">The Universal Loop: From reality to work</h2>
               <div className="space-y-6">
                 <LoopStep step="1" title="Reality" desc="Events from your tools (CRM, CS, product usage, billing, support)." />
-                <LoopStep step="2" title="Truth + Context + AI" desc="We unify structured Spine entities, unstructured semantic info, and AI reasoning." />
+                <LoopStep step="2" title="Truth + Context + AI" desc="We unify structured Unified Intelligence Layer entities, unstructured semantic info, and AI reasoning." />
                 <LoopStep step="3" title="Intelligence" desc="We map everything to Goals → Metrics → KPIs, aligned to growth." />
                 <LoopStep step="4" title="Work & Approval" desc="Prioritized insights in existing tools + Human-in-the-loop approval loops." />
               </div>
@@ -213,7 +213,7 @@ export function TechnicalPage() {
                   <tr>
                      <td className="py-6 font-bold text-slate-700">Data Flow</td>
                      <td className="py-6 text-slate-500">Point-to-point (A→B)</td>
-                     <td className="py-6 font-bold text-[#059669]">Universal Intelligence Spine</td>
+                     <td className="py-6 font-bold text-[#059669]">Unified Intelligence Layer</td>
                   </tr>
                   <tr>
                      <td className="py-6 font-bold text-slate-700">Intelligence</td>
