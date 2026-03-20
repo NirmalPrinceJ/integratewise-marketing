@@ -110,10 +110,13 @@ export function ContactPage() {
             </div>
             <h3 className="text-2xl font-bold text-page-navy-dark mb-4">Book a Demo</h3>
             <p className="text-lg text-page-slate leading-relaxed mb-8 flex-1">
-              Want a walkthrough of the platform on real data? Schedule 30 minutes with our sales engineering team to see the Spine in action.
+              Want a walkthrough of the platform on real data? Schedule 30 minutes with our founders and sales engineering team.
             </p>
-            <button className="w-full px-6 py-4 rounded-xl font-bold text-white shadow-lg bg-blue-600 hover:bg-blue-700 transition-colors">
-              Schedule Now
+            <button 
+              onClick={() => window.open('https://calendly.com/integratewise', '_blank')}
+              className="w-full px-6 py-4 rounded-xl font-bold text-white shadow-lg bg-blue-600 hover:bg-blue-700 transition-colors cursor-pointer"
+            >
+              Schedule via Calendly
             </button>
           </div>
 
@@ -122,27 +125,34 @@ export function ContactPage() {
             <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-page-primary to-page-accent" />
             
             <div className="w-16 h-16 rounded-2xl bg-page-primary/10 text-page-primary flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-              <MessageCircle className="w-8 h-8" />
+              <Mail className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold text-page-navy-dark mb-4">Talk to Our Team</h3>
+            <h3 className="text-2xl font-bold text-page-navy-dark mb-4">Connect over Email</h3>
             <p className="text-lg text-page-slate leading-relaxed mb-8 flex-1">
-              Not ready for a demo but have architecture questions? Jump into a chat with our founders and product team.
+              Not ready for a demo but have architecture questions? Send an email to our core team to discuss your setup.
             </p>
-             <button className="w-full px-6 py-4 rounded-xl font-bold text-white shadow-lg shadow-page-primary/20 hover:shadow-page-primary/40 transition-all duration-300" style={{ background: 'linear-gradient(135deg, var(--color-page-primary), var(--color-page-accent))' }}>
-              Start Global Chat
+            <button 
+              onClick={() => window.location.href = 'mailto:hello@integratewise.ai'}
+              className="w-full px-6 py-4 rounded-xl font-bold text-white shadow-lg shadow-page-primary/20 hover:shadow-page-primary/40 transition-all duration-300 cursor-pointer" 
+              style={{ background: 'linear-gradient(135deg, var(--color-page-primary), var(--color-page-accent))' }}
+            >
+              Send Email
             </button>
           </div>
 
           <div className="p-10 rounded-3xl bg-white border border-page-border-light shadow-sm flex flex-col items-center text-center hover:shadow-xl hover:border-emerald-500/30 transition-all duration-300">
             <div className="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-8">
-              <Mail className="w-8 h-8" />
+              <ArrowRight className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold text-page-navy-dark mb-4">Explore Platform</h3>
+            <h3 className="text-2xl font-bold text-page-navy-dark mb-4">Open App</h3>
             <p className="text-lg text-page-slate leading-relaxed mb-8 flex-1">
-              Ready to just dive in and connect your first data sources? You can deploy the workspace layer in minutes securely.
+              Already know what you're doing? Jump straight into the workspace and connect your first data sources now.
             </p>
-            <button className="w-full px-6 py-4 rounded-xl font-bold text-emerald-600 border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 transition-colors">
-              Start Free Workspace
+            <button 
+              onClick={() => window.open('https://app.integratewise.com', '_blank')}
+              className="w-full px-6 py-4 rounded-xl font-bold text-emerald-600 border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 transition-colors cursor-pointer"
+            >
+              Go to Application
             </button>
           </div>
 
