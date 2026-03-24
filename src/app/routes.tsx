@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import { RootLayout } from "./components/RootLayout";
 import { HomePage } from "./components/pages/HomePage";
 import { BrandAssetsPage } from "./components/pages/BrandAssetsPage";
@@ -57,6 +57,10 @@ export const router = createBrowserRouter([
   {
     path: "/contact",
     Component: ContactPage,
+  },
+  {
+    path: "/demo",
+    Component: () => <Navigate to="/contact" replace />,
   },
   {
     path: "/app-landing",

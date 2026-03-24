@@ -55,7 +55,7 @@ export function ContactPage() {
               Book a Demo
             </Link>
             <Link 
-              to="https://app.integratewise.com" target="_blank" rel="noreferrer" 
+              to="https://app.integratewise.ai" target="_blank" rel="noreferrer" 
               className="px-5 py-2.5 rounded-full text-sm font-medium text-white shadow-lg shadow-page-primary/20 hover:shadow-page-primary/40 hover:-translate-y-0.5 transition-all duration-300"
               style={{ background: 'linear-gradient(135deg, var(--color-page-primary), var(--color-page-accent))' }}
             >
@@ -81,7 +81,7 @@ export function ContactPage() {
             <Link to="/about" className="text-base font-medium text-page-navy-dark" onClick={() => setMobileMenuOpen(false)}>About</Link>
             <hr className="border-page-border-light my-2" />
             <Link to="/" className="text-base font-medium text-page-navy-dark" onClick={() => setMobileMenuOpen(false)}>Book a Demo</Link>
-            <Link to="https://app.integratewise.com" target="_blank" rel="noreferrer" className="py-3 rounded-lg text-center font-medium text-white shadow-md" style={{ background: 'var(--color-page-primary)' }} onClick={() => setMobileMenuOpen(false)}>
+            <Link to="https://app.integratewise.ai" target="_blank" rel="noreferrer" className="py-3 rounded-lg text-center font-medium text-white shadow-md" style={{ background: 'var(--color-page-primary)' }} onClick={() => setMobileMenuOpen(false)}>
               Open App
             </Link>
           </div>
@@ -149,7 +149,7 @@ export function ContactPage() {
               Already know what you're doing? Jump straight into the workspace and connect your first data sources now.
             </p>
             <button 
-              onClick={() => window.open('https://app.integratewise.com', '_blank')}
+              onClick={() => window.open('https://app.integratewise.ai', '_blank')}
               className="w-full px-6 py-4 rounded-xl font-bold text-emerald-600 border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 transition-colors cursor-pointer"
             >
               Go to Application

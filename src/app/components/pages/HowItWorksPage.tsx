@@ -58,7 +58,7 @@ export function HowItWorksPage() {
               Book a Demo
             </Link>
             <Link 
-              to="https://app.integratewise.com" target="_blank" rel="noreferrer" 
+              to="https://app.integratewise.ai" target="_blank" rel="noreferrer" 
               className="px-5 py-2.5 rounded-full text-sm font-medium text-white shadow-lg shadow-page-primary/20 hover:shadow-page-primary/40 hover:-translate-y-0.5 transition-all duration-300"
               style={{ background: 'linear-gradient(135deg, var(--color-page-primary), var(--color-page-accent))' }}
             >
@@ -83,7 +83,7 @@ export function HowItWorksPage() {
             <Link to="/how-it-works" className="text-base font-medium text-page-primary" onClick={() => setMobileMenuOpen(false)}>How It Works</Link>
             <hr className="border-page-border-light my-2" />
             <Link to="/" className="text-base font-medium text-page-navy-dark" onClick={() => setMobileMenuOpen(false)}>Book a Demo</Link>
-            <Link to="https://app.integratewise.com" target="_blank" rel="noreferrer" className="py-3 rounded-lg text-center font-medium text-white shadow-md" style={{ background: 'var(--color-page-primary)' }} onClick={() => setMobileMenuOpen(false)}>
+            <Link to="https://app.integratewise.ai" target="_blank" rel="noreferrer" className="py-3 rounded-lg text-center font-medium text-white shadow-md" style={{ background: 'var(--color-page-primary)' }} onClick={() => setMobileMenuOpen(false)}>
               Open App
             </Link>
           </div>
@@ -91,14 +91,25 @@ export function HowItWorksPage() {
       </header>
 
       {/* ── 1. HERO SECTION ── */}
-      <section className="pt-32 pb-20 lg:pt-48 lg:pb-24 px-6 text-center border-b border-page-border-light bg-page-surface-sidebar">
+      <section className="pt-32 pb-20 lg:pt-48 lg:pb-24 px-6 text-center border-b border-page-border-light bg-page-surface-sidebar bg-dot-pattern">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-page-navy-dark mb-6">
             How IntegrateWise Works
           </h1>
-          <p className="text-xl sm:text-2xl text-page-slate-dark leading-relaxed">
+          <p className="text-xl sm:text-2xl text-page-slate-dark leading-relaxed mb-12">
             IntegrateWise is built around a connected loop where truth, context, intelligence, approval, and action remain linked at every stage.
           </p>
+          
+          {/* Platform Stack Visual */}
+          <div className="max-w-3xl mx-auto">
+            <div className="rounded-2xl overflow-hidden border border-page-border-light shadow-2xl">
+              <img 
+                src="/images/platform-stack.png" 
+                alt="The 5-layer platform architecture" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -117,7 +128,14 @@ export function HowItWorksPage() {
               <div className="pt-2">
                 <span className="text-xs font-bold tracking-widest uppercase text-page-slate-light mb-2 block">Step 01</span>
                 <h3 className="text-2xl font-bold text-page-navy-dark mb-4">Connect</h3>
-                <p className="text-lg text-page-slate leading-relaxed">Bring tools, systems, data, conversations, and knowledge into one connected environment. We connect to CRM, Support, and Comm stacks via secure OAuth tokens without needing data migrations.</p>
+                <p className="text-lg text-page-slate leading-relaxed mb-6">Bring tools, systems, data, conversations, and knowledge into one connected environment. We connect to CRM, Support, and Comm stacks via secure OAuth tokens without needing data migrations.</p>
+                <div className="max-w-md img-container-elevated">
+                  <img 
+                    src="/images/connect-tools.png" 
+                    alt="Connect your existing tools — CRM, Email, Chat, Support, all active" 
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
               </div>
             </div>
 
@@ -162,10 +180,17 @@ export function HowItWorksPage() {
               <div className="w-20 h-20 shrink-0 rounded-2xl bg-page-navy-dark border-2 border-page-navy-dark flex items-center justify-center shadow-lg relative z-10">
                 <ShieldCheck className="w-8 h-8 text-white" />
               </div>
-              <div className="pt-2">
+              <div className="pt-2 flex-1">
                 <span className="text-xs font-bold tracking-widest uppercase text-page-primary mb-2 block">Step 05 — The Critical Gate</span>
                 <h3 className="text-2xl font-bold text-page-navy-dark mb-4">Wait for Approval</h3>
-                <p className="text-lg text-page-slate leading-relaxed font-medium">Require human review before important actions move forward. The system drafts the execution, cites the source evidence, and pauses until an authorized team member clicks approve.</p>
+                <p className="text-lg text-page-slate leading-relaxed font-medium mb-6">Require human review before important actions move forward. The system drafts the execution, cites the source evidence, and pauses until an authorized team member clicks approve.</p>
+                <div className="max-w-md rounded-xl overflow-hidden border border-page-border-light shadow-lg">
+                  <img 
+                    src="/images/approval-ui.png" 
+                    alt="Governed approval UI — every AI action waits for human approval" 
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
               </div>
             </div>
 
@@ -208,7 +233,7 @@ export function HowItWorksPage() {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
-              to="https://app.integratewise.com" target="_blank" rel="noreferrer" 
+              to="https://app.integratewise.ai" target="_blank" rel="noreferrer" 
               className="w-full sm:w-auto px-8 py-4 rounded-full text-base font-bold text-white shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:shadow-page-primary/30 transition-all duration-300"
               style={{ background: 'linear-gradient(135deg, var(--color-page-primary), var(--color-page-accent))' }}
             >

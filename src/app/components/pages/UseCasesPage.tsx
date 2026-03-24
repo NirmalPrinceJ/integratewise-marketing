@@ -20,6 +20,7 @@ import {
   Landmark
 } from 'lucide-react';
 import { IntegrateWiseLogo } from '../IntegrateWiseLogo';
+import { AccountsDashboard } from '../visuals/AccountsDashboard';
 
 export function UseCasesPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -66,7 +67,7 @@ export function UseCasesPage() {
               Book a Demo
             </Link>
             <Link 
-              to="https://app.integratewise.com" target="_blank" rel="noreferrer" 
+              to="https://app.integratewise.ai" target="_blank" rel="noreferrer" 
               className="px-5 py-2.5 rounded-full text-sm font-medium text-white shadow-lg shadow-page-primary/20 hover:shadow-page-primary/40 hover:-translate-y-0.5 transition-all duration-300"
               style={{ background: 'linear-gradient(135deg, var(--color-page-primary), var(--color-page-accent))' }}
             >
@@ -92,7 +93,7 @@ export function UseCasesPage() {
             <Link to="/integrations" className="text-base font-medium text-page-navy-dark" onClick={() => setMobileMenuOpen(false)}>Integrations</Link>
             <hr className="border-page-border-light my-2" />
             <Link to="/" className="text-base font-medium text-page-navy-dark" onClick={() => setMobileMenuOpen(false)}>Book a Demo</Link>
-            <Link to="https://app.integratewise.com" target="_blank" rel="noreferrer" className="py-3 rounded-lg text-center font-medium text-white shadow-md" style={{ background: 'var(--color-page-primary)' }} onClick={() => setMobileMenuOpen(false)}>
+            <Link to="https://app.integratewise.ai" target="_blank" rel="noreferrer" className="py-3 rounded-lg text-center font-medium text-white shadow-md" style={{ background: 'var(--color-page-primary)' }} onClick={() => setMobileMenuOpen(false)}>
               Open App
             </Link>
           </div>
@@ -100,7 +101,7 @@ export function UseCasesPage() {
       </header>
 
       {/* ── 1. HERO SECTION ── */}
-      <section className="pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 text-center border-b border-page-border-light bg-page-surface-sidebar relative overflow-hidden">
+      <section className="pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 text-center border-b border-page-border-light bg-page-surface-sidebar bg-dot-pattern relative overflow-hidden">
         <div className="absolute top-0 right-1/2 translate-x-1/2 w-[800px] h-[800px] bg-page-primary/5 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-page-primary/20 bg-page-primary/5 mb-8 text-sm font-semibold text-page-primary">
@@ -110,9 +111,18 @@ export function UseCasesPage() {
             One foundation. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-page-primary to-page-accent">Multiple functions.</span>
           </h1>
-          <p className="text-xl sm:text-2xl text-page-slate-dark leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl sm:text-2xl text-page-slate-dark leading-relaxed max-w-3xl mx-auto mb-12">
             IntegrateWise adapts to different departments and use cases while preserving one intelligence foundation underneath. Everyone sees what they need, but the truth remains unified.
           </p>
+
+          {/* Departments Visual */}
+          <div className="max-w-5xl mx-auto">
+            <div className="w-full overflow-hidden rounded-2xl shadow-2xl border border-page-border-light text-left">
+              <div className="-mt-0">
+                <AccountsDashboard />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -235,7 +245,7 @@ export function UseCasesPage() {
           Ready to align your teams?
         </h2>
         <Link 
-          to="https://app.integratewise.com" target="_blank" rel="noreferrer" 
+          to="https://app.integratewise.ai" target="_blank" rel="noreferrer" 
           className="inline-flex px-8 py-4 rounded-full text-base font-bold text-white shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:shadow-page-primary/30 transition-all duration-300"
           style={{ background: 'linear-gradient(135deg, var(--color-page-primary), var(--color-page-accent))' }}
         >

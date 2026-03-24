@@ -18,6 +18,11 @@ import {
   MessageSquare
 } from 'lucide-react';
 import { IntegrateWiseLogo } from '../IntegrateWiseLogo';
+import { AnimatedSpineFlow } from '../visuals/AnimatedSpineFlow';
+import { AnimatedApprovalUI } from '../visuals/AnimatedApprovalUI';
+import { WorkspaceDashboard } from '../visuals/WorkspaceDashboard';
+import { IntelligenceOverlay } from '../visuals/IntelligenceOverlay';
+import { AccountsDashboard } from '../visuals/AccountsDashboard';
 
 /* ── MOCKUP COMPONENTS ── */
 // A glassmorphic card to show a preview of the "Spine"
@@ -28,12 +33,8 @@ function SpineVisualizer() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-page-primary/20 blur-[120px] rounded-full z-0 pointer-events-none" />
       
       {/* Main Glass Mockup Box */}
-      <div className="relative z-10 w-full rounded-2xl border border-white/40 bg-[#0F172A]/80 backdrop-blur-xl overflow-hidden flex flex-col justify-center items-center shadow-[0_20px_60px_rgba(235,67,121,0.2)]">
-        <img 
-          src="/images/hero-dashboard.png" 
-          alt="B2B SaaS Dashboard Mockup" 
-          className="w-full h-auto object-cover"
-        />
+      <div className="relative z-10 w-full" style={{ borderRadius: '20px' }}>
+        <WorkspaceDashboard />
       </div>
     </div>
   );
@@ -82,7 +83,7 @@ export function MarketingLandingPage() {
               Book a Demo
             </Link>
             <Link 
-              to="https://app.integratewise.com" target="_blank" rel="noreferrer" 
+              to="https://app.integratewise.ai" target="_blank" rel="noreferrer" 
               className="px-5 py-2.5 rounded-full text-sm font-medium text-white shadow-lg shadow-page-primary/20 hover:shadow-page-primary/40 hover:-translate-y-0.5 transition-all duration-300"
               style={{ background: 'linear-gradient(135deg, var(--color-page-primary), var(--color-page-accent))' }}
             >
@@ -106,7 +107,7 @@ export function MarketingLandingPage() {
             <a href="#stories" className="text-base font-medium text-page-navy-dark" onClick={() => setMobileMenuOpen(false)}>Stories</a>
             <hr className="border-page-border-light my-2" />
             <Link to="/" className="text-base font-medium text-page-navy-dark" onClick={() => setMobileMenuOpen(false)}>Book a Demo</Link>
-            <Link to="https://app.integratewise.com" target="_blank" rel="noreferrer" className="py-3 rounded-lg text-center font-medium text-white shadow-md" style={{ background: 'var(--color-page-primary)' }} onClick={() => setMobileMenuOpen(false)}>
+            <Link to="https://app.integratewise.ai" target="_blank" rel="noreferrer" className="py-3 rounded-lg text-center font-medium text-white shadow-md" style={{ background: 'var(--color-page-primary)' }} onClick={() => setMobileMenuOpen(false)}>
               Open App
             </Link>
           </div>
@@ -114,7 +115,7 @@ export function MarketingLandingPage() {
       </header>
 
       {/* ── 1. HERO SECTION ── */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 overflow-hidden">
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 overflow-hidden bg-dot-pattern">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-page-accent/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-page-primary/5 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none" />
         
@@ -136,7 +137,7 @@ export function MarketingLandingPage() {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up [animation-delay:300ms]">
             <Link 
-              to="https://app.integratewise.com" target="_blank" rel="noreferrer" 
+              to="https://app.integratewise.ai" target="_blank" rel="noreferrer" 
               className="w-full sm:w-auto px-8 py-4 rounded-full text-base font-semibold text-white shadow-xl shadow-page-primary/20 hover:shadow-page-primary/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 group"
               style={{ background: 'linear-gradient(135deg, var(--color-page-primary), var(--color-page-accent))' }}
             >
@@ -162,12 +163,27 @@ export function MarketingLandingPage() {
           <p className="text-center text-sm font-semibold text-page-slate-light uppercase tracking-wider mb-8">
             Powering context for modern enterprise tools
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-             <div className="flex items-center gap-2 font-bold text-xl text-page-navy-dark"><span className="w-8 h-8 rounded bg-blue-500" />Salesforce</div>
-             <div className="flex items-center gap-2 font-bold text-xl text-page-navy-dark"><span className="w-8 h-8 rounded bg-green-500" />Zendesk</div>
-             <div className="flex items-center gap-2 font-bold text-xl text-page-navy-dark"><span className="w-8 h-8 rounded bg-cyan-500" />Jira</div>
-             <div className="flex items-center gap-2 font-bold text-xl text-page-navy-dark"><span className="w-8 h-8 rounded bg-purple-500" />Slack</div>
-             <div className="flex items-center gap-2 font-bold text-xl text-page-navy-dark"><span className="w-8 h-8 rounded bg-orange-500" />HubSpot</div>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-60 hover:opacity-100 transition-all duration-500">
+             <div className="flex items-center gap-2.5 font-bold text-lg text-page-navy-dark">
+               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none"><path d="M15.94 3.57c-.82-.55-1.79-.84-2.81-.84-1.22 0-2.37.42-3.28 1.19A5.46 5.46 0 0 0 8.05 7.2l-3.7 6.45a5.48 5.48 0 0 0 .64 6.17c.83.98 1.97 1.63 3.23 1.85.47.08.94.12 1.4.12 1.76 0 3.42-.82 4.47-2.24l.54-.73a.5.5 0 0 0-.81-.58l-.54.73a4.48 4.48 0 0 1-5.5 1.43 4.48 4.48 0 0 1-2.2-2.63 4.47 4.47 0 0 1 .35-3.45l3.7-6.45a4.47 4.47 0 0 1 3.84-2.35c.83 0 1.62.22 2.3.64a4.47 4.47 0 0 1 1.71 6.15l-3.34 5.83a2.57 2.57 0 0 1-2.2 1.35 2.52 2.52 0 0 1-2.2-1.2 2.54 2.54 0 0 1-.02-2.56l2.97-5.19a.83.83 0 0 1 1.48.77l-2.97 5.18a.88.88 0 0 0 .01.88.86.86 0 0 0 .73.42.9.9 0 0 0 .76-.46l3.34-5.83A5.47 5.47 0 0 0 15.94 3.57z" fill="#00A1E0"/></svg>
+               Salesforce
+             </div>
+             <div className="flex items-center gap-2.5 font-bold text-lg text-page-navy-dark">
+               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none"><path d="M22.28 5.37a6.27 6.27 0 0 0-3.72-3.72A6.22 6.22 0 0 0 16.23 1h-.01a6.2 6.2 0 0 0-4.37 1.78 6.21 6.21 0 0 0-4.38-1.78 6.22 6.22 0 0 0-6.2 6.22 6.2 6.2 0 0 0 .78 3.02h-.02l5.81 9.09a.76.76 0 0 0 .64.36.75.75 0 0 0 .64-.36l1.84-2.88h.04L12 15.2l3.87-6.05a2.78 2.78 0 0 1 2.35-1.32 2.81 2.81 0 0 1 2.42 1.39 2.79 2.79 0 0 1-.35 3.3l-6.14 7.03a.5.5 0 0 0 .75.66l6.15-7.03a3.8 3.8 0 0 0 .48-4.5 3.81 3.81 0 0 0-3.3-1.85 3.78 3.78 0 0 0-3.2 1.8l-3.04 4.75-3.94-6.16a3.85 3.85 0 0 0 .03-3.86 3.81 3.81 0 0 0-3.31-1.87A3.82 3.82 0 0 0 2.4 4.6a3.82 3.82 0 0 0 .5 4.55" fill="#03363D"/></svg>
+               Zendesk
+             </div>
+             <div className="flex items-center gap-2.5 font-bold text-lg text-page-navy-dark">
+               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none"><path d="M12.005 2C6.488 2 2 6.485 2 12c0 5.514 4.488 10 10.005 10C17.52 22 22 17.514 22 12c0-5.515-4.48-10-9.995-10z" fill="#2684FF"/><path d="M11.07 15.88a.54.54 0 0 1-.07-.26c0-.09.02-.18.07-.26l3.2-4.65a.3.3 0 0 0-.24-.47H8.58a.16.16 0 0 0-.13.25l3.71 5.39a.68.68 0 0 0 .55.29.67.67 0 0 0 .55-.29l1.62-2.35-1.83-2.65-1.96 2.85a.54.54 0 0 1-.43.25.54.54 0 0 1-.44-.25l.01.15z" fill="white"/></svg>
+               Jira
+             </div>
+             <div className="flex items-center gap-2.5 font-bold text-lg text-page-navy-dark">
+               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none"><path d="M5.04 15.02a2.4 2.4 0 0 1-2.39 2.39A2.4 2.4 0 0 1 .26 15.02a2.4 2.4 0 0 1 2.39-2.39h2.39v2.39zm1.2 0a2.4 2.4 0 0 1 2.39-2.39 2.4 2.4 0 0 1 2.39 2.39v5.97a2.4 2.4 0 0 1-2.39 2.39 2.4 2.4 0 0 1-2.39-2.39v-5.97z" fill="#E01E5A"/><path d="M8.63 5.04a2.4 2.4 0 0 1-2.39-2.39A2.4 2.4 0 0 1 8.63.26a2.4 2.4 0 0 1 2.39 2.39v2.39H8.63zm0 1.21a2.4 2.4 0 0 1 2.39 2.39 2.4 2.4 0 0 1-2.39 2.39H2.65a2.4 2.4 0 0 1-2.39-2.39 2.4 2.4 0 0 1 2.39-2.39h5.98z" fill="#36C5F0"/><path d="M18.59 8.64a2.4 2.4 0 0 1 2.39-2.39 2.4 2.4 0 0 1 2.39 2.39 2.4 2.4 0 0 1-2.39 2.39h-2.39V8.64zm-1.2 0a2.4 2.4 0 0 1-2.39 2.39 2.4 2.4 0 0 1-2.39-2.39V2.65a2.4 2.4 0 0 1 2.39-2.39 2.4 2.4 0 0 1 2.39 2.39v5.99z" fill="#2EB67D"/><path d="M15 18.6a2.4 2.4 0 0 1 2.39 2.39 2.4 2.4 0 0 1-2.39 2.39 2.4 2.4 0 0 1-2.39-2.39V18.6H15zm0-1.2a2.4 2.4 0 0 1-2.39-2.39A2.4 2.4 0 0 1 15 12.62h5.98a2.4 2.4 0 0 1 2.39 2.39 2.4 2.4 0 0 1-2.39 2.39H15z" fill="#ECB22E"/></svg>
+               Slack
+             </div>
+             <div className="flex items-center gap-2.5 font-bold text-lg text-page-navy-dark">
+               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none"><path d="M18.16 3.68a4.33 4.33 0 0 0-3.87 2.4 4.07 4.07 0 0 0-3.39-1.82 4.12 4.12 0 0 0-4.09 4.12c0 .24.02.47.06.7A6.1 6.1 0 0 0 2.5 15c0 3.4 2.76 6.15 6.16 6.15.9 0 1.77-.2 2.56-.57a4.53 4.53 0 0 0 3.48 1.56 4.56 4.56 0 0 0 4.52-4.01 4.98 4.98 0 0 0 2.36-4.22c0-2.62-2.04-5.06-3.42-5.06v-.01a4.37 4.37 0 0 0 .01-5.16z" fill="#FF7A59"/></svg>
+               HubSpot
+             </div>
           </div>
         </div>
       </section>
@@ -208,23 +224,43 @@ export function MarketingLandingPage() {
               <p className="text-page-slate text-sm leading-relaxed">Generic AI generators forget your business history and force you to rewrite prompts everywhere.</p>
             </div>
           </div>
+
+          {/* Visual: Intelligent Plumbing */}
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="rounded-2xl overflow-hidden border border-page-border-light shadow-xl">
+              <img 
+                src="/images/intelligent-plumbing.png" 
+                alt="Intelligent plumbing connecting scattered tools into unified data" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <p className="text-center text-sm text-page-slate-light mt-4 italic">Your team shouldn't be the integration layer.</p>
+          </div>
         </div>
       </section>
 
       {/* ── 3. SPINE DEFINITION (Mandatory) ── */}
       <section className="py-24 px-6 bg-page-navy-dark text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-page-primary/30 via-page-navy-dark to-page-navy-dark" />
-        <div className="max-w-4xl mx-auto relative z-10 text-center">
-          <div className="w-16 h-16 rounded-2xl bg-white/10 mx-auto flex items-center justify-center mb-8 border border-white/20">
-            <Layers className="w-8 h-8 text-page-primary" />
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="text-center">
+            <div className="w-16 h-16 rounded-2xl bg-white/10 mx-auto flex items-center justify-center mb-8 border border-white/20">
+              <Layers className="w-8 h-8 text-page-primary" />
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8">What is the Spine?</h2>
+            <p className="text-xl md:text-2xl text-page-gray-blue leading-relaxed font-medium max-w-3xl mx-auto">
+              The Spine / SSOT is intelligent plumbing that connects all your business systems—CRM, Tally, WhatsApp, machines, emails, bots, product usage, and historical data—into one living nervous system.
+            </p>
+            <p className="text-xl md:text-2xl text-page-primary leading-relaxed font-bold mt-6">
+              It is adaptive in nature to dynamically fit the needs of any user, growing stronger over time.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8">What is the Spine?</h2>
-          <p className="text-xl md:text-2xl text-page-gray-blue leading-relaxed font-medium">
-            The Spine / SSOT is intelligent plumbing that connects all your business systems—CRM, Tally, WhatsApp, machines, emails, bots, product usage, and historical data—into one living nervous system.
-          </p>
-          <p className="text-xl md:text-2xl text-page-primary leading-relaxed font-bold mt-6">
-            It is adaptive in nature to dynamically fit the needs of any user, growing stronger over time.
-          </p>
+
+          {/* Spine Network Visual */}
+          <div className="mt-16 relative w-full max-w-5xl mx-auto">
+            <div className="absolute inset-0 bg-gradient-to-t from-page-navy-dark via-transparent to-transparent z-10 pointer-events-none" />
+            <IntelligenceOverlay />
+          </div>
         </div>
       </section>
 
@@ -293,6 +329,14 @@ export function MarketingLandingPage() {
               </div>
             </div>
           </div>
+
+          {/* Workspace Visual */}
+          <div className="mt-16 max-w-5xl mx-auto">
+            <div className="w-full overflow-hidden rounded-2xl shadow-xl">
+              <AccountsDashboard />
+            </div>
+            <p className="text-center text-sm text-page-slate-light mt-4 font-medium">Account 360 — Every signal, every tool, one unified view</p>
+          </div>
         </div>
       </section>
 
@@ -303,29 +347,44 @@ export function MarketingLandingPage() {
             How it works
           </h2>
           
-          <div className="space-y-12">
-            <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
-              <div className="w-16 h-16 shrink-0 rounded-full bg-page-primary text-white flex items-center justify-center text-2xl font-bold shadow-xl">1</div>
-              <div>
-                <h3 className="text-2xl font-bold text-page-navy-dark mb-2">Connect tools (no migration)</h3>
-                <p className="text-lg text-page-slate">Stop rebuilding your stack. Plug in your existing tools via secure connectors, and keep working exactly how you like.</p>
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="space-y-12">
+              <div className="flex flex-col sm:flex-row gap-6 items-start">
+                <div className="w-14 h-14 shrink-0 rounded-full bg-page-primary text-white flex items-center justify-center text-xl font-bold shadow-xl">1</div>
+                <div>
+                  <h3 className="text-xl font-bold text-page-navy-dark mb-2">Connect tools (no migration)</h3>
+                  <p className="text-base text-page-slate">Stop rebuilding your stack. Plug in your existing tools via secure connectors, and keep working exactly how you like.</p>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-6 items-start">
+                <div className="w-14 h-14 shrink-0 rounded-full bg-page-primary text-white flex items-center justify-center text-xl font-bold shadow-xl">2</div>
+                <div>
+                  <h3 className="text-xl font-bold text-page-navy-dark mb-2">Spine builds unified truth & context</h3>
+                  <p className="text-base text-page-slate">The platform continuously runs in the background, stitching tickets, emails, and CRM records into a single knowledge graph.</p>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-6 items-start">
+                <div className="w-14 h-14 shrink-0 rounded-full bg-page-primary text-white flex items-center justify-center text-xl font-bold shadow-xl">3</div>
+                <div>
+                  <h3 className="text-xl font-bold text-page-navy-dark mb-2">AI surfaces, prepares, and routes</h3>
+                  <p className="text-base text-page-slate">AI spots signals, prepares action briefs, and routes them to you. <span className="font-semibold text-page-primary">No auto-pilot.</span> Everything waits for your explicit approval.</p>
+                </div>
               </div>
             </div>
-            
-            <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
-              <div className="w-16 h-16 shrink-0 rounded-full bg-page-primary text-white flex items-center justify-center text-2xl font-bold shadow-xl">2</div>
-              <div>
-                <h3 className="text-2xl font-bold text-page-navy-dark mb-2">Spine builds unified truth & context</h3>
-                <p className="text-lg text-page-slate">The platform continuously runs in the background, stitching tickets, emails, and CRM records into a single knowledge graph.</p>
+
+            {/* Approval UI Visual */}
+            <div className="relative">
+              <div className="absolute -inset-4 bg-page-primary/5 blur-2xl rounded-3xl pointer-events-none" />
+              <div className="relative rounded-2xl overflow-hidden border border-page-border-light shadow-2xl">
+                <img 
+                  src="/images/approval-ui.png" 
+                  alt="AI-proposed actions await your explicit approval" 
+                  className="w-full h-auto object-cover"
+                />
               </div>
-            </div>
-            
-            <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
-              <div className="w-16 h-16 shrink-0 rounded-full bg-page-primary text-white flex items-center justify-center text-2xl font-bold shadow-xl">3</div>
-              <div>
-                <h3 className="text-2xl font-bold text-page-navy-dark mb-2">AI surfaces, prepares, and routes</h3>
-                <p className="text-lg text-page-slate">AI spots signals, prepares action briefs, and routes them to you. <span className="font-semibold text-page-primary">No auto-pilot.</span> Everything waits for your explicit approval.</p>
-              </div>
+              <p className="text-center text-sm text-page-slate-light mt-4 font-medium">Every AI action waits for your approval before executing</p>
             </div>
           </div>
         </div>
@@ -343,20 +402,8 @@ export function MarketingLandingPage() {
                 "In a real-world enterprise scenario, the Spine helped identify and surface early signals that a major customer account was at risk. The system connected signals across multiple tools—support tickets, Slack sentiment, and Salesforce—allowing teams to see the unfolding problem. We protected an $8M account that had turned red because we combined operational truth with contextual signals."
               </p>
             </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 shadow-xl">
-               <div className="flex gap-3 items-center mb-4 pb-4 border-b border-white/10">
-                 <AlertTriangle className="w-5 h-5 text-amber-400" />
-                 <span className="font-semibold">Churn Risk Detected</span>
-               </div>
-               <div className="space-y-3 font-mono text-sm text-page-gray-blue">
-                 <p>→ High volume API timeout tickets (Zendesk)</p>
-                 <p>→ Negative sentiment in #acme-shared (Slack)</p>
-                 <p>→ Renewal in 30 days (Salesforce)</p>
-               </div>
-               <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
-                 <span className="text-sm font-medium">Proposed Action: Notify Lead/CSM</span>
-                 <button className="px-4 py-1.5 bg-emerald-500 rounded text-white font-bold text-sm">Approve</button>
-               </div>
+            <div className="img-container-elevated">
+              <AnimatedApprovalUI />
             </div>
           </div>
         </div>
@@ -402,7 +449,7 @@ export function MarketingLandingPage() {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
-              to="https://app.integratewise.com" target="_blank" rel="noreferrer" 
+              to="https://app.integratewise.ai" target="_blank" rel="noreferrer" 
               className="w-full sm:w-auto px-8 py-4 rounded-full text-base font-bold text-page-navy-dark bg-white shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300"
             >
               Create workspace in 2 minutes

@@ -49,15 +49,20 @@ export function AppLandingPage() {
             <a href="#architecture" className="text-sm font-medium text-page-slate hover:text-white transition-colors">Architecture</a>
             <a href="#pipeline" className="text-sm font-medium text-page-slate hover:text-white transition-colors">Data Pipeline</a>
             <a href="#security" className="text-sm font-medium text-page-slate hover:text-white transition-colors">Security</a>
-            <Link to="/docs" className="text-sm font-medium text-page-slate hover:text-white transition-colors">Documentation</Link>
+            <Link to="/brand/documentation" className="text-sm font-medium text-page-slate hover:text-white transition-colors">Documentation</Link>
           </nav>
 
           <div className="flex items-center gap-4">
-            <Link to="/login" className="hidden md:block text-sm font-semibold text-page-slate hover:text-white transition-colors">
+            <a
+              href="https://app.integratewise.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:block text-sm font-semibold text-page-slate hover:text-white transition-colors"
+            >
               Sign In
-            </Link>
+            </a>
             <Link 
-              to="https://app.integratewise.com" target="_blank" rel="noreferrer" 
+              to="https://app.integratewise.ai" target="_blank" rel="noopener noreferrer" 
               className="px-5 py-2.5 rounded-lg text-sm font-bold text-white shadow-lg hover:-translate-y-0.5 transition-all duration-300 border border-page-primary/50"
               style={{ background: 'linear-gradient(180deg, var(--color-page-primary) 0%, rgba(67, 86, 169, 0.8) 100%)' }}
             >
@@ -90,7 +95,7 @@ export function AppLandingPage() {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
             <Link 
-              to="https://app.integratewise.com" target="_blank" rel="noreferrer" 
+              to="https://app.integratewise.ai" target="_blank" rel="noopener noreferrer" 
               className="w-full sm:w-auto px-8 py-4 rounded-lg text-base font-bold text-white flex items-center justify-center gap-2 group hover:shadow-xl hover:shadow-page-primary/20 hover:-translate-y-1 transition-all"
               style={{ background: 'var(--color-page-primary)' }}
             >
@@ -233,7 +238,7 @@ export function AppLandingPage() {
             </p>
 
             <Link 
-              to="https://app.integratewise.com" target="_blank" rel="noreferrer" 
+              to="https://app.integratewise.ai" target="_blank" rel="noopener noreferrer" 
               className="inline-flex px-8 py-4 rounded-lg text-lg font-bold text-white shadow-xl hover:-translate-y-1 transition-all"
               style={{ background: 'linear-gradient(135deg, var(--color-page-primary), var(--color-page-accent))' }}
             >

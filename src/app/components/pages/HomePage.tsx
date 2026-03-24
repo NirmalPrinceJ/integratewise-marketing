@@ -30,7 +30,7 @@ import { copyToClipboard } from '../../utils/clipboard';
 
 const sections = [
   {
-    to: '/brand-assets',
+    to: '/brand/brand-assets',
     icon: Palette,
     title: 'Brand Assets',
     description: 'Logo system, brand messaging, taglines, and visual identity guidelines',
@@ -39,7 +39,7 @@ const sections = [
     color: '#4356A9',
   },
   {
-    to: '/design-tokens',
+    to: '/brand/design-tokens',
     icon: SwatchBook,
     title: 'Design Tokens',
     description: 'Colors, typography, spacing, and component foundations',
@@ -48,7 +48,7 @@ const sections = [
     color: '#55608C',
   },
   {
-    to: '/stationery',
+    to: '/brand/stationery',
     icon: Stamp,
     title: 'Stationery',
     description: 'Letterhead, invoice, proposal, seal, business card, email signature',
@@ -57,7 +57,7 @@ const sections = [
     color: '#232D42',
   },
   {
-    to: '/marketing',
+    to: '/brand/marketing',
     icon: Megaphone,
     title: 'Marketing',
     description: 'Social templates, LinkedIn assets, WhatsApp catalog, marketing one-pagers',
@@ -66,7 +66,7 @@ const sections = [
     color: '#EB4F72',
   },
   {
-    to: '/product-landing-pages',
+    to: '/brand/product-landing-pages',
     icon: MonitorSmartphone,
     title: 'Landing Pages',
     description: 'Product waitlists, feature drop templates, and pricing page exports',
@@ -75,7 +75,7 @@ const sections = [
     color: '#F59E0B',
   },
   {
-    to: '/sales',
+    to: '/brand/sales',
     icon: HandCoins,
     title: 'Sales',
     description: 'Pitch decks, one-pagers, case studies, battlecards, and proposals',
@@ -84,7 +84,7 @@ const sections = [
     color: '#D9637F',
   },
   {
-    to: '/documentation',
+    to: '/brand/documentation',
     icon: FileText,
     title: 'Documentation',
     description: '6 master packs: Company, Category, Product, Architecture, Governance, GTM',
@@ -205,7 +205,7 @@ export function HomePage() {
             <h3 className="text-lg font-semibold" style={{ color: '#1B2544' }}>Daily Quick Actions</h3>
           </div>
           <button
-            onClick={() => navigate('/generators')}
+            onClick={() => navigate('/brand/generators')}
             className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-md transition-colors"
             style={{ color: '#4154A3', background: 'rgba(65,84,163,0.08)' }}
           >
@@ -214,7 +214,7 @@ export function HomePage() {
         </div>
         {/* Campaign Kit highlight */}
         <button
-          onClick={() => navigate('/generators')}
+          onClick={() => navigate('/brand/generators')}
           className="w-full mb-4 group relative overflow-hidden rounded-xl p-5 text-left hover:shadow-lg transition-all"
           style={{ background: 'linear-gradient(135deg, #4154A3, #EB4379)', border: 'none' }}
         >
@@ -235,10 +235,10 @@ export function HomePage() {
         </button>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { icon: Linkedin, label: 'LinkedIn Banners', desc: 'Batch export all 4 styles', to: '/generators', color: '#0A66C2' },
-            { icon: Users, label: 'Team & Signatures', desc: 'Manage roster, copy HTML', to: '/generators', color: '#364789' },
-            { icon: Image, label: 'Social Posts', desc: 'Editable, all platforms', to: '/generators', color: '#EB4379' },
-            { icon: Type, label: 'Copy Library', desc: 'One-click copy all', to: '/generators', color: '#6B7DC4' },
+            { icon: Linkedin, label: 'LinkedIn Banners', desc: 'Batch export all 4 styles', to: '/brand/generators', color: '#0A66C2' },
+            { icon: Users, label: 'Team & Signatures', desc: 'Manage roster, copy HTML', to: '/brand/generators', color: '#364789' },
+            { icon: Image, label: 'Social Posts', desc: 'Editable, all platforms', to: '/brand/generators', color: '#EB4379' },
+            { icon: Type, label: 'Copy Library', desc: 'One-click copy all', to: '/brand/generators', color: '#6B7DC4' },
           ].map(action => (
             <button
               key={action.label}

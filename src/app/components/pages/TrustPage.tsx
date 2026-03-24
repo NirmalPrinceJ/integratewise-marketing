@@ -11,6 +11,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { IntegrateWiseLogo } from '../IntegrateWiseLogo';
+import { IntelligenceOverlay } from '../visuals/IntelligenceOverlay';
 
 export function TrustPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -57,7 +58,7 @@ export function TrustPage() {
               Book a Demo
             </Link>
             <Link 
-              to="https://app.integratewise.com" target="_blank" rel="noreferrer" 
+              to="https://app.integratewise.ai" target="_blank" rel="noreferrer" 
               className="px-5 py-2.5 rounded-full text-sm font-medium text-white shadow-lg shadow-page-accent/20 hover:shadow-page-accent/40 hover:-translate-y-0.5 transition-all duration-300"
               style={{ background: 'linear-gradient(135deg, var(--color-page-accent), var(--color-page-primary))' }}
             >
@@ -83,7 +84,7 @@ export function TrustPage() {
             <Link to="/about" className="text-base font-medium text-white" onClick={() => setMobileMenuOpen(false)}>About</Link>
             <hr className="border-white/10 my-2" />
             <Link to="/" className="text-base font-medium text-white" onClick={() => setMobileMenuOpen(false)}>Book a Demo</Link>
-            <Link to="https://app.integratewise.com" target="_blank" rel="noreferrer" className="py-3 rounded-lg text-center font-medium text-white shadow-md" style={{ background: 'var(--color-page-accent)' }} onClick={() => setMobileMenuOpen(false)}>
+            <Link to="https://app.integratewise.ai" target="_blank" rel="noreferrer" className="py-3 rounded-lg text-center font-medium text-white shadow-md" style={{ background: 'var(--color-page-accent)' }} onClick={() => setMobileMenuOpen(false)}>
               Open App
             </Link>
           </div>
@@ -181,6 +182,14 @@ export function TrustPage() {
               </p>
             </div>
 
+          </div>
+
+          {/* Trust Governance Dashboard Visual */}
+          <div className="mt-16 max-w-5xl mx-auto">
+            <div className="w-full rounded-2xl shadow-2xl text-left scale-95 transform origin-top">
+              <IntelligenceOverlay />
+            </div>
+            <p className="text-center text-sm text-page-slate-light mt-4 font-medium">Full audit trail — every AI action tracked, every approval logged</p>
           </div>
         </div>
       </section>

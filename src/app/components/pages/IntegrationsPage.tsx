@@ -11,6 +11,7 @@ import {
   Activity
 } from 'lucide-react';
 import { IntegrateWiseLogo } from '../IntegrateWiseLogo';
+import { AnimatedSpineFlow } from '../visuals/AnimatedSpineFlow';
 
 export function IntegrationsPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -57,7 +58,7 @@ export function IntegrationsPage() {
               Book a Demo
             </Link>
             <Link 
-              to="https://app.integratewise.com" target="_blank" rel="noreferrer" 
+              to="https://app.integratewise.ai" target="_blank" rel="noreferrer" 
               className="px-5 py-2.5 rounded-full text-sm font-medium text-white shadow-lg shadow-page-primary/20 hover:shadow-page-primary/40 hover:-translate-y-0.5 transition-all duration-300"
               style={{ background: 'linear-gradient(135deg, var(--color-page-primary), var(--color-page-accent))' }}
             >
@@ -83,7 +84,7 @@ export function IntegrationsPage() {
             <Link to="/integrations" className="text-base font-medium text-page-primary" onClick={() => setMobileMenuOpen(false)}>Integrations</Link>
             <hr className="border-page-border-light my-2" />
             <Link to="/" className="text-base font-medium text-page-navy-dark" onClick={() => setMobileMenuOpen(false)}>Book a Demo</Link>
-            <Link to="https://app.integratewise.com" target="_blank" rel="noreferrer" className="py-3 rounded-lg text-center font-medium text-white shadow-md" style={{ background: 'var(--color-page-primary)' }} onClick={() => setMobileMenuOpen(false)}>
+            <Link to="https://app.integratewise.ai" target="_blank" rel="noreferrer" className="py-3 rounded-lg text-center font-medium text-white shadow-md" style={{ background: 'var(--color-page-primary)' }} onClick={() => setMobileMenuOpen(false)}>
               Open App
             </Link>
           </div>
@@ -91,7 +92,7 @@ export function IntegrationsPage() {
       </header>
 
       {/* ── 1. HERO SECTION ── */}
-      <section className="pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 text-center border-b border-page-border-light bg-white relative overflow-hidden">
+      <section className="pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 text-center border-b border-page-border-light bg-white bg-dot-pattern relative overflow-hidden">
         <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-page-accent/5 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
         <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-page-primary/5 rounded-full blur-[120px] pointer-events-none" />
         
@@ -107,13 +108,19 @@ export function IntegrationsPage() {
             IntegrateWise is built to connect across the systems where work, communication, knowledge, and operations already live. We don't replace your stack; we make it vastly more intelligent.
           </p>
           
-          <div className="max-w-md mx-auto relative">
+          <div className="max-w-md mx-auto relative mb-16">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-page-slate-light" />
             <input 
               type="text" 
               placeholder="Search for integrations (e.g., Salesforce, Slack)..." 
               className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-page-border-primary bg-white focus:border-page-primary focus:outline-none focus:ring-4 focus:ring-page-primary/10 transition-all text-page-navy-dark shadow-sm"
             />
+          </div>
+
+          {/* Integration Flow Visual */}
+          <div className="max-w-4xl mx-auto">
+            <AnimatedSpineFlow />
+            <p className="text-center text-sm text-page-slate-light mt-4 font-medium">The Spine connects to your existing tools — no migration required</p>
           </div>
         </div>
       </section>
