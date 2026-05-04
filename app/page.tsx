@@ -3,6 +3,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/home/hero-section"
+import { IntegrationsLogoSection } from "@/components/home/integrations-logo-section"
 import { SlackLogo, SalesforceLogo, logoColors } from "@/components/icons/app-logos"
 
 export default function HomePage() {
@@ -552,6 +553,11 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* Integrations Logo Section */}
+        <IntegrationsLogoSection />
+
+        <hr className="section-divider" />
 
         {/* Section 9: Demo CTA */}
         <section id="demo-section" className="py-24 px-6 relative overflow-hidden">
