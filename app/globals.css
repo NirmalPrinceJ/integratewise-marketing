@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* IntegrateWise Design System */
+  /* IntegrateWise — Nexify Theme (from screenshot) */
   --font-sans: "Inter", system-ui, sans-serif;
-  
-  /* Background colors */
-  --color-bg-main: #0B0D17;
-  --color-bg-secondary: #151828;
-  --color-bg-elevated: #1F243B;
-  --color-bg-muted: #2D3554;
-  
-  /* Gold accent */
-  --color-gold: #D4AF37;
-  --color-gold-light: #C5A028;
-  --color-gold-glow: rgba(212, 175, 55, 0.4);
-  
-  /* Text colors */
-  --color-text-primary: #F8FAFC;
-  --color-text-secondary: #94A3B8;
-  --color-text-dim: #64748B;
-  
-  /* Status colors */
+
+  /* Backgrounds — pure near-black (Nexify) */
+  --color-bg-main: #090909;
+  --color-bg-secondary: #0f0f0f;
+  --color-bg-elevated: #161616;
+  --color-bg-muted: #1e1e1e;
+
+  /* Warm cream accent — Nexify's "Buy Template / Get Started" button color */
+  --color-gold: #F0D8B5;
+  --color-gold-light: #E5C899;
+  --color-gold-glow: rgba(240, 216, 181, 0.35);
+
+  /* Text — warm-tinted near-white (Nexify headline tone) */
+  --color-text-primary: #F5ECDF;
+  --color-text-secondary: #8A8070;
+  --color-text-dim: #5A5248;
+
+  /* Status colors (unchanged) */
   --color-red-400: #f87171;
   --color-red-500: #ef4444;
   --color-orange-400: #fb923c;
@@ -31,17 +31,13 @@
   --color-blue-500: #3b82f6;
   --color-purple-400: #a78bfa;
   --color-purple-500: #8b5cf6;
-  
+
   --radius: 0.5rem;
 }
 
 * {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-*::-webkit-scrollbar {
-  display: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(240, 216, 181, 0.3) transparent;
 }
 
 html {
@@ -56,39 +52,52 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom utility classes */
+/* ============================================================
+   Nexify core utilities
+   ============================================================ */
+
+/* Hero glow — warm amber spotlight from center-bottom, exactly like Nexify */
 .hero-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15), transparent 70%);
+  background: radial-gradient(ellipse 70% 55% at 50% 85%, rgba(220, 160, 80, 0.32), transparent 68%);
 }
 
+/* Glass card — near-black with subtle warm border */
 .glass-card {
-  background: rgba(21, 24, 40, 1);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 15, 15, 1);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
 }
 
 .glass-card-hover {
-  background: rgba(31, 36, 59, 1);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(22, 22, 22, 1);
+  border: 1px solid rgba(255, 255, 255, 0.10);
 }
 
+/* Cream glow utilities */
 .gold-glow {
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 20px rgba(240, 216, 181, 0.2);
 }
 
 .gold-glow-lg {
-  box-shadow: 0 0 40px rgba(212, 175, 55, 0.3), 0 0 80px rgba(212, 175, 55, 0.1);
+  box-shadow: 0 0 40px rgba(240, 216, 181, 0.25), 0 0 80px rgba(220, 160, 80, 0.1);
 }
 
+/* Blob backgrounds — warm amber */
 .blob-bg {
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(11, 13, 23, 0) 70%);
+  background: radial-gradient(circle, rgba(220, 160, 80, 0.18) 0%, rgba(9, 9, 9, 0) 70%);
 }
 
 .blob-bg-large {
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(11, 13, 23, 0) 60%);
+  background: radial-gradient(circle, rgba(220, 160, 80, 0.22) 0%, rgba(9, 9, 9, 0) 60%);
 }
 
+/* Gradient text — warm cream (Nexify warm tones) */
 .gradient-text {
-  background: linear-gradient(135deg, #D4AF37 0%, #C5A028 100%);
+  background: linear-gradient(135deg, #F0D8B5 0%, #E5C899 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -108,128 +117,127 @@ body {
   background-clip: text;
 }
 
-/* Enhanced hover glow effects */
+/* Hover glow — warm cream */
 .hover-glow {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.25);
-  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 30px rgba(240, 216, 181, 0.2);
+  border-color: rgba(240, 216, 181, 0.25);
 }
 
-/* Smooth gradient border effect */
+/* Gradient border — warm cream */
 .gradient-border {
   position: relative;
-  background: linear-gradient(rgba(21, 24, 40, 0.6), rgba(21, 24, 40, 0.6)) padding-box,
-    linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1)) border-box;
+  background: linear-gradient(rgba(15, 15, 15, 0.8), rgba(15, 15, 15, 0.8)) padding-box,
+    linear-gradient(135deg, rgba(240, 216, 181, 0.3), rgba(220, 160, 80, 0.1)) border-box;
   border: 1px solid transparent;
 }
 
-/* Floating animation */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
+/* ── Nexify flat cream button ──────────────────────────────── */
+.btn-cream {
+  background: #F0D8B5;
+  color: #0d0d0d;
+  font-weight: 600;
+  border: none;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+.btn-cream:hover {
+  background: #E8CD9F;
+  transform: scale(1.02);
 }
+
+/* ── Nexify outlined secondary button ───────────────────────── */
+.btn-outline {
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  border-color: rgba(240, 216, 181, 0.3);
+  color: #F0D8B5;
+}
+
+/* ============================================================
+   Animations
+   ============================================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float { animation: float 3s ease-in-out infinite; }
 
 @keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
+.animate-float-slow { animation: float-slow 4s ease-in-out infinite; }
 
-.animate-float-slow {
-  animation: float-slow 4s ease-in-out infinite;
-}
-
-/* Glow pulse animation */
 @keyframes glow-pulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
-  }
+  0%, 100% { box-shadow: 0 0 20px rgba(240, 216, 181, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(240, 216, 181, 0.35); }
 }
+.animate-glow-pulse { animation: glow-pulse 2s ease-in-out infinite; }
 
-.animate-glow-pulse {
-  animation: glow-pulse 2s ease-in-out infinite;
-}
-
-/* Shimmer effect for loading states */
 @keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
 }
-
 .animate-shimmer {
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }
 
-/* Smooth reveal animation */
 @keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+.animate-reveal { animation: reveal 0.6s ease-out forwards; }
 
-.animate-reveal {
-  animation: reveal 0.6s ease-out forwards;
-}
-
-/* Gradient shift for animated hero backgrounds */
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
-
 .animate-gradient {
   background-size: 200% 200%;
   animation: gradient-shift 6s ease-in-out infinite;
 }
 
-/* Shimmer slide for skeletons */
 @keyframes shimmer-slide {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
-
 .animate-shimmer-slide {
   background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.04) 50%, transparent 100%);
   background-size: 200% 100%;
   animation: shimmer-slide 1.8s ease-in-out infinite;
 }
 
-/* Section divider — gradient fade line */
+/* ============================================================
+   Layout & structural utilities
+   ============================================================ */
+
 .section-divider {
   border: none;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.06) 70%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 30%, rgba(255,255,255,0.05) 70%, transparent 100%);
   margin: 0;
 }
 
-/* Unified pill/chip badge */
+.section-divider-gold {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(240, 216, 181, 0.2) 30%, rgba(220, 160, 80, 0.15) 70%, transparent 100%);
+  margin: 0;
+  box-shadow: 0 0 12px rgba(220, 160, 80, 0.06);
+}
+
 .chip {
   display: inline-flex;
   align-items: center;
@@ -242,17 +250,15 @@ body {
   border: 1px solid;
 }
 
-/* Card hover lift — consistent elevation on hover */
 .card-hover-lift {
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease;
 }
 
 .card-hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Icon hover scale effect */
 .icon-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -261,7 +267,7 @@ body {
   transform: scale(1.1) translateY(-2px);
 }
 
-/* Navigation dropdown styles */
+/* Nav dropdown */
 .nav-dropdown {
   display: none;
   position: absolute;
@@ -269,9 +275,9 @@ body {
   left: 0;
   margin-top: 0.5rem;
   min-width: 200px;
-  background: rgba(21, 24, 40, 0.95);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(12, 12, 12, 0.98);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 12px;
   padding: 0.5rem;
   z-index: 100;
@@ -281,12 +287,12 @@ body {
   display: block;
 }
 
-/* Submenu navigation for page-specific submenus */
+/* Submenu nav */
 .submenu-nav {
   position: sticky;
   top: 72px;
   z-index: 40;
-  background: rgba(11, 13, 23, 0.95);
+  background: rgba(9, 9, 9, 0.97);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -301,64 +307,254 @@ body {
 }
 
 .submenu-nav a.active {
-  color: #D4AF37;
-  border-bottom: 2px solid #D4AF37;
+  color: #F0D8B5;
+  border-bottom: 2px solid #F0D8B5;
 }
 
-/* Enhanced card transitions */
-.glass-card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.glass-card:hover {
-  transform: translateY(-2px);
-}
-
-/* Smooth scroll behavior — defined once above */
-
-/* Selection styling */
+/* Selection — warm cream */
 ::selection {
-  background-color: rgba(212, 175, 55, 0.3);
+  background-color: rgba(240, 216, 181, 0.25);
   color: inherit;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: rgba(9, 9, 9, 0.5); }
+::-webkit-scrollbar-thumb { background: rgba(240, 216, 181, 0.3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(240, 216, 181, 0.55); }
 
-::-webkit-scrollbar-track {
-  background: rgba(11, 13, 23, 0.5);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(212, 175, 55, 0.4);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(212, 175, 55, 0.6);
-}
-
-/* Input focus states */
+/* Input focus — warm cream */
 input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-color: rgba(212, 175, 55, 0.5);
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  border-color: rgba(240, 216, 181, 0.4);
+  box-shadow: 0 0 0 3px rgba(240, 216, 181, 0.08);
 }
 
-/* Link styling */
-a {
-  transition: color 0.2s ease;
+a { transition: color 0.2s ease; }
+
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+/* ============================================================
+   Visual Enhancement v2 — Nexify palette
+   ============================================================ */
+
+/* Dot grid */
+.bg-dots {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-/* Text selection enhancement */
-.text-balance {
-  text-wrap: balance;
+/* Thin-line grid (for overlays) */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 52px 52px;
 }
 
-.text-pretty {
-  text-wrap: pretty;
+/* ── Nexify mosaic / tile background — large squares like in screenshot ── */
+.bg-tiles {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 110px 90px;
+}
+
+/* Warm-tinted grid (for CTA sections) */
+.bg-grid-gold {
+  background-image:
+    linear-gradient(rgba(240, 216, 181, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 160, 80, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* Spotlight radial — warm amber */
+.spotlight {
+  background: radial-gradient(ellipse 80% 55% at 50% -10%, rgba(220, 160, 80, 0.1) 0%, transparent 70%);
+}
+
+/* Stat number glow — warm cream */
+.stat-glow {
+  text-shadow: 0 0 28px rgba(240, 216, 181, 0.45);
+}
+
+/* Blurred orb helper */
+.orb {
+  border-radius: 50%;
+  filter: blur(90px);
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Animated shimmer text — warm cream tones */
+@keyframes text-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.gradient-text-animated {
+  background: linear-gradient(120deg, #F0D8B5 0%, #ffe8c8 40%, #F0D8B5 65%, #E5C899 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-shimmer 5s ease-in-out infinite;
+}
+
+/* Scanning highlight line — warm amber */
+@keyframes scan-down {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(800%); }
+}
+
+.scan-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(240, 216, 181, 0.45) 50%, transparent 100%);
+  animation: scan-down 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Pulsing ring — warm cream */
+@keyframes ring-pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  70% { transform: scale(1.9); opacity: 0; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+.ring-pulse {
+  position: relative;
+}
+
+.ring-pulse::before,
+.ring-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1px solid rgba(240, 216, 181, 0.3);
+  animation: ring-pulse 2.8s ease-out infinite;
+  pointer-events: none;
+}
+
+.ring-pulse::after {
+  animation-delay: 1.4s;
+}
+
+/* Glass card — elevated */
+.glass-elevated {
+  background: rgba(18, 18, 18, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Ghost number behind cards */
+.ghost-number {
+  position: absolute;
+  top: -0.25rem;
+  right: 0.75rem;
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(180deg, rgba(240, 216, 181, 0.07) 0%, transparent 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+}
+
+/* Card gradient top accent — warm cream */
+.card-accent-top {
+  position: relative;
+}
+
+.card-accent-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(240, 216, 181, 0.4), rgba(220, 160, 80, 0.25), transparent);
+  border-radius: 0 0 4px 4px;
+}
+
+/* Step connector — warm cream */
+.step-connector {
+  position: relative;
+}
+
+.step-connector:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 44px;
+  bottom: -28px;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(240, 216, 181, 0.35) 0%, rgba(240, 216, 181, 0.04) 100%);
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.dot-pulse { animation: dot-pulse 2s ease-in-out infinite; }
+
+/* Fade-up entrance */
+@keyframes fade-up-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-up-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+
+.fade-bottom {
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+
+/* Glow bar — warm amber/cream */
+.glow-bar {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(240, 216, 181, 0.7), rgba(220, 160, 80, 0.5), transparent);
+  box-shadow: 0 0 12px rgba(220, 160, 80, 0.3);
+}
+
+/* Animated border glow — warm cream */
+@keyframes border-glow-pulse {
+  0%, 100% {
+    border-color: rgba(240, 216, 181, 0.3);
+    box-shadow: 0 0 20px rgba(220, 160, 80, 0.08);
+  }
+  50% {
+    border-color: rgba(240, 216, 181, 0.6);
+    box-shadow: 0 0 40px rgba(220, 160, 80, 0.18), 0 0 80px rgba(220, 160, 80, 0.06);
+  }
+}
+
+.animate-border-glow {
+  animation: border-glow-pulse 3s ease-in-out infinite;
 }
