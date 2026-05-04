@@ -9,30 +9,30 @@ export function VisionSection() {
       title: "Omniscient Visibility",
       description:
         "Every interaction is indexed. You see not just the email, but the ticket history, the Slack context, and the usage data—all in one glance.",
-      gradient: "from-blue-500/10 to-transparent",
-      border: "hover:border-blue-500/30",
-      bgLight: "bg-blue-500/10",
-      iconBg: "group-hover:bg-blue-500/20"
+      gradient: "from-amber-500/10 to-transparent",
+      border: "hover:border-gold/20",
+      bgLight: "bg-gold/10",
+      iconBg: "group-hover:bg-gold/20"
     },
     {
       icon: "⚡",
       title: "Predictive Performance",
       description:
         "Tools that anticipate needs. \"This customer usually emails on Tuesdays about their report\" becomes an automated reminder, not a lucky guess.",
-      gradient: "from-purple-500/10 to-transparent",
-      border: "hover:border-purple-500/30",
-      bgLight: "bg-purple-500/10",
-      iconBg: "group-hover:bg-purple-500/20"
+      gradient: "from-amber-500/10 to-transparent",
+      border: "hover:border-gold/20",
+      bgLight: "bg-gold/10",
+      iconBg: "group-hover:bg-gold/20"
     },
     {
       icon: "🚀",
       title: "Zero-Friction Execution",
       description:
         "Actions flow from context. Approve the budget, schedule the call, and update the record without ever leaving the narrative thread.",
-      gradient: "from-green-500/10 to-transparent",
-      border: "hover:border-green-500/30",
-      bgLight: "bg-green-500/10",
-      iconBg: "group-hover:bg-green-500/20"
+      gradient: "from-amber-500/10 to-transparent",
+      border: "hover:border-gold/20",
+      bgLight: "bg-gold/10",
+      iconBg: "group-hover:bg-gold/20"
     },
   ]
 
