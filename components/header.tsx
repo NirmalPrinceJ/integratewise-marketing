@@ -29,8 +29,8 @@ export function Header() {
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-bg-main/98 backdrop-blur-2xl border-b border-violet-500/[0.08] shadow-[0_1px_24px_rgba(0,0,0,0.5)]"
-          : "bg-bg-main/70 backdrop-blur-2xl border-b border-white/[0.04]"
+          ? "bg-bg-main/98 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_1px_32px_rgba(0,0,0,0.6)]"
+          : "bg-bg-main/60 backdrop-blur-xl border-b border-white/[0.04]"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
@@ -135,7 +135,7 @@ export function Header() {
           >
             <Link
               href="/demo"
-              className="btn-violet px-7 py-2.5 rounded-lg text-sm font-semibold inline-flex items-center gap-2"
+              className="btn-cream px-7 py-2.5 rounded-lg text-sm inline-flex items-center gap-2"
             >
               <i className="fa-solid fa-calendar text-xs"></i>
               Book a Demo

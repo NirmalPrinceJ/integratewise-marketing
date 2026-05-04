@@ -52,7 +52,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
-                  <div className="ring-pulse w-32 h-32 bg-gradient-to-br from-violet-600 to-blue-500 rounded-full flex items-center justify-center shadow-2xl">
+                  <div className="ring-pulse w-32 h-32 bg-gradient-to-br from-amber-400 to-[#F0D8B5] rounded-full flex items-center justify-center shadow-2xl">
                     <i className="fa-solid fa-user text-white text-4xl relative">
                       <div className="absolute -top-1 -right-1 flex h-3 w-3">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
@@ -67,9 +67,9 @@ export default function HomePage() {
                     @keyframes dash { to { stroke-dashoffset: -20; } }
                     .connector-line { animation: dash 1.5s linear infinite; }
                   `}</style>
-                  <line x1="120" y1="100" x2="50%" y2="50%" stroke="rgba(139,92,246,0.5)" strokeWidth="1" strokeDasharray="4,4" className="connector-line" />
-                  <line x1="80%" y1="160" x2="50%" y2="50%" stroke="rgba(59,130,246,0.5)" strokeWidth="1" strokeDasharray="4,4" className="connector-line" style={{animationDelay: '-0.5s'}} />
-                  <line x1="180" y1="450" x2="50%" y2="50%" stroke="rgba(139,92,246,0.4)" strokeWidth="1" strokeDasharray="4,4" className="connector-line" style={{animationDelay: '-1s'}} />
+                  <line x1="120" y1="100" x2="50%" y2="50%" stroke="rgba(240,216,181,0.45)" strokeWidth="1" strokeDasharray="4,4" className="connector-line" />
+                  <line x1="80%" y1="160" x2="50%" y2="50%" stroke="rgba(220,160,80,0.45)" strokeWidth="1" strokeDasharray="4,4" className="connector-line" style={{animationDelay: '-0.5s'}} />
+                  <line x1="180" y1="450" x2="50%" y2="50%" stroke="rgba(240,216,181,0.35)" strokeWidth="1" strokeDasharray="4,4" className="connector-line" style={{animationDelay: '-1s'}} />
                 </svg>
               </div>
 
@@ -312,8 +312,8 @@ export default function HomePage() {
 
             <div className="glass-card card-accent-top rounded-2xl p-12">
               <div className="flex items-center justify-center gap-4 mb-8">
-                <div className="w-16 h-16 bg-gradient-to-br from-violet-600 to-blue-500 rounded-full flex items-center justify-center">
-                  <i className="fa-solid fa-brain text-white text-2xl"></i>
+                <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-[#F0D8B5] rounded-full flex items-center justify-center">
+                  <i className="fa-solid fa-brain text-bg-main text-2xl"></i>
                 </div>
                 <div className="text-left">
                   <div className="text-2xl font-bold">One Platform. Infinite Memory.</div>
@@ -462,7 +462,7 @@ export default function HomePage() {
               </p>
 
               <div className="inline-flex bg-bg-elevated border border-white/10 rounded-xl p-1">
-                <button className="btn-violet px-6 py-2 rounded-lg text-sm font-semibold">Monthly</button>
+                <button className="btn-cream px-6 py-2 rounded-lg text-sm font-semibold">Monthly</button>
                 <button className="text-text-secondary px-6 py-2 rounded-lg text-sm font-medium hover:text-text-primary">
                   Yearly <span className="text-violet-400 ml-1 text-xs">-20%</span>
                 </button>
@@ -500,7 +500,7 @@ export default function HomePage() {
 
               <div className="glass-card rounded-2xl p-8 border-gold/50 relative transform md:-translate-y-4 shadow-2xl gold-glow-lg animate-border-glow">
                 <div className="absolute top-0 left-0 right-0 h-0.5 glow-bar"></div>
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 btn-violet px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 btn-cream px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
                   Most Popular
                 </div>
                 <div className="mb-6">
@@ -511,7 +511,7 @@ export default function HomePage() {
                   <span className="text-5xl font-bold">$99</span>
                   <span className="text-text-dim">/mo</span>
                 </div>
-                <a href="/demo" className="btn-violet block w-full text-center py-4 rounded-xl font-semibold mb-6">
+                <a href="/demo" className="btn-cream block w-full text-center py-4 rounded-xl font-semibold mb-6">
                   Book a Demo
                 </a>
                 <div className="space-y-3">
@@ -592,7 +592,7 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-              <a href="/demo" className="btn-violet px-10 py-4 rounded-xl font-semibold text-lg inline-flex items-center gap-2">
+              <a href="/demo" className="btn-cream px-10 py-4 rounded-xl font-semibold text-lg inline-flex items-center gap-2">
                 <i className="fa-solid fa-calendar text-sm"></i>
                 Request Demo
               </a>
