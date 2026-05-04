@@ -362,3 +362,232 @@ a {
 .text-pretty {
   text-wrap: pretty;
 }
+
+/* ============================================================
+   Visual Enhancement — v2
+   ============================================================ */
+
+/* Subtle dot-grid background pattern */
+.bg-dots {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Subtle line-grid background */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+/* Gold-tinted grid */
+.bg-grid-gold {
+  background-image:
+    linear-gradient(rgba(212, 175, 55, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.045) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+/* Spotlight radial highlight (top of a section) */
+.spotlight {
+  background: radial-gradient(ellipse 80% 55% at 50% -10%, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+}
+
+/* Stat number glow */
+.stat-glow {
+  text-shadow: 0 0 28px rgba(212, 175, 55, 0.45);
+}
+
+/* Blurred color orb helper */
+.orb {
+  border-radius: 50%;
+  filter: blur(90px);
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Animated shimmer gradient text */
+@keyframes text-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.gradient-text-animated {
+  background: linear-gradient(120deg, #D4AF37 0%, #ffe27a 40%, #D4AF37 60%, #C5A028 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-shimmer 5s ease-in-out infinite;
+}
+
+/* Scanning highlight line for tech panels */
+@keyframes scan-down {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(800%); }
+}
+
+.scan-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.45) 50%, transparent 100%);
+  animation: scan-down 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Pulsing ring — place around hub/center elements */
+@keyframes ring-pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  70% { transform: scale(1.9); opacity: 0; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+.ring-pulse {
+  position: relative;
+}
+
+.ring-pulse::before,
+.ring-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  animation: ring-pulse 2.8s ease-out infinite;
+  pointer-events: none;
+}
+
+.ring-pulse::after {
+  animation-delay: 1.4s;
+}
+
+/* Glass card — elevated (stronger backdrop) */
+.glass-elevated {
+  background: rgba(31, 36, 59, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(24px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Section divider with gold glow */
+.section-divider-gold {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.25) 30%, rgba(212, 175, 55, 0.25) 70%, transparent 100%);
+  margin: 0;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.08);
+}
+
+/* Ghost large number behind feature cards */
+.ghost-number {
+  position: absolute;
+  top: -0.25rem;
+  right: 0.75rem;
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+}
+
+/* Decorative gradient top accent on cards */
+.card-accent-top {
+  position: relative;
+}
+
+.card-accent-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+  border-radius: 0 0 4px 4px;
+}
+
+/* Step connector vertical line */
+.step-connector {
+  position: relative;
+}
+
+.step-connector:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 44px;
+  bottom: -28px;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(212, 175, 55, 0.35) 0%, rgba(212, 175, 55, 0.05) 100%);
+}
+
+/* Pulsing dot indicator */
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.dot-pulse {
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+/* Fade-up entrance animation */
+@keyframes fade-up-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-up-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+
+/* Mask fade toward bottom (for visual panels) */
+.fade-bottom {
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+
+/* Gradient glow bar (horizontal accent line) */
+.glow-bar {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.7), transparent);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+}
+
+/* Animated glowing border for highlight cards */
+@keyframes border-glow-pulse {
+  0%, 100% {
+    border-color: rgba(212, 175, 55, 0.35);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+  }
+  50% {
+    border-color: rgba(212, 175, 55, 0.6);
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.2), 0 0 80px rgba(212, 175, 55, 0.08);
+  }
+}
+
+.animate-border-glow {
+  animation: border-glow-pulse 3s ease-in-out infinite;
+}
