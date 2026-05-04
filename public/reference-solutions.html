@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.FontAwesomeConfig = { autoReplaceSvg: 'nest' };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        ::-webkit-scrollbar { display: none; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0D17;
+            color: #F8FAFC;
+            scroll-behavior: smooth;
+        }
+        .hero-glow {
+            background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15), transparent 70%);
+        }
+        .glass-card {
+            background: rgba(21, 24, 40, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gold-glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+        .blob-bg {
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(11, 13, 23, 0) 70%);
+        }
+        .nav-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 0.5rem;
+            min-width: 200px;
+            background: rgba(21, 24, 40, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 0.5rem;
+            z-index: 100;
+        }
+        .nav-item:hover .nav-dropdown {
+            display: block;
+        }
+        .submenu-nav {
+            position: sticky;
+            top: 72px;
+            z-index: 40;
+            background: rgba(11, 13, 23, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .submenu-nav a.active {
+            color: #D4AF37;
+            border-bottom: 2px solid #D4AF37;
+        }
+        .solution-detail {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .solution-detail.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        bg: {
+                            main: '#0B0D17',
+                            secondary: '#151828',
+                            elevated: '#1F243B',
+                            muted: '#2D3554'
+                        },
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#C5A028',
+                            glow: 'rgba(212, 175, 55, 0.4)'
+                        },
+                        text: {
+                            primary: '#F8FAFC',
+                            secondary: '#94A3B8',
+                            dim: '#64748B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="fixed w-full z-50 bg-bg-main/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-gold to-gold-light rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-brain text-bg-main text-lg"></i>
+                </div>
+                <span class="text-text-primary font-semibold text-lg">IntegrateWise</span>
+            </div>
+            
+            <nav class="hidden lg:flex items-center gap-8 text-sm">
+                <a href="#platform" class="text-text-secondary hover:text-text-primary transition-colors">Adaptive Spine</a>
+                <a href="#product" class="text-text-secondary hover:text-text-primary transition-colors">Adaptive Workspace</a>
+                <a href="#cognitive" class="text-text-secondary hover:text-text-primary transition-colors">Twin</a>
+                <a href="#approval" class="text-text-secondary hover:text-text-primary transition-colors">Approval</a>
+                <div class="relative group">
+                    <button class="text-text-secondary hover:text-text-primary transition-colors flex items-center gap-1">
+                        Solutions <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                </div>
+                <a href="#loop" class="text-text-secondary hover:text-text-primary transition-colors">Loop</a>
+                <a href="#connectors" class="text-text-secondary hover:text-text-primary transition-colors">Connectors</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#" class="hidden md:block text-text-secondary hover:text-text-primary text-sm transition-colors">Sign In</a>
+                <a href="#demo" class="bg-gold hover:bg-gold-light text-bg-main px-6 py-2.5 rounded-lg text-sm font-semibold transition-all gold-glow">
+                    Request Demo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="submenu-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center gap-8 overflow-x-auto text-sm">
+            <a href="#function-solutions" class="text-text-secondary hover:text-text-primary transition-colors whitespace-nowrap pb-2 active">By Function</a>
+            <a href="#industry-solutions" class="text-text-secondary hover:text-text-primary transition-colors whitespace-nowrap pb-2">By Industry</a>
+            <a href="#market-solutions" class="text-text-secondary hover:text-text-primary transition-colors whitespace-nowrap pb-2">By Market</a>
+            <a href="#how-it-works" class="text-text-secondary hover:text-text-primary transition-colors whitespace-nowrap pb-2">How It Works</a>
+            <a href="#demo-section" class="text-text-secondary hover:text-text-primary transition-colors whitespace-nowrap pb-2">Request Demo</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="solutions-hero" class="relative pt-40 pb-24 px-6 overflow-hidden min-h-[700px] flex items-center">
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[800px] blob-bg blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-8 backdrop-blur-sm">
+                <i class="fa-solid fa-puzzle-piece text-blue-400"></i>
+                <span class="text-blue-300 text-sm">Solutions Hub</span>
+            </div>
+            
+            <h1 class="text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                One Platform.<br>
+                <span class="bg-gradient-to-r from-gold to-gold-light bg-clip-text text-transparent">
+                    Infinite Applications.
+                </span>
+            </h1>
+            
+            <p class="text-xl text-text-secondary max-w-3xl mx-auto mb-12 leading-relaxed">
+                IntegrateWise adapts to your role, industry, and market. Explore how Digital Memory transforms work across functions, sectors, and geographies.
+            </p>
+
+            <div class="flex items-center justify-center gap-4">
+                <a href="#function-solutions" class="bg-gold hover:bg-gold-light text-bg-main px-10 py-4 rounded-lg font-semibold transition-all gold-glow transform hover:scale-105">
+                    Explore Solutions
+                </a>
+                <a href="#demo-section" class="glass-card px-10 py-4 rounded-lg font-semibold hover:border-gold/30 transition-all">
+                    Request Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="problem-section" class="py-32 px-6 bg-bg-secondary/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-24">
+                <div class="inline-flex items-center gap-3 glass-card rounded-full px-6 py-3 mb-8 backdrop-blur-xl border-red-500/20">
+                    <i class="fa-solid fa-exclamation-triangle text-red-400 text-sm"></i>
+                    <span class="text-red-300 text-sm font-semibold tracking-wide">The Problem</span>
+                </div>
+                <h2 class="text-6xl lg:text-7xl font-bold mb-10 leading-tight">
+                    Work Is Fragmented.<br>
+                    <span class="text-text-secondary">Context Gets Lost.</span>
+                </h2>
+                <p class="text-2xl text-text-secondary max-w-4xl mx-auto leading-relaxed">
+                    Your daily context is scattered across CRMs, billing software, support desks, and chat apps. Because these systems don't speak the same language, you become the "Human API"—spending hours manually reconstructing what's happening.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+                <div class="glass-card rounded-[24px] p-12 text-center hover:border-red-500/40 transition-all backdrop-blur-xl border border-white/5 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-b from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="w-20 h-20 bg-red-500/10 rounded-3xl flex items-center justify-center mx-auto mb-8 relative z-10 border border-red-500/20">
+                        <i class="fa-solid fa-arrows-split-up-and-left text-red-400 text-4xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-5 relative z-10">Disconnected Tools</h3>
+                    <p class="text-text-secondary leading-relaxed text-lg relative z-10">
+                        Every system holds a piece of the truth. None of them talk to each other. You're left stitching it together manually.
+                    </p>
+                    <div class="mt-8 pt-8 border-t border-white/5 relative z-10 text-left">
+                        <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">The Impact</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-sm text-text-dim">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Hours wasted in tab-switching</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-text-dim">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Data silos block collaboration</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-[24px] p-12 text-center hover:border-orange-500/40 transition-all backdrop-blur-xl border border-white/5 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-b from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="w-20 h-20 bg-orange-500/10 rounded-3xl flex items-center justify-center mx-auto mb-8 relative z-10 border border-orange-500/20">
+                        <i class="fa-solid fa-clock-rotate-left text-orange-400 text-4xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-5 relative z-10">Lost Context</h3>
+                    <p class="text-text-secondary leading-relaxed text-lg relative z-10">
+                        Critical signals hide across silos. By the time you notice, it's already too late to intervene.
+                    </p>
+                    <div class="mt-8 pt-8 border-t border-white/5 relative z-10 text-left">
+                        <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">The Impact</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-sm text-text-dim">
+                                <i class="fa-solid fa-xmark text-orange-400 mt-1"></i>
+                                <span>Missed churn signals</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-text-dim">
+                                <i class="fa-solid fa-xmark text-orange-400 mt-1"></i>
+                                <span>Reactive instead of proactive</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-[24px] p-12 text-center hover:border-brand-purple/40 transition-all backdrop-blur-xl border border-white/5 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-b from-brand-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="w-20 h-20 bg-brand-purple/10 rounded-3xl flex items-center justify-center mx-auto mb-8 relative z-10 border border-brand-purple/20">
+                        <i class="fa-solid fa-repeat text-brand-purple text-4xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-5 relative z-10">Constant Re-Explaining</h3>
+                    <p class="text-text-secondary leading-relaxed text-lg relative z-10">
+                        Teams keep re-deciding and re-explaining the same things because organizational memory doesn't exist.
+                    </p>
+                    <div class="mt-8 pt-8 border-t border-white/5 relative z-10 text-left">
+                        <h4 class="text-sm font-bold text-white mb-4 uppercase tracking-wider">The Impact</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-sm text-text-dim">
+                                <i class="fa-solid fa-xmark text-brand-purple mt-1"></i>
+                                <span>Friction in handoffs</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-text-dim">
+                                <i class="fa-solid fa-xmark text-brand-purple mt-1"></i>
+                                <span>Knowledge leaves with employees</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="the-shift" class="py-32 px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[700px] h-[700px] blob-bg blur-3xl opacity-30 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-24">
+                <div class="inline-flex items-center gap-3 glass-card rounded-full px-6 py-3 mb-8 backdrop-blur-xl border-purple-500/20">
+                    <i class="fa-solid fa-desktop text-purple-400 text-sm"></i>
+                    <span class="text-purple-300 text-sm font-semibold tracking-wide">The Shift</span>
+                </div>
+                <h2 class="text-6xl lg:text-7xl font-bold mb-10 leading-tight">
+                    From Fragmented to<br>
+                    <span class="text-text-secondary">Unified Intelligence</span>
+                </h2>
+                <p class="text-2xl text-text-secondary max-w-4xl mx-auto leading-relaxed">
+                    IntegrateWise builds a semantic memory layer that understands relationships, timelines, and intent—transforming scattered data into actionable intelligence.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="glass-card rounded-[32px] p-8 lg:p-14 max-w-7xl mx-auto backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/5 relative">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-brand-purple/50 to-transparent"></div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+                        
+                        <!-- Feature Navigation (Left Column) -->
+                        <div class="lg:col-span-4 space-y-4">
+                            <div class="glass-card bg-white/5 border border-brand-purple/30 rounded-[20px] p-6 cursor-pointer hover:bg-white/10 transition-colors group relative overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-r from-brand-purple/10 to-transparent opacity-100 transition-opacity"></div>
+                                <h4 class="text-xl font-bold mb-3 flex items-center gap-3 text-text-primary relative z-10">
+                                    <div class="w-8 h-8 rounded-lg bg-brand-purple/20 flex items-center justify-center border border-brand-purple/30">
+                                        <i class="fa-solid fa-360-degrees text-brand-purple"></i>
+                                    </div>
+                                    Unified Entity 360 View
+                                </h4>
+                                <p class="text-text-secondary leading-relaxed text-sm relative z-10 pl-11">
+                                    See everything about any account, client, or project in one place. No more tab-switching.
+                                </p>
+                            </div>
+
+                            <div class="glass-card bg-transparent border border-white/5 rounded-[20px] p-6 cursor-pointer hover:bg-white/5 transition-colors group">
+                                <h4 class="text-xl font-bold mb-3 flex items-center gap-3 text-text-dim group-hover:text-text-primary transition-colors">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-colors">
+                                        <i class="fa-solid fa-sparkles text-brand-purple opacity-50 group-hover:opacity-100 transition-opacity"></i>
+                                    </div>
+                                    Proactive Twin Insights
+                                </h4>
+                                <p class="text-text-dim leading-relaxed text-sm pl-11">
+                                    Your Twin watches patterns and surfaces what needs attention—backed by evidence.
+                                </p>
+                            </div>
+
+                            <div class="glass-card bg-transparent border border-white/5 rounded-[20px] p-6 cursor-pointer hover:bg-white/5 transition-colors group">
+                                <h4 class="text-xl font-bold mb-3 flex items-center gap-3 text-text-dim group-hover:text-text-primary transition-colors">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-colors">
+                                        <i class="fa-solid fa-hand-pointer text-brand-purple opacity-50 group-hover:opacity-100 transition-opacity"></i>
+                                    </div>
+                                    Approval-Gated Actions
+                                </h4>
+                                <p class="text-text-dim leading-relaxed text-sm pl-11">
+                                    Nothing executes without your explicit approval. Review, edit, and authorize.
+                                </p>
+                            </div>
+                            
+                            <div class="glass-card bg-transparent border border-white/5 rounded-[20px] p-6 cursor-pointer hover:bg-white/5 transition-colors group">
+                                <h4 class="text-xl font-bold mb-3 flex items-center gap-3 text-text-dim group-hover:text-text-primary transition-colors">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-colors">
+                                        <i class="fa-solid fa-timeline text-brand-purple opacity-50 group-hover:opacity-100 transition-opacity"></i>
+                                    </div>
+                                    Temporal Memory Graph
+                                </h4>
+                                <p class="text-text-dim leading-relaxed text-sm pl-11">
+                                    Track how context evolved over time. Rewind to see exact state at any past date.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Preview (Right Column) -->
+                        <div class="lg:col-span-8">
+                            <div class="bg-[#151025] rounded-[24px] border border-white/10 h-full flex flex-col shadow-[0_16px_40px_rgba(0,0,0,0.4)] overflow-hidden relative">
+                                <!-- Mock UI Window Controls -->
+                                <div class="h-8 bg-black/40 border-b border-white/5 flex items-center px-4 gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                                </div>
+                                
+                                <div class="flex-1 p-6">
+                                    <div class="space-y-4">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                                <span class="text-xs text-text-dim">12:34 PM</span>
+                                            </div>
+                                            <span class="text-xs text-text-dim">Account: ACME Corp</span>
+                                        </div>
+                                        
+                                        <div class="space-y-2">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-2 h-2 rounded-full bg-red-500/80"></div>
+                                                <span class="text-sm text-text-dim">Usage dropped 15% in last 30 days</span>
+                                            </div>
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-2 h-2 rounded-full bg-yellow-500/80"></div>
+                                                <span class="text-sm text-text-dim">Support ticket opened about 24 hours ago</span>
+                                            </div>
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-2 h-2 rounded-full bg-green-500/80"></div>
+                                                <span class="text-sm text-text-dim">QBR prep scheduled for tomorrow</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="border-t border-white/10 pt-4">
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center gap-2">
+                                                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                                    <span class="text-xs text-text-dim">12:34 PM</span>
+                                                </div>
+                                                <span class="text-xs text-text-dim">Twin Insight</span>
+                                            </div>
+                                            <p class="text-sm text-text-dim mt-1">
+                                                <i class="fa-solid fa-exclamation-triangle text-red-400 text-xs mr-1"></i>
+                                                "This account has opened 3 support tickets in 2 weeks. Usage dropped 15% in the last 30 days. QBR prep is scheduled for tomorrow. This suggests a high churn risk."
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="border-t border-white/10 p-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                                            <span class="text-xs text-text-dim">12:34 PM</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <button class="w-8 h-8 bg-green-500/20 border border-green-500/40 rounded flex items-center justify-center text-xs text-green-400 hover:bg-green-500/30 transition-colors">
+                                                <i class="fa-solid fa-check"></i>
+                                            </button>
+                                            <button class="w-8 h-8 bg-red-500/20 border border-red-500/40 rounded flex items-center justify-center text-xs text-red-400 hover:bg-red-500/30 transition-colors">
+                                                <i class="fa-solid fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="product-experience" class="py-32 px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[700px] h-[700px] blob-bg blur-3xl opacity-30 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-24">
+                <div class="inline-flex items-center gap-3 glass-card rounded-full px-6 py-3 mb-8 backdrop-blur-xl border-purple-500/20">
+                    <i class="fa-solid fa-desktop text-purple-400 text-sm"></i>
+                    <span class="text-purple-300 text-sm font-semibold tracking-wide">Product Experience</span>
+                </div>
+                <h2 class="text-6xl lg:text-7xl font-bold mb-10 leading-tight">
+                    Work Inside a Governed<br>
+                    <span class="gradient-text">Knowledge Workspace</span>
+                </h2>
+                <p class="text-2xl text-text-secondary max-w-4xl mx-auto leading-relaxed">
+                    The Adaptive Workspace gives you perfect context on any account, client, or project—in one click.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-[32px] p-8 lg:p-14 max-w-7xl mx-auto backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/5 relative">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-brand-purple/50 to-transparent"></div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+                    
+                    <!-- Feature Navigation (Left Column) -->
+                    <div class="lg:col-span-4 space-y-4">
+                        <div class="glass-card bg-white/5 border border-brand-purple/30 rounded-[20px] p-6 cursor-pointer hover:bg-white/10 transition-colors group relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-brand-purple/10 to-transparent opacity-100 transition-opacity"></div>
+                            <h4 class="text-xl font-bold mb-3 flex items-center gap-3 text-text-primary relative z-10">
+                                <div class="w-8 h-8 rounded-lg bg-brand-purple/20 flex items-center justify-center border border-brand-purple/30">
+                                    <i class="fa-solid fa-360-degrees text-brand-purple"></i>
+                                </div>
+                                Unified Entity 360 View
+                            </h4>
+                            <p class="text-text-secondary leading-relaxed text-sm relative z-10 pl-11">
+                                See everything about any account, client, or project in one place. No more tab-switching.
+                            </p>
+                        </div>
+
+                        <div class="glass-card bg-transparent border border-white/5 rounded-[20px] p-6 cursor-pointer hover:bg-white/5 transition-colors group">
+                            <h4 class="text-xl font-bold mb-3 flex items-center gap-3 text-text-dim group-hover:text-text-primary transition-colors">
+                                <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-colors">
+                                    <i class="fa-solid fa-sparkles text-brand-purple opacity-50 group-hover:opacity-100 transition-opacity"></i>
+                                </div>
+                                Proactive Twin Insights
+                            </h4>
+                            <p class="text-text-dim leading-relaxed text-sm pl-11">
+                                Your Twin watches patterns and surfaces what needs attention—backed by evidence.
+                            </p>
+                        </div>
+
+                        <div class="glass-card bg-transparent border border-white/5 rounded-[20px] p-6 cursor-pointer hover:bg-white/5 transition-colors group">
+                            <h4 class="text-xl font-bold mb-3 flex items-center gap-3 text-text-dim group-hover:text-text-primary transition-colors">
+                                <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-colors">
+                                    <i class="fa-solid fa-hand-pointer text-brand-purple opacity-50 group-hover:opacity-100 transition-opacity"></i>
+                                </div>
+                                Approval-Gated Actions
+                            </h4>
+                            <p class="text-text-dim leading-relaxed text-sm pl-11">
+                                Nothing executes without your explicit approval. Review, edit, and authorize.
+                            </p>
+                        </div>
+                        
+                        <div class="glass-card bg-transparent border border-white/5 rounded-[20px] p-6 cursor-pointer hover:bg-white/5 transition-colors group">
+                            <h4 class="text-xl font-bold mb-3 flex items-center gap-3 text-text-dim group-hover:text-text-primary transition-colors">
+                                <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-colors">
+                                    <i class="fa-solid fa-timeline text-brand-purple opacity-50 group-hover:opacity-100 transition-opacity"></i>
+                                </div>
+                                Temporal Memory Graph
+                            </h4>
+                            <p class="text-text-dim leading-relaxed text-sm pl-11">
+                                Track how context evolved over time. Rewind to see exact state at any past date.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Preview (Right Column) -->
+                    <div class="lg:col-span-8">
+                        <div class="bg-[#151025] rounded-[24px] border border-white/10 h-full flex flex-col shadow-[0_16px_40px_rgba(0,0,0,0.4)] overflow-hidden relative">
+                            <!-- Mock UI Window Controls -->
+                            <div class="h-8 bg-black/40 border-b border-white/5 flex items-center px-4 gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                            </div>
+                            
+                            <div class="flex-1 p-6">
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                            <span class="text-xs text-text-dim">12:34 PM</span>
+                                        </div>
+                                        <span class="text-xs text-text-dim">Account: ACME Corp</span>
+                                    </div>
+                                    
+                                    <div class="space-y-2">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-2 h-2 rounded-full bg-red-500/80"></div>
+                                            <span class="text-sm text-text-dim">Usage dropped 15% in last 30 days</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-2 h-2 rounded-full bg-yellow-500/80"></div>
+                                            <span class="text-sm text-text-dim">Support ticket opened about 24 hours ago</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-2 h-2 rounded-full bg-green-500/80"></div>
+                                            <span class="text-sm text-text-dim">QBR prep scheduled for tomorrow</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="border-t border-white/10 pt-4">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                                <span class="text-xs text-text-dim">12:34 PM</span>
+                                            </div>
+                                            <span class="text-xs text-text-dim">Twin Insight</span>
+                                        </div>
+                                        <p class="text-sm text-text-dim mt-1">
+                                            <i class="fa-solid fa-exclamation-triangle text-red-400 text-xs mr-1"></i>
+                                            "This account has opened 3 support tickets in 2 weeks. Usage dropped 15% in the last 30 days. QBR prep is scheduled for tomorrow. This suggests a high churn risk."
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="border-t border-white/10 p-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                                        <span class="text-xs text-text-dim">12:34 PM</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <button class="w-8 h-8 bg-green-500/20 border border-green-500/40 rounded flex items-center justify-center text-xs text-green-400 hover:bg-green-500/30 transition-colors">
+                                            <i class="fa-solid fa-check"></i>
+                                        </button>
+                                        <button class="w-8 h-8 bg-red-500/20 border border-red-500/40 rounded flex items-center justify-center text-xs text-red-400 hover:bg-red-500/30 transition-colors">
+                                            <i class="fa-solid fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="deep-architecture" class="py-32 px-6 bg-bg-secondary/30 border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-20">
+                <div class="inline-flex items-center gap-3 glass-card rounded-full px-4 py-2 mb-6 backdrop-blur-xl border-blue-500/20">
+                    <i class="fa-solid fa-microchip text-blue-400 text-xs"></i>
+                    <span class="text-blue-300 text-xs font-semibold tracking-wide">Technical Breakdown</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
+                    <div>
+                        <h2 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                            The Anatomy of a<br>
+                            <span class="text-text-secondary">Digital Memory System</span>
+                        </h2>
+                    </div>
+                    <div>
+                        <p class="text-lg text-text-secondary leading-relaxed mb-4">
+                            Unlike traditional integration platforms that just move data from A to B, IntegrateWise builds a semantic graph of your business. It understands relationships, timelines, and intent.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Flow Diagram -->
+            <div class="mb-24 relative">
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div class="w-full h-px bg-gradient-to-r from-transparent via-brand-purple/30 to-transparent"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative z-10">
+                    <div class="glass-card rounded-xl p-4 text-center border-white/10 bg-bg-main/80 backdrop-blur-xl">
+                        <div class="text-xs font-mono text-text-dim mb-2">SOURCE</div>
+                        <div class="flex justify-center gap-2 mb-3">
+                            <i class="fa-brands fa-salesforce text-blue-400"></i>
+                            <i class="fa-brands fa-slack text-purple-400"></i>
+                            <i class="fa-brands fa-stripe text-indigo-400"></i>
+                        </div>
+                        <div class="text-sm font-bold">16 live, 40+ in beta connectors</div>
+                    </div>
+                    
+                    <div class="flex items-center justify-center text-brand-purple/50">
+                        <i class="fa-solid fa-arrow-right-long text-xl"></i>
+                    </div>
+                    
+                    <div class="glass-card rounded-xl p-4 text-center border-brand-purple/30 bg-gradient-to-b from-brand-purple/10 to-bg-main/80 backdrop-blur-xl shadow-[0_0_20px_rgba(167,139,250,0.15)] relative">
+                        <div class="absolute -top-2 -right-2 w-4 h-4 bg-brand-purple rounded-full animate-ping"></div>
+                        <div class="text-xs font-mono text-brand-purple mb-2">CORE</div>
+                        <i class="fa-solid fa-network-wired text-brand-purple text-2xl mb-2"></i>
+                        <div class="text-sm font-bold text-white">Adaptive Spine</div>
+                    </div>
+
+                    <div class="flex items-center justify-center text-brand-purple/50">
+                        <i class="fa-solid fa-arrow-right-long text-xl"></i>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-4 text-center border-pink-500/30 bg-gradient-to-b from-pink-500/10 to-bg-main/80 backdrop-blur-xl">
+                        <div class="text-xs font-mono text-pink-400 mb-2">OUTPUT</div>
+                        <i class="fa-solid fa-bolt text-pink-400 text-2xl mb-2"></i>
+                        <div class="text-sm font-bold text-white">Actionable Insight</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="glass-card rounded-2xl p-8 hover:border-blue-500/30 transition-all">
+                    <h3 class="text-2xl font-bold mb-4">Adaptive Spine</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        The core intelligence layer that maps disparate records (e.g., a Slack handle and a CRM contact) to unified business entities. It understands relationships, timelines, and intent.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3 text-sm text-text-dim">
+                            <i class="fa-solid fa-check text-blue-400"></i> 
+                            <span>Maps 100+ entity types across 70+ tools</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-text-dim">
+                            <i class="fa-solid fa-check text-blue-400"></i> 
+                            <span>Builds semantic relationships between data points</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-text-dim">
+                            <i class="fa-solid fa-check text-blue-400"></i> 
+                            <span>Tracks context evolution over time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 hover:border-purple-500/30 transition-all">
+                    <h3 class="text-2xl font-bold mb-4">Twin</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        The AI system that continuously evaluates the memory graph against your business rules, flagging anomalies and surfacing insights.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3 text-sm text-text-dim">
+                            <i class="fa-solid fa-check text-purple-400"></i> 
+                            <span>Real-time anomaly detection</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-text-dim">
+                            <i class="fa-solid fa-check text-purple-400"></i> 
+                            <span>Proactive insight generation</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-text-dim">
+                            <i class="fa-solid fa-check text-purple-400"></i> 
+                            <span>Human-in-the-loop approval system</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 hover:border-green-500/30 transition-all">
+                    <h3 class="text-2xl font-bold mb-4">Adaptive Workspace</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        The user interface that provides perfect context on any account, client, or project—in one click.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3 text-sm text-text-dim">
+                            <i class="fa-solid fa-check text-green-400"></i> 
+                            <span>Unified Entity 360 View</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-text-dim">
+                            <i class="fa-solid fa-check text-green-400"></i> 
+                            <span>Proactive Twin Insights</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-text-dim">
+                            <i class="fa-solid fa-check text-green-400"></i> 
+                            <span>Approval-Gated Actions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions-entry" class="py-32 px-6 bg-bg-secondary/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-24">
+                <div class="inline-flex items-center gap-3 glass-card rounded-full px-6 py-3 mb-8 backdrop-blur-xl border-green-500/20">
+                    <i class="fa-solid fa-puzzle-piece text-green-400 text-sm"></i>
+                    <span class="text-green-300 text-sm font-semibold tracking-wide">Solutions Blueprint</span>
+                </div>
+                <h2 class="text-6xl lg:text-7xl font-bold mb-10 leading-tight">
+                    Built for Your Function.<br>
+                    <span class="text-text-secondary">Optimized for Your Industry.</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+                <!-- Industry Card 1 -->
+                <div class="glass-card rounded-[24px] p-10 hover:border-blue-500/40 transition-all group backdrop-blur-xl border border-white/5 relative overflow-hidden flex flex-col h-full">
+                    <div class="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="relative z-10 flex-1">
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center border border-blue-500/20 group-hover:bg-blue-500/20 transition-all">
+                                <i class="fa-solid fa-building-columns text-blue-400 text-3xl"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-text-dim border border-white/10">Finance</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4 text-white">Financial Operations</h4>
+                        <p class="text-text-secondary leading-relaxed mb-8">
+                            Unify ERP, billing, and expense data. Track burn rate, runway, and budget allocation in real-time.
+                        </p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3 text-sm text-text-dim">
+                                <i class="fa-solid fa-check text-blue-400"></i> Auto-reconcile budget vs actuals
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-text-dim">
+                                <i class="fa-solid fa-check text-blue-400"></i> Real-time runway tracking
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative z-10 pt-6 border-t border-white/5 mt-auto">
+                        <a href="#solutions" class="inline-flex items-center gap-2 text-blue-400 font-bold text-sm hover:text-blue-300 transition-colors group-hover:translate-x-1 duration-300">
+                            View Blueprint <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Industry Card 2 -->
+                <div class="glass-card rounded-[24px] p-10 hover:border-green-500/40 transition-all group backdrop-blur-xl border border-white/5 relative overflow-hidden flex flex-col h-full">
+                    <div class="absolute inset-0 bg-gradient-to-b from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="relative z-10 flex-1">
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center border border-green-500/20 group-hover:bg-green-500/20 transition-all">
+                                <i class="fa-solid fa-briefcase-medical text-green-400 text-3xl"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-text-dim border border-white/10">Healthcare</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4 text-white">Patient Context</h4>
+                        <p class="text-text-secondary leading-relaxed mb-8">
+                            Securely connect EHR, scheduling, and communication tools for a complete view of patient history and needs.
+                        </p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3 text-sm text-text-dim">
+                                <i class="fa-solid fa-check text-green-400"></i> HIPAA-compliant memory layer
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-text-dim">
+                                <i class="fa-solid fa-check text-green-400"></i> Unified patient timelines
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative z-10 pt-6 border-t border-white/5 mt-auto">
+                        <a href="#solutions" class="inline-flex items-center gap-2 text-green-400 font-bold text-sm hover:text-green-300 transition-colors group-hover:translate-x-1 duration-300">
+                            View Blueprint <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Industry Card 3 -->
+                <div class="glass-card rounded-[24px] p-10 hover:border-orange-500/40 transition-all group backdrop-blur-xl border border-white/5 relative overflow-hidden flex flex-col h-full">
+                    <div class="absolute inset-0 bg-gradient-to-b from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="relative z-10 flex-1">
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center border border-orange-500/20 group-hover:bg-orange-500/20 transition-all">
+                                <i class="fa-solid fa-scale-balanced text-orange-400 text-3xl"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-text-dim border border-white/10">Legal</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4 text-white">Matter Management</h4>
+                        <p class="text-text-secondary leading-relaxed mb-8">
+                            Connect billing, document management, and client communications to never lose context on a case.
+                        </p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3 text-sm text-text-dim">
+                                <i class="fa-solid fa-check text-orange-400"></i> Automated matter timelines
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-text-dim">
+                                <i class="fa-solid fa-check text-orange-400"></i> Billable context tracking
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative z-10 pt-6 border-t border-white/5 mt-auto">
+                        <a href="#solutions" class="inline-flex items-center gap-2 text-orange-400 font-bold text-sm hover:text-orange-300 transition-colors group-hover:translate-x-1 duration-300">
+                            View Blueprint <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#solutions" class="inline-flex items-center gap-4 text-brand-purple hover:text-brand-pink font-bold text-xl transition-colors">
+                    View All Industry Blueprints <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="integration-workflow" class="py-32 px-6 relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold mb-6">From Data to Decision</h2>
+                <p class="text-xl text-text-secondary">The continuous loop of digital memory.</p>
+            </div>
+
+            <div class="relative border-l-2 border-white/10 pl-8 ml-4 md:ml-0 space-y-16">
+                
+                <!-- Step 1 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-bg-main border-2 border-blue-500 flex items-center justify-center">
+                        <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 border border-white/5 hover:border-blue-500/30 transition-colors">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-400">
+                                <i class="fa-solid fa-plug text-lg"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">1. Connect & Ingest</h3>
+                        </div>
+                        <p class="text-text-secondary leading-relaxed mb-4">
+                            Connect your tools via OAuth. IntegrateWise immediately begins ingesting historical data and listening for real-time events.
+                        </p>
+                        <div class="flex gap-2">
+                            <span class="px-2 py-1 bg-white/5 rounded text-xs text-text-dim border border-white/5">Salesforce</span>
+                            <span class="px-2 py-1 bg-white/5 rounded text-xs text-text-dim border border-white/5">Zendesk</span>
+                            <span class="px-2 py-1 bg-white/5 rounded text-xs text-text-dim border border-white/5">Slack</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-bg-main border-2 border-brand-purple flex items-center justify-center">
+                        <div class="w-2 h-2 rounded-full bg-brand-purple"></div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 border border-white/5 hover:border-brand-purple/30 transition-colors">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-10 h-10 bg-brand-purple/10 rounded-lg flex items-center justify-center text-brand-purple">
+                                <i class="fa-solid fa-network-wired text-lg"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">2. Resolve & Map</h3>
+                        </div>
+                        <p class="text-text-secondary leading-relaxed mb-4">
+                            The Adaptive Spine maps disparate records (e.g., a Slack handle and a CRM contact) to unified business entities.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-bg-main border-2 border-pink-500 flex items-center justify-center">
+                        <div class="w-2 h-2 rounded-full bg-pink-500"></div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 border border-white/5 hover:border-pink-500/30 transition-colors">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-10 h-10 bg-pink-500/10 rounded-lg flex items-center justify-center text-pink-400">
+                                <i class="fa-solid fa-brain text-lg"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">3. Reason & Flag</h3>
+                        </div>
+                        <p class="text-text-secondary leading-relaxed mb-4">
+                            The Twin continuously evaluates the memory graph against your business rules, flagging anomalies and surfacing insights.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-bg-main border-2 border-green-500 flex items-center justify-center">
+                        <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 border border-white/5 hover:border-green-500/30 transition-colors">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center text-green-400">
+                                <i class="fa-solid fa-user-check text-lg"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">4. Approve & Act</h3>
+                        </div>
+                        <p class="text-text-secondary leading-relaxed mb-4">
+                            Review AI-suggested actions in the Adaptive Workspace. Approve them, and IntegrateWise executes the workflow across your tools.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions" class="py-24 px-6 bg-bg-secondary/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
+                    <i class="fa-solid fa-users text-purple-400"></i>
+                    <span class="text-purple-300 text-sm">By Function</span>
+                </div>
+                <h2 class="text-5xl font-bold mb-6">
+                    Solutions for Every Role
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    From Customer Success to Finance Ops, IntegrateWise eliminates context loss and surfaces what matters most.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div class="glass-card rounded-2xl p-8 hover:border-blue-500/30 transition-all cursor-pointer group" onclick="showSolution('customer-success')">
+                    <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-all">
+                        <i class="fa-solid fa-handshake text-blue-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Customer Success</h3>
+                    <p class="text-text-dim text-sm leading-relaxed mb-6">
+                        Never miss a renewal signal. Unify usage, support, and relationship data into one proactive view.
+                    </p>
+                    <div class="flex items-center gap-2 text-blue-400 text-sm font-medium">
+                        View Solution <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 hover:border-green-500/30 transition-all cursor-pointer group" onclick="showSolution('revops')">
+                    <div class="w-16 h-16 bg-green-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-500/20 transition-all">
+                        <i class="fa-solid fa-chart-line text-green-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">RevOps</h3>
+                    <p class="text-text-dim text-sm leading-relaxed mb-6">
+                        Connect CRM, billing, and pipeline data. Get instant answers on revenue health and forecasting.
+                    </p>
+                    <div class="flex items-center gap-2 text-green-400 text-sm font-medium">
+                        View Solution <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 hover:border-purple-500/30 transition-all cursor-pointer group" onclick="showSolution('support-ops')">
+                    <div class="w-16 h-16 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-all">
+                        <i class="fa-solid fa-headset text-purple-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Support Ops</h3>
+                    <p class="text-text-dim text-sm leading-relaxed mb-6">
+                        Correlate tickets with product usage and customer health. Predict escalations before they happen.
+                    </p>
+                    <div class="flex items-center gap-2 text-purple-400 text-sm font-medium">
+                        View Solution <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 hover:border-gold/30 transition-all cursor-pointer group" onclick="showSolution('finance-ops')">
+                    <div class="w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-all">
+                        <i class="fa-solid fa-sack-dollar text-gold text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Finance Ops</h3>
+                    <p class="text-text-dim text-sm leading-relaxed mb-6">
+                        Unify ERP, billing, and expense data. Track burn rate, runway, and budget allocation in real-time.
+                    </p>
+                    <div class="flex items-center gap-2 text-gold text-sm font-medium">
+                        View Solution <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 hover:border-orange-500/30 transition-all cursor-pointer group" onclick="showSolution('project-delivery')">
+                    <div class="w-16 h-16 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-500/20 transition-all">
+                        <i class="fa-solid fa-rocket text-orange-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Project Delivery</h3>
+                    <p class="text-text-dim text-sm leading-relaxed mb-6">
+                        Connect project management tools with client communications. Track scope, timeline, and blockers.
+                    </p>
+                    <div class="flex items-center gap-2 text-orange-400 text-sm font-medium">
+                        View Solution <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 bg-gradient-to-br from-bg-card to-bg-elevated border-red-500/30 relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Coming Soon</div>
+                    <div class="w-16 h-16 bg-red-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-users-gear text-red-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">HR Ops</h3>
+                    <p class="text-text-dim text-sm leading-relaxed mb-6">
+                        Unify HRIS, recruiting, and performance data. Track headcount, hiring pipeline, and retention.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="customer-success" class="solution-detail py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-12">
+                <button onclick="hideSolution()" class="glass-card px-4 py-2 rounded-lg text-sm text-text-secondary hover:text-gold hover:border-gold/30 transition-all mb-6">
+                    <i class="fa-solid fa-arrow-left mr-2"></i>Back to Solutions
+                </button>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-20 h-20 bg-blue-500/10 rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-handshake text-blue-400 text-4xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-5xl font-bold mb-2">Customer Success</h2>
+                        <p class="text-text-secondary">Never lose context on your accounts again</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">The Problem</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        You're managing 50+ accounts. Each one has activity scattered across CRM, support tickets, Slack conversations, product usage logs, and billing systems. By the time you manually piece together what's happening, it's too late—the renewal is at risk or the upsell opportunity is gone.
+                    </p>
+                    <div class="glass-card rounded-xl p-6 bg-red-500/5 border-red-500/20">
+                        <h5 class="font-semibold mb-3 text-red-400">Fragmented Signals</h5>
+                        <ul class="space-y-2 text-sm text-text-dim">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Usage drops aren't connected to support escalations</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Slack mentions of expansion get buried in noise</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>QBR prep takes hours of manual research</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>No early warning system for churn risk</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">The Outcome</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        With IntegrateWise, your Twin watches every account 24/7. It correlates usage patterns, support sentiment, contract timelines, and relationship health—then surfaces what needs your attention before it becomes urgent.
+                    </p>
+                    <div class="glass-card rounded-xl p-6 bg-green-500/5 border-green-500/20">
+                        <h5 class="font-semibold mb-3 text-green-400">Connected Intelligence</h5>
+                        <ul class="space-y-2 text-sm text-text-dim">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Proactive alerts when usage + sentiment diverge</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Expansion signals automatically flagged with evidence</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>QBR briefs auto-generated from all touchpoints</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Churn risk scored and explained with data</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-10 mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-center">Suggested IntegrateWise Setup</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-plug text-blue-400 text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-2">Connect Tools</h5>
+                        <p class="text-text-dim text-sm">Salesforce, Zendesk, Slack, Amplitude, Stripe</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-eye text-purple-400 text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-2">Twin Monitors</h5>
+                        <p class="text-text-dim text-sm">Usage trends, support sentiment, renewal timeline, relationship activity</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-bell text-gold text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-5">Get Alerts</h5>
+                        <p class="text-text-dim text-sm">Risk signals, expansion opportunities, QBR prep briefs</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#demo-section" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-bg-main px-10 py-4 rounded-lg font-semibold transition-all gold-glow transform hover:scale-105">
+                    Request Demo for Customer Success
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="revops" class="solution-detail py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-12">
+                <button onclick="hideSolution()" class="glass-card px-4 py-2 rounded-lg text-sm text-text-secondary hover:text-gold hover:border-gold/30 transition-all mb-6">
+                    <i class="fa-solid fa-arrow-left mr-2"></i>Back to Solutions
+                </button>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-20 h-20 bg-green-500/10 rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-chart-line text-green-400 text-4xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-5xl font-bold mb-2">RevOps</h2>
+                        <p class="text-text-secondary">Real-time revenue intelligence at your fingertips</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">The Problem</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        Your revenue data lives in silos: pipeline in CRM, actuals in billing, forecasts in spreadsheets, and product adoption in analytics tools. Leadership asks for a revenue health report, and you spend 6 hours manually stitching together the story.
+                    </p>
+                    <div class="glass-card rounded-xl p-6 bg-red-500/5 border-red-500/20">
+                        <h5 class="font-semibold mb-3 text-red-400">Manual Reconciliation Hell</h5>
+                        <ul class="space-y-2 text-sm text-text-dim">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Pipeline data doesn't match billing actuals</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Forecasts built on stale or incomplete data</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>No visibility into expansion vs new revenue mix</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Reporting cycles take days instead of minutes</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">The Outcome</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        IntegrateWise unifies CRM, billing, product analytics, and finance systems into one intelligent revenue view. Your Twin tracks pipeline velocity, monitors churn signals, and forecasts with precision—all backed by real-time data.
+                    </p>
+                    <div class="glass-card rounded-xl p-6 bg-green-500/5 border-green-500/20">
+                        <h5 class="font-semibold mb-3 text-green-400">Unified Revenue Intelligence</h5>
+                        <ul class="space-y-2 text-sm text-text-dim">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Real-time revenue dashboards auto-updated</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Pipeline health scored with predictive accuracy</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Expansion vs new revenue tracked automatically</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Board-ready reports generated in seconds</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-10 mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-center">Suggested IntegrateWise Setup</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-plug text-green-400 text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-2">Connect Tools</h5>
+                        <p class="text-text-dim text-sm">HubSpot, Stripe, QuickBooks, Amplitude, Looker</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-eye text-purple-400 text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-2">Twin Monitors</h5>
+                        <p class="text-text-dim text-sm">Pipeline velocity, billing actuals, expansion signals, churn risk</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-chart-bar text-gold text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-2">Get Insights</h5>
+                        <p class="text-text-dim text-sm">Revenue health reports, forecast accuracy, pipeline alerts</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#demo-section" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-bg-main px-10 py-4 rounded-lg font-semibold transition-all gold-glow transform hover:scale-105">
+                    Request Demo for RevOps
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="support-ops" class="solution-detail py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-12">
+                <button onclick="hideSolution()" class="glass-card px-4 py-2 rounded-lg text-sm text-text-secondary hover:text-gold hover:border-gold/30 transition-all mb-6">
+                    <i class="fa-solid fa-arrow-left mr-2"></i>Back to Solutions
+                </button>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-20 h-20 bg-purple-500/10 rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-headset text-purple-400 text-4xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-5xl font-bold mb-2">Support Ops</h2>
+                        <p class="text-text-secondary">Predict escalations before they happen</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">The Problem</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        Support tickets are reactive snapshots. By the time a customer opens a critical ticket, the underlying issue has been brewing for weeks. You have no way to connect ticket trends with product usage, customer health, or relationship history.
+                    </p>
+                    <div class="glass-card rounded-xl p-6 bg-red-500/5 border-red-500/20">
+                        <h5 class="font-semibold mb-3 text-red-400">Reactive Support Model</h5>
+                        <ul class="space-y-2 text-sm text-text-dim">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Tickets treated in isolation, no account context</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>No correlation between usage drops and support spikes</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Escalations happen after relationship damage is done</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>No early warning system for product friction</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">The Outcome</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        Your Twin connects support tickets with product analytics, CRM health scores, and customer sentiment. It flags patterns like "usage dropped 40% before this ticket was filed" or "this account has opened 3 tickets in 2 weeks"—giving you context to act proactively.
+                    </p>
+                    <div class="glass-card rounded-xl p-6 bg-green-500/5 border-green-500/20">
+                        <h5 class="font-semibold mb-3 text-green-400">Proactive Support Intelligence</h5>
+                        <ul class="space-y-2 text-sm text-text-dim">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Tickets enriched with full account context</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Usage anomalies correlated with support trends</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Escalation risk predicted before ticket is filed</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Product friction surfaces identified automatically</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-10 mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-center">Suggested IntegrateWise Setup</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-plug text-purple-400 text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-2">Connect Tools</h5>
+                        <p class="text-text-dim text-sm">Zendesk, Intercom, Salesforce, Amplitude, Slack</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-eye text-blue-400 text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-2">Twin Monitors</h5>
+                        <p class="text-text-dim text-sm">Ticket velocity, sentiment, usage correlation, account health</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-triangle-exclamation text-gold text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-2">Get Alerts</h5>
+                        <p class="text-text-dim text-sm">Escalation warnings, friction patterns, proactive outreach suggestions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#demo-section" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-bg-main px-10 py-4 rounded-lg font-semibold transition-all gold-glow transform hover:scale-105">
+                    Request Demo for Support Ops
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="finance-ops" class="solution-detail py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-12">
+                <button onclick="hideSolution()" class="glass-card px-4 py-2 rounded-lg text-sm text-text-secondary hover:text-gold hover:border-gold/30 transition-all mb-6">
+                    <i class="fa-solid fa-arrow-left mr-2"></i>Back to Solutions
+                </button>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-20 h-20 bg-gold/10 rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-sack-dollar text-gold text-4xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-5xl font-bold mb-2">Finance Ops</h2>
+                        <p class="text-text-secondary">Real-time financial intelligence for operators</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">The Problem</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        Your financial data is fragmented: ERP for accounting, spreadsheets for budgets, billing systems for revenue, expense tools for spend. Leadership asks "What's our runway?" and you need 2 days to reconcile everything manually.
+                    </p>
+                    <div class="glass-card rounded-xl p-6 bg-red-500/5 border-red-500/20">
+                        <h5 class="font-semibold mb-3 text-red-400">Spreadsheet Chaos</h5>
+                        <ul class="space-y-2 text-sm text-text-dim">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Burn rate calculations done manually each month</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Budget vs actuals tracked in disconnected sheets</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>No real-time view of cash position</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Reporting cycles take days instead of hours</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">The Outcome</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        IntegrateWise unifies your financial stack into one intelligent memory layer. Your Twin tracks burn rate, monitors runway, flags budget variances, and generates board-ready financial reports—all in real-time.
+                    </p>
+                    <div class="glass-card rounded-xl p-6 bg-green-500/5 border-green-500/20">
+                        <h5 class="font-semibold mb-3 text-green-400">Unified Financial Intelligence</h5>
+                        <ul class="space-y-2 text-sm text-text-dim">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Real-time burn rate and runway tracking</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Budget vs actuals auto-reconciled daily</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Cash position updated automatically</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Board decks generated in minutes, not days</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-10 mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-center">Suggested IntegrateWise Setup</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-plug text-gold text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-2">Connect Tools</h5>
+                        <p class="text-text-dim text-sm">QuickBooks, NetSuite, Stripe, Ramp, Google Sheets</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-eye text-purple-400 text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-2">Twin Monitors</h5>
+                        <p class="text-text-dim text-sm">Burn rate, runway, budget variances, cash position, expenses</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-file-invoice-dollar text-blue-400 text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-2">Get Reports</h5>
+                        <p class="text-text-dim text-sm">Monthly financials, board decks, variance alerts, runway forecasts</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#demo-section" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-bg-main px-10 py-4 rounded-lg font-semibold transition-all gold-glow transform hover:scale-105">
+                    Request Demo for Finance Ops
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="project-delivery" class="solution-detail py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-12">
+                <button onclick="hideSolution()" class="glass-card px-4 py-2 rounded-lg text-sm text-text-secondary hover:text-gold hover:border-gold/30 transition-all mb-6">
+                    <i class="fa-solid fa-arrow-left mr-2"></i>Back to Solutions
+                </button>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-20 h-20 bg-orange-500/10 rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-rocket text-orange-400 text-4xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-5xl font-bold mb-2">Project Delivery</h2>
+                        <p class="text-text-secondary">Ship on time with full context</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">The Problem</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        You're managing multiple client projects. Scope is in Linear, client communications in email and Slack, timelines in Asana, and budgets in spreadsheets. When a client asks "Are we on track?" you need hours to piece together the answer.
+                    </p>
+                    <div class="glass-card rounded-xl p-6 bg-red-500/5 border-red-500/20">
+                        <h5 class="font-semibold mb-3 text-red-400">Scattered Project Context</h5>
+                        <ul class="space-y-2 text-sm text-text-dim">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Scope creep hidden in email threads</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Blockers not connected to timeline impact</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>Budget vs actual hours tracked manually</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark text-red-400 mt-1"></i>
+                                <span>No early warning for delivery risk</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">The Outcome</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        Your Twin unifies project management tools, client communications, and time tracking. It flags scope creep, predicts timeline risks, and surfaces blockers before they derail delivery—all with evidence citations.
+                    </p>
+                    <div class="glass-card rounded-xl p-6 bg-green-500/5 border-green-500/20">
+                        <h5 class="font-semibold mb-3 text-green-400">Unified Project Intelligence</h5>
+                        <ul class="space-y-2 text-sm text-text-dim">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Scope changes auto-flagged from client comms</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Blockers linked to timeline impact automatically</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Budget vs actuals tracked in real-time</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                                <span>Delivery risk predicted with evidence</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-10 mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-center">Suggested IntegrateWise Setup</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-plug text-orange-400 text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-2">Connect Tools</h5>
+                        <p class="text-text-dim text-sm">Linear, Asana, Slack, Gmail, Harvest, Notion</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-eye text-purple-400 text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-2">Twin Monitors</h5>
+                        <p class="text-text-dim text-sm">Scope changes, timeline velocity, blockers, budget burn, client sentiment</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-flag text-gold text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold mb-2">Get Alerts</h5>
+                        <p class="text-text-dim text-sm">Delivery risk, scope creep, blocker escalations, budget warnings</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#demo-section" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-bg-main px-10 py-4 rounded-lg font-semibold transition-all gold-glow transform hover:scale-105">
+                    Request Demo for Project Delivery
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="industry-solutions" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
+                    <i class="fa-solid fa-building text-blue-400"></i>
+                    <span class="text-blue-300 text-sm">By Industry</span>
+                </div>
+                <h2 class="text-5xl font-bold mb-6">
+                    Tailored for Your Industry
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    IntegrateWise adapts to the unique workflows and data structures of your sector.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card rounded-2xl p-8 hover:border-purple-500/30 transition-all">
+                    <div class="w-16 h-16 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-laptop-code text-purple-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">SaaS</h3>
+                    <p class="text-text-dim text-sm leading-relaxed mb-6">
+                        Unify product analytics, CRM, support, and billing. Track ARR, churn, expansion, and product adoption in one view.
+                    </p>
+                    <div class="text-purple-400 text-sm font-medium">
+                        Perfect for B2B SaaS companies
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 hover:border-green-500/30 transition-all">
+                    <div class="w-16 h-16 bg-green-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-briefcase text-green-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Professional Services</h3>
+                    <p class="text-text-dim text-sm leading-relaxed mb-6">
+                        Connect project management, time tracking, and client communications. Track utilization, profitability, and delivery risk.
+                    </p>
+                    <div class="text-green-400 text-sm font-medium">
+                        Consulting, agencies, implementation firms
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 hover:border-blue-500/30 transition-all">
+                    <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-industry text-blue-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Manufacturing</h3>
+                    <p class="text-text-dim text-sm leading-relaxed mb-6">
+                        Unify supply chain, inventory, and production data. Track lead times, quality metrics, and supplier performance.
+                    </p>
+                    <div class="text-blue-400 text-sm font-medium">
+                        Production, distribution, logistics
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 hover:border-orange-500/30 transition-all">
+                    <div class="w-16 h-16 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-store text-orange-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Retail</h3>
+                    <p class="text-text-dim text-sm leading-relaxed mb-6">
+                        Connect POS, inventory, and customer data. Track sales velocity, inventory turnover, and customer lifetime value.
+                    </p>
+                    <div class="text-orange-400 text-sm font-medium">
+                        E-commerce, brick-and-mortar, omnichannel
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 hover:border-gold/30 transition-all">
+                    <div class="w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-landmark text-gold text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Finance</h3>
+                    <p class="text-text-dim text-sm leading-relaxed mb-6">
+                        Unify trading systems, risk management, and compliance data. Track portfolio performance and regulatory requirements.
+                    </p>
+                    <div class="text-gold text-sm font-medium">
+                        Fintech, wealth management, banking
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 bg-gradient-to-br from-bg-card to-bg-elevated border-red-500/30 relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Coming Soon</div>
+                    <div class="w-16 h-16 bg-red-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-graduation-cap text-red-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3">Education</h3>
+                    <p class="text-text-dim text-sm leading-relaxed mb-6">
+                        Unify student data, learning management, and administrative systems. Track engagement and outcomes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="market-solutions" class="py-24 px-6 bg-bg-secondary/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
+                    <i class="fa-solid fa-globe text-green-400"></i>
+                    <span class="text-green-300 text-sm">By Market</span>
+                </div>
+                <h2 class="text-5xl font-bold mb-6">
+                    Built for Your Market
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    From SMBs to Enterprise, India to GCC—IntegrateWise scales to your size and region.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-card rounded-2xl p-10 hover:border-green-500/30 transition-all">
+                    <div class="flex items-start gap-6 mb-6">
+                        <div class="w-16 h-16 bg-green-500/10 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-building text-green-400 text-3xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-semibold mb-2">SMB & Mid-Market</h3>
+                            <p class="text-text-secondary">Fast setup, affordable pricing, immediate value</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-sm text-text-dim mb-6">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                            <span>Pre-built connectors for popular SMB tools</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                            <span>Self-service onboarding in under 1 hour</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                            <span>Flexible pricing starting at $99/mo</span>
+                        </li>
+                    </ul>
+                    <a href="#demo-section" class="inline-flex items-center gap-2 text-green-400 text-sm font-medium hover:text-green-300 transition-colors">
+                        Explore SMB Solutions <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="glass-card rounded-2xl p-10 hover:border-purple-500/30 transition-all">
+                    <div class="flex items-start gap-6 mb-6">
+                        <div class="w-16 h-16 bg-purple-500/10 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-city text-purple-400 text-3xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-semibold mb-2">Enterprise</h3>
+                            <p class="text-text-secondary">Custom governance, dedicated support, SOC 2 compliance</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-sm text-text-dim mb-6">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-purple-400 mt-1"></i>
+                            <span>Tenant isolation and custom security policies</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-purple-400 mt-1"></i>
+                            <span>Dedicated CSM and technical account manager</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-purple-400 mt-1"></i>
+                            <span>Custom SLAs and enterprise support</span>
+                        </li>
+                    </ul>
+                    <a href="#demo-section" class="inline-flex items-center gap-2 text-purple-400 text-sm font-medium hover:text-purple-300 transition-colors">
+                        Explore Enterprise Solutions <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="glass-card rounded-2xl p-10 hover:border-blue-500/30 transition-all">
+                    <div class="flex items-start gap-6 mb-6">
+                        <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-flag text-blue-400 text-3xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-semibold mb-2">India Market</h3>
+                            <p class="text-text-secondary">Local support, INR pricing, India-specific integrations</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-sm text-text-dim mb-6">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-blue-400 mt-1"></i>
+                            <span>Connectors for Zoho, Razorpay, Tally, GST tools</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-blue-400 mt-1"></i>
+                            <span>IST timezone support and local data residency</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-blue-400 mt-1"></i>
+                            <span>Pricing in INR with local payment options</span>
+                        </li>
+                    </ul>
+                    <a href="#demo-section" class="inline-flex items-center gap-2 text-blue-400 text-sm font-medium hover:text-blue-300 transition-colors">
+                        Explore India Solutions <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="glass-card rounded-2xl p-10 hover:border-gold/30 transition-all">
+                    <div class="flex items-start gap-6 mb-6">
+                        <div class="w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-mosque text-gold text-3xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-semibold mb-2">GCC / Dubai Market</h3>
+                            <p class="text-text-secondary">Arabic support, local compliance, regional integrations</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-sm text-text-dim mb-6">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-gold mt-1"></i>
+                            <span>Connectors for regional ERP and CRM systems</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-gold mt-1"></i>
+                            <span>Arabic language support and RTL layouts</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-gold mt-1"></i>
+                            <span>Local data centers and compliance certifications</span>
+                        </li>
+                    </ul>
+                    <a href="#demo-section" class="inline-flex items-center gap-2 text-gold text-sm font-medium hover:text-white transition-colors">
+                        Explore GCC Solutions <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
+                    <i class="fa-solid fa-route text-gold"></i>
+                    <span class="text-gold text-sm">How It Works</span>
+                </div>
+                <h2 class="text-5xl font-bold mb-6">
+                    From Problem to Outcome<br>
+                    <span class="text-text-secondary">in Four Steps</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa-solid fa-1 text-blue-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Choose Solution</h3>
+                    <p class="text-text-dim text-sm leading-relaxed">
+                        Select the function, industry, or market solution that matches your needs.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa-solid fa-2 text-purple-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Connect Tools</h3>
+                    <p class="text-text-dim text-sm leading-relaxed">
+                        Link your existing systems using pre-built connectors. Setup takes minutes.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa-solid fa-3 text-gold text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Twin Learns</h3>
+                    <p class="text-text-dim text-sm leading-relaxed">
+                        Your Twin ingests data, builds memory, and starts identifying patterns.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa-solid fa-4 text-green-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Get Insights</h3>
+                    <p class="text-text-dim text-sm leading-relaxed">
+                        Receive proactive alerts, evidence-backed suggestions, and actionable briefs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo-section" class="py-24 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full blob-bg blur-3xl opacity-40 pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-5xl font-bold mb-6">
+                Ready to Transform<br>
+                <span class="bg-gradient-to-r from-gold to-gold-light bg-clip-text text-transparent">Your Workflow?</span>
+            </h2>
+            <p class="text-xl text-text-secondary mb-12 max-w-2xl mx-auto">
+                Request a demo tailored to your function, industry, or market. See how IntegrateWise eliminates context loss and surfaces what matters most.
+            </p>
+
+            <form class="glass-card rounded-2xl p-10 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <input type="text" placeholder="Your Name" class="bg-bg-elevated border border-white/10 rounded-lg px-4 py-3 text-text-primary placeholder:text-text-dim focus:outline-none focus:border-gold/50 transition-colors">
+                    <input type="email" placeholder="Work Email" class="bg-bg-elevated border border-white/10 rounded-lg px-4 py-3 text-text-primary placeholder:text-text-dim focus:outline-none focus:border-gold/50 transition-colors">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <select class="bg-bg-elevated border border-white/10 rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-gold/50 transition-colors">
+                        <option value="">Select Function</option>
+                        <option value="customer-success">Customer Success</option>
+                        <option value="revops">RevOps</option>
+                        <option value="support-ops">Support Ops</option>
+                        <option value="finance-ops">Finance Ops</option>
+                        <option value="project-delivery">Project Delivery</option>
+                    </select>
+                    <select class="bg-bg-elevated border border-white/10 rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-gold/50 transition-colors">
+                        <option value="">Select Industry</option>
+                        <option value="saas">SaaS</option>
+                        <option value="professional-services">Professional Services</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="retail">Retail</option>
+                        <option value="finance">Finance</option>
+                    </select>
+                </div>
+                <button type="button" class="w-full bg-gold hover:bg-gold-light text-bg-main px-10 py-4 rounded-lg font-semibold transition-all gold-glow transform hover:scale-105">
+                    Request Tailored Demo
+                </button>
+            </form>
+
+            <div class="text-sm text-text-dim">
+                No credit card required • 14-day free trial • SOC 2 Compliant
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-bg-secondary/50 border-t border-white/5 pt-16 pb-8 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-gold to-gold-light rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-brain text-bg-main text-lg"></i>
+                        </div>
+                        <span class="text-text-primary font-semibold text-lg">IntegrateWise</span>
+                    </div>
+                    <p class="text-text-dim text-sm leading-relaxed mb-6">
+                        Building the memory layer for modern work. Turn scattered context into compounding intelligence.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 bg-bg-elevated rounded-lg flex items-center justify-center text-text-dim hover:text-gold hover:bg-gold/10 transition-all">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 bg-bg-elevated rounded-lg flex items-center justify-center text-text-dim hover:text-gold hover:bg-gold/10 transition-all">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 bg-bg-elevated rounded-lg flex items-center justify-center text-text-dim hover:text-gold hover:bg-gold/10 transition-all">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="font-semibold mb-4 text-sm uppercase tracking-wider text-text-secondary">Platform</h5>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#platform" class="text-text-dim hover:text-gold transition-colors">Adaptive Spine</a></li>
+                        <li><a href="#product" class="text-text-dim hover:text-gold transition-colors">Adaptive Workspace</a></li>
+                        <li><a href="#cognitive" class="text-text-dim hover:text-gold transition-colors">Twin</a></li>
+                        <li><a href="#loop" class="text-text-dim hover:text-gold transition-colors">Loop</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-semibold mb-4 text-sm uppercase tracking-wider text-text-secondary">Solutions</h5>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#solutions" class="text-text-dim hover:text-gold transition-colors">Account Success</a></li>
+                        <li><a href="#solutions" class="text-text-dim hover:text-gold transition-colors">Business Ops</a></li>
+                        <li><a href="#solutions" class="text-text-dim hover:text-gold transition-colors">Personal Space</a></li>
+                        <li><a href="#pricing" class="text-text-dim hover:text-gold transition-colors">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-semibold mb-4 text-sm uppercase tracking-wider text-text-secondary">Company</h5>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#about" class="text-text-dim hover:text-gold transition-colors">About Us</a></li>
+                        <li><a href="#resources" class="text-text-dim hover:text-gold transition-colors">Resources</a></li>
+                        <li><a href="#blog" class="text-text-dim hover:text-gold transition-colors">Blog</a></li>
+                        <li><a href="#story" class="text-text-dim hover:text-gold transition-colors">Our Story</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-text-dim text-sm">© 2026 IntegrateWise. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-text-dim">
+                    <a href="#" class="hover:text-gold transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-gold transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-gold transition-colors">Security</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showSolution(solutionId) {
+            document.querySelectorAll('.solution-detail').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById(solutionId).classList.add('active');
+            document.getElementById('function-solutions').style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function hideSolution() {
+            document.querySelectorAll('.solution-detail').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById('function-solutions').style.display = 'block';
+            window.scrollTo({ top: document.getElementById('function-solutions').offsetTop - 150, behavior: 'smooth' });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const submenuLinks = document.querySelectorAll('.submenu-nav a');
+            
+            submenuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    submenuLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            const sections = document.querySelectorAll('section[id]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        submenuLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+
+</body>
+</html>

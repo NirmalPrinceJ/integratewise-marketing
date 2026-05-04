@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Success Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-3.1.1.min.js"></script>
+    
+    <style>
+        ::-webkit-scrollbar { display: none; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0D17;
+            color: #F8FAFC;
+            scroll-behavior: smooth;
+        }
+        .hero-glow {
+            background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15), transparent 70%);
+        }
+        .glass-card {
+            background: rgba(21, 24, 40, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gold-glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+        .blob-bg {
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(11, 13, 23, 0) 70%);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A028 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        .nav-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 0.5rem;
+            min-width: 200px;
+            background: rgba(21, 24, 40, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 0.5rem;
+            z-index: 100;
+        }
+        .nav-item:hover .nav-dropdown {
+            display: block;
+        }
+        .pill-selector {
+            display: inline-flex;
+            padding: 0.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .pill-option {
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 200ms ease;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #9ca3af;
+        }
+        .pill-option.active {
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A028 100%);
+            color: #0B0D17;
+            font-weight: 600;
+        }
+        .pill-option:not(.active):hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+        }
+        .content-section {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 200ms ease, max-height 200ms ease;
+        }
+        .content-section.active {
+            opacity: 1;
+            max-height: 10000px;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        bg: {
+                            main: '#0B0D17',
+                            secondary: '#151828',
+                            elevated: '#1F243B',
+                            muted: '#2D3554'
+                        },
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#C5A028',
+                            glow: 'rgba(212, 175, 55, 0.4)'
+                        },
+                        text: {
+                            primary: '#F8FAFC',
+                            secondary: '#94A3B8',
+                            dim: '#64748B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="fixed w-full z-50 bg-bg-main/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-gold to-gold-light rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-brain text-bg-main text-lg"></i>
+                </div>
+                <span class="text-text-primary font-semibold text-lg">IntegrateWise</span>
+            </div>
+            
+            <nav class="hidden lg:flex items-center gap-8 text-sm">
+                <div class="relative group nav-item">
+                    <a href="#" class="text-text-secondary hover:text-text-primary transition-colors flex items-center gap-1">
+                        Platform <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </a>
+                    <div class="nav-dropdown">
+                        <a href="#" class="block px-4 py-2 text-text-secondary hover:text-gold hover:bg-white/5 rounded-lg transition-colors">Overview</a>
+                        <a href="#" class="block px-4 py-2 text-text-secondary hover:text-gold hover:bg-white/5 rounded-lg transition-colors">Ingestion</a>
+                        <a href="#" class="block px-4 py-2 text-text-secondary hover:text-gold hover:bg-white/5 rounded-lg transition-colors">Entity Memory</a>
+                    </div>
+                </div>
+                <div class="relative group nav-item">
+                    <a href="#" class="text-text-secondary hover:text-text-primary transition-colors flex items-center gap-1">
+                        Product <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </a>
+                    <div class="nav-dropdown">
+                        <a href="#" class="block px-4 py-2 text-text-secondary hover:text-gold hover:bg-white/5 rounded-lg transition-colors">Workspace</a>
+                        <a href="#" class="block px-4 py-2 text-text-secondary hover:text-gold hover:bg-white/5 rounded-lg transition-colors">Twin</a>
+                    </div>
+                </div>
+                <a href="#" class="text-text-secondary hover:text-text-primary transition-colors">Twin</a>
+                <div class="relative group nav-item">
+                    <a href="#" class="text-gold transition-colors flex items-center gap-1">
+                        Solutions <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </a>
+                    <div class="nav-dropdown">
+                        <a href="#" class="block px-4 py-2 text-gold hover:bg-white/5 rounded-lg transition-colors font-semibold">Account Success</a>
+                        <a href="#" class="block px-4 py-2 text-text-secondary hover:text-gold hover:bg-white/5 rounded-lg transition-colors">Business Ops</a>
+                        <a href="#" class="block px-4 py-2 text-text-secondary hover:text-gold hover:bg-white/5 rounded-lg transition-colors">Personal Space</a>
+                    </div>
+                </div>
+                <a href="#" class="text-text-secondary hover:text-text-primary transition-colors">Connectors</a>
+                <a href="#" class="text-text-secondary hover:text-text-primary transition-colors">Pricing</a>
+                <div class="relative group nav-item">
+                    <button class="text-text-secondary hover:text-text-primary transition-colors flex items-center gap-1">
+                        About <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="nav-dropdown">
+                        <a href="#" class="block px-4 py-2 text-text-secondary hover:text-gold hover:bg-white/5 rounded-lg transition-colors">Company</a>
+                        <a href="#" class="block px-4 py-2 text-text-secondary hover:text-gold hover:bg-white/5 rounded-lg transition-colors">Story</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#" class="hidden md:block text-text-secondary hover:text-text-primary text-sm transition-colors">Sign In</a>
+                <a href="#demo" class="bg-gold hover:bg-gold-light text-bg-main px-6 py-2.5 rounded-lg text-sm font-semibold transition-all gold-glow">
+                    Book a Demo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero-section" class="relative pt-32 pb-20 px-6 overflow-hidden h-[700px] flex items-center">
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+        <div class="absolute top-40 right-20 w-96 h-96 blob-bg blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-20 left-20 w-80 h-80 blob-bg blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center gap-2 bg-bg-elevated/50 border border-white/10 rounded-full px-4 py-2 mb-8 backdrop-blur-sm">
+                    <i class="fa-solid fa-layer-group text-gold text-sm"></i>
+                    <span class="text-text-secondary text-sm">Universal Account Success</span>
+                </div>
+                
+                <h1 class="text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                    <span class="text-white">Every Account.</span><br>
+                    <span class="gradient-text">One Complete View.</span>
+                </h1>
+                
+                <p class="text-xl text-text-secondary mb-10 leading-relaxed max-w-3xl">
+                    Stop being a manual bridge between your apps. One 360° view of every client, customer, patient, or tenant—no matter your industry.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-start gap-4 mb-12">
+                    <a href="#demo" class="bg-gold hover:bg-gold-light text-bg-main px-8 py-4 rounded-lg font-semibold text-lg transition-all gold-glow transform hover:scale-105">
+                        See Your Account 360°
+                    </a>
+                    <a href="#dashboard" class="glass-card px-8 py-4 rounded-lg font-semibold text-lg hover:border-gold/30 transition-all">
+                        Book a Demo
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="glass-card rounded-xl p-4 text-center">
+                        <div class="text-3xl font-bold text-gold mb-1">45-90min</div>
+                        <div class="text-xs text-text-dim">Saved per review</div>
+                    </div>
+                    <div class="glass-card rounded-xl p-4 text-center">
+                        <div class="text-3xl font-bold text-green-400 mb-1">100%</div>
+                        <div class="text-xs text-text-dim">Context visibility</div>
+                    </div>
+                    <div class="glass-card rounded-xl p-4 text-center">
+                        <div class="text-3xl font-bold text-blue-400 mb-1">60%</div>
+                        <div class="text-xs text-text-dim">Faster response</div>
+                    </div>
+                    <div class="glass-card rounded-xl p-4 text-center">
+                        <div class="text-3xl font-bold text-purple-400 mb-1">0</div>
+                        <div class="text-xs text-text-dim">Surprises</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="selector-section" class="py-12 px-6 bg-bg-secondary/50 sticky top-24 z-40">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row gap-6 items-center justify-center">
+                <div class="text-center lg:text-left">
+                    <div class="text-sm text-text-dim mb-2">I am a...</div>
+                    <div class="pill-selector">
+                        <div class="pill-option active" data-role="operator">Operator</div>
+                        <div class="pill-option" data-role="manager">Manager</div>
+                        <div class="pill-option" data-role="executive">Executive</div>
+                    </div>
+                </div>
+                <div class="text-center lg:text-left">
+                    <div class="text-sm text-text-dim mb-2">Working in...</div>
+                    <div class="pill-selector overflow-x-auto">
+                        <div class="pill-option active" data-industry="saas">SaaS</div>
+                        <div class="pill-option" data-industry="accounting">Accounting</div>
+                        <div class="pill-option" data-industry="hospitality">Hospitality</div>
+                        <div class="pill-option" data-industry="retail">Retail</div>
+                        <div class="pill-option" data-industry="education">Education</div>
+                        <div class="pill-option" data-industry="freelance">Freelance</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pain-section" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="text-white">You Shouldn't Be a</span><br>
+                    <span class="gradient-text">Human Router Between Apps</span>
+                </h2>
+            </div>
+
+            <div class="content-section active" data-role-content="operator">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <div class="glass-card rounded-2xl p-8 border-l-4 border-red-500/50">
+                        <div class="w-16 h-16 bg-red-500/10 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-window-restore text-red-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">45-90min Pre-Meeting Prep</h3>
+                        <p class="text-text-secondary mb-4 leading-relaxed">Opening 6+ tabs to piece together account history, status, and next steps before every call</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 border-l-4 border-orange-500/50">
+                        <div class="w-16 h-16 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-eye-slash text-orange-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Hidden Risk Signals</h3>
+                        <p class="text-text-secondary mb-4 leading-relaxed">Critical warnings buried in separate systems—you only see the problem when it's too late</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 border-l-4 border-yellow-500/50">
+                        <div class="w-16 h-16 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-question-circle text-yellow-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Zero Context</h3>
+                        <p class="text-text-secondary mb-4 leading-relaxed">Important updates scattered across email, chat, CRM—you're always playing catch-up</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" data-role-content="manager">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <div class="glass-card rounded-2xl p-8 border-l-4 border-red-500/50">
+                        <div class="w-16 h-16 bg-red-500/10 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-chart-line text-red-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">No Portfolio Visibility</h3>
+                        <p class="text-text-secondary mb-4 leading-relaxed">Can't see team-wide health without manually asking each person for status updates</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 border-l-4 border-orange-500/50">
+                        <div class="w-16 h-16 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-users text-orange-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Inconsistent Outcomes</h3>
+                        <p class="text-text-secondary mb-4 leading-relaxed">Team lacks standardized processes—results vary wildly by individual</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 border-l-4 border-yellow-500/50">
+                        <div class="w-16 h-16 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-fire text-yellow-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Always Reactive</h3>
+                        <p class="text-text-secondary mb-4 leading-relaxed">Fighting fires instead of preventing them—no early warning system for at-risk accounts</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" data-role-content="executive">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <div class="glass-card rounded-2xl p-8 border-l-4 border-red-500/50">
+                        <div class="w-16 h-16 bg-red-500/10 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-chart-bar text-red-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">No Strategic View</h3>
+                        <p class="text-text-secondary mb-4 leading-relaxed">Can't forecast retention or revenue at risk—data scattered across systems</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 border-l-4 border-orange-500/50">
+                        <div class="w-16 h-16 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-hourglass-half text-orange-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Delayed Decisions</h3>
+                        <p class="text-text-secondary mb-4 leading-relaxed">Waiting days for reports when you need real-time insights for board meetings</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 border-l-4 border-yellow-500/50">
+                        <div class="w-16 h-16 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-exclamation-triangle text-yellow-400 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Missed Escalations</h3>
+                        <p class="text-text-secondary mb-4 leading-relaxed">Critical issues don't surface until damage is done—no automated escalation paths</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution-section" class="py-24 px-6 bg-bg-secondary/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">One Platform.</span><br>
+                    <span class="text-white">Every Account Signal.</span>
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Adaptive features that automatically adjust to your industry, role, and working style
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-circle-nodes text-bg-main text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Account 360°</h3>
+                            <p class="text-text-secondary">Unified timeline of all cross-app interactions—CRM, billing, support, communications, compliance—in one view</p>
+                        </div>
+                    </div>
+                    <div class="bg-bg-elevated/50 rounded-xl p-6 border border-white/5">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Account" class="w-12 h-12 rounded-full object-cover">
+                                <div>
+                                    <div class="font-semibold">Acme Corp</div>
+                                    <div class="text-xs text-text-dim">Enterprise • $48K ARR</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                <span class="text-xs text-yellow-400 font-semibold">At Risk</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-xs">
+                            <div>
+                                <div class="text-text-dim mb-1">Health Score</div>
+                                <div class="text-2xl font-bold text-yellow-400">62/100</div>
+                            </div>
+                            <div>
+                                <div class="text-text-dim mb-1">Next Action</div>
+                                <div class="text-2xl font-bold">3 days</div>
+                            </div>
+                            <div>
+                                <div class="text-text-dim mb-1">Last Touch</div>
+                                <div class="text-2xl font-bold">8 days</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-brain text-bg-main text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Twin Morning Briefing</h3>
+                            <p class="text-text-secondary">Daily AI summary highlighting exactly which 3-5 accounts need your attention and why—proactive, not reactive</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-bg-elevated/50 rounded-xl p-4 border border-red-500/30">
+                            <div class="flex items-start gap-3 mb-2">
+                                <i class="fa-solid fa-exclamation-circle text-red-400 text-lg mt-0.5"></i>
+                                <div class="flex-1">
+                                    <div class="text-sm font-semibold text-red-300 mb-1">High Priority</div>
+                                    <div class="text-xs text-text-dim">Usage down 40%, renewal in 45 days, no response to 2 emails</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-bg-elevated/50 rounded-xl p-4 border border-yellow-500/30">
+                            <div class="flex items-start gap-3 mb-2">
+                                <i class="fa-solid fa-exclamation-triangle text-yellow-400 text-lg mt-0.5"></i>
+                                <div class="flex-1">
+                                    <div class="text-sm font-semibold text-yellow-300 mb-1">Medium Priority</div>
+                                    <div class="text-xs text-text-dim">Key contact left company, compliance deadline approaching</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-th text-bg-main text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Adaptive View by Role</h3>
+                            <p class="text-text-secondary">Accounts Hub for operators, Intelligence Center for managers, Strategic View for executives—same data, different lenses</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="bg-bg-elevated/50 rounded-lg p-4">
+                            <div class="text-xs text-text-dim mb-2">Operator</div>
+                            <div class="text-sm font-semibold">Daily Tasks</div>
+                        </div>
+                        <div class="bg-bg-elevated/50 rounded-lg p-4">
+                            <div class="text-xs text-text-dim mb-2">Manager</div>
+                            <div class="text-sm font-semibold">Team Health</div>
+                        </div>
+                        <div class="bg-bg-elevated/50 rounded-lg p-4">
+                            <div class="text-xs text-text-dim mb-2">Executive</div>
+                            <div class="text-sm font-semibold">Forecasts</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-fire text-bg-main text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Proactive Twin Triggers</h3>
+                            <p class="text-text-secondary">AI watches for hidden patterns across your apps and alerts you before problems escalate—industry-specific signals</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="bg-bg-elevated/50 rounded-lg p-3 flex items-center justify-between text-sm">
+                            <span>SaaS: Usage drop + renewal soon</span>
+                            <i class="fa-solid fa-check-circle text-green-400"></i>
+                        </div>
+                        <div class="bg-bg-elevated/50 rounded-lg p-3 flex items-center justify-between text-sm">
+                            <span>Accounting: GST filing overdue</span>
+                            <i class="fa-solid fa-check-circle text-green-400"></i>
+                        </div>
+                        <div class="bg-bg-elevated/50 rounded-lg p-3 flex items-center justify-between text-sm">
+                            <span>Retail: Payment delay pattern</span>
+                            <i class="fa-solid fa-check-circle text-green-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-layer-group text-bg-main text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Universal Digital Memory</h3>
+                            <p class="text-text-secondary">One unified data layer that adapts to what "account" means in your world—customers, clients, patients, students, tenants</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-white/5 px-3 py-1.5 rounded-full border border-white/10">Salesforce</span>
+                        <span class="text-xs bg-white/5 px-3 py-1.5 rounded-full border border-white/10">QuickBooks</span>
+                        <span class="text-xs bg-white/5 px-3 py-1.5 rounded-full border border-white/10">Zendesk</span>
+                        <span class="text-xs bg-white/5 px-3 py-1.5 rounded-full border border-white/10">WhatsApp</span>
+                        <span class="text-xs bg-white/5 px-3 py-1.5 rounded-full border border-white/10">Razorpay</span>
+                        <span class="text-xs bg-white/5 px-3 py-1.5 rounded-full border border-white/10">Google Apps</span>
+                        <span class="text-xs bg-white/5 px-3 py-1.5 rounded-full border border-white/10">Stripe</span>
+                        <span class="text-xs bg-white/5 px-3 py-1.5 rounded-full border border-white/10">+20 more</span>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-shield-check text-bg-main text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Human-Approved Actions</h3>
+                            <p class="text-text-secondary">AI prepares next actions (emails, tasks, escalations) but nothing executes without your explicit approval—you stay in control</p>
+                        </div>
+                    </div>
+                    <div class="bg-bg-elevated/50 rounded-lg p-4">
+                        <div class="text-xs text-text-dim mb-3">Pending Your Approval</div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center justify-between">
+                                <span>Draft check-in email</span>
+                                <button class="text-xs bg-green-500/20 text-green-400 px-3 py-1.5 rounded-lg hover:bg-green-500/30 transition-all">Approve</button>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span>Create escalation task</span>
+                                <button class="text-xs bg-green-500/20 text-green-400 px-3 py-1.5 rounded-lg hover:bg-green-500/30 transition-all">Approve</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proof-section" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="text-white">Results That</span><br>
+                    <span class="gradient-text">Actually Matter</span>
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+                <div class="glass-card rounded-2xl p-8 text-center border-gold/20">
+                    <div class="text-5xl font-bold mb-3 gradient-text">45-90min</div>
+                    <div class="text-sm text-text-secondary mb-2">Saved per account review</div>
+                    <div class="text-xs text-text-dim">No more tab switching</div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 text-center border-gold/20">
+                    <div class="text-5xl font-bold mb-3 gradient-text">60%</div>
+                    <div class="text-sm text-text-secondary mb-2">Faster response to at-risk signals</div>
+                    <div class="text-xs text-text-dim">Proactive vs reactive</div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 text-center border-gold/20">
+                    <div class="text-5xl font-bold mb-3 gradient-text">100%</div>
+                    <div class="text-sm text-text-secondary mb-2">Account context visibility</div>
+                    <div class="text-xs text-text-dim">Complete picture</div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 text-center border-gold/20">
+                    <div class="text-5xl font-bold mb-3 gradient-text">Zero</div>
+                    <div class="text-sm text-text-secondary mb-2">Surprises at renewal</div>
+                    <div class="text-xs text-text-dim">Early warning system</div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-10">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="CSM" class="w-24 h-24 rounded-full object-cover shrink-0">
+                    <div class="flex-1 text-center md:text-left">
+                        <p class="text-xl text-text-secondary italic mb-6 leading-relaxed">
+                            "I used to spend 2 hours before every customer call pulling data from Salesforce, Intercom, and our billing system. Now I get a complete Account 360° in seconds. Caught three churn risks last month that I would've missed."
+                        </p>
+                        <div class="font-semibold text-lg">Sarah Martinez</div>
+                        <div class="text-sm text-text-secondary">Customer Success Manager</div>
+                        <div class="text-xs text-text-dim mt-1">Enterprise SaaS • 50+ accounts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta-section" class="py-24 px-6 bg-bg-secondary/50 relative overflow-hidden">
+        <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full blob-bg blur-3xl opacity-40 pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-5xl font-bold mb-6">
+                <span class="text-white">See Your Accounts</span><br>
+                <span class="gradient-text">Like Never Before</span>
+            </h2>
+            <p class="text-xl text-text-secondary mb-12 max-w-2xl mx-auto leading-relaxed">
+                Book a 15-minute demo and we'll show you your first Account 360° view
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+                <a href="#demo" class="bg-gold hover:bg-gold-light text-bg-main px-10 py-4 rounded-lg text-lg font-semibold transition-all gold-glow transform hover:scale-105">
+                    Book Your Demo Now
+                </a>
+                <a href="#pricing" class="glass-card px-10 py-4 rounded-lg text-lg font-semibold hover:border-gold/30 transition-all">
+                    See Pricing
+                </a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-8 text-sm text-text-dim">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-shield-check text-green-400"></i>
+                    <span>SOC 2 Compliant</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-lock text-green-400"></i>
+                    <span>Enterprise Security</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-bolt text-green-400"></i>
+                    <span>15-min Setup</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="bg-bg-secondary/50 border-t border-white/5 pt-20 pb-8 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16">
+                <div>
+                    <h5 class="font-bold mb-6 text-base uppercase tracking-wider text-text-primary">Platform</h5>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>Spine</span>
+                        </a></li>
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>Digital Memory</span>
+                        </a></li>
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>Connectors</span>
+                        </a></li>
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>Security</span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold mb-6 text-base uppercase tracking-wider text-text-primary">Product</h5>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>Workspace</span>
+                        </a></li>
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>Approval</span>
+                        </a></li>
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>Loop</span>
+                        </a></li>
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>Pricing</span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold mb-6 text-base uppercase tracking-wider text-text-primary">Solutions</h5>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>Account Success</span>
+                        </a></li>
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>BizOps</span>
+                        </a></li>
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>Customer Success</span>
+                        </a></li>
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>By Industry</span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold mb-6 text-base uppercase tracking-wider text-text-primary">Company</h5>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>Story</span>
+                        </a></li>
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>Principles</span>
+                        </a></li>
+                        <li><a href="#" class="text-text-dim hover:text-gold transition-colors flex items-center gap-2 group">
+                            <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            <span>Contact</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/10">
+                <div class="flex flex-col lg:flex-row justify-between items-center gap-6 mb-8">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center shadow-lg">
+                            <i class="fa-solid fa-brain text-bg-main text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-text-primary font-bold text-lg">IntegrateWise</div>
+                            <div class="text-text-dim text-xs">Building the memory layer for modern work</div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 bg-bg-elevated rounded-lg flex items-center justify-center text-text-dim hover:text-gold hover:bg-gold/10 transition-all hover:scale-110 transform">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-bg-elevated rounded-lg flex items-center justify-center text-text-dim hover:text-gold hover:bg-gold/10 transition-all hover:scale-110 transform">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-bg-elevated rounded-lg flex items-center justify-center text-text-dim hover:text-gold hover:bg-gold/10 transition-all hover:scale-110 transform">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-bg-elevated rounded-lg flex items-center justify-center text-text-dim hover:text-gold hover:bg-gold/10 transition-all hover:scale-110 transform">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 border-t border-white/5">
+                    <p class="text-text-dim text-sm">© 2026 IntegrateWise. All rights reserved.</p>
+                    <div class="flex flex-wrap justify-center gap-6 text-sm text-text-dim">
+                        <a href="#" class="hover:text-gold transition-colors">Privacy Policy</a>
+                        <span class="text-white/10">|</span>
+                        <a href="#" class="hover:text-gold transition-colors">Terms of Service</a>
+                        <span class="text-white/10">|</span>
+                        <a href="#" class="hover:text-gold transition-colors">Security</a>
+                        <span class="text-white/10">|</span>
+                        <a href="#" class="hover:text-gold transition-colors">Cookie Settings</a>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex flex-wrap justify-center items-center gap-6">
+                    <div class="flex items-center gap-2 text-text-dim text-xs">
+                        <i class="fa-solid fa-shield-halved text-green-400"></i>
+                        <span>SOC 2 Type II</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-text-dim text-xs">
+                        <i class="fa-solid fa-lock text-blue-400"></i>
+                        <span>GDPR Compliant</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-text-dim text-xs">
+                        <i class="fa-solid fa-file-shield text-purple-400"></i>
+                        <span>HIPAA Ready</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-text-dim text-xs">
+                        <i class="fa-solid fa-certificate text-gold"></i>
+                        <span>ISO 27001</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const roleButtons = document.querySelectorAll('[data-role]');
+        const roleContent = document.querySelectorAll('[data-role-content]');
+
+        roleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const role = button.getAttribute('data-role');
+                
+                roleButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                roleContent.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.getAttribute('data-role-content') === role) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        const industryButtons = document.querySelectorAll('[data-industry]');
+        industryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                industryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
