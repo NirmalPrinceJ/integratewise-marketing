@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  /* IntegrateWise Design System */
+  /* IntegrateWise Design System — Nexify Theme */
   --font-sans: "Inter", system-ui, sans-serif;
-  
-  /* Background colors */
-  --color-bg-main: #0B0D17;
-  --color-bg-secondary: #151828;
-  --color-bg-elevated: #1F243B;
-  --color-bg-muted: #2D3554;
-  
-  /* Gold accent */
-  --color-gold: #D4AF37;
-  --color-gold-light: #C5A028;
-  --color-gold-glow: rgba(212, 175, 55, 0.4);
-  
+
+  /* Background colors — deep near-black with violet undertone */
+  --color-bg-main: #08090f;
+  --color-bg-secondary: #0d0f1c;
+  --color-bg-elevated: #131628;
+  --color-bg-muted: #1a1e35;
+
+  /* Violet/Blue accent (Nexify palette) */
+  --color-gold: #8B5CF6;
+  --color-gold-light: #7C3AED;
+  --color-gold-glow: rgba(139, 92, 246, 0.4);
+
   /* Text colors */
   --color-text-primary: #F8FAFC;
   --color-text-secondary: #94A3B8;
   --color-text-dim: #64748B;
-  
+
   /* Status colors */
   --color-red-400: #f87171;
   --color-red-500: #ef4444;
@@ -31,17 +31,13 @@
   --color-blue-500: #3b82f6;
   --color-purple-400: #a78bfa;
   --color-purple-500: #8b5cf6;
-  
+
   --radius: 0.5rem;
 }
 
 * {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-*::-webkit-scrollbar {
-  display: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.4) transparent;
 }
 
 html {
@@ -56,39 +52,52 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom utility classes */
+/* ============================================================
+   Core utility classes — Nexify color system
+   ============================================================ */
+
+/* Hero radial glow — violet/purple */
 .hero-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15), transparent 70%);
+  background: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.18), transparent 70%);
 }
 
+/* Glass card */
 .glass-card {
-  background: rgba(21, 24, 40, 1);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(13, 15, 28, 1);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
 }
 
 .glass-card-hover {
-  background: rgba(31, 36, 59, 1);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(19, 22, 40, 1);
+  border: 1px solid rgba(255, 255, 255, 0.10);
 }
 
+/* Violet glow utilities */
 .gold-glow {
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.25);
 }
 
 .gold-glow-lg {
-  box-shadow: 0 0 40px rgba(212, 175, 55, 0.3), 0 0 80px rgba(212, 175, 55, 0.1);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.35), 0 0 80px rgba(59, 130, 246, 0.12);
 }
 
+/* Blob backgrounds — violet */
 .blob-bg {
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(11, 13, 23, 0) 70%);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, rgba(8, 9, 15, 0) 70%);
 }
 
 .blob-bg-large {
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(11, 13, 23, 0) 60%);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, rgba(8, 9, 15, 0) 60%);
 }
 
+/* Primary gradient text — violet → blue (Nexify) */
 .gradient-text {
-  background: linear-gradient(135deg, #D4AF37 0%, #C5A028 100%);
+  background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -108,32 +117,45 @@ body {
   background-clip: text;
 }
 
-/* Enhanced hover glow effects */
+/* Hover glow — violet */
 .hover-glow {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.25);
-  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.28);
+  border-color: rgba(139, 92, 246, 0.35);
 }
 
-/* Smooth gradient border effect */
+/* Gradient border — violet → blue */
 .gradient-border {
   position: relative;
-  background: linear-gradient(rgba(21, 24, 40, 0.6), rgba(21, 24, 40, 0.6)) padding-box,
-    linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1)) border-box;
+  background: linear-gradient(rgba(13, 15, 28, 0.8), rgba(13, 15, 28, 0.8)) padding-box,
+    linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(59, 130, 246, 0.15)) border-box;
   border: 1px solid transparent;
 }
 
-/* Floating animation */
+/* Primary gradient button — the Nexify signature */
+.btn-violet {
+  background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
+  color: #ffffff;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-violet:hover {
+  background: linear-gradient(135deg, #7C3AED 0%, #2563EB 100%);
+  box-shadow: 0 0 32px rgba(139, 92, 246, 0.35), 0 0 64px rgba(59, 130, 246, 0.12);
+  transform: scale(1.02);
+}
+
+/* ============================================================
+   Animations
+   ============================================================ */
+
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
 }
 
 .animate-float {
@@ -141,40 +163,26 @@ body {
 }
 
 @keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
 .animate-float-slow {
   animation: float-slow 4s ease-in-out infinite;
 }
 
-/* Glow pulse animation */
 @keyframes glow-pulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
-  }
+  0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.45); }
 }
 
 .animate-glow-pulse {
   animation: glow-pulse 2s ease-in-out infinite;
 }
 
-/* Shimmer effect for loading states */
 @keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
 }
 
 .animate-shimmer {
@@ -182,23 +190,15 @@ body {
   animation: shimmer 2s infinite;
 }
 
-/* Smooth reveal animation */
 @keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-reveal {
   animation: reveal 0.6s ease-out forwards;
 }
 
-/* Gradient shift for animated hero backgrounds */
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -209,7 +209,6 @@ body {
   animation: gradient-shift 6s ease-in-out infinite;
 }
 
-/* Shimmer slide for skeletons */
 @keyframes shimmer-slide {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
@@ -221,15 +220,28 @@ body {
   animation: shimmer-slide 1.8s ease-in-out infinite;
 }
 
-/* Section divider — gradient fade line */
+/* ============================================================
+   Layout & structural utilities
+   ============================================================ */
+
+/* Section divider */
 .section-divider {
   border: none;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.06) 70%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 30%, rgba(255,255,255,0.05) 70%, transparent 100%);
   margin: 0;
 }
 
-/* Unified pill/chip badge */
+/* Section divider — violet glow */
+.section-divider-gold {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.3) 30%, rgba(59, 130, 246, 0.3) 70%, transparent 100%);
+  margin: 0;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.1);
+}
+
+/* Pill/chip badge */
 .chip {
   display: inline-flex;
   align-items: center;
@@ -242,17 +254,17 @@ body {
   border: 1px solid;
 }
 
-/* Card hover lift — consistent elevation on hover */
+/* Card hover lift */
 .card-hover-lift {
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease;
 }
 
 .card-hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* Icon hover scale effect */
+/* Icon hover scale */
 .icon-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -261,7 +273,7 @@ body {
   transform: scale(1.1) translateY(-2px);
 }
 
-/* Navigation dropdown styles */
+/* Nav dropdown */
 .nav-dropdown {
   display: none;
   position: absolute;
@@ -269,9 +281,9 @@ body {
   left: 0;
   margin-top: 0.5rem;
   min-width: 200px;
-  background: rgba(21, 24, 40, 0.95);
+  background: rgba(13, 15, 28, 0.97);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 12px;
   padding: 0.5rem;
   z-index: 100;
@@ -281,12 +293,12 @@ body {
   display: block;
 }
 
-/* Submenu navigation for page-specific submenus */
+/* Submenu nav */
 .submenu-nav {
   position: sticky;
   top: 72px;
   z-index: 40;
-  background: rgba(11, 13, 23, 0.95);
+  background: rgba(8, 9, 15, 0.97);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -301,105 +313,88 @@ body {
 }
 
 .submenu-nav a.active {
-  color: #D4AF37;
-  border-bottom: 2px solid #D4AF37;
+  color: #8B5CF6;
+  border-bottom: 2px solid #8B5CF6;
 }
 
-/* Enhanced card transitions */
-.glass-card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.glass-card:hover {
-  transform: translateY(-2px);
-}
-
-/* Smooth scroll behavior — defined once above */
-
-/* Selection styling */
+/* Selection */
 ::selection {
-  background-color: rgba(212, 175, 55, 0.3);
+  background-color: rgba(139, 92, 246, 0.3);
   color: inherit;
 }
 
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(11, 13, 23, 0.5);
+  background: rgba(8, 9, 15, 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(212, 175, 55, 0.4);
+  background: rgba(139, 92, 246, 0.4);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(212, 175, 55, 0.6);
+  background: rgba(139, 92, 246, 0.65);
 }
 
-/* Input focus states */
+/* Input focus — violet */
 input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-color: rgba(212, 175, 55, 0.5);
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
 }
 
-/* Link styling */
 a {
   transition: color 0.2s ease;
 }
 
-/* Text selection enhancement */
-.text-balance {
-  text-wrap: balance;
-}
-
-.text-pretty {
-  text-wrap: pretty;
-}
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
 
 /* ============================================================
-   Visual Enhancement — v2
+   Visual Enhancement — v2 (Nexify recolored)
    ============================================================ */
 
-/* Subtle dot-grid background pattern */
+/* Dot-grid background */
 .bg-dots {
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
-/* Subtle line-grid background */
+/* Line-grid background */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
   background-size: 52px 52px;
 }
 
-/* Gold-tinted grid */
+/* Violet-tinted grid — Nexify signature */
 .bg-grid-gold {
   background-image:
-    linear-gradient(rgba(212, 175, 55, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(212, 175, 55, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(139, 92, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
   background-size: 52px 52px;
 }
 
-/* Spotlight radial highlight (top of a section) */
+/* Spotlight radial — violet */
 .spotlight {
-  background: radial-gradient(ellipse 80% 55% at 50% -10%, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+  background: radial-gradient(ellipse 80% 55% at 50% -10%, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
 }
 
-/* Stat number glow */
+/* Stat number glow — violet */
 .stat-glow {
-  text-shadow: 0 0 28px rgba(212, 175, 55, 0.45);
+  text-shadow: 0 0 28px rgba(139, 92, 246, 0.5);
 }
 
-/* Blurred color orb helper */
+/* Blurred color orb */
 .orb {
   border-radius: 50%;
   filter: blur(90px);
@@ -408,14 +403,14 @@ a {
   will-change: transform;
 }
 
-/* Animated shimmer gradient text */
+/* Animated shimmer gradient text — violet → blue (Nexify) */
 @keyframes text-shimmer {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
 
 .gradient-text-animated {
-  background: linear-gradient(120deg, #D4AF37 0%, #ffe27a 40%, #D4AF37 60%, #C5A028 100%);
+  background: linear-gradient(120deg, #8B5CF6 0%, #a78bfa 35%, #3B82F6 60%, #8B5CF6 100%);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -423,7 +418,7 @@ a {
   animation: text-shimmer 5s ease-in-out infinite;
 }
 
-/* Scanning highlight line for tech panels */
+/* Scanning highlight line — violet */
 @keyframes scan-down {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(800%); }
@@ -440,12 +435,12 @@ a {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.45) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.5) 50%, transparent 100%);
   animation: scan-down 4s ease-in-out infinite;
   pointer-events: none;
 }
 
-/* Pulsing ring — place around hub/center elements */
+/* Pulsing ring — violet */
 @keyframes ring-pulse {
   0% { transform: scale(1); opacity: 0.6; }
   70% { transform: scale(1.9); opacity: 0; }
@@ -462,7 +457,7 @@ a {
   position: absolute;
   inset: -12px;
   border-radius: 50%;
-  border: 1px solid rgba(212, 175, 55, 0.35);
+  border: 1px solid rgba(139, 92, 246, 0.35);
   animation: ring-pulse 2.8s ease-out infinite;
   pointer-events: none;
 }
@@ -471,24 +466,15 @@ a {
   animation-delay: 1.4s;
 }
 
-/* Glass card — elevated (stronger backdrop) */
+/* Glass card — elevated */
 .glass-elevated {
-  background: rgba(31, 36, 59, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(19, 22, 40, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   backdrop-filter: blur(24px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-/* Section divider with gold glow */
-.section-divider-gold {
-  border: none;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.25) 30%, rgba(212, 175, 55, 0.25) 70%, transparent 100%);
-  margin: 0;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.08);
-}
-
-/* Ghost large number behind feature cards */
+/* Ghost large number — slightly violet tinted */
 .ghost-number {
   position: absolute;
   top: -0.25rem;
@@ -496,7 +482,7 @@ a {
   font-size: 5.5rem;
   font-weight: 900;
   line-height: 1;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 80%);
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.08) 0%, transparent 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -505,7 +491,7 @@ a {
   letter-spacing: -0.04em;
 }
 
-/* Decorative gradient top accent on cards */
+/* Gradient top accent — violet → blue */
 .card-accent-top {
   position: relative;
 }
@@ -517,11 +503,11 @@ a {
   left: 12%;
   right: 12%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.5), rgba(59, 130, 246, 0.3), transparent);
   border-radius: 0 0 4px 4px;
 }
 
-/* Step connector vertical line */
+/* Step connector vertical line — violet */
 .step-connector {
   position: relative;
 }
@@ -533,10 +519,10 @@ a {
   top: 44px;
   bottom: -28px;
   width: 1px;
-  background: linear-gradient(180deg, rgba(212, 175, 55, 0.35) 0%, rgba(212, 175, 55, 0.05) 100%);
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.4) 0%, rgba(59, 130, 246, 0.05) 100%);
 }
 
-/* Pulsing dot indicator */
+/* Pulsing dot */
 @keyframes dot-pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(0.8); }
@@ -546,7 +532,7 @@ a {
   animation: dot-pulse 2s ease-in-out infinite;
 }
 
-/* Fade-up entrance animation */
+/* Fade-up entrance */
 @keyframes fade-up-in {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -563,28 +549,28 @@ a {
 .animate-delay-400 { animation-delay: 0.4s; }
 .animate-delay-500 { animation-delay: 0.5s; }
 
-/* Mask fade toward bottom (for visual panels) */
+/* Mask fade toward bottom */
 .fade-bottom {
   mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
 }
 
-/* Gradient glow bar (horizontal accent line) */
+/* Gradient glow bar — violet → blue */
 .glow-bar {
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.7), transparent);
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.8), rgba(59, 130, 246, 0.6), transparent);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
 }
 
-/* Animated glowing border for highlight cards */
+/* Animated glowing border — violet/blue */
 @keyframes border-glow-pulse {
   0%, 100% {
-    border-color: rgba(212, 175, 55, 0.35);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+    border-color: rgba(139, 92, 246, 0.35);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
   }
   50% {
-    border-color: rgba(212, 175, 55, 0.6);
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.2), 0 0 80px rgba(212, 175, 55, 0.08);
+    border-color: rgba(139, 92, 246, 0.65);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.22), 0 0 80px rgba(59, 130, 246, 0.08);
   }
 }
 

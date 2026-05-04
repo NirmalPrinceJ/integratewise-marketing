@@ -29,8 +29,8 @@ export function Header() {
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-bg-main/95 backdrop-blur-2xl border-b border-white/8 shadow-[0_1px_24px_rgba(0,0,0,0.3)]"
-          : "bg-bg-main/80 backdrop-blur-2xl border-b border-white/5"
+          ? "bg-bg-main/98 backdrop-blur-2xl border-b border-violet-500/[0.08] shadow-[0_1px_24px_rgba(0,0,0,0.5)]"
+          : "bg-bg-main/70 backdrop-blur-2xl border-b border-white/[0.04]"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
@@ -128,14 +128,14 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <motion.div 
+          <motion.div
             className="hidden lg:block"
-            whileHover={{ scale: 1.05 }} 
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
           >
             <Link
               href="/demo"
-              className="bg-gold hover:bg-gold-light text-bg-main px-7 py-2.5 rounded-lg text-sm font-semibold transition-all gold-glow inline-flex items-center gap-2"
+              className="btn-violet px-7 py-2.5 rounded-lg text-sm font-semibold inline-flex items-center gap-2"
             >
               <i className="fa-solid fa-calendar text-xs"></i>
               Book a Demo
