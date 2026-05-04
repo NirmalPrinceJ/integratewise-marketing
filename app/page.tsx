@@ -51,13 +51,15 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-gold to-gold-light rounded-full flex items-center justify-center shadow-2xl z-30">
-                  <i className="fa-solid fa-user text-bg-main text-4xl relative">
-                    <div className="absolute -top-1 -right-1 flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-                    </div>
-                  </i>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
+                  <div className="ring-pulse w-32 h-32 bg-gradient-to-br from-gold to-gold-light rounded-full flex items-center justify-center shadow-2xl">
+                    <i className="fa-solid fa-user text-bg-main text-4xl relative">
+                      <div className="absolute -top-1 -right-1 flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                      </div>
+                    </i>
+                  </div>
                 </div>
 
                 <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40">
@@ -131,10 +133,10 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="glass-card rounded-2xl p-8 hover:border-gold/30 transition-all group relative overflow-hidden">
+              <div className="glass-card card-accent-top rounded-2xl p-8 hover:border-blue-500/30 transition-all group relative overflow-hidden card-hover-lift">
                 <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="relative">
-                  <div className="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-all">
+                  <div className="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-all group-hover:scale-110 transform duration-300">
                     <i className="fa-solid fa-eye text-blue-400 text-2xl"></i>
                   </div>
                   <h3 className="text-2xl font-semibold mb-4">Omniscient Visibility</h3>
@@ -144,10 +146,10 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="glass-card rounded-2xl p-8 hover:border-gold/30 transition-all group relative overflow-hidden">
+              <div className="glass-card card-accent-top rounded-2xl p-8 hover:border-purple-500/30 transition-all group relative overflow-hidden card-hover-lift">
                 <div className="absolute -inset-1 bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="relative">
-                  <div className="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-all">
+                  <div className="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-all group-hover:scale-110 transform duration-300">
                     <i className="fa-solid fa-bolt text-purple-400 text-2xl"></i>
                   </div>
                   <h3 className="text-2xl font-semibold mb-4">Predictive Performance</h3>
@@ -157,10 +159,10 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="glass-card rounded-2xl p-8 hover:border-gold/30 transition-all group relative overflow-hidden">
+              <div className="glass-card card-accent-top rounded-2xl p-8 hover:border-green-500/30 transition-all group relative overflow-hidden card-hover-lift">
                 <div className="absolute -inset-1 bg-gradient-to-br from-green-500/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="relative">
-                  <div className="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-500/20 transition-all">
+                  <div className="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-500/20 transition-all group-hover:scale-110 transform duration-300">
                     <i className="fa-solid fa-rocket text-green-400 text-2xl"></i>
                   </div>
                   <h3 className="text-2xl font-semibold mb-4">Zero-Friction Execution</h3>
@@ -217,40 +219,40 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="space-y-6">
-                <h4 className="text-2xl font-semibold mb-6">How It Works</h4>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center shrink-0 mt-1">
-                    <div className="w-3 h-3 rounded-full bg-gold"></div>
+              <div className="space-y-0">
+                <h4 className="text-2xl font-semibold mb-8">How It Works</h4>
+
+                <div className="flex items-start gap-4 step-connector pb-6">
+                  <div className="w-10 h-10 rounded-full bg-gold/20 border border-gold/30 flex items-center justify-center shrink-0">
+                    <span className="text-gold text-xs font-bold">01</span>
                   </div>
-                  <div>
+                  <div className="pt-1">
                     <h5 className="font-semibold mb-1">Connect Your Tools</h5>
                     <p className="text-text-dim text-sm">Plug in the apps you already use in minutes with 70+ pre-built connectors reaching 1,000+ underlying sources.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center shrink-0 mt-1">
-                    <div className="w-3 h-3 rounded-full bg-gold"></div>
+                <div className="flex items-start gap-4 step-connector pb-6">
+                  <div className="w-10 h-10 rounded-full bg-gold/20 border border-gold/30 flex items-center justify-center shrink-0">
+                    <span className="text-gold text-xs font-bold">02</span>
                   </div>
-                  <div>
+                  <div className="pt-1">
                     <h5 className="font-semibold mb-1">AI Indexes Continuously</h5>
                     <p className="text-text-dim text-sm">Our AI cleans, normalizes, and vectorizes your data into a unified memory layer—so every interaction is searchable and linked by context.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center shrink-0 mt-1">
-                    <div className="w-3 h-3 rounded-full bg-gold"></div>
+                <div className="flex items-start gap-4 step-connector pb-6">
+                  <div className="w-10 h-10 rounded-full bg-gold/20 border border-gold/30 flex items-center justify-center shrink-0">
+                    <span className="text-gold text-xs font-bold">03</span>
                   </div>
-                  <div>
+                  <div className="pt-1">
                     <h5 className="font-semibold mb-1">Access Digital Memory</h5>
                     <p className="text-text-dim text-sm">View everything through the Workspace with complete context and control.</p>
                   </div>
                 </div>
 
-                <div className="glass-card rounded-xl p-6 mt-8">
+                <div className="glass-card rounded-xl p-6 mt-8 scan-line">
                   <div className="text-center">
                     <div className="text-xs text-text-dim uppercase tracking-wider mb-4">From Source to Digital Memory</div>
                     <div className="flex flex-col gap-3">
@@ -337,42 +339,46 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="glass-card rounded-2xl p-8 hover:border-gold/30 transition-all group">
-                <div className="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-all">
+              <div className="glass-card rounded-2xl p-8 hover:border-blue-500/30 transition-all group card-hover-lift relative overflow-hidden">
+                <span className="ghost-number">01</span>
+                <div className="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-all group-hover:scale-110 transform duration-300 relative z-10">
                   <i className="fa-solid fa-plug text-blue-400 text-2xl"></i>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">70+ Tool Connectors</h3>
-                <p className="text-text-dim text-sm leading-relaxed">
+                <h3 className="text-xl font-semibold mb-3 relative z-10">70+ Tool Connectors</h3>
+                <p className="text-text-dim text-sm leading-relaxed relative z-10">
                   Plug in the apps you already use in minutes—CRM, billing, support, chat—reaching 1,000+ underlying sources, so you can connect the tools you already run instead of rebuilding your stack.
                 </p>
               </div>
 
-              <div className="glass-card rounded-2xl p-8 hover:border-gold/30 transition-all group">
-                <div className="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-all">
+              <div className="glass-card rounded-2xl p-8 hover:border-purple-500/30 transition-all group card-hover-lift relative overflow-hidden">
+                <span className="ghost-number">02</span>
+                <div className="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-all group-hover:scale-110 transform duration-300 relative z-10">
                   <i className="fa-solid fa-circle-nodes text-purple-400 text-2xl"></i>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Workspace with Entity 360</h3>
-                <p className="text-text-dim text-sm leading-relaxed">
+                <h3 className="text-xl font-semibold mb-3 relative z-10">Workspace with Entity 360</h3>
+                <p className="text-text-dim text-sm leading-relaxed relative z-10">
                   Your governed workspace—Entity 360 is the default view, surfacing every account, client, or project with complete context in one click, so you see everything without tab-switching.
                 </p>
               </div>
 
-              <div className="glass-card rounded-2xl p-8 hover:border-gold/30 transition-all group">
-                <div className="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-all">
+              <div className="glass-card rounded-2xl p-8 hover:border-gold/30 transition-all group card-hover-lift relative overflow-hidden">
+                <span className="ghost-number">03</span>
+                <div className="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-all group-hover:scale-110 transform duration-300 relative z-10">
                   <i className="fa-solid fa-brain text-gold text-2xl"></i>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Proactive Twin Insights</h3>
-                <p className="text-text-dim text-sm leading-relaxed">
+                <h3 className="text-xl font-semibold mb-3 relative z-10">Proactive Twin Insights</h3>
+                <p className="text-text-dim text-sm leading-relaxed relative z-10">
                   AI that watches your business and tells you what needs attention, backed by evidence you can inspect and act on immediately—so &quot;why this alert?&quot; is always answerable.
                 </p>
               </div>
 
-              <div className="glass-card rounded-2xl p-8 hover:border-gold/30 transition-all group">
-                <div className="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-500/20 transition-all">
+              <div className="glass-card rounded-2xl p-8 hover:border-green-500/30 transition-all group card-hover-lift relative overflow-hidden">
+                <span className="ghost-number">04</span>
+                <div className="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-500/20 transition-all group-hover:scale-110 transform duration-300 relative z-10">
                   <i className="fa-solid fa-user-shield text-green-400 text-2xl"></i>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Approval-Gated Action</h3>
-                <p className="text-text-dim text-sm leading-relaxed">
+                <h3 className="text-xl font-semibold mb-3 relative z-10">Approval-Gated Action</h3>
+                <p className="text-text-dim text-sm leading-relaxed relative z-10">
                   Nothing executes without your explicit human approval, so AI can help close the loop while you stay in control of every change.
                 </p>
               </div>
@@ -395,38 +401,47 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="glass-card rounded-2xl p-8 hover:border-blue-500/50 transition-all group">
-                <i className="fa-solid fa-handshake text-blue-400 text-4xl mb-6"></i>
+              <div className="glass-card rounded-2xl p-8 hover:border-blue-500/50 transition-all group card-hover-lift relative overflow-hidden">
+                <div className="absolute left-0 top-8 bottom-8 w-0.5 bg-gradient-to-b from-transparent via-blue-500/50 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-all">
+                  <i className="fa-solid fa-handshake text-blue-400 text-2xl"></i>
+                </div>
                 <h3 className="text-2xl font-semibold mb-4">Account Success</h3>
                 <p className="text-text-dim leading-relaxed mb-6">
                   Never miss a renewal signal. Unify usage data, support tickets, and relationship notes into one customer 360—so QBR prep takes minutes, not hours. Get alerted when a renewal is at risk, see the evidence, and draft a proactive play instantly.
                 </p>
-                <a href="#" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium text-sm">
-                  See How It Works <i className="fa-solid fa-arrow-right"></i>
+                <a href="#" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium text-sm group/link">
+                  See How It Works <i className="fa-solid fa-arrow-right transition-transform group-hover/link:translate-x-1"></i>
                 </a>
               </div>
 
-              <div className="glass-card rounded-2xl p-8 hover:border-purple-500/50 transition-all group">
-                <i className="fa-solid fa-chart-line text-purple-400 text-4xl mb-6"></i>
+              <div className="glass-card rounded-2xl p-8 hover:border-purple-500/50 transition-all group card-hover-lift relative overflow-hidden">
+                <div className="absolute left-0 top-8 bottom-8 w-0.5 bg-gradient-to-b from-transparent via-purple-500/50 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-all">
+                  <i className="fa-solid fa-chart-line text-purple-400 text-2xl"></i>
+                </div>
                 <h3 className="text-2xl font-semibold mb-4">Business Ops</h3>
                 <p className="text-text-dim leading-relaxed mb-6">
                   See what changed in ARR, churn, burn, and cross-functional risks in one morning brief. Connect your ERP, CRM, and HRIS; get instant answers on runway and headcount; and let the Twin draft next steps—always tied back to live data in the Spine.
                 </p>
-                <a href="#" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium text-sm">
-                  See How It Works <i className="fa-solid fa-arrow-right"></i>
+                <a href="#" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium text-sm group/link">
+                  See How It Works <i className="fa-solid fa-arrow-right transition-transform group-hover/link:translate-x-1"></i>
                 </a>
               </div>
 
-              <div className="glass-card rounded-2xl p-8 border-gold/30 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 blob-bg blur-2xl"></div>
-                <div className="absolute top-4 right-4 bg-gold text-bg-main text-xs font-bold px-2 py-1 rounded uppercase">Beta</div>
-                <i className="fa-solid fa-user-astronaut text-gold text-4xl mb-6 relative"></i>
-                <h3 className="text-2xl font-semibold mb-4 relative">Personal Space</h3>
-                <p className="text-text-dim leading-relaxed mb-6 relative">
+              <div className="glass-card rounded-2xl p-8 border-gold/30 hover:border-gold/50 transition-all relative overflow-hidden card-hover-lift">
+                <div className="absolute top-0 right-0 w-40 h-40 blob-bg blur-2xl"></div>
+                <div className="absolute top-0 left-0 right-0 h-0.5 glow-bar opacity-60"></div>
+                <div className="absolute top-4 right-4 bg-gold text-bg-main text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Beta</div>
+                <div className="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-6 relative z-10">
+                  <i className="fa-solid fa-user-astronaut text-gold text-2xl"></i>
+                </div>
+                <h3 className="text-2xl font-semibold mb-4 relative z-10">Personal Space</h3>
+                <p className="text-text-dim leading-relaxed mb-6 relative z-10">
                   Your private OS—same Spine, same Twin, scoped to a User Memory only you can see. Index your emails, notes, and documents to create a second brain that works for you.
                 </p>
-                <a href="#" className="inline-flex items-center gap-2 text-gold hover:text-gold-light font-medium text-sm relative">
-                  Join Waitlist <i className="fa-solid fa-arrow-right"></i>
+                <a href="#" className="inline-flex items-center gap-2 text-gold hover:text-gold-light font-medium text-sm relative z-10 group/link">
+                  Join Waitlist <i className="fa-solid fa-arrow-right transition-transform group-hover/link:translate-x-1"></i>
                 </a>
               </div>
             </div>
@@ -483,8 +498,9 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="glass-card rounded-2xl p-8 border-gold/50 relative transform md:-translate-y-4 shadow-2xl">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gold text-bg-main px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+              <div className="glass-card rounded-2xl p-8 border-gold/50 relative transform md:-translate-y-4 shadow-2xl gold-glow-lg animate-border-glow">
+                <div className="absolute top-0 left-0 right-0 h-0.5 glow-bar"></div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gold text-bg-main px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
                   Most Popular
                 </div>
                 <div className="mb-6">
@@ -553,30 +569,57 @@ export default function HomePage() {
         </section>
 
         {/* Section 9: Demo CTA */}
-        <section id="demo-section" className="py-24 px-6 relative overflow-hidden">
+        <section id="demo-section" className="py-32 px-6 relative overflow-hidden">
+          {/* Multi-layer background */}
           <div className="absolute inset-0 hero-glow pointer-events-none"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full blob-bg blur-3xl opacity-40 pointer-events-none"></div>
-          
+          <div className="absolute inset-0 bg-grid-gold opacity-50 pointer-events-none"></div>
+          <div className="orb w-[500px] h-[500px] bg-gold/[0.08] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="orb w-[300px] h-[300px] bg-blue-500/[0.05] top-8 right-[15%]"></div>
+          <div className="orb w-[280px] h-[280px] bg-purple-500/[0.05] bottom-8 left-[12%]"></div>
+
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className="text-5xl font-bold mb-6">
+            <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-full px-4 py-2 mb-8 backdrop-blur-sm">
+              <i className="fa-solid fa-brain text-gold text-xs"></i>
+              <span className="text-gold text-sm font-medium">Get Started Today</span>
+            </div>
+
+            <h2 className="text-5xl lg:text-6xl font-bold mb-6">
               Start Building Your<br />
-              <span className="bg-gradient-to-r from-gold to-gold-light bg-clip-text text-transparent">Digital Memory Today</span>
+              <span className="gradient-text-animated">Digital Memory Today</span>
             </h2>
-            <p className="text-xl text-text-secondary mb-12 max-w-2xl mx-auto">
+            <p className="text-xl text-text-secondary mb-12 max-w-2xl mx-auto leading-relaxed">
               Join teams who&apos;ve stopped fighting their tools and started compounding their knowledge.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-              <a href="/demo" className="bg-gold hover:bg-gold-light text-bg-main px-10 py-4 rounded-lg font-semibold text-lg transition-all gold-glow transform hover:scale-105">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+              <a href="/demo" className="bg-gold hover:bg-gold-light text-bg-main px-10 py-4 rounded-lg font-semibold text-lg transition-all gold-glow transform hover:scale-105 inline-flex items-center gap-2">
+                <i className="fa-solid fa-calendar text-sm"></i>
                 Request Demo
               </a>
-              <a href="#platform-section" className="glass-card px-10 py-4 rounded-lg font-semibold text-lg hover:border-gold/30 transition-all">
+              <a href="#platform-section" className="glass-card px-10 py-4 rounded-lg font-semibold text-lg hover:border-gold/30 transition-all text-text-secondary hover:text-text-primary">
                 Explore Platform
               </a>
             </div>
 
-            <div className="text-sm text-text-dim">
-              No credit card required • 14-day free trial • Cancel anytime
+            <div className="text-sm text-text-dim mb-8">
+              No credit card required · 14-day free trial · Cancel anytime
+            </div>
+
+            <div className="flex items-center justify-center gap-8 text-sm">
+              <div className="flex items-center gap-2 text-text-dim">
+                <i className="fa-solid fa-shield-halved text-green-400"></i>
+                <span>SOC 2 Ready</span>
+              </div>
+              <div className="w-px h-4 bg-white/10"></div>
+              <div className="flex items-center gap-2 text-text-dim">
+                <i className="fa-solid fa-lock text-gold"></i>
+                <span>Approval-Gated AI</span>
+              </div>
+              <div className="w-px h-4 bg-white/10"></div>
+              <div className="flex items-center gap-2 text-text-dim">
+                <i className="fa-solid fa-database text-blue-400"></i>
+                <span>Your Data, Always</span>
+              </div>
             </div>
           </div>
         </section>
