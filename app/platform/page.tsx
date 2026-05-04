@@ -771,10 +771,10 @@ export default function PlatformPage() {
                                   </div>
       
                                   <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30">
-                                      <line x1="50%" y1="50%" x2="50%" y2="15%" stroke="#D4AF37" stroke-width="2" stroke-dasharray="4,4" />
-                                      <line x1="50%" y1="50%" x2="85%" y2="50%" stroke="#D4AF37" stroke-width="2" stroke-dasharray="4,4" />
-                                      <line x1="50%" y1="50%" x2="50%" y2="85%" stroke="#D4AF37" stroke-width="2" stroke-dasharray="4,4" />
-                                      <line x1="50%" y1="50%" x2="15%" y2="50%" stroke="#D4AF37" stroke-width="2" stroke-dasharray="4,4" />
+                                      <line x1="50%" y1="50%" x2="50%" y2="15%" stroke="#D4AF37" stroke-width={2} stroke-dasharray="4,4" />
+                                      <line x1="50%" y1="50%" x2="85%" y2="50%" stroke="#D4AF37" stroke-width={2} stroke-dasharray="4,4" />
+                                      <line x1="50%" y1="50%" x2="50%" y2="85%" stroke="#D4AF37" stroke-width={2} stroke-dasharray="4,4" />
+                                      <line x1="50%" y1="50%" x2="15%" y2="50%" stroke="#D4AF37" stroke-width={2} stroke-dasharray="4,4" />
                                   </svg>
                               </div>
                           </div>
@@ -933,10 +933,10 @@ export default function PlatformPage() {
                                   </div>
       
                                   <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30">
-                                      <line x1="50%" y1="50%" x2="50%" y2="15%" stroke="#D4AF37" stroke-width="2" stroke-dasharray="4,4" />
-                                      <line x1="50%" y1="50%" x2="85%" y2="50%" stroke="#D4AF37" stroke-width="2" stroke-dasharray="4,4" />
-                                      <line x1="50%" y1="50%" x2="50%" y2="85%" stroke="#D4AF37" stroke-width="2" stroke-dasharray="4,4" />
-                                      <line x1="50%" y1="50%" x2="15%" y2="50%" stroke="#D4AF37" stroke-width="2" stroke-dasharray="4,4" />
+                                      <line x1="50%" y1="50%" x2="50%" y2="15%" stroke="#D4AF37" stroke-width={2} stroke-dasharray="4,4" />
+                                      <line x1="50%" y1="50%" x2="85%" y2="50%" stroke="#D4AF37" stroke-width={2} stroke-dasharray="4,4" />
+                                      <line x1="50%" y1="50%" x2="50%" y2="85%" stroke="#D4AF37" stroke-width={2} stroke-dasharray="4,4" />
+                                      <line x1="50%" y1="50%" x2="15%" y2="50%" stroke="#D4AF37" stroke-width={2} stroke-dasharray="4,4" />
                                   </svg>
                               </div>
                           </div>

@@ -1,80 +1,94 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-
+// Auto-generated from HTML. Edit as needed.
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-bg-main">
-      <Header />
-      <main className="pt-24">
-        <div className="max-w-4xl mx-auto px-6 py-24">
-          <h1 className="text-5xl font-bold mb-8">Privacy Policy</h1>
-          
-          <div className="prose prose-invert max-w-none">
-            <p className="text-text-secondary text-lg mb-8 leading-relaxed">
-              Last updated: May 4, 2026
-            </p>
-
-            <div className="space-y-12">
-              <section>
-                <h2 className="text-2xl font-bold mb-4">1. Introduction</h2>
-                <p className="text-text-secondary leading-relaxed">
-                  IntegrateWise, Inc. ("we", "us", "our", or "Company") operates the IntegrateWise platform. This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.
-                </p>
+    <>
+      &#123;/* Header */&#125;
+          &#123;/* Header */&#125;
+          &#123;/* Hero Section */&#125;
+          <section id="legal-hero" className="relative pt-40 pb-16 px-6 overflow-hidden">
+              <div className="absolute inset-0 hero-glow opacity-30"></div>
+              <div className="max-w-4xl mx-auto relative z-10 text-center">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 text-gold text-xs font-semibold mb-6">
+                      <i className="fa-solid fa-scale-balanced"></i> Legal
+                  </span>
+                  <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6 leading-tight">Privacy Policy</h1>
+                  <p className="text-lg text-text-secondary leading-relaxed max-w-2xl mx-auto">How IntegrateWise collects, uses, and protects your information.</p>
+                  <p className="text-sm text-text-dim mt-6">Effective May 4, 2026</p>
+              </div>
+          </section>
+      
+          <section id="legal-content" className="py-16 px-6">
+              <div className="max-w-4xl mx-auto">
+              <section className="mb-12">
+                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">1. Introduction</h2>
+                  <div className="text-text-secondary leading-relaxed space-y-4">
+      <p>IntegrateWise ("we", "us") provides an AI-powered Digital Memory and Twin platform. This Privacy Policy explains what data we collect, how we use it, the legal bases for processing, and the rights you have over your personal data.</p>
+                  </div>
               </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">2. Information Collection and Use</h2>
-                <p className="text-text-secondary leading-relaxed mb-4">
-                  We collect several different types of information for various purposes to provide and improve our Service to you.
-                </p>
-                <h3 className="text-xl font-semibold mb-3">Types of Data Collected:</h3>
-                <ul className="list-disc list-inside space-y-2 text-text-secondary">
-                  <li>Personal identification information (name, email address, phone number, etc.)</li>
-                  <li>Usage data and analytics</li>
-                  <li>Device information (browser, IP address, device type)</li>
-                  <li>Cookies and similar tracking technologies</li>
-                  <li>Data you voluntarily provide through forms and submissions</li>
-                </ul>
+      
+              <section className="mb-12">
+                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">2. Information We Collect</h2>
+                  <div className="text-text-secondary leading-relaxed space-y-4">
+      <p><strong>Account data:</strong> name, work email, organization, role.</p><p><strong>Usage data:</strong> pages viewed, features used, approval and dismissal events used to improve the Twin.</p><p><strong>Connected source data:</strong> records and metadata you authorize us to ingest from CRM, billing, support, calendar, and chat systems.</p><p><strong>Device data:</strong> IP address, browser type, operating system, time zone.</p>
+                  </div>
               </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">3. Use of Data</h2>
-                <p className="text-text-secondary leading-relaxed">
-                  IntegrateWise uses the collected data for various purposes:
-                </p>
-                <ul className="list-disc list-inside space-y-2 text-text-secondary mt-4">
-                  <li>To provide and maintain our Service</li>
-                  <li>To notify you about changes to our Service</li>
-                  <li>To allow you to participate in interactive features of our Service</li>
-                  <li>To gather analysis or valuable information so we can improve our Service</li>
-                  <li>To monitor the usage of our Service</li>
-                  <li>To detect, prevent and address technical issues</li>
-                </ul>
+      
+              <section className="mb-12">
+                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">3. How We Use Your Information</h2>
+                  <div className="text-text-secondary leading-relaxed space-y-4">
+      <ul className='list-disc pl-6 space-y-2'><li>Provide and operate the IntegrateWise platform</li><li>Train your private Twin on your approved interactions (never on other customers' data)</li><li>Maintain audit logs and security monitoring</li><li>Communicate service announcements and security advisories</li><li>Comply with legal obligations</li></ul>
+                  </div>
               </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">4. Security of Data</h2>
-                <p className="text-text-secondary leading-relaxed">
-                  The security of your data is important to us but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal data, we cannot guarantee its absolute security.
-                </p>
+      
+              <section className="mb-12">
+                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">4. Data Sharing</h2>
+                  <div className="text-text-secondary leading-relaxed space-y-4">
+      <p>We do not sell personal data. We share data only with: (a) sub-processors strictly required to deliver the service (cloud hosting, model providers when you opt in), (b) authorities when legally required. A current sub-processor list is available on request.</p>
+                  </div>
               </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">5. Contact Us</h2>
-                <p className="text-text-secondary leading-relaxed">
-                  If you have any questions about this Privacy Policy, please contact us at:
-                </p>
-                <div className="mt-4 p-6 bg-bg-secondary/30 rounded-lg">
-                  <p className="text-text-primary font-semibold">IntegrateWise, Inc.</p>
-                  <p className="text-text-secondary">privacy@integratewise.com</p>
-                  <p className="text-text-secondary">San Francisco, CA</p>
-                </div>
+      
+              <section className="mb-12">
+                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">5. Data Retention</h2>
+                  <div className="text-text-secondary leading-relaxed space-y-4">
+      <p>We retain customer data for the term of your subscription plus 30 days, after which it is deleted unless legal hold applies. Audit logs are retained for 7 years.</p>
+                  </div>
               </section>
-            </div>
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </div>
+      
+              <section className="mb-12">
+                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">6. Your Rights</h2>
+                  <div className="text-text-secondary leading-relaxed space-y-4">
+      <p>Subject to applicable law (GDPR, CCPA, and equivalent regimes), you have the right to access, correct, export, restrict, or delete personal data. Submit requests to <a href='mailto:privacy@integratewise.com' className='text-gold hover:text-gold-light'>privacy@integratewise.com</a>.</p>
+                  </div>
+              </section>
+      
+              <section className="mb-12">
+                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">7. Security</h2>
+                  <div className="text-text-secondary leading-relaxed space-y-4">
+      <p>We use TLS in transit, AES-256 at rest, role-based access control, and SOC 2 Type II controls. See our Security page for details.</p>
+                  </div>
+              </section>
+      
+              <section className="mb-12">
+                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">8. International Transfers</h2>
+                  <div className="text-text-secondary leading-relaxed space-y-4">
+      <p>Data may be processed in the United States, European Union, and other regions where our sub-processors operate. We rely on Standard Contractual Clauses for cross-border transfers.</p>
+                  </div>
+              </section>
+      
+              <section className="mb-12">
+                  <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">9. Changes</h2>
+                  <div className="text-text-secondary leading-relaxed space-y-4">
+      <p>We will notify you of material changes by email and by updating the Effective date above.</p>
+                  </div>
+              </section>
+      
+                  <div className="mt-16 p-6 rounded-2xl glass-card">
+                      <p className="text-text-secondary text-sm">Questions? Contact us at <a href="mailto:legal@integratewise.com" className="text-gold hover:text-gold-light">legal@integratewise.com</a></p>
+                  </div>
+              </div>
+          </section>
+      
+          &#123;/* Footer */&#125;
+    </>
   )
 }
