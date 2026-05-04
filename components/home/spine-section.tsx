@@ -1,4 +1,5 @@
 import { Database, ArrowRight, Layout } from "lucide-react"
+import { AppLogo, logoColors } from "@/components/icons/app-logos"
 
 const connectorLogos = [
   "Salesforce", "HubSpot", "Slack", "Jira", "Zendesk", "Intercom",
@@ -28,7 +29,7 @@ export function SpineSection() {
                   key={name}
                   className="glass-card px-4 py-2 rounded-lg text-sm text-text-secondary flex items-center gap-2"
                 >
-                  <div className="w-2 h-2 rounded-full bg-gold/50" />
+                  <AppLogo name={name} className="w-4 h-4" style={{ color: logoColors[name] }} />
                   {name}
                 </div>
               ))}

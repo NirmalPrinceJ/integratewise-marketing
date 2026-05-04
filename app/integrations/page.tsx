@@ -3,6 +3,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { useState } from "react"
+import { AppLogo, logoColors, AppLogoComponents } from "@/components/icons/app-logos"
 
 export default function IntegrationsPage() {
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -147,7 +148,11 @@ export default function IntegrationsPage() {
                   className="glass-card rounded-2xl p-6 hover:border-gold/30 transition-all group cursor-pointer"
                 >
                   <div className={`w-14 h-14 bg-${integration.color}-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-${integration.color}-500/20 transition-colors`}>
-                    <i className={`fa-solid ${integration.icon} text-${integration.color}-400 text-2xl`}></i>
+                    {AppLogoComponents[integration.name] ? (
+                      <AppLogo name={integration.name} className="w-7 h-7" style={{ color: logoColors[integration.name] }} />
+                    ) : (
+                      <i className={`fa-solid ${integration.icon} text-${integration.color}-400 text-2xl`}></i>
+                    )}
                   </div>
                   
                   <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-gold transition-colors">

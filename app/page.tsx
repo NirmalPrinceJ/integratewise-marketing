@@ -3,6 +3,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/home/hero-section"
+import { SlackLogo, SalesforceLogo, logoColors } from "@/components/icons/app-logos"
 
 export default function HomePage() {
   return (
@@ -20,7 +21,7 @@ export default function HomePage() {
                 <div className="absolute top-8 left-8 glass-card p-4 rounded-xl w-64 animate-pulse z-20" style={{animationDuration: '3s'}}>
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                    <span className="text-xs text-text-primary font-medium"><i className="fa-brands fa-slack mr-2"></i>Slack #urgent</span>
+                    <span className="text-xs text-text-primary font-medium flex items-center gap-2"><SlackLogo className="w-3 h-3" style={{ color: logoColors.Slack }} />Slack #urgent</span>
                   </div>
                   <div className="space-y-2">
                     <div className="h-2 bg-white/10 rounded w-full"></div>
@@ -43,7 +44,7 @@ export default function HomePage() {
                 <div className="absolute bottom-24 left-12 glass-card p-4 rounded-xl w-64 animate-pulse z-20" style={{animationDuration: '3.8s'}}>
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                    <span className="text-xs text-text-primary font-medium"><i className="fa-solid fa-database mr-2"></i>Salesforce</span>
+                    <span className="text-xs text-text-primary font-medium flex items-center gap-2"><SalesforceLogo className="w-3 h-3" style={{ color: logoColors.Salesforce }} />Salesforce</span>
                   </div>
                   <div className="grid grid-cols-2 gap-2 mb-2">
                     <div className="h-8 bg-white/5 rounded"></div>

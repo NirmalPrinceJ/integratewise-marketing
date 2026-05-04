@@ -3,6 +3,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Link from "next/link"
+import { AppLogo, logoColors } from "@/components/icons/app-logos"
 const pipelineStages = [
   "Ingest", "Parse", "Extract", "Normalize", "Deduplicate", "Link", "Score", "Write"
 ]
@@ -76,9 +77,9 @@ export default function PlatformPage() {
               
               <div className="flex items-center gap-6 text-sm text-text-dim">
                 <div className="flex -space-x-3">
-                  <div className="w-10 h-10 rounded-full bg-bg-elevated border-2 border-bg-main flex items-center justify-center"><i className="fa-brands fa-salesforce text-blue-400"></i></div>
-                  <div className="w-10 h-10 rounded-full bg-bg-elevated border-2 border-bg-main flex items-center justify-center"><i className="fa-brands fa-slack text-purple-400"></i></div>
-                  <div className="w-10 h-10 rounded-full bg-bg-elevated border-2 border-bg-main flex items-center justify-center"><i className="fa-solid fa-ticket text-green-400"></i></div>
+                  <div className="w-10 h-10 rounded-full bg-bg-elevated border-2 border-bg-main flex items-center justify-center"><AppLogo name="Salesforce" className="w-5 h-5" style={{ color: logoColors.Salesforce }} /></div>
+                  <div className="w-10 h-10 rounded-full bg-bg-elevated border-2 border-bg-main flex items-center justify-center"><AppLogo name="Slack" className="w-5 h-5" style={{ color: logoColors.Slack }} /></div>
+                  <div className="w-10 h-10 rounded-full bg-bg-elevated border-2 border-bg-main flex items-center justify-center"><AppLogo name="Zendesk" className="w-5 h-5" style={{ color: logoColors.Zendesk }} /></div>
                 </div>
                 <span>Ingests from 70+ trusted sources</span>
               </div>
@@ -288,7 +289,7 @@ export default function PlatformPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
               {connectors.map((connector) => (
                 <div key={connector} className="glass-card px-4 py-3 rounded-lg text-sm text-text-secondary flex items-center gap-2">
-                  <i className="fa-solid fa-circle text-gold/50 text-xs"></i>
+                  <AppLogo name={connector} className="w-4 h-4" style={{ color: logoColors[connector] || "#D4AF37" }} />
                   {connector}
                 </div>
               ))}
