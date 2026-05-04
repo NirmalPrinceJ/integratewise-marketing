@@ -1,13 +1,13 @@
 {
-  "apphosting": {
-    "backendId": "integratewise-marketing",
-    "rootDir": ".",
+  "hosting": {
+    "site": "marketing-site-fresh",
+    "public": "out",
     "ignore": [
-      "node_modules",
-      ".git",
-      "firebase-debug.log",
-      "firebase-debug.*.log",
-      "functions"
-    ]
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false
   }
 }
