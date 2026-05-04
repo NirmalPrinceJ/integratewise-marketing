@@ -12,6 +12,87 @@ export default function HomePage() {
         {/* Section 1: Hero with New Tagline */}
         <HeroSection />
 
+        {/* ── Nexify-style product preview card ───────────────────── */}
+        <section className="px-6 pb-24 relative">
+          <div className="max-w-5xl mx-auto">
+            <div className="relative glass-card rounded-2xl overflow-hidden border border-white/[0.08] shadow-[0_32px_80px_rgba(0,0,0,0.6)]">
+              {/* Top glow bar */}
+              <div className="absolute top-0 left-0 right-0 h-px glow-bar" />
+
+              {/* Floating badge — top right */}
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-2 bg-[#F0D8B5]/10 border border-[#F0D8B5]/20 rounded-full px-3 py-1.5 backdrop-blur-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F0D8B5] animate-pulse"></span>
+                <span className="text-[#F0D8B5] text-xs font-medium tracking-wide">TruthLayer Live</span>
+              </div>
+
+              {/* Window chrome */}
+              <div className="flex items-center gap-2 px-5 py-4 border-b border-white/[0.06] bg-[#0d0d0d]">
+                <div className="w-3 h-3 rounded-full bg-red-500/60"></div>
+                <div className="w-3 h-3 rounded-full bg-amber-400/60"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500/60"></div>
+                <span className="ml-3 text-xs text-[#5A5248] font-mono">integratewise / truth-layer / init.ts</span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-[380px]">
+                {/* Code panel */}
+                <div className="p-8 scan-line border-r border-white/[0.05] bg-[#080808]">
+                  <pre className="text-sm font-mono leading-7 text-[#8A8070] overflow-x-auto">
+                    <code>{`async function `}<span className="text-[#F0D8B5]">initializeTruthLayer</span>{` () {
+  const spine = new `}<span className="text-amber-300">AdaptiveSpine</span>{`({
+    tenantId: `}<span className="text-green-400">{`'ent_prod_992'`}</span>{`,
+    governance: `}<span className="text-blue-400">true</span>{`,
+    connectors: [`}<span className="text-green-400">{`'salesforce'`}</span>{`,
+                 `}<span className="text-green-400">{`'zendesk'`}</span>{`,
+                 `}<span className="text-green-400">{`'slack'`}</span>{`]
+  });
+
+  `}<span className="text-[#5A5248]">{`// Ingest & vectorize`}</span>{`
+  await spine.`}<span className="text-[#F0D8B5]">ingest</span>{`();
+
+  `}<span className="text-[#5A5248]">{`// Build semantic memory graph`}</span>{`
+  const memory = await spine.`}<span className="text-[#F0D8B5]">buildMemoryGraph</span>{`();
+  return memory;
+}`}</code>
+                  </pre>
+                </div>
+
+                {/* Status panel */}
+                <div className="p-8 bg-[#090909] flex flex-col justify-between">
+                  <div>
+                    <div className="text-xs text-[#5A5248] uppercase tracking-widest mb-4 font-medium">Live Ingestion Activity</div>
+                    <div className="space-y-3">
+                      {[
+                        { src: "Salesforce", count: "1,247 records", color: "text-blue-400" },
+                        { src: "Slack", count: "3,891 threads", color: "text-green-400" },
+                        { src: "Zendesk", count: "412 tickets", color: "text-orange-400" },
+                      ].map((item) => (
+                        <div key={item.src} className="flex items-center justify-between py-2 border-b border-white/[0.04]">
+                          <span className={`text-sm font-medium ${item.color}`}>{item.src}</span>
+                          <span className="text-xs text-[#5A5248]">{item.count} synced</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-8">
+                    <div className="text-xs text-[#5A5248] uppercase tracking-widest mb-3 font-medium">TruthLayer Policy</div>
+                    <div className="bg-[#0d0d0d] border border-white/[0.06] rounded-lg p-4 font-mono text-xs text-[#8A8070] leading-6">
+                      <span className="text-[#F0D8B5]">RBAC</span>: strict;&nbsp;
+                      <span className="text-[#F0D8B5]">Encryption</span>: AES-256;<br />
+                      <span className="text-[#F0D8B5]">AuditLog</span>: enabled;&nbsp;
+                      <span className="text-[#F0D8B5]">HumanApproval</span>: required;
+                    </div>
+                    <div className="mt-3 flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                      <span className="text-xs text-green-400">All systems operational</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Section 2: Fragmentation Visual */}
         <section id="fragmentation-visual" className="py-24 px-6 bg-bg-secondary/50">
           <div className="max-w-7xl mx-auto">
