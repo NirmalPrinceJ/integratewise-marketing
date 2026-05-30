@@ -165,32 +165,6 @@
       setTimeout(setupBookingButtons, 2000);
       setTimeout(setupBookingButtons, 3000);
       
-      // ============================================
-      // Inject Business Address into Footer
-      // ============================================
-      function injectAddress() {
-        const footer = document.querySelector('footer');
-        if (footer && !footer.querySelector('.iw-address')) {
-          const addressDiv = document.createElement('div');
-          addressDiv.className = 'iw-address';
-          addressDiv.style.cssText = 'margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; opacity: 0.6; text-align: center;';
-          addressDiv.innerHTML = 'IntegrateWise &middot; ACJ-1743, 235, 13th Cross Road, Hoysala Nagar, Indira Nagar II Stage, Bangalore, India - 560038 &middot; <a href="mailto:connect@integratewise.ai" style="color: inherit;">connect@integratewise.ai</a>';
-          footer.appendChild(addressDiv);
-        }
-      }
-      
-      const addressObserver = new MutationObserver(() => {
-        injectAddress();
-      });
-      
-      addressObserver.observe(document.body, {
-        childList: true,
-        subtree: true
-      });
-      
-      document.addEventListener('DOMContentLoaded', injectAddress);
-      setTimeout(injectAddress, 1000);
-      setTimeout(injectAddress, 2000);
     </script>
   </body>
 </html>
