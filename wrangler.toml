@@ -1,0 +1,5 @@
+name = "integratewise-landing"
+compatibility_date = "2024-01-01"
+
+[vars]
+WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY"
