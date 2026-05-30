@@ -282,11 +282,19 @@
         // Find hero headline or first major heading
         const heroHeadline = document.querySelector('.hero-headline, [class*="hero-headline"]');
         if (heroHeadline && !document.querySelector('.iw-tagline')) {
+          // Buyer-anchored kicker line
+          const kicker = document.createElement('p');
+          kicker.className = 'iw-kicker';
+          kicker.style.cssText = 'font-family: "Instrument Sans", sans-serif; font-size: 1rem; color: rgba(255,255,255,0.7); margin-top: 12px; font-weight: 500;';
+          kicker.textContent = 'The B2B integration layer for customer-facing operations teams.';
+          heroHeadline.parentElement.insertBefore(kicker, heroHeadline.nextSibling);
+          
+          // Tagline
           const tagline = document.createElement('p');
           tagline.className = 'iw-tagline';
-          tagline.style.cssText = 'font-family: "IBM Plex Mono", monospace; font-size: 0.875rem; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; margin-top: 16px; text-transform: uppercase;';
+          tagline.style.cssText = 'font-family: "IBM Plex Mono", monospace; font-size: 0.875rem; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; margin-top: 8px; text-transform: uppercase;';
           tagline.textContent = 'Normalize Once · Render Anywhere';
-          heroHeadline.parentElement.insertBefore(tagline, heroHeadline.nextSibling);
+          heroHeadline.parentElement.insertBefore(tagline, kicker.nextSibling);
         }
         
         // Also add to architecture section if exists
