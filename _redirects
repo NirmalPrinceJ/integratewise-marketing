@@ -1,0 +1,3 @@
+# Cloudflare Pages SPA fallback
+# All routes serve index.html, React handles client-side routing
+/* /index.html 200

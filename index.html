@@ -12,6 +12,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
     
+    <!-- Canonical -->
+    <link rel="canonical" href="https://integratewise.ai" />
+    
     <!-- Open Graph -->
     <meta property="og:title" content="IntegrateWise — One Connected, Spine-Powered Workspace" />
     <meta property="og:description" content="One connected, Spine-powered workspace for humans and their Digital Twin — where shared memory creates context, humans stay in control, and continuity connects every tool and operation." />
@@ -25,16 +28,244 @@
     <meta name="twitter:description" content="One connected, Spine-powered workspace for humans and their Digital Twin." />
     <meta name="twitter:image" content="https://integratewise.ai/images/hero-panorama.jpg" />
     
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "IntegrateWise",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://integratewise.ai",
+      "description": "One connected, Spine-powered workspace for humans and their Digital Twin — where shared memory creates context, humans stay in control, and continuity connects every tool and operation.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free trial available"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "IntegrateWise",
+        "url": "https://integratewise.ai"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "IntegrateWise",
+      "url": "https://integratewise.ai",
+      "logo": "https://integratewise.ai/images/logo-light.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "connect@integratewise.ai",
+        "contactType": "customer service"
+      },
+      "sameAs": []
+    }
+    </script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script type="module" crossorigin src="./assets/index-BFrLFgD8.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-CaOmjmD8.css">
+    
+    <style>
+      /* Wave Section Dividers */
+      .iw-wave-divider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+      }
+      
+      .iw-wave-divider svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 60px;
+      }
+      
+      .iw-wave-divider-dark {
+        background-color: #0C0C0C;
+      }
+      
+      .iw-wave-divider-light {
+        background-color: #F4F0E8;
+      }
+      
+      /* Hero wave bottom */
+      .hero-wave-bottom {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        z-index: 10;
+      }
+      
+      .hero-wave-bottom svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 80px;
+      }
+      
+      @media (min-width: 768px) {
+        .hero-wave-bottom svg {
+          height: 120px;
+        }
+      }
+      
+      /* Animated wave */
+      @keyframes wave-float {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(-25px); }
+      }
+      
+      .iw-wave-animated path {
+        animation: wave-float 6s ease-in-out infinite;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     
     <script>
+      // ============================================
+      // Wave Pattern Injection
+      // Adds wave dividers between sections
+      // ============================================
+      function injectWaveDividers() {
+        // Wave SVG template
+        const waveSVG = (fillColor, bgColor) => `
+          <div class="iw-wave-divider" style="background-color: ${bgColor};">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="fill: ${fillColor};">
+              <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
+              <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"></path>
+              <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+            </svg>
+          </div>
+        `;
+        
+        // Hero sections - add wave at bottom
+        const heroSections = document.querySelectorAll('[class*="hero"], [class*="Hero"]');
+        heroSections.forEach(hero => {
+          if (!hero.querySelector('.hero-wave-bottom') && hero.parentElement) {
+            const computedStyle = window.getComputedStyle(hero);
+            const bgColor = computedStyle.backgroundColor;
+            
+            // Only add if hero has dark background
+            if (bgColor && bgColor !== 'rgba(0, 0, 0, 0)' && bgColor !== 'transparent') {
+              const waveDiv = document.createElement('div');
+              waveDiv.className = 'hero-wave-bottom';
+              waveDiv.innerHTML = `
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="fill: #F4F0E8;">
+                  <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
+                  <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"></path>
+                  <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+                </svg>
+              `;
+              
+              // Only add if hero has position relative/absolute
+              if (computedStyle.position === 'relative' || computedStyle.position === 'absolute') {
+                hero.appendChild(waveDiv);
+              }
+            }
+          }
+        });
+        
+        // Add waves between sections with different backgrounds
+        const sections = document.querySelectorAll('section, [class*="section"]');
+        for (let i = 0; i < sections.length - 1; i++) {
+          const current = sections[i];
+          const next = sections[i + 1];
+          
+          if (!current || !next) continue;
+          
+          const currentStyle = window.getComputedStyle(current);
+          const nextStyle = window.getComputedStyle(next);
+          
+          const currentBg = currentStyle.backgroundColor;
+          const nextBg = nextStyle.backgroundColor;
+          
+          // If backgrounds differ and no wave already exists
+          if (currentBg !== nextBg && !current.querySelector('.iw-wave-divider')) {
+            const isDark = isDarkColor(currentBg);
+            const waveDiv = document.createElement('div');
+            waveDiv.innerHTML = waveSVG(
+              isDark ? '#F4F0E8' : '#0C0C0C',
+              isDark ? '#0C0C0C' : '#F4F0E8'
+            );
+            current.appendChild(waveDiv);
+          }
+        }
+      }
+      
+      function isDarkColor(color) {
+        if (!color || color === 'transparent' || color === 'rgba(0, 0, 0, 0)') return false;
+        const rgb = color.match(/\d+/g);
+        if (!rgb || rgb.length < 3) return false;
+        const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+        return brightness < 128;
+      }
+      
+      // Run wave injection
+      const waveObserver = new MutationObserver(() => {
+        setTimeout(injectWaveDividers, 500);
+      });
+      waveObserver.observe(document.body, { childList: true, subtree: true });
+      document.addEventListener('DOMContentLoaded', () => setTimeout(injectWaveDividers, 1000));
+      setTimeout(injectWaveDividers, 2000);
+      
+      // ============================================
+      // SEO: Hash-to-Path Bridge
+      // Converts hash routes to real URLs for SEO
+      // ============================================
+      (function() {
+        // If user lands on a hash route, convert to real path
+        if (window.location.hash && window.location.hash.startsWith('#/')) {
+          const path = window.location.hash.slice(1); // Remove #
+          window.history.replaceState(null, '', path);
+        }
+        
+        // Update canonical tag dynamically based on current path
+        function updateCanonical() {
+          const path = window.location.pathname;
+          const canonical = document.querySelector('link[rel="canonical"]');
+          if (canonical) {
+            canonical.href = 'https://integratewise.ai' + path;
+          }
+          
+          // Update og:url too
+          const ogUrl = document.querySelector('meta[property="og:url"]');
+          if (ogUrl) {
+            ogUrl.content = 'https://integratewise.ai' + path;
+          }
+        }
+        
+        // Listen for route changes (React Router)
+        const originalPushState = history.pushState;
+        history.pushState = function() {
+          originalPushState.apply(this, arguments);
+          updateCanonical();
+        };
+        
+        const originalReplaceState = history.replaceState;
+        history.replaceState = function() {
+          originalReplaceState.apply(this, arguments);
+          updateCanonical();
+        };
+        
+        window.addEventListener('popstate', updateCanonical);
+        updateCanonical();
+      })();
+      
       // ============================================
       // Content Fixes: "truth" → "context" / "hidden contexts"
       // ============================================
