@@ -133,10 +133,14 @@
     <div style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);">
       <h2>B2B Integration Platform for CRM, Support & Billing</h2>
       <p>IntegrateWise is a B2B integration platform that unifies your CRM, support, billing, and AI agents into one governed workspace. Eliminate data silos, automate customer success workflows, and orchestrate AI agents with full context — no migration needed.</p>
+      <h2>Normalize Once, Render Anywhere</h2>
+      <p>Data flows once through the Spine — normalize, contextualize, govern. Then render anywhere: Workbench, Twin, Governance, Memory. One canonical source across every tool, every team, every AI agent. No redundant syncs, no conflicting versions, no context loss.</p>
       <h2>RevOps Automation & Workflow Orchestration</h2>
       <p>Connect Salesforce, HubSpot, Zendesk, Stripe, and 200+ tools. Automate RevOps workflows, unify customer data across systems, and give your AI agents shared memory for contextual decision-making. MuleSoft alternative for modern B2B teams.</p>
       <h2>Human-in-the-Loop AI with Persistent Context</h2>
       <p>AI that proposes, never executes blindly. Every action carries evidence, confidence scores, and a full audit trail. Humans stay in control while AI handles proactive monitoring, continuous context across sessions, and operational continuity across tools and teams.</p>
+      <h2>No Lock-In Integration — Your Data, Your Tools</h2>
+      <p>Zero vendor lock-in. Your systems of record stay exactly where they are. IntegrateWise sits in the middle as a coordination layer — not a replacement. Export everything at any time. Switch tools without losing context, memory, or operational history.</p>
     </div>
     
     <script>
@@ -225,6 +229,84 @@
       waveObserver.observe(document.body, { childList: true, subtree: true });
       document.addEventListener('DOMContentLoaded', () => setTimeout(injectWaveDividers, 1000));
       setTimeout(injectWaveDividers, 2000);
+      
+      // ============================================
+      // No Lock-In Badge Injection
+      // Adds trust signals to key sections
+      // ============================================
+      function injectNoLockInBadges() {
+        // Find sections that talk about integrations or tools
+        const sections = document.querySelectorAll('section, [class*="section"], div[class*="feature"], div[class*="pillar"]');
+        
+        sections.forEach(section => {
+          const text = section.textContent || '';
+          const hasIntegrationContent = text.includes('connect') || text.includes('integrate') || text.includes('tools') || text.includes('CRM') || text.includes('Salesforce');
+          
+          if (hasIntegrationContent && !section.querySelector('.iw-no-lockin-badge')) {
+            // Check if section has a suitable container
+            const containers = section.querySelectorAll('div, p, li');
+            for (const container of containers) {
+              const containerText = container.textContent || '';
+              if ((containerText.includes('Your data') || containerText.includes('your tools') || containerText.includes('systems of record')) && containerText.length < 200) {
+                const badge = document.createElement('span');
+                badge.className = 'iw-no-lockin-badge';
+                badge.style.cssText = 'display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; background: rgba(61,122,80,0.1); color: #3d7a50; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; margin-left: 8px; white-space: nowrap;';
+                badge.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Zero Lock-In';
+                container.appendChild(badge);
+                break;
+              }
+            }
+          }
+        });
+        
+        // Add to hero section if exists
+        const heroSub = document.querySelector('.hero-sub, [class*="hero-sub"]');
+        if (heroSub && !heroSub.querySelector('.iw-no-lockin-badge')) {
+          const badge = document.createElement('span');
+          badge.className = 'iw-no-lockin-badge';
+          badge.style.cssText = 'display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; background: rgba(61,122,80,0.15); color: #3d7a50; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; margin-top: 12px;';
+          badge.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No Lock-In — Your Data, Your Tools';
+          heroSub.parentElement.appendChild(badge);
+        }
+      }
+      
+      const lockInObserver = new MutationObserver(() => setTimeout(injectNoLockInBadges, 800));
+      lockInObserver.observe(document.body, { childList: true, subtree: true });
+      document.addEventListener('DOMContentLoaded', () => setTimeout(injectNoLockInBadges, 1500));
+      setTimeout(injectNoLockInBadges, 2500);
+      
+      // ============================================
+      // Tagline Injection: "Normalize Once, Render Anywhere"
+      // ============================================
+      function injectTagline() {
+        // Find hero headline or first major heading
+        const heroHeadline = document.querySelector('.hero-headline, [class*="hero-headline"]');
+        if (heroHeadline && !document.querySelector('.iw-tagline')) {
+          const tagline = document.createElement('p');
+          tagline.className = 'iw-tagline';
+          tagline.style.cssText = 'font-family: "IBM Plex Mono", monospace; font-size: 0.875rem; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; margin-top: 16px; text-transform: uppercase;';
+          tagline.textContent = 'Normalize Once · Render Anywhere';
+          heroHeadline.parentElement.insertBefore(tagline, heroHeadline.nextSibling);
+        }
+        
+        // Also add to architecture section if exists
+        const archSections = document.querySelectorAll('[class*="arch-"]');
+        archSections.forEach(section => {
+          if (!section.querySelector('.iw-tagline') && section.textContent.includes('Spine')) {
+            const tagline = document.createElement('p');
+            tagline.className = 'iw-tagline';
+            tagline.style.cssText = 'font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; color: #3d7a50; letter-spacing: 0.05em; margin-top: 8px; text-transform: uppercase;';
+            tagline.textContent = 'Normalize Once · Render Anywhere';
+            const heading = section.querySelector('h2, h3');
+            if (heading) heading.parentElement.insertBefore(tagline, heading.nextSibling);
+          }
+        });
+      }
+      
+      const taglineObserver = new MutationObserver(() => setTimeout(injectTagline, 1200));
+      taglineObserver.observe(document.body, { childList: true, subtree: true });
+      document.addEventListener('DOMContentLoaded', () => setTimeout(injectTagline, 1800));
+      setTimeout(injectTagline, 2500);
       
       // ============================================
       // SEO: Hash-to-Path Bridge
