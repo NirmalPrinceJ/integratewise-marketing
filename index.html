@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IntegrateWise — One Connected, Spine-Powered Workspace</title>
+    <meta name="description" content="One connected, Spine-powered workspace for humans and their Digital Twin — where shared memory creates context, humans stay in control, and continuity connects every tool and operation." />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="IntegrateWise — One Connected, Spine-Powered Workspace" />
+    <meta property="og:description" content="One connected, Spine-powered workspace for humans and their Digital Twin — where shared memory creates context, humans stay in control, and continuity connects every tool and operation." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://integratewise.ai" />
+    <meta property="og:image" content="https://integratewise.ai/images/hero-panorama.jpg" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="IntegrateWise — One Connected, Spine-Powered Workspace" />
+    <meta name="twitter:description" content="One connected, Spine-powered workspace for humans and their Digital Twin." />
+    <meta name="twitter:image" content="https://integratewise.ai/images/hero-panorama.jpg" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="./assets/index-BFrLFgD8.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CaOmjmD8.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <script>
+      // ============================================
+      // Content Fixes: "truth" → "context" / "hidden contexts"
+      // ============================================
+      const TRUTH_REPLACEMENTS = [
+        // Exact phrase replacements (order matters - longer phrases first)
+        ['CANONICAL SOURCE OF TRUTH', 'CANONICAL SOURCE OF CONTEXT'],
+        ['Canonical Source of Truth', 'Canonical Source of Context'],
+        ['canonical source of truth', 'canonical source of context'],
+        ['Single Source of Truth', 'Single Source of Context'],
+        ['Single source of Truth', 'Single source of Context'],
+        ['single source of truth', 'single source of context'],
+        ['FOUR SURFACES. ONE TRUTH.', 'FOUR SURFACES. ONE CONTEXT.'],
+        ['YOUR TRUTH IS SCATTERED', 'YOUR CONTEXT IS SCATTERED'],
+        ['shared operational truth', 'shared operational context'],
+        ['operational truth', 'operational context'],
+        ['canonical truth', 'canonical context'],
+        ['Canonical Truth', 'Canonical Context'],
+        ['Canonical truth', 'Canonical context'],
+        ['persistent truth', 'persistent context'],
+        ['unified truth', 'unified context'],
+        ['Unified Truth', 'Unified Context'],
+        ['one truth', 'one context'],
+        ['One Truth', 'One Context'],
+        ['Revealed the Truth', 'Unveiled Hidden Contexts'],
+        ['not guesswork', 'not guesswork'],  // keep as-is
+        ['No single source of truth', 'No unified context'],
+        ['source of truth', 'source of context'],
+        ['Source of Truth', 'Source of Context'],
+        ['truth, not another', 'context, not another'],
+        ['live projection of truth', 'live projection of context'],
+        ['Live projection of truth', 'Live projection of context'],
+        ['Live Projection of Truth', 'Live Projection of Context'],
+        ['EVERY PILLAR RESTS ON CANONICAL TRUTH', 'EVERY PILLAR RESTS ON CANONICAL CONTEXT'],
+      ];
+      
+      function replaceTruthWithContext(root) {
+        const walker = document.createTreeWalker(
+          root,
+          NodeFilter.SHOW_TEXT,
+          null,
+          false
+        );
+        
+        const textNodes = [];
+        let node;
+        while (node = walker.nextNode()) {
+          textNodes.push(node);
+        }
+        
+        textNodes.forEach(textNode => {
+          let text = textNode.textContent;
+          let modified = false;
+          
+          TRUTH_REPLACEMENTS.forEach(([from, to]) => {
+            if (text.includes(from) && from !== to) {
+              text = text.split(from).join(to);
+              modified = true;
+            }
+          });
+          
+          // Generic catch-all for remaining "truth" → "context"
+          // But preserve "truth" in code/technical contexts
+          if (text.match(/\btruth\b/i) && !text.includes('isTruth') && !text.includes('_truth')) {
+            text = text.replace(/\bTruth\b/g, 'Context');
+            text = text.replace(/\btruth\b/g, 'context');
+            modified = true;
+          }
+          
+          if (modified) {
+            textNode.textContent = text;
+          }
+        });
+      }
+      
+      // Run replacements after React renders
+      const contentObserver = new MutationObserver(() => {
+        replaceTruthWithContext(document.body);
+      });
+      
+      contentObserver.observe(document.body, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+      
+      // Initial pass
+      document.addEventListener('DOMContentLoaded', () => {
+        replaceTruthWithContext(document.body);
+      });
+      
+      // Delayed passes for dynamic content
+      setTimeout(() => replaceTruthWithContext(document.body), 500);
+      setTimeout(() => replaceTruthWithContext(document.body), 1500);
+      setTimeout(() => replaceTruthWithContext(document.body), 3000);
+      
+      // ============================================
+      // Google Calendar Appointments Integration
+      // ============================================
+      const GOOGLE_CALENDAR_APPOINTMENTS_URL = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2tjfK8VmjVVGFNjH8kJGCT9bJq6S5P8MvJQ9KQ9KQ9KQ9KQ9KQ9KQ9KQ9KQ9KQ';
+      
+      function setupBookingButtons() {
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+          if (button.textContent.includes('Book Demo') || button.textContent.includes('Book a Demo')) {
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
+            
+            newButton.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.open(GOOGLE_CALENDAR_APPOINTMENTS_URL, '_blank');
+            });
+          }
+        });
+      }
+      
+      const bookingObserver = new MutationObserver(() => {
+        setupBookingButtons();
+      });
+      
+      bookingObserver.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+      
+      document.addEventListener('DOMContentLoaded', setupBookingButtons);
+      setTimeout(setupBookingButtons, 1000);
+      setTimeout(setupBookingButtons, 2000);
+      setTimeout(setupBookingButtons, 3000);
+      
+      // ============================================
+      // Inject Business Address into Footer
+      // ============================================
+      function injectAddress() {
+        const footer = document.querySelector('footer');
+        if (footer && !footer.querySelector('.iw-address')) {
+          const addressDiv = document.createElement('div');
+          addressDiv.className = 'iw-address';
+          addressDiv.style.cssText = 'margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; opacity: 0.6; text-align: center;';
+          addressDiv.innerHTML = 'IntegrateWise LLP &middot; Singapore';
+          footer.appendChild(addressDiv);
+        }
+      }
+      
+      const addressObserver = new MutationObserver(() => {
+        injectAddress();
+      });
+      
+      addressObserver.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+      
+      document.addEventListener('DOMContentLoaded', injectAddress);
+      setTimeout(injectAddress, 1000);
+      setTimeout(injectAddress, 2000);
+    </script>
+  </body>
+</html>
