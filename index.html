@@ -38,6 +38,23 @@
       // ============================================
       // Content Fixes: "truth" → "context" / "hidden contexts"
       // ============================================
+      // Fix email domain: .com → .ai
+      function fixEmailDomain() {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+        let node;
+        while (node = walker.nextNode()) {
+          if (node.textContent.includes('integratewise.com')) {
+            node.textContent = node.textContent.replace(/integratewise\.com/g, 'integratewise.ai');
+          }
+        }
+      }
+      
+      const emailObserver = new MutationObserver(() => fixEmailDomain());
+      emailObserver.observe(document.body, { childList: true, subtree: true, characterData: true });
+      document.addEventListener('DOMContentLoaded', fixEmailDomain);
+      setTimeout(fixEmailDomain, 500);
+      setTimeout(fixEmailDomain, 1500);
+      
       const TRUTH_REPLACEMENTS = [
         // Exact phrase replacements (order matters - longer phrases first)
         ['CANONICAL SOURCE OF TRUTH', 'CANONICAL SOURCE OF CONTEXT'],
