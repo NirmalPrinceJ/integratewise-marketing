@@ -68,47 +68,38 @@
     <link rel="stylesheet" crossorigin href="./assets/index-CaOmjmD8.css">
     
     <style>
-      /* Subtle diagonal cut on hero — architectural, not template */
-      [class*="hero"]:not(nav):not(header) {
-        clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
-        padding-bottom: 0 !important;
-        padding-top: 2rem !important;
+      /* AGGRESSIVE: Remove ALL blank space in hero */
+      section[class*="hero"],
+      div[class*="hero"] {
         min-height: auto !important;
-      }
-      
-      @media (min-width: 768px) {
-        [class*="hero"]:not(nav):not(header) {
-          padding-bottom: 0 !important;
-          padding-top: 3rem !important;
-        }
-      }
-      
-      /* Hero section layout - tightly align content */
-      [class*="hero"] {
+        height: auto !important;
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+        margin-bottom: 0 !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        min-height: auto !important;
-        gap: 0 !important;
       }
       
-      /* Hero text content - no extra margins */
-      [class*="hero"] h1,
-      [class*="hero"] h2,
-      [class*="hero"] p,
-      [class*="hero"] [class*="headline"],
-      [class*="hero"] [class*="sub"] {
+      /* Force all hero children to have no margins */
+      section[class*="hero"] > *,
+      div[class*="hero"] > * {
         margin-top: 0 !important;
-        margin-bottom: 0.5rem !important;
-        line-height: 1.2 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
       }
       
-      /* Hero buttons/pills - tight spacing */
-      [class*="hero"] [class*="buttons"],
-      [class*="hero"] [class*="pills"] {
-        margin-top: 1rem !important;
-        margin-bottom: 0 !important;
-        gap: 0.5rem !important;
+      /* Hero headings and text - tight spacing */
+      section[class*="hero"] h1,
+      section[class*="hero"] h2,
+      section[class*="hero"] p,
+      div[class*="hero"] h1,
+      div[class*="hero"] h2,
+      div[class*="hero"] p {
+        margin-top: 0 !important;
+        margin-bottom: 0.25rem !important;
+        line-height: 1.2 !important;
       }
       
       /* Remove blank spaces around images */
@@ -137,6 +128,11 @@
         overflow: hidden;
         line-height: 0;
       }
+      
+      /* Fix any section with excessive padding */
+      section {
+        min-height: auto !important;
+      }
     </style>
   </head>
   <body>
@@ -163,87 +159,76 @@
     </script>
     
     <script>
-      // Fix blank spaces and image alignment after React renders
-      function fixLayout() {
-        // Find the hero section specifically
+      // AGGRESSIVE: Fix hero layout and remove ALL blank spaces
+      function fixHeroLayout() {
+        // Find hero by looking for the specific text
         const allElements = document.querySelectorAll('*');
         let heroSection = null;
         
-        allElements.forEach(el => {
+        for (const el of allElements) {
           const text = el.textContent || '';
-          if ((text.includes('ONE CONNECTED') || text.includes('SPINE-POWERED')) && el.tagName !== 'BODY') {
+          if (text.includes('ONE CONNECTED') && text.includes('SPINE-POWERED') && el.tagName !== 'BODY') {
             let current = el;
-            while (current && current.tagName !== 'BODY' && current.tagName !== 'SECTION') {
+            while (current && current.tagName !== 'BODY') {
+              if (current.tagName === 'SECTION') {
+                heroSection = current;
+                break;
+              }
               current = current.parentElement;
             }
-            if (current && current.tagName === 'SECTION') {
-              heroSection = current;
-            }
+            if (heroSection) break;
           }
-        });
-        
-        // Fix hero section layout
-        if (heroSection) {
-          heroSection.style.paddingTop = '2rem';
-          heroSection.style.paddingBottom = '2rem';
-          heroSection.style.minHeight = 'auto';
-          heroSection.style.display = 'flex';
-          heroSection.style.alignItems = 'center';
-          heroSection.style.justifyContent = 'center';
-          
-          // Find all direct children and tighten them
-          Array.from(heroSection.children).forEach(child => {
-            child.style.marginTop = '0';
-            child.style.marginBottom = '0';
-            
-            // If this is a flex container, ensure items are centered
-            const childStyle = window.getComputedStyle(child);
-            if (childStyle.display === 'flex' || childStyle.display === 'grid') {
-              child.style.alignItems = 'center';
-              child.style.gap = '1rem';
-            }
-          });
-          
-          // Find text elements and remove extra margins
-          heroSection.querySelectorAll('h1, h2, h3, p').forEach(el => {
-            el.style.marginTop = '0';
-            el.style.marginBottom = '0.5rem';
-          });
         }
         
-        // Fix all sections - remove excessive padding
-        document.querySelectorAll('section').forEach(el => {
-          const style = window.getComputedStyle(el);
-          const paddingBottom = parseInt(style.paddingBottom);
-          const paddingTop = parseInt(style.paddingTop);
-          
-          if (paddingBottom > 60) {
-            el.style.paddingBottom = '2rem';
-          }
-          if (paddingTop > 60) {
-            el.style.paddingTop = '2rem';
-          }
-          
-          const minHeight = style.minHeight;
-          if (minHeight && minHeight !== '0px' && parseInt(minHeight) > 500) {
-            el.style.minHeight = 'auto';
-          }
-        });
+        if (!heroSection) return;
         
-        // Fix all images
-        document.querySelectorAll('img').forEach(img => {
-          img.style.display = 'block';
-          img.style.margin = '0';
-          img.style.padding = '0';
-          img.style.maxWidth = '100%';
+        // Reset hero section completely
+        heroSection.style.cssText = '';
+        heroSection.style.minHeight = 'auto';
+        heroSection.style.height = 'auto';
+        heroSection.style.paddingTop = '2rem';
+        heroSection.style.paddingBottom = '2rem';
+        heroSection.style.marginBottom = '0';
+        heroSection.style.display = 'flex';
+        heroSection.style.alignItems = 'center';
+        heroSection.style.justifyContent = 'center';
+        
+        // Fix all children
+        const fixElement = (el) => {
+          el.style.marginTop = '0';
+          el.style.marginBottom = '0';
+          el.style.paddingTop = '0';
+          el.style.paddingBottom = '0';
+          
+          Array.from(el.children).forEach(child => {
+            child.style.marginTop = '0';
+            child.style.marginBottom = '0';
+            child.style.paddingTop = '0';
+            child.style.paddingBottom = '0';
+            
+            if (child.children.length > 0) {
+              fixElement(child);
+            }
+          });
+        };
+        
+        fixElement(heroSection);
+        
+        // Fix headings specifically
+        heroSection.querySelectorAll('h1, h2, h3, p').forEach(el => {
+          el.style.marginTop = '0';
+          el.style.marginBottom = '0.25rem';
+          el.style.lineHeight = '1.2';
         });
       }
       
-      // Run after React renders
+      // Run multiple times to catch React renders
       document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(fixLayout, 500);
-        setTimeout(fixLayout, 1500);
-        setTimeout(fixLayout, 3000);
+        fixHeroLayout();
+        setTimeout(fixHeroLayout, 100);
+        setTimeout(fixHeroLayout, 500);
+        setTimeout(fixHeroLayout, 1000);
+        setTimeout(fixHeroLayout, 2000);
       });
     </script>
   </body>
