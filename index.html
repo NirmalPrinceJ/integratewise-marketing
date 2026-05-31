@@ -145,5 +145,87 @@
       setTimeout(setupBooking, 1000);
       setTimeout(setupBooking, 2000);
     </script>
+    
+    <script>
+      // Fix blank spaces and image alignment after React renders
+      function fixLayout() {
+        // Fix hero section - remove extra padding and minimize height
+        document.querySelectorAll('section, div').forEach(el => {
+          const style = window.getComputedStyle(el);
+          const paddingBottom = parseInt(style.paddingBottom);
+          const paddingTop = parseInt(style.paddingTop);
+          
+          // If element has excessive padding, reduce it
+          if (paddingBottom > 60) {
+            el.style.paddingBottom = '2rem';
+          }
+          if (paddingTop > 60) {
+            el.style.paddingTop = '2rem';
+          }
+          
+          // Remove min-height that's causing blank space
+          const minHeight = style.minHeight;
+          if (minHeight && minHeight !== '0px' && parseInt(minHeight) > 500) {
+            el.style.minHeight = 'auto';
+          }
+        });
+        
+        // Fix all images - remove gaps and ensure proper sizing
+        document.querySelectorAll('img').forEach(img => {
+          img.style.display = 'block';
+          img.style.margin = '0';
+          img.style.padding = '0';
+          img.style.maxWidth = '100%';
+          
+          // If image is in a container, ensure container has no extra space
+          const parent = img.parentElement;
+          if (parent) {
+            parent.style.lineHeight = '0';
+            parent.style.fontSize = '0';
+            
+            // Remove any margin/padding from parent
+            const parentStyle = window.getComputedStyle(parent);
+            if (parseInt(parentStyle.marginBottom) > 0) {
+              parent.style.marginBottom = '0';
+            }
+          }
+        });
+        
+        // Find the hero section specifically and fix its layout
+        const allElements = document.querySelectorAll('*');
+        allElements.forEach(el => {
+          const text = el.textContent || '';
+          // Look for hero section by checking for hero text
+          if ((text.includes('ONE CONNECTED') || text.includes('SPINE-POWERED')) && el.tagName !== 'BODY') {
+            let current = el;
+            // Traverse up to find the section/container
+            while (current && current.tagName !== 'BODY' && current.tagName !== 'SECTION') {
+              current = current.parentElement;
+            }
+            if (current && current.tagName === 'SECTION') {
+              current.style.paddingTop = '3rem';
+              current.style.paddingBottom = '3rem';
+              current.style.minHeight = 'auto';
+            }
+          }
+        });
+      }
+      
+      // Run after React renders
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(fixLayout, 500);
+        setTimeout(fixLayout, 1500);
+        setTimeout(fixLayout, 3000);
+      });
+      
+      // Also run when DOM changes (React rendering)
+      const layoutObserver = new MutationObserver((mutations) => {
+        fixLayout();
+      });
+      
+      setTimeout(() => {
+        layoutObserver.observe(document.body, { childList: true, subtree: true });
+      }, 1000);
+    </script>
   </body>
 </html>
