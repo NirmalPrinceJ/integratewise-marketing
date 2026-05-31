@@ -71,13 +71,55 @@
       /* Subtle diagonal cut on hero — architectural, not template */
       [class*="hero"]:not(nav):not(header) {
         clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
-        padding-bottom: 8rem;
+        padding-bottom: 2rem;
       }
       
       @media (min-width: 768px) {
         [class*="hero"]:not(nav):not(header) {
-          padding-bottom: 10rem;
+          padding-bottom: 3rem;
         }
+      }
+      
+      /* Remove blank spaces around images */
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* Ensure images fill containers without gaps */
+      .surface-grid img,
+      [class*="showcase"] img,
+      [class*="grid"] img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      
+      /* Tighten image containers */
+      [class*="showcase"],
+      .surface-grid > div,
+      [class*="card"] {
+        overflow: hidden;
+        line-height: 0;
+      }
+      
+      /* Hero section layout - align content properly */
+      [class*="hero"] {
+        display: flex;
+        align-items: center;
+        min-height: auto;
+      }
+      
+      /* Remove extra margins from headings in hero */
+      [class*="hero"] h1,
+      [class*="hero"] h2,
+      [class*="hero"] p {
+        margin-top: 0;
+        margin-bottom: 1rem;
       }
     </style>
   </head>
