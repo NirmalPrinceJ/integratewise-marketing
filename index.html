@@ -3,233 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IntegrateWise — One Connected, Spine-Powered Workspace</title>
-    <meta name="description" content="IntegrateWise is a B2B integration platform that unifies your CRM, support, billing, and AI agents into one governed workspace. No migration, no context loss — just connected operations." />
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
-    
-    <!-- Canonical -->
-    <link rel="canonical" href="https://integratewise.ai" />
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="IntegrateWise — One Connected, Spine-Powered Workspace" />
-    <meta property="og:description" content="IntegrateWise is a B2B integration platform that unifies your CRM, support, billing, and AI agents into one governed workspace. No migration, no context loss — just connected operations." />
+
+    <!-- Primary Meta Tags -->
+    <title>IntegrateWise — B2B Integration & Workflow Automation Platform</title>
+    <meta name="description" content="IntegrateWise connects your CRM, support desk, billing, and AI agents into one unified workspace. Stop switching between tools. Start working from one connected surface." />
+    <meta name="keywords" content="b2b integration, workflow automation, CRM integration, AI agents, data integration, business operations, digital twin, spine architecture" />
+    <link rel="canonical" href="https://integratewise.ai/" />
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://integratewise.ai" />
-    <meta property="og:image" content="https://integratewise.ai/images/hero-panorama.jpg" />
-    
+    <meta property="og:url" content="https://integratewise.ai/" />
+    <meta property="og:title" content="IntegrateWise — One Context Layer. All Your Tools. Finally Connected." />
+    <meta property="og:description" content="IntegrateWise connects your CRM, support desk, billing, and AI agents into one unified workspace. Stop switching between tools." />
+    <meta property="og:image" content="https://integratewise.ai/og-image.png" />
+    <meta property="og:site_name" content="IntegrateWise" />
+
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="IntegrateWise — One Connected, Spine-Powered Workspace" />
-    <meta name="twitter:description" content="B2B integration platform that unifies CRM, support, billing, and AI agents into one governed workspace. No migration, no context loss." />
-    <meta name="twitter:image" content="https://integratewise.ai/images/hero-panorama.jpg" />
-    
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "IntegrateWise",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "url": "https://integratewise.ai",
-      "description": "B2B integration platform that unifies CRM, support, billing, and AI agents into one governed workspace with workflow orchestration and human oversight.",
-      "creator": {
-        "@type": "Organization",
-        "name": "IntegrateWise",
-        "url": "https://integratewise.ai"
-      }
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "IntegrateWise",
-      "url": "https://integratewise.ai",
-      "logo": "https://integratewise.ai/images/logo-light.png",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "connect@integratewise.ai",
-        "contactType": "customer service"
-      }
-    }
-    </script>
-    
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://integratewise.ai/" />
+    <meta property="twitter:title" content="IntegrateWise — One Context Layer. All Your Tools. Finally Connected." />
+    <meta property="twitter:description" content="IntegrateWise connects your CRM, support desk, billing, and AI agents into one unified workspace." />
+    <meta property="twitter:image" content="https://integratewise.ai/og-image.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-BFrLFgD8.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CaOmjmD8.css">
-    
-    <style>
-      /* AGGRESSIVE: Remove ALL blank space in hero */
-      section[class*="hero"],
-      div[class*="hero"] {
-        min-height: auto !important;
-        height: auto !important;
-        padding-top: 2rem !important;
-        padding-bottom: 2rem !important;
-        margin-bottom: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-      }
-      
-      /* Force all hero children to have no margins */
-      section[class*="hero"] > *,
-      div[class*="hero"] > * {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-      }
-      
-      /* Hero headings and text - tight spacing */
-      section[class*="hero"] h1,
-      section[class*="hero"] h2,
-      section[class*="hero"] p,
-      div[class*="hero"] h1,
-      div[class*="hero"] h2,
-      div[class*="hero"] p {
-        margin-top: 0 !important;
-        margin-bottom: 0.25rem !important;
-        line-height: 1.2 !important;
-      }
-      
-      /* Remove blank spaces around images */
-      img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-        margin: 0;
-        padding: 0;
-      }
-      
-      /* Ensure images fill containers without gaps */
-      .surface-grid img,
-      [class*="showcase"] img,
-      [class*="grid"] img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-      }
-      
-      /* Tighten image containers */
-      [class*="showcase"],
-      .surface-grid > div,
-      [class*="card"] {
-        overflow: hidden;
-        line-height: 0;
-      }
-      
-      /* Fix any section with excessive padding */
-      section {
-        min-height: auto !important;
-      }
-    </style>
+
+    <!-- No-JS Hero Fallback -->
+    <noscript>
+      <style>
+        .hero-headline, .hero-sub, .hero-buttons { opacity: 1 !important; transform: none !important; }
+      </style>
+    </noscript>
+    <script type="module" crossorigin src="/assets/index-BFKaK9u6.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Cb9n_pwY.css">
   </head>
   <body>
     <div id="root"></div>
-    
-    <script>
-      // Google Calendar Booking
-      const BOOKING_URL = 'https://calendar.app.google/72HQojwJ3yyEKcvA9';
-      function setupBooking() {
-        document.querySelectorAll('button').forEach(btn => {
-          if ((btn.textContent.includes('Book Demo') || btn.textContent.includes('Book a Demo')) && !btn.dataset.booking) {
-            btn.dataset.booking = 'true';
-            btn.addEventListener('click', (e) => {
-              e.preventDefault();
-              window.open(BOOKING_URL, '_blank');
-            });
-          }
-        });
-      }
-      new MutationObserver(setupBooking).observe(document.body, { childList: true, subtree: true });
-      document.addEventListener('DOMContentLoaded', setupBooking);
-      setTimeout(setupBooking, 1000);
-      setTimeout(setupBooking, 2000);
-    </script>
-    
-    <script>
-      // AGGRESSIVE: Fix hero layout and remove ALL blank spaces
-      function fixHeroLayout() {
-        // Find hero by looking for the specific text
-        const allElements = document.querySelectorAll('*');
-        let heroSection = null;
-        
-        for (const el of allElements) {
-          const text = el.textContent || '';
-          if (text.includes('ONE CONNECTED') && text.includes('SPINE-POWERED') && el.tagName !== 'BODY') {
-            let current = el;
-            while (current && current.tagName !== 'BODY') {
-              if (current.tagName === 'SECTION') {
-                heroSection = current;
-                break;
-              }
-              current = current.parentElement;
-            }
-            if (heroSection) break;
-          }
-        }
-        
-        if (!heroSection) return;
-        
-        // Reset hero section completely
-        heroSection.style.cssText = '';
-        heroSection.style.minHeight = 'auto';
-        heroSection.style.height = 'auto';
-        heroSection.style.paddingTop = '2rem';
-        heroSection.style.paddingBottom = '2rem';
-        heroSection.style.marginBottom = '0';
-        heroSection.style.display = 'flex';
-        heroSection.style.alignItems = 'center';
-        heroSection.style.justifyContent = 'center';
-        
-        // Fix all children
-        const fixElement = (el) => {
-          el.style.marginTop = '0';
-          el.style.marginBottom = '0';
-          el.style.paddingTop = '0';
-          el.style.paddingBottom = '0';
-          
-          Array.from(el.children).forEach(child => {
-            child.style.marginTop = '0';
-            child.style.marginBottom = '0';
-            child.style.paddingTop = '0';
-            child.style.paddingBottom = '0';
-            
-            if (child.children.length > 0) {
-              fixElement(child);
-            }
-          });
-        };
-        
-        fixElement(heroSection);
-        
-        // Fix headings specifically
-        heroSection.querySelectorAll('h1, h2, h3, p').forEach(el => {
-          el.style.marginTop = '0';
-          el.style.marginBottom = '0.25rem';
-          el.style.lineHeight = '1.2';
-        });
-      }
-      
-      // Run multiple times to catch React renders
-      document.addEventListener('DOMContentLoaded', () => {
-        fixHeroLayout();
-        setTimeout(fixHeroLayout, 100);
-        setTimeout(fixHeroLayout, 500);
-        setTimeout(fixHeroLayout, 1000);
-        setTimeout(fixHeroLayout, 2000);
-      });
-    </script>
   </body>
 </html>
