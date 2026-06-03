@@ -1,3 +1,6 @@
-# Cloudflare Pages SPA fallback
-# All routes serve index.html, React handles client-side routing
+# Cloudflare Pages routing configuration
+# Routes with explicit file paths are served first
+# Fallback routes with status 200 work as rewrites
+
+# Main SPA fallback - serve index.html for all unmatched routes
 /* /index.html 200
