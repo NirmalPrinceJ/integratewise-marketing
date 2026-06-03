@@ -1,6 +1,25 @@
 # Cloudflare Pages routing configuration
-# Routes with explicit file paths are served first
-# Fallback routes with status 200 work as rewrites
+# Explicit routes are served first, then fallback rules
 
-# Main SPA fallback - serve index.html for all unmatched routes
+# Exclude API routes from SPA fallback
+/api/* /api/:splat 200
+
+# Exclude static assets and directories
+/assets/* /assets/:splat 200
+/images/* /images/:splat 200
+/js/* /js/:splat 200
+
+# Content pages - serve directly
+/blog/* /blog/:splat 200
+/resources/* /resources/:splat 200
+/articles/* /articles/:splat 200
+/use-cases/* /use-cases/:splat 200
+/white-papers/* /white-papers/:splat 200
+
+# Favicon and metadata
+/favicon.ico /favicon.ico 200
+/robots.txt /robots.txt 200
+/sitemap.xml /sitemap.xml 200
+
+# All other routes - SPA fallback to main index.html
 /* /index.html 200
