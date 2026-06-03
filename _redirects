@@ -1,7 +1,6 @@
 # Cloudflare Pages routing
-# NOTE: Functions at functions/blog/* and functions/api/* are served automatically
-# Only the SPA fallback is needed here for the main app
-# DO NOT add /blog/* redirects — they override Functions
+# Static files are served automatically from the build output
+# Blog pages: /blog/index.html, /blog/*.html
 
-# SPA fallback for main app only (not blog, not api)
-/index.html /index.html 200
+# SPA fallback for React app (excludes existing static files)
+/* /index.html 200

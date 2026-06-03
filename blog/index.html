@@ -1,54 +1,11 @@
-// Blog index page - fetches posts from Sanity CMS via API
-// Serves as the blog listing page with client-side rendering
-
-export async function onRequestGet(context) {
-  const { env } = context
-  
-  // Fetch posts from Sanity via the content API
-  let posts = []
-  let error = null
-  
-  try {
-    const apiUrl = new URL('/api/content?type=blog&limit=50', context.request.url)
-    const response = await fetch(apiUrl.toString(), {
-      headers: { 'Accept': 'application/json' }
-    })
-    
-    if (response.ok) {
-      const data = await response.json()
-      posts = data.data || []
-    }
-  } catch (e) {
-    console.error('Failed to fetch blog posts:', e)
-    error = 'Content temporarily unavailable'
-  }
-
-  // Group posts by phase
-  const awareness = posts.filter(p => p.phase === 'awareness')
-  const consideration = posts.filter(p => p.phase === 'consideration')
-  const conversion = posts.filter(p => p.phase === 'conversion')
-
-  const html = generateBlogHTML({ awareness, consideration, conversion, error, env })
-  
-  return new Response(html, {
-    headers: {
-      'Content-Type': 'text/html',
-      'Cache-Control': 'public, max-age=60, stale-while-revalidate=300'
-    }
-  })
-}
-
-function generateBlogHTML({ awareness, consideration, conversion, error, env }) {
-  const siteUrl = env.SITE_URL || 'https://integratewise.ai'
-  
-  return `<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IntegrateWise Blog — Work Smarter Series</title>
   <meta name="description" content="Insights on workflow management, tool integration, and building connected teams. The Work Smarter series from IntegrateWise." />
-  <link rel="canonical" href="${siteUrl}/blog/" />
+  <link rel="canonical" href="https://integratewise.ai/blog/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -218,17 +175,6 @@ function generateBlogHTML({ awareness, consideration, conversion, error, env }) 
     .stage-awareness { border-left: 4px solid var(--iw-green-light); }
     .stage-consideration { border-left: 4px solid var(--iw-blue); }
     .stage-conversion { border-left: 4px solid var(--iw-gold); }
-    .empty-state {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--iw-text-secondary);
-    }
-    .empty-state h3 {
-      font-family: var(--font-display);
-      font-size: 24px;
-      color: var(--iw-green);
-      margin-bottom: 12px;
-    }
     footer {
       background: var(--iw-green);
       color: var(--iw-cream);
@@ -267,44 +213,127 @@ function generateBlogHTML({ awareness, consideration, conversion, error, env }) 
 
   <section class="blog-section">
     <div class="container">
-      ${error ? `<div class="empty-state"><h3>Content Unavailable</h3><p>${error}</p></div>` : ''}
-      
-      ${awareness.length > 0 ? `
       <div class="section-header">
         <h2>Phase 1: Awareness</h2>
         <p>Weeks 1–3 — Identifying the problem</p>
       </div>
       <div class="blog-grid">
-        ${awareness.map(post => renderPostCard(post, siteUrl)).join('')}
-      </div>
-      ` : ''}
+        <article class="blog-card stage-awareness">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 1</span>
+              <span>Jun 3, 2026</span>
+              <span>6 min read</span>
+            </div>
+            <h3>5 Signs Your Team's Workflow Is Silently Killing Productivity</h3>
+            <p>Most teams don't realize they're in workflow debt until it's too late. Here are the early warning signs — and what to do about them before they compound.</p>
+            <a href="/blog/5-signs-workflow-killing-productivity.html" class="read-more">Read article →</a>
+          </div>
+        </article>
 
-      ${consideration.length > 0 ? `
+        <article class="blog-card stage-awareness">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 2</span>
+              <span>Jun 10, 2026</span>
+              <span>8 min read</span>
+            </div>
+            <h3>Why Your Tools Don't Talk to Each Other (And What It's Costing You)</h3>
+            <p>The average team uses 6+ tools for project management. When none of them connect, you pay a hidden tax — in time, context, and decision quality.</p>
+            <a href="/blog/why-tools-dont-talk.html" class="read-more">Read article →</a>
+          </div>
+        </article>
+
+        <article class="blog-card stage-awareness">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 3</span>
+              <span>Jun 17, 2026</span>
+              <span>7 min read</span>
+            </div>
+            <h3>The Single Workspace Myth vs. Reality — What Actually Works</h3>
+            <p>Everyone promises "one platform to rule them all." But the truth is more nuanced. Here's what real teams actually need from a unified workspace.</p>
+            <a href="/blog/single-workspace-myth.html" class="read-more">Read article →</a>
+          </div>
+        </article>
+      </div>
+
       <div class="section-header" style="margin-top: 60px;">
         <h2>Phase 2: Consideration</h2>
         <p>Weeks 4–6 — Evaluating solutions</p>
       </div>
       <div class="blog-grid">
-        ${consideration.map(post => renderPostCard(post, siteUrl)).join('')}
-      </div>
-      ` : ''}
+        <article class="blog-card stage-consideration">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 4</span>
+              <span>Jun 24, 2026</span>
+              <span>5 min read</span>
+            </div>
+            <h3>How One Team Reduced Project Overhead by 40%</h3>
+            <p>A case study in consolidation: how a 25-person operations team cut tool-switching time and regained focus by connecting their stack.</p>
+            <a href="#" class="read-more" style="opacity:0.5;pointer-events:none;">Coming Jun 24 →</a>
+          </div>
+        </article>
 
-      ${conversion.length > 0 ? `
+        <article class="blog-card stage-consideration">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 5</span>
+              <span>Jul 1, 2026</span>
+              <span>10 min read</span>
+            </div>
+            <h3>IntegrateWise vs. Traditional PM Tools: A Buyer's Checklist</h3>
+            <p>Not all workspace platforms are built the same. Use this checklist to evaluate integration depth, AI readiness, and scalability.</p>
+            <a href="#" class="read-more" style="opacity:0.5;pointer-events:none;">Coming Jul 1 →</a>
+          </div>
+        </article>
+
+        <article class="blog-card stage-consideration">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 6</span>
+              <span>Jul 8, 2026</span>
+              <span>45 min webinar</span>
+            </div>
+            <h3>From Fragmented to Focused: A Live Demo of IntegrateWise</h3>
+            <p>Join us for a live walkthrough. See how teams connect CRM, support, billing, and AI agents into one unified operating surface.</p>
+            <a href="#" class="read-more" style="opacity:0.5;pointer-events:none;">Register soon →</a>
+          </div>
+        </article>
+      </div>
+
       <div class="section-header" style="margin-top: 60px;">
         <h2>Phase 3: Conversion</h2>
         <p>Weeks 7–8 — Making the decision</p>
       </div>
       <div class="blog-grid">
-        ${conversion.map(post => renderPostCard(post, siteUrl)).join('')}
-      </div>
-      ` : ''}
+        <article class="blog-card stage-conversion">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 7</span>
+              <span>Jul 15, 2026</span>
+              <span>4 min read</span>
+            </div>
+            <h3>Getting Started with IntegrateWise in Under 15 Minutes</h3>
+            <p>Onboarding anxiety is real. Here's a step-by-step guide to connecting your first integration and seeing value immediately.</p>
+            <a href="#" class="read-more" style="opacity:0.5;pointer-events:none;">Coming Jul 15 →</a>
+          </div>
+        </article>
 
-      ${!error && awareness.length === 0 && consideration.length === 0 && conversion.length === 0 ? `
-      <div class="empty-state">
-        <h3>Content Coming Soon</h3>
-        <p>We're preparing the Work Smarter series. Check back soon for insights on workflow management and team productivity.</p>
+        <article class="blog-card stage-conversion">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 8</span>
+              <span>Jul 22, 2026</span>
+              <span>3 min read</span>
+            </div>
+            <h3>Join 500+ Teams Who've Made the Switch</h3>
+            <p>Real quotes from real teams. See why operations leaders, CTOs, and developers choose IntegrateWise for their connected workspace.</p>
+            <a href="#" class="read-more" style="opacity:0.5;pointer-events:none;">Coming Jul 22 →</a>
+          </div>
+        </article>
       </div>
-      ` : ''}
     </div>
   </section>
 
@@ -315,31 +344,4 @@ function generateBlogHTML({ awareness, consideration, conversion, error, env }) 
     </div>
   </footer>
 </body>
-</html>`
-}
-
-function renderPostCard(post, siteUrl) {
-  const publishDate = post.publishDate 
-    ? new Date(post.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-    : 'Coming soon'
-  
-  const weekLabel = post.week ? `Week ${post.week}` : 'Coming soon'
-  const readTime = post.readTime || '5 min read'
-  const excerpt = post.excerpt || ''
-  const slug = post.slug?.current || post.slug
-  
-  return `
-    <article class="blog-card stage-${post.phase || 'awareness'}">
-      <div class="blog-card-content">
-        <div class="meta">
-          <span class="tag">${weekLabel}</span>
-          <span>${publishDate}</span>
-          <span>${readTime}</span>
-        </div>
-        <h3>${post.title}</h3>
-        <p>${excerpt}</p>
-        <a href="/blog/${slug}.html" class="read-more">Read article →</a>
-      </div>
-    </article>
-  `
-}
+</html>
