@@ -1,7 +1,7 @@
 // Content API endpoint for IntegrateWise Marketing
 // Fetches blog posts and resources from Sanity CMS
 
-import { createSanityClient } from '../../sanity/client.js'
+import { createSanityClient } from '../lib/sanity.js'
 
 export async function onRequestGet(context) {
   const { request, env } = context
