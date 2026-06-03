@@ -4,3 +4,11 @@ pages_build_output_dir = "."
 
 [vars]
 WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY"
+SANITY_PROJECT_ID = "64w4atn2"
+SANITY_DATASET = "production"
+SANITY_API_VERSION = "2024-01-01"
+# SANITY_READ_TOKEN = "set-via-wrangler-secret" # Use `wrangler secret put SANITY_READ_TOKEN`
+# SENTRY_DSN_FRONTEND = ""
+# SENTRY_DSN_BACKEND = ""
+# SENTRY_ENVIRONMENT = "production"
+# SENTRY_RELEASE = "1.0.0"

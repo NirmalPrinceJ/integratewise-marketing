@@ -1,0 +1,345 @@
+// Blog index page - fetches posts from Sanity CMS via API
+// Serves as the blog listing page with client-side rendering
+
+export async function onRequestGet(context) {
+  const { env } = context
+  
+  // Fetch posts from Sanity via the content API
+  let posts = []
+  let error = null
+  
+  try {
+    const apiUrl = new URL('/api/content?type=blog&limit=50', context.request.url)
+    const response = await fetch(apiUrl.toString(), {
+      headers: { 'Accept': 'application/json' }
+    })
+    
+    if (response.ok) {
+      const data = await response.json()
+      posts = data.data || []
+    }
+  } catch (e) {
+    console.error('Failed to fetch blog posts:', e)
+    error = 'Content temporarily unavailable'
+  }
+
+  // Group posts by phase
+  const awareness = posts.filter(p => p.phase === 'awareness')
+  const consideration = posts.filter(p => p.phase === 'consideration')
+  const conversion = posts.filter(p => p.phase === 'conversion')
+
+  const html = generateBlogHTML({ awareness, consideration, conversion, error, env })
+  
+  return new Response(html, {
+    headers: {
+      'Content-Type': 'text/html',
+      'Cache-Control': 'public, max-age=60, stale-while-revalidate=300'
+    }
+  })
+}
+
+function generateBlogHTML({ awareness, consideration, conversion, error, env }) {
+  const siteUrl = env.SITE_URL || 'https://integratewise.ai'
+  
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IntegrateWise Blog — Work Smarter Series</title>
+  <meta name="description" content="Insights on workflow management, tool integration, and building connected teams. The Work Smarter series from IntegrateWise." />
+  <link rel="canonical" href="${siteUrl}/blog/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --iw-green: #1a3a2a;
+      --iw-green-light: #3d7a50;
+      --iw-blue: #1a2e4a;
+      --iw-gold: #b8943f;
+      --iw-cream: #f4f0e8;
+      --iw-cream-dark: #e5e0d5;
+      --iw-text: #0c0c0c;
+      --iw-text-secondary: #5a5a5a;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-serif: 'DM Serif Display', serif;
+      --font-body: 'Instrument Sans', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background: var(--iw-cream);
+      color: var(--iw-text);
+      line-height: 1.6;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    header {
+      background: var(--iw-green);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(244,240,232,0.1);
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--iw-cream);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .logo span { color: var(--iw-gold); }
+    nav a {
+      color: var(--iw-cream);
+      text-decoration: none;
+      margin-left: 32px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--iw-gold); }
+    .hero {
+      background: var(--iw-green);
+      color: var(--iw-cream);
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 64px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .hero h1 span { color: var(--iw-gold); }
+    .hero p {
+      font-size: 20px;
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto;
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+    .series-label {
+      display: inline-block;
+      background: var(--iw-gold);
+      color: var(--iw-green);
+      padding: 6px 16px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+    .blog-section { padding: 60px 0; }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 40px;
+      border-bottom: 2px solid var(--iw-green);
+      padding-bottom: 16px;
+    }
+    .section-header h2 {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--iw-green);
+      letter-spacing: 1px;
+    }
+    .section-header p {
+      color: var(--iw-text-secondary);
+      font-size: 14px;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 32px;
+    }
+    .blog-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--iw-cream-dark);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(26,58,42,0.12);
+    }
+    .blog-card-content { padding: 28px; }
+    .blog-card .meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--iw-text-secondary);
+    }
+    .blog-card .tag {
+      background: var(--iw-cream);
+      color: var(--iw-green);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    .blog-card h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--iw-green);
+      margin-bottom: 12px;
+      line-height: 1.2;
+      letter-spacing: 0.5px;
+    }
+    .blog-card p {
+      color: var(--iw-text-secondary);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .blog-card .read-more {
+      color: var(--iw-gold);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .blog-card .read-more:hover { color: var(--iw-green); }
+    .stage-awareness { border-left: 4px solid var(--iw-green-light); }
+    .stage-consideration { border-left: 4px solid var(--iw-blue); }
+    .stage-conversion { border-left: 4px solid var(--iw-gold); }
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--iw-text-secondary);
+    }
+    .empty-state h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--iw-green);
+      margin-bottom: 12px;
+    }
+    footer {
+      background: var(--iw-green);
+      color: var(--iw-cream);
+      padding: 48px 0;
+      text-align: center;
+    }
+    footer .logo { margin-bottom: 16px; display: inline-block; }
+    footer p { opacity: 0.7; font-size: 14px; }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 40px; }
+      .blog-grid { grid-template-columns: 1fr; }
+      nav a { margin-left: 16px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Integrate<span>Wise</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#features">Features</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="series-label">Work Smarter Series</div>
+      <h1>The <span>IntegrateWise</span> Blog</h1>
+      <p>Insights on workflow management, tool integration, and building connected teams that actually ship.</p>
+    </div>
+  </section>
+
+  <section class="blog-section">
+    <div class="container">
+      ${error ? `<div class="empty-state"><h3>Content Unavailable</h3><p>${error}</p></div>` : ''}
+      
+      ${awareness.length > 0 ? `
+      <div class="section-header">
+        <h2>Phase 1: Awareness</h2>
+        <p>Weeks 1–3 — Identifying the problem</p>
+      </div>
+      <div class="blog-grid">
+        ${awareness.map(post => renderPostCard(post, siteUrl)).join('')}
+      </div>
+      ` : ''}
+
+      ${consideration.length > 0 ? `
+      <div class="section-header" style="margin-top: 60px;">
+        <h2>Phase 2: Consideration</h2>
+        <p>Weeks 4–6 — Evaluating solutions</p>
+      </div>
+      <div class="blog-grid">
+        ${consideration.map(post => renderPostCard(post, siteUrl)).join('')}
+      </div>
+      ` : ''}
+
+      ${conversion.length > 0 ? `
+      <div class="section-header" style="margin-top: 60px;">
+        <h2>Phase 3: Conversion</h2>
+        <p>Weeks 7–8 — Making the decision</p>
+      </div>
+      <div class="blog-grid">
+        ${conversion.map(post => renderPostCard(post, siteUrl)).join('')}
+      </div>
+      ` : ''}
+
+      ${!error && awareness.length === 0 && consideration.length === 0 && conversion.length === 0 ? `
+      <div class="empty-state">
+        <h3>Content Coming Soon</h3>
+        <p>We're preparing the Work Smarter series. Check back soon for insights on workflow management and team productivity.</p>
+      </div>
+      ` : ''}
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="/" class="logo">Integrate<span>Wise</span></a>
+      <p>© 2026 IntegrateWise. One context layer. All your tools. Finally connected.</p>
+    </div>
+  </footer>
+</body>
+</html>`
+}
+
+function renderPostCard(post, siteUrl) {
+  const publishDate = post.publishDate 
+    ? new Date(post.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+    : 'Coming soon'
+  
+  const weekLabel = post.week ? `Week ${post.week}` : 'Coming soon'
+  const readTime = post.readTime || '5 min read'
+  const excerpt = post.excerpt || ''
+  const slug = post.slug?.current || post.slug
+  
+  return `
+    <article class="blog-card stage-${post.phase || 'awareness'}">
+      <div class="blog-card-content">
+        <div class="meta">
+          <span class="tag">${weekLabel}</span>
+          <span>${publishDate}</span>
+          <span>${readTime}</span>
+        </div>
+        <h3>${post.title}</h3>
+        <p>${excerpt}</p>
+        <a href="/blog/${slug}.html" class="read-more">Read article →</a>
+      </div>
+    </article>
+  `
+}

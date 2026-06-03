@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IntegrateWise Blog — Work Smarter Series</title>
+  <meta name="description" content="Insights on workflow management, tool integration, and building connected teams. The Work Smarter series from IntegrateWise." />
+  <link rel="canonical" href="https://integratewise.ai/blog/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --iw-green: #1a3a2a;
+      --iw-green-light: #3d7a50;
+      --iw-blue: #1a2e4a;
+      --iw-gold: #b8943f;
+      --iw-cream: #f4f0e8;
+      --iw-cream-dark: #e5e0d5;
+      --iw-text: #0c0c0c;
+      --iw-text-secondary: #5a5a5a;
+      --iw-danger: #8b2020;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-serif: 'DM Serif Display', serif;
+      --font-body: 'Instrument Sans', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background: var(--iw-cream);
+      color: var(--iw-text);
+      line-height: 1.6;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    /* Header */
+    header {
+      background: var(--iw-green);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(244,240,232,0.1);
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--iw-cream);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .logo span { color: var(--iw-gold); }
+    nav a {
+      color: var(--iw-cream);
+      text-decoration: none;
+      margin-left: 32px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--iw-gold); }
+    /* Hero */
+    .hero {
+      background: var(--iw-green);
+      color: var(--iw-cream);
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 64px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .hero h1 span { color: var(--iw-gold); }
+    .hero p {
+      font-size: 20px;
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto;
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+    /* Series Label */
+    .series-label {
+      display: inline-block;
+      background: var(--iw-gold);
+      color: var(--iw-green);
+      padding: 6px 16px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+    /* Blog Grid */
+    .blog-section { padding: 60px 0; }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 40px;
+      border-bottom: 2px solid var(--iw-green);
+      padding-bottom: 16px;
+    }
+    .section-header h2 {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--iw-green);
+      letter-spacing: 1px;
+    }
+    .section-header p {
+      color: var(--iw-text-secondary);
+      font-size: 14px;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 32px;
+    }
+    .blog-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--iw-cream-dark);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(26,58,42,0.12);
+    }
+    .blog-card-content { padding: 28px; }
+    .blog-card .meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--iw-text-secondary);
+    }
+    .blog-card .tag {
+      background: var(--iw-cream);
+      color: var(--iw-green);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    .blog-card h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--iw-green);
+      margin-bottom: 12px;
+      line-height: 1.2;
+      letter-spacing: 0.5px;
+    }
+    .blog-card p {
+      color: var(--iw-text-secondary);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .blog-card .read-more {
+      color: var(--iw-gold);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .blog-card .read-more:hover { color: var(--iw-green); }
+    /* Funnel Stages */
+    .stage-awareness { border-left: 4px solid var(--iw-green-light); }
+    .stage-consideration { border-left: 4px solid var(--iw-blue); }
+    .stage-conversion { border-left: 4px solid var(--iw-gold); }
+    /* Footer */
+    footer {
+      background: var(--iw-green);
+      color: var(--iw-cream);
+      padding: 48px 0;
+      text-align: center;
+    }
+    footer .logo { margin-bottom: 16px; display: inline-block; }
+    footer p { opacity: 0.7; font-size: 14px; }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 40px; }
+      .blog-grid { grid-template-columns: 1fr; }
+      nav a { margin-left: 16px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Integrate<span>Wise</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#features">Features</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="series-label">Work Smarter Series</div>
+      <h1>The <span>IntegrateWise</span> Blog</h1>
+      <p>Insights on workflow management, tool integration, and building connected teams that actually ship.</p>
+    </div>
+  </section>
+
+  <section class="blog-section">
+    <div class="container">
+      <!-- Phase 1: Awareness -->
+      <div class="section-header">
+        <h2>Phase 1: Awareness</h2>
+        <p>Weeks 1–3 — Identifying the problem</p>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card stage-awareness">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 1</span>
+              <span>Jun 3, 2026</span>
+              <span>6 min read</span>
+            </div>
+            <h3>5 Signs Your Team's Workflow Is Silently Killing Productivity</h3>
+            <p>Most teams don't realize they're in workflow debt until it's too late. Here are the early warning signs — and what to do about them before they compound.</p>
+            <a href="/blog/5-signs-workflow-killing-productivity.html" class="read-more">Read article →</a>
+          </div>
+        </article>
+
+        <article class="blog-card stage-awareness">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 2</span>
+              <span>Jun 10, 2026</span>
+              <span>8 min read</span>
+            </div>
+            <h3>Why Your Tools Don't Talk to Each Other (And What It's Costing You)</h3>
+            <p>The average team uses 6+ tools for project management. When none of them connect, you pay a hidden tax — in time, context, and decision quality.</p>
+            <a href="/blog/why-tools-dont-talk.html" class="read-more">Read article →</a>
+          </div>
+        </article>
+
+        <article class="blog-card stage-awareness">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 3</span>
+              <span>Jun 17, 2026</span>
+              <span>7 min read</span>
+            </div>
+            <h3>The Single Workspace Myth vs. Reality — What Actually Works</h3>
+            <p>Everyone promises "one platform to rule them all." But the truth is more nuanced. Here's what real teams actually need from a unified workspace.</p>
+            <a href="/blog/single-workspace-myth.html" class="read-more">Read article →</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Phase 2: Consideration -->
+      <div class="section-header" style="margin-top: 60px;">
+        <h2>Phase 2: Consideration</h2>
+        <p>Weeks 4–6 — Evaluating solutions</p>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card stage-consideration">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 4</span>
+              <span>Jun 24, 2026</span>
+              <span>5 min read</span>
+            </div>
+            <h3>How One Team Reduced Project Overhead by 40%</h3>
+            <p>A case study in consolidation: how a 25-person operations team cut tool-switching time and regained focus by connecting their stack.</p>
+            <a href="#" class="read-more" style="opacity:0.5;pointer-events:none;">Coming Jun 24 →</a>
+          </div>
+        </article>
+
+        <article class="blog-card stage-consideration">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 5</span>
+              <span>Jul 1, 2026</span>
+              <span>10 min read</span>
+            </div>
+            <h3>IntegrateWise vs. Traditional PM Tools: A Buyer's Checklist</h3>
+            <p>Not all workspace platforms are built the same. Use this checklist to evaluate integration depth, AI readiness, and scalability.</p>
+            <a href="#" class="read-more" style="opacity:0.5;pointer-events:none;">Coming Jul 1 →</a>
+          </div>
+        </article>
+
+        <article class="blog-card stage-consideration">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 6</span>
+              <span>Jul 8, 2026</span>
+              <span>45 min webinar</span>
+            </div>
+            <h3>From Fragmented to Focused: A Live Demo of IntegrateWise</h3>
+            <p>Join us for a live walkthrough. See how teams connect CRM, support, billing, and AI agents into one unified operating surface.</p>
+            <a href="#" class="read-more" style="opacity:0.5;pointer-events:none;">Register soon →</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Phase 3: Conversion -->
+      <div class="section-header" style="margin-top: 60px;">
+        <h2>Phase 3: Conversion</h2>
+        <p>Weeks 7–8 — Making the decision</p>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card stage-conversion">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 7</span>
+              <span>Jul 15, 2026</span>
+              <span>4 min read</span>
+            </div>
+            <h3>Getting Started with IntegrateWise in Under 15 Minutes</h3>
+            <p>Onboarding anxiety is real. Here's a step-by-step guide to connecting your first integration and seeing value immediately.</p>
+            <a href="#" class="read-more" style="opacity:0.5;pointer-events:none;">Coming Jul 15 →</a>
+          </div>
+        </article>
+
+        <article class="blog-card stage-conversion">
+          <div class="blog-card-content">
+            <div class="meta">
+              <span class="tag">Week 8</span>
+              <span>Jul 22, 2026</span>
+              <span>3 min read</span>
+            </div>
+            <h3>Join 500+ Teams Who've Made the Switch</h3>
+            <p>Real quotes from real teams. See why operations leaders, CTOs, and developers choose IntegrateWise for their connected workspace.</p>
+            <a href="#" class="read-more" style="opacity:0.5;pointer-events:none;">Coming Jul 22 →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="/" class="logo">Integrate<span>Wise</span></a>
+      <p>© 2026 IntegrateWise. One context layer. All your tools. Finally connected.</p>
+    </div>
+  </footer>
+</body>
+</html>

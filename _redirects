@@ -1,3 +1,8 @@
-# Cloudflare Pages SPA fallback
-# All routes serve index.html, React handles client-side routing
+# Cloudflare Pages routing
+# Functions routes (must come before SPA fallback)
+/api/* /api/:splat 200
+/blog/ /blog/index 200
+/blog/* /blog/:splat 200
+
+# SPA fallback for main app
 /* /index.html 200
