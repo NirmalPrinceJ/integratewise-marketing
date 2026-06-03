@@ -8,7 +8,7 @@
 # 2. Get your Project ID from Sanity settings
 # 3. Add to wrangler.toml:
 
-# SANITY_PROJECT_ID=your-project-id-here
+# SANITY_PROJECT_ID=oayFkBJnd
 # SANITY_DATASET=production
 # SANITY_API_VERSION=2024-01-01
 
