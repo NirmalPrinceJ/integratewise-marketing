@@ -11,7 +11,7 @@
 # SANITY_PROJECT_ID=oayFkBJnd
 # SANITY_DATASET=production
 # SANITY_API_VERSION=2024-01-01
-
+skQnxOnfwRGwbtIcQqHxI4T5Fegck3LPghbmekwmmsqAc9s8gASPP8jbqY23nokYZIds66B9NNMS0PCy3rcf42mJP5a2273jFQEEvD2blKpPWLmw2YhKWZzUYc2r1Vfk5K7nXsXBSr10Zt280UpTzohBTGfiM5RpIpeRGoaqBjNNXdMG3xEi
 # =============================================================================
 # STEP 2: Sentry Frontend Setup
 # =============================================================================
