@@ -1,6 +1,16 @@
 // Cloudflare Pages Function: POST /api/contact
 // Uses Cloudflare Mail Channels API (free for Workers)
 
+import * as Sentry from '@sentry/serverless';
+
+// Initialize Sentry for backend error tracking
+Sentry.init({
+  dsn: globalThis.SENTRY_DSN_BACKEND || 'YOUR_SENTRY_DSN_BACKEND',
+  environment: globalThis.SENTRY_ENVIRONMENT || 'production',
+  release: globalThis.SENTRY_RELEASE || '1.0.0',
+  tracesSampleRate: 1.0,
+});
+
 export async function onRequestPost(context) {
   try {
     const body = await context.request.json();
@@ -109,6 +119,7 @@ Sent from integratewise.ai
     } else {
       const errorText = await emailResponse.text();
       console.error('MailChannels error:', errorText);
+      Sentry.captureException(new Error(`MailChannels error: ${errorText}`));
       return new Response(JSON.stringify({ success: false, message: 'Failed to send email' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
@@ -116,6 +127,7 @@ Sent from integratewise.ai
     }
   } catch (error) {
     console.error('Contact form error:', error);
+    Sentry.captureException(error);
     return new Response(JSON.stringify({ success: false, message: 'Server error' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },

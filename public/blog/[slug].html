@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Post | IntegrateWise</title>
+  <meta name="description" content="Read this article from IntegrateWise about B2B integration and workflow automation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/favicon.ico" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Instrument Sans', sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      line-height: 1.8;
+    }
+    
+    nav {
+      background: #f9f9f9;
+      padding: 16px 20px;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      gap: 20px;
+    }
+    
+    nav a {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    
+    nav a:hover {
+      color: #1a1a1a;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    .article-header {
+      margin-bottom: 40px;
+    }
+    
+    .article-category {
+      display: inline-block;
+      background: #f0f0f0;
+      color: #666;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    
+    .article-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+    
+    .article-meta {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      color: #666;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .article-image {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      margin: 40px 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .article-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .article-content {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    
+    .article-content h1,
+    .article-content h2,
+    .article-content h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      margin: 32px 0 16px 0;
+      color: #1a1a1a;
+    }
+    
+    .article-content h1 {
+      font-size: 32px;
+    }
+    
+    .article-content h2 {
+      font-size: 28px;
+    }
+    
+    .article-content h3 {
+      font-size: 24px;
+    }
+    
+    .article-content p {
+      margin-bottom: 20px;
+    }
+    
+    .article-content strong {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    
+    .article-content em {
+      font-style: italic;
+    }
+    
+    .article-content code {
+      background: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      color: #d63384;
+    }
+    
+    .article-content blockquote {
+      border-left: 4px solid #667eea;
+      padding: 16px 20px;
+      margin: 24px 0;
+      background: #f9f9f9;
+      font-style: italic;
+    }
+    
+    .article-content img {
+      max-width: 100%;
+      height: auto;
+      margin: 24px 0;
+      border-radius: 8px;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 40px;
+      font-size: 16px;
+      color: #666;
+    }
+    
+    .error {
+      background: #ffe0e0;
+      color: #c00;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-bottom: 40px;
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="/resources/">Resources</a>
+    <a href="/articles/">Articles</a>
+    <a href="/white-papers/">White Papers</a>
+  </nav>
+
+  <div class="container">
+    <a href="/blog/" class="back-link">← Back to Blog</a>
+    
+    <div id="error-container"></div>
+    <div id="loading" class="loading">Loading article...</div>
+    <article id="article-content" style="display: none;">
+      <div class="article-header">
+        <div id="category" class="article-category"></div>
+        <h1 id="title" class="article-title"></h1>
+        <div class="article-meta">
+          <span id="author"></span>
+          <span id="date"></span>
+        </div>
+      </div>
+      <div id="image" class="article-image"></div>
+      <div id="content" class="article-content"></div>
+    </article>
+  </div>
+
+  <script type="module">
+    import { contentUtils } from '/js/content-utils.js';
+    import * as Sentry from 'https://cdn.jsdelivr.net/npm/@sentry/browser@7/esm/index.min.js';
+
+    // Initialize Sentry for frontend error tracking
+    Sentry.init({
+      dsn: 'YOUR_SENTRY_DSN_FRONTEND',
+      environment: 'production',
+      release: '1.0.0',
+      tracesSampleRate: 1.0,
+    });
+
+    async function loadBlogPost() {
+      try {
+        // Extract slug from URL
+        const slug = window.location.pathname.split('/')[2];
+        if (!slug) throw new Error('No blog post slug found');
+
+        const response = await fetch(`/api/content?type=blog&slug=${slug}`);
+        if (!response.ok) throw new Error('Failed to fetch blog post');
+        
+        const result = await response.json();
+        const post = result.data;
+
+        if (!post) {
+          document.getElementById('error-container').innerHTML = '<div class="error">Blog post not found.</div>';
+          document.getElementById('loading').style.display = 'none';
+          return;
+        }
+
+        // Populate content
+        document.getElementById('title').textContent = post.title;
+        document.getElementById('author').textContent = `By ${post.author || 'IntegrateWise'}`;
+        document.getElementById('date').textContent = contentUtils.formatDate(post.publishedAt);
+        
+        if (post.category) {
+          document.getElementById('category').textContent = post.category;
+        }
+
+        if (post.image?.asset?.url) {
+          document.getElementById('image').innerHTML = `<img src="${post.image.asset.url}" alt="${post.image.alt || post.title}" />`;
+        } else {
+          document.getElementById('image').style.display = 'none';
+        }
+
+        if (post.content) {
+          document.getElementById('content').innerHTML = contentUtils.renderPortableText(post.content);
+        }
+
+        // Update page title and description
+        document.title = `${post.title} | IntegrateWise Blog`;
+        document.querySelector('meta[name="description"]').setAttribute('content', post.excerpt || post.title);
+
+        document.getElementById('article-content').style.display = 'block';
+        document.getElementById('loading').style.display = 'none';
+      } catch (error) {
+        console.error('[Blog Post] Load error:', error);
+        Sentry.captureException(error);
+        
+        document.getElementById('error-container').innerHTML = '<div class="error">Failed to load blog post. Please try again later.</div>';
+        document.getElementById('loading').style.display = 'none';
+      }
+    }
+
+    loadBlogPost();
+  </script>
+</body>
+</html>

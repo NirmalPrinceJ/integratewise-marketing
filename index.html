@@ -32,6 +32,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+    <!-- Sentry for frontend error tracking -->
+    <script>
+      import { initSentry } from '/js/sentry-init.js';
+      document.addEventListener('DOMContentLoaded', initSentry);
+    </script>
+
     <!-- No-JS Hero Fallback -->
     <noscript>
       <style>

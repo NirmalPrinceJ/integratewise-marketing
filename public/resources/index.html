@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources — IntegrateWise Guides, Tutorials & Templates</title>
+  <meta name="description" content="Access guides, tutorials, templates, and documentation to help you integrate your business systems with IntegrateWise." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/favicon.ico" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Instrument Sans', sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+    
+    .header {
+      background: #0C0C0C;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+    
+    .header p {
+      font-size: 18px;
+      color: #ccc;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    
+    .resource-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .resource-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+    }
+    
+    .resource-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+      overflow: hidden;
+    }
+    
+    .resource-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .resource-content {
+      padding: 24px;
+    }
+    
+    .resource-type {
+      display: inline-block;
+      background: #f0f0f0;
+      color: #666;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    
+    .resource-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #1a1a1a;
+    }
+    
+    .resource-description {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .resource-link {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .resource-link:hover {
+      text-decoration: underline;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 40px;
+      font-size: 16px;
+      color: #666;
+    }
+    
+    .error {
+      background: #ffe0e0;
+      color: #c00;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    nav {
+      background: #f9f9f9;
+      padding: 16px 20px;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      gap: 20px;
+    }
+    
+    nav a {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    
+    nav a:hover {
+      color: #1a1a1a;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="/resources/">Resources</a>
+    <a href="/articles/">Articles</a>
+    <a href="/white-papers/">White Papers</a>
+  </nav>
+
+  <div class="header">
+    <h1>Resources</h1>
+    <p>Guides, tutorials, templates, and documentation</p>
+  </div>
+
+  <div class="container">
+    <div id="error-container"></div>
+    <div id="loading" class="loading">Loading resources...</div>
+    <div class="resources-grid" id="resources-grid" style="display: none;"></div>
+  </div>
+
+  <script type="module">
+    import { contentUtils } from '/js/content-utils.js';
+    import * as Sentry from 'https://cdn.jsdelivr.net/npm/@sentry/browser@7/esm/index.min.js';
+
+    // Initialize Sentry for frontend error tracking
+    Sentry.init({
+      dsn: 'YOUR_SENTRY_DSN_FRONTEND',
+      environment: 'production',
+      release: '1.0.0',
+      tracesSampleRate: 1.0,
+    });
+
+    async function loadResources() {
+      try {
+        const response = await fetch('/api/content?type=resource&limit=12');
+        if (!response.ok) throw new Error('Failed to fetch resources');
+        
+        const result = await response.json();
+        const resources = result.data || [];
+
+        const grid = document.getElementById('resources-grid');
+        const loading = document.getElementById('loading');
+
+        if (resources.length === 0) {
+          grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #999;">No resources available yet.</p>';
+        } else {
+          grid.innerHTML = resources
+            .map((resource) => `
+              <div class="resource-card">
+                <div class="resource-image">
+                  ${resource.image?.asset?.url ? `<img src="${resource.image.asset.url}" alt="${resource.image.alt || resource.title}" />` : ''}
+                </div>
+                <div class="resource-content">
+                  ${resource.resourceType ? `<div class="resource-type">${resource.resourceType}</div>` : ''}
+                  <h2 class="resource-title">${resource.title}</h2>
+                  <p class="resource-description">${resource.description || ''}</p>
+                  <a href="/resources/${resource.slug.current}" class="resource-link">View Resource →</a>
+                  <div style="font-size: 12px; color: #ccc; margin-top: 12px;">
+                    ${contentUtils.formatDate(resource.publishedAt)}
+                  </div>
+                </div>
+              </div>
+            `)
+            .join('');
+        }
+
+        grid.style.display = 'grid';
+        loading.style.display = 'none';
+      } catch (error) {
+        console.error('[Resources] Load error:', error);
+        Sentry.captureException(error);
+        
+        const errorContainer = document.getElementById('error-container');
+        errorContainer.innerHTML = '<div class="error">Failed to load resources. Please try again later.</div>';
+        document.getElementById('loading').style.display = 'none';
+      }
+    }
+
+    loadResources();
+  </script>
+</body>
+</html>

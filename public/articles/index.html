@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles — IntegrateWise Thought Leadership</title>
+  <meta name="description" content="Read in-depth articles from IntegrateWise about B2B integration, workflow automation, and business operations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/favicon.ico" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Instrument Sans', sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+    
+    .header {
+      background: #0C0C0C;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+    
+    .header p {
+      font-size: 18px;
+      color: #ccc;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    .articles-list {
+      display: grid;
+      gap: 30px;
+      max-width: 900px;
+    }
+    
+    .article-item {
+      padding: 24px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .article-item:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+    }
+    
+    .article-header {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .article-image {
+      flex-shrink: 0;
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .article-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .article-body {
+      flex-grow: 1;
+    }
+    
+    .article-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #1a1a1a;
+    }
+    
+    .article-abstract {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    
+    .article-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: #999;
+    }
+    
+    .article-tags {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+    
+    .article-tag {
+      background: #f0f0f0;
+      color: #666;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    
+    .article-link {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .article-link:hover {
+      text-decoration: underline;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 40px;
+      font-size: 16px;
+      color: #666;
+    }
+    
+    .error {
+      background: #ffe0e0;
+      color: #c00;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    nav {
+      background: #f9f9f9;
+      padding: 16px 20px;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      gap: 20px;
+    }
+    
+    nav a {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    
+    nav a:hover {
+      color: #1a1a1a;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="/resources/">Resources</a>
+    <a href="/articles/">Articles</a>
+    <a href="/white-papers/">White Papers</a>
+  </nav>
+
+  <div class="header">
+    <h1>Articles</h1>
+    <p>In-depth insights on integration and workflow automation</p>
+  </div>
+
+  <div class="container">
+    <div id="error-container"></div>
+    <div id="loading" class="loading">Loading articles...</div>
+    <div class="articles-list" id="articles-list" style="display: none;"></div>
+  </div>
+
+  <script type="module">
+    import { contentUtils } from '/js/content-utils.js';
+    import * as Sentry from 'https://cdn.jsdelivr.net/npm/@sentry/browser@7/esm/index.min.js';
+
+    // Initialize Sentry for frontend error tracking
+    Sentry.init({
+      dsn: 'YOUR_SENTRY_DSN_FRONTEND',
+      environment: 'production',
+      release: '1.0.0',
+      tracesSampleRate: 1.0,
+    });
+
+    async function loadArticles() {
+      try {
+        const response = await fetch('/api/content?type=article&limit=20');
+        if (!response.ok) throw new Error('Failed to fetch articles');
+        
+        const result = await response.json();
+        const articles = result.data || [];
+
+        const list = document.getElementById('articles-list');
+        const loading = document.getElementById('loading');
+
+        if (articles.length === 0) {
+          list.innerHTML = '<p style="text-align: center; color: #999;">No articles available yet.</p>';
+        } else {
+          list.innerHTML = articles
+            .map((article) => `
+              <div class="article-item">
+                <div class="article-header">
+                  ${article.image?.asset?.url ? `
+                    <div class="article-image">
+                      <img src="${article.image.asset.url}" alt="${article.image.alt || article.title}" />
+                    </div>
+                  ` : ''}
+                  <div class="article-body">
+                    <h2 class="article-title">${article.title}</h2>
+                    <p class="article-abstract">${article.abstract || ''}</p>
+                    <div class="article-meta">
+                      <span>${article.author || 'IntegrateWise'}</span>
+                      <span>${contentUtils.formatDate(article.publishedAt)}</span>
+                    </div>
+                    ${article.tags && article.tags.length ? `
+                      <div class="article-tags">
+                        ${article.tags.map((tag) => `<span class="article-tag">${tag}</span>`).join('')}
+                      </div>
+                    ` : ''}
+                    <a href="/articles/${article.slug.current}" class="article-link">Read Article →</a>
+                  </div>
+                </div>
+              </div>
+            `)
+            .join('');
+        }
+
+        list.style.display = 'grid';
+        loading.style.display = 'none';
+      } catch (error) {
+        console.error('[Articles] Load error:', error);
+        Sentry.captureException(error);
+        
+        const errorContainer = document.getElementById('error-container');
+        errorContainer.innerHTML = '<div class="error">Failed to load articles. Please try again later.</div>';
+        document.getElementById('loading').style.display = 'none';
+      }
+    }
+
+    loadArticles();
+  </script>
+</body>
+</html>
