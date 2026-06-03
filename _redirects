@@ -1,6 +1,1 @@
-# Cloudflare Pages routing
-# Static files are served automatically from the build output
-# Blog pages: /blog/index.html, /blog/*.html
-
-# SPA fallback for React app (excludes existing static files)
 /* /index.html 200
