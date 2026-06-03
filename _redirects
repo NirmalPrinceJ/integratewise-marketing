@@ -1,8 +1,7 @@
 # Cloudflare Pages routing
-# Functions routes (must come before SPA fallback)
-/api/* /api/:splat 200
-/blog/ /blog/index 200
-/blog/* /blog/:splat 200
+# NOTE: Functions at functions/blog/* and functions/api/* are served automatically
+# Only the SPA fallback is needed here for the main app
+# DO NOT add /blog/* redirects — they override Functions
 
-# SPA fallback for main app
-/* /index.html 200
+# SPA fallback for main app only (not blog, not api)
+/index.html /index.html 200
