@@ -108,4 +108,40 @@
     <changefreq>yearly</changefreq>
     <lastmod>2026-06-01</lastmod>
   </url>
+  <url>
+    <loc>https://integratewise.ai/blog</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://integratewise.ai/blog/what-is-the-spine</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://integratewise.ai/docs</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://integratewise.ai/case-study/saving-8m-account</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://integratewise.ai/case-study/csm-team-handoff</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://integratewise.ai/case-study/operations-team-alignment</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
 </urlset>
