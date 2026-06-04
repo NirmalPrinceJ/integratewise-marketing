@@ -23,13 +23,6 @@
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2026-06-01</lastmod>
-  </url>
-  <url>
-    <loc>https://integratewise.ai/pricing</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-06-01</lastmod>
-  </url>
   <url>
     <loc>https://integratewise.ai/about</loc>
     <priority>0.7</priority>
