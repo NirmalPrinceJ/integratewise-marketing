@@ -1,0 +1,27 @@
+<svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Central Spine Segment 1 -->
+  <rect x="44" y="10" width="12" height="20" rx="6" fill="#FAF8F5"/>
+  <!-- Central Spine Segment 2 -->
+  <rect x="44" y="40" width="12" height="20" rx="6" fill="#FAF8F5"/>
+  <!-- Central Spine Segment 3 -->
+  <rect x="44" y="70" width="12" height="20" rx="6" fill="#FAF8F5"/>
+  
+  <!-- Spine Connections (vertical thin line) -->
+  <line x1="50" y1="20" x2="50" y2="80" stroke="#FAF8F5" stroke-width="2" stroke-dasharray="2 2"/>
+
+  <!-- Left connection branch -->
+  <path d="M50 50 H25 C22.2386 50 20 47.7614 20 45 V40" stroke="#E5C599" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="20" cy="40" r="6" fill="#E5C599"/>
+  
+  <!-- Right connection branch -->
+  <path d="M50 50 H75 C77.7614 50 80 52.2386 80 55 V60" stroke="#E5C599" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="80" cy="60" r="6" fill="#E5C599"/>
+
+  <!-- Top-Right connection branch -->
+  <path d="M50 20 H70" stroke="#E5C599" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="70" cy="20" r="5" fill="#E5C599"/>
+
+  <!-- Bottom-Left connection branch -->
+  <path d="M50 80 H30" stroke="#E5C599" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="30" cy="80" r="5" fill="#E5C599"/>
+</svg>
