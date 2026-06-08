@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Brain, Network, Lightbulb } from "lucide-react";
 import { useState } from "react";
+import HeroSpine from "@/components/HeroSpine";
+import SpinePillars from "@/components/SpinePillars";
 
 /**
  * Design Philosophy: Organic Futurism with Fluid Abstraction
@@ -211,15 +213,8 @@ export default function Home() {
               Continuity infrastructure for the AI era.
             </p>
 
-            <div 
-              className="relative rounded-2xl overflow-hidden mb-12 h-96"
-              style={{
-                backgroundImage: 'url(https://d2xsxph8kpxj0f.cloudfront.net/310519663504733993/B3RNNJUm56N9pHUdu8Mgo7/ai-systems-bridge-MA44EDT7t9jr9GhFgBX7Pw.webp)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+            <div className="mb-12 p-8 rounded-2xl bg-card border border-border">
+              <HeroSpine />
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -421,8 +416,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Open by Design */}
+      {/* Architecture: Six Pillars */}
       <section id="architecture" className="py-20 md:py-32">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+              The Six Pillars Architecture
+            </h2>
+
+            <p className="text-xl text-muted-foreground mb-12 text-center leading-relaxed">
+              IW_Continuity_Bridge is built on six interconnected pillars, all resting on the canonical context layer—the Spine.
+            </p>
+
+            <div className="mb-12 p-8 rounded-2xl bg-card border border-border">
+              <SpinePillars />
+            </div>
+
+            <div className="floating-card">
+              <h3 className="text-2xl font-bold mb-6 text-coral">The Spine: Canonical Context Layer</h3>
+              <p className="text-lg leading-relaxed mb-6">
+                At the heart of the architecture is the Spine—a persistent, normalized, and governed layer that serves as the single source of truth for organizational context. Every pillar depends on it.
+              </p>
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  { label: "Normalized", desc: "Data flows in, gets transformed to canonical form" },
+                  { label: "Governed", desc: "Every change requires approval and audit trail" },
+                  { label: "Persistent", desc: "Context survives model changes, vendor changes, team changes" }
+                ].map((item, idx) => (
+                  <div key={idx} className="p-4 rounded-lg bg-gradient-to-br from-coral/5 to-transparent border border-coral/20">
+                    <p className="font-bold text-coral mb-2">{item.label}</p>
+                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Open by Design */}
+      <section className="py-20 md:py-32 bg-gradient-to-b from-muted/20 to-background">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
