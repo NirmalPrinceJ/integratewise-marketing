@@ -1,92 +1,46 @@
 {
-  "hosting": [
-    {
-      "site": "integratewise-marketing",
-      "public": ".",
-      "cleanUrls": true,
-      "trailingSlash": false,
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**",
-        "backup/**",
-        "scratch/**",
-        "test-results/**",
-        "playwright-report/**",
-        "tests/**",
-        "docs/**",
-        "sanity/**",
-        "functions/**",
-        "*.md",
-        "package.json",
-        "package-lock.json",
-        "playwright.config.ts",
-        "wrangler.toml",
-        "_headers",
-        "_redirects",
-        "_routes.json"
-      ],
-      "rewrites": [
-        { "source": "**", "destination": "/index.html" }
-      ],
-      "headers": [
-        {
-          "source": "/assets/**",
-          "headers": [
-            { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-          ]
-        },
-        {
-          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|ico)",
-          "headers": [
-            { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-          ]
-        }
-      ]
-    },
-    {
-      "site": "marketing-site-fresh",
-      "public": ".",
-      "cleanUrls": true,
-      "trailingSlash": false,
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**",
-        "backup/**",
-        "scratch/**",
-        "test-results/**",
-        "playwright-report/**",
-        "tests/**",
-        "docs/**",
-        "sanity/**",
-        "functions/**",
-        "*.md",
-        "package.json",
-        "package-lock.json",
-        "playwright.config.ts",
-        "wrangler.toml",
-        "_headers",
-        "_redirects",
-        "_routes.json"
-      ],
-      "rewrites": [
-        { "source": "**", "destination": "/index.html" }
-      ],
-      "headers": [
-        {
-          "source": "/assets/**",
-          "headers": [
-            { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-          ]
-        },
-        {
-          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|ico)",
-          "headers": [
-            { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-          ]
-        }
-      ]
-    }
-  ]
+  "hosting": {
+    "site": "integratewise-marketing",
+    "public": ".",
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "backup/**",
+      "scratch/**",
+      "test-results/**",
+      "playwright-report/**",
+      "tests/**",
+      "docs/**",
+      "sanity/**",
+      "functions/**",
+      "*.md",
+      "package.json",
+      "package-lock.json",
+      "playwright.config.ts",
+      "wrangler.toml",
+      "_headers",
+      "_redirects",
+      "_routes.json"
+    ],
+    "rewrites": [
+      { "source": "**", "destination": "/index.html" }
+    ],
+    "headers": [
+      {
+        "source": "/assets/**",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        ]
+      },
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|ico)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        ]
+      }
+    ]
+  }
 }
