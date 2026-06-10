@@ -1,29 +1,13 @@
 {
   "hosting": {
     "site": "integratewise-marketing",
-    "public": ".",
+    "public": "dist",
     "cleanUrls": true,
     "trailingSlash": false,
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**",
-      "backup/**",
-      "scratch/**",
-      "test-results/**",
-      "playwright-report/**",
-      "tests/**",
-      "docs/**",
-      "sanity/**",
-      "functions/**",
-      "*.md",
-      "package.json",
-      "package-lock.json",
-      "playwright.config.ts",
-      "wrangler.toml",
-      "_headers",
-      "_redirects",
-      "_routes.json"
+      "**/node_modules/**"
     ],
     "rewrites": [
       { "source": "**", "destination": "/index.html" }

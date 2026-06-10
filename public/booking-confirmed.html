@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-77Q6GJTFK0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-77Q6GJTFK0');
+  </script>
+  <title>You're Booked — IntegrateWise</title>
+  <meta name="description" content="Your IntegrateWise demo is confirmed. A calendar invite and confirmation email are on the way." />
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://integratewise.ai/booking-confirmed" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/continuity/styles.css" />
+  <style>
+    .confirm-wrap{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:5rem 1.5rem}
+    .confirm-card{max-width:38rem}
+    .check-badge{width:5rem;height:5rem;border-radius:9999px;background:rgba(184,148,63,0.15);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 1.75rem}
+    .check-badge svg{width:2.25rem;height:2.25rem;color:var(--gold)}
+    .confirm-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.05;color:var(--forest);margin-bottom:1rem;letter-spacing:0.02em}
+    .confirm-sub{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.15rem;color:var(--slate);line-height:1.55;margin-bottom:2rem}
+    .confirm-detail{font-size:0.95rem;color:var(--slate);background:var(--paper-warm);border:1px solid var(--rule);border-radius:0.5rem;padding:1rem 1.25rem;margin-bottom:2rem}
+    .confirm-detail strong{color:var(--ink)}
+    .confirm-next{text-align:left;max-width:28rem;margin:0 auto 2.25rem;list-style:none;display:flex;flex-direction:column;gap:0.65rem}
+    .confirm-next li{display:flex;gap:0.6rem;font-size:0.9rem;color:var(--slate)}
+    .confirm-next li span{color:var(--gold);font-weight:700;flex-shrink:0}
+    /* short demo */
+    .demo-frame{position:relative;display:block;max-width:48rem;margin:0 auto;border-radius:0.75rem;overflow:hidden;border:1px solid var(--rule);box-shadow:0 14px 40px rgba(0,0,0,0.12);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s}
+    .demo-frame:hover{transform:translateY(-3px);box-shadow:0 18px 50px rgba(0,0,0,0.18)}
+    .demo-frame img{display:block;width:100%;height:auto}
+    .demo-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:4.5rem;height:4.5rem;border-radius:9999px;background:rgba(184,148,63,0.95);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,0.3);transition:transform 0.2s}
+    .demo-frame:hover .demo-play-btn{transform:translate(-50%,-50%) scale(1.08)}
+    .demo-play-btn svg{width:1.8rem;height:1.8rem;color:var(--forest);margin-left:3px}
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo-dark.svg" alt="IntegrateWise" onerror="this.style.display='none'">
+    <span>INTEGRATEWISE</span>
+  </a>
+  <div class="nav-links">
+    <a href="/continuity/#why">Why</a>
+    <a href="/continuity/#platform">Platform</a>
+    <a href="/continuity/#solutions">Solutions</a>
+    <a href="/request-access" class="nav-cta">Book a Demo</a>
+  </div>
+</nav>
+
+<section class="confirm-wrap">
+  <div class="confirm-card">
+    <div class="check-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h1 class="confirm-title">YOU'RE BOOKED.</h1>
+    <p class="confirm-sub">Your Continuity briefing is confirmed. We're looking forward to it.</p>
+
+    <div class="confirm-detail" id="confirm-detail">
+      A calendar invite and confirmation email are on their way to your inbox.
+    </div>
+
+    <ul class="confirm-next">
+      <li><span>1</span><div>Check your email for the calendar invite and meeting link.</div></li>
+      <li><span>2</span><div>Add it to your calendar so you don't miss it.</div></li>
+      <li><span>3</span><div>Come with your toughest continuity question — we'll map it live.</div></li>
+    </ul>
+
+    <div class="hero-btns center">
+      <a href="/" class="btn btn-gold">Back to Home</a>
+      <a href="/continuity/" class="btn btn-outline" style="border-color:var(--rule);color:var(--forest)">Explore the Platform →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SHORT DEMO — while you wait -->
+<section class="section section-warm" style="padding-top:3.5rem;padding-bottom:4.5rem">
+  <div class="wrap" style="text-align:center">
+    <span class="label">While You Wait</span>
+    <h2 class="section-title" style="font-size:clamp(1.6rem,3.5vw,2.3rem)">TAKE A 2-MINUTE TOUR</h2>
+    <p class="lead center" style="margin-bottom:2.5rem">Get a head start before your session. Here's the Twin Workbench — where memory, governance, and execution come together.</p>
+    <a href="/workbench" class="demo-frame" aria-label="Watch the Twin Workbench product tour">
+      <img src="/images/twin-workbench.webp" alt="IntegrateWise Twin Workbench — unified surface with threads, knowledge, skills, and automations" loading="lazy" />
+      <span class="demo-play-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6,4 20,12 6,20"/></svg>
+      </span>
+    </a>
+    <div class="hero-btns center" style="margin-top:2rem">
+      <a href="/workbench" class="btn btn-gold">Watch the Product Tour →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bottom" style="border-top:none;padding-top:0">
+    <p>© 2026 IntegrateWise, Inc. · The Continuity Operating System</p>
+    <p><a href="/continuity/security" style="color:var(--forest)">Security</a> · <a href="/continuity/privacy" style="color:var(--forest)">Privacy</a></p>
+  </div>
+</footer>
+
+<script type="text/javascript">
+  // Personalize confirmation using Cal.com redirect query params (when "forward parameters" is enabled)
+  (function () {
+    try {
+      var q = new URLSearchParams(window.location.search);
+      var email = q.get('email') || q.get('attendeeEmail');
+      var name = q.get('name') || q.get('attendeeName');
+      var date = q.get('date') || q.get('startTime') || q.get('start');
+      var el = document.getElementById('confirm-detail');
+      var parts = [];
+      if (name) parts.push('Thanks, <strong>' + escapeHtml(name) + '</strong>.');
+      if (date) {
+        var d = new Date(date);
+        if (!isNaN(d.getTime())) {
+          parts.push('Your session is set for <strong>' + d.toLocaleString(undefined, { weekday:'short', month:'short', day:'numeric', hour:'numeric', minute:'2-digit' }) + '</strong>.');
+        }
+      }
+      if (email) parts.push('A calendar invite and confirmation email are on the way to <strong>' + escapeHtml(email) + '</strong>.');
+      if (parts.length) el.innerHTML = parts.join(' ');
+      // analytics conversion event
+      if (typeof gtag === 'function') gtag('event', 'booking_confirmed', { event_category: 'conversion' });
+    } catch (e) { /* keep default message */ }
+    function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  })();
+</script>
+
+</body>
+</html>

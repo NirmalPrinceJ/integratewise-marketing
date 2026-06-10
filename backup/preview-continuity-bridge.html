@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise AI Capability Fabric — Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --iw-ink: #0C0C0C;
+      --iw-paper: #F4F0E8;
+      --iw-paper-warm: #EBE5D8;
+      --iw-rule: #C4BAA8;
+      --iw-forest: #1A3A2A;
+      --iw-forest-mid: #2D5A3D;
+      --iw-gold: #B8943F;
+      --iw-gold-pale: #F0E0B0;
+      --iw-slate: #1A2E4A;
+      --iw-red: #8B2020;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Instrument Sans', sans-serif;
+      background: var(--iw-paper);
+      color: var(--iw-ink);
+      line-height: 1.6;
+    }
+    .font-display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
+    .font-serif { font-family: 'DM Serif Display', serif; }
+    .font-mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; }
+    .section { padding: 5rem 1.5rem; }
+    @media (min-width: 640px) { .section { padding: 5rem 2rem; } }
+    @media (min-width: 1024px) { .section { padding: 7rem 4rem; } }
+    .max-w-4xl { max-width: 56rem; margin: 0 auto; }
+    .max-w-5xl { max-width: 64rem; margin: 0 auto; }
+    .max-w-3xl { max-width: 48rem; margin: 0 auto; }
+    .max-w-2xl { max-width: 42rem; margin: 0 auto; }
+    .max-w-xl { max-width: 36rem; margin: 0 auto; }
+    .text-center { text-align: center; }
+    .grid { display: grid; gap: 1rem; }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-5 { grid-template-columns: repeat(5, 1fr); }
+    .grid-6 { grid-template-columns: repeat(6, 1fr); }
+    @media (max-width: 1024px) {
+      .grid-3, .grid-5, .grid-6 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .grid-2, .grid-3, .grid-5, .grid-6 { grid-template-columns: 1fr; }
+    }
+    .flex { display: flex; }
+    .flex-wrap { flex-wrap: wrap; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .gap-4 { gap: 1rem; }
+    .gap-6 { gap: 1.5rem; }
+    .gap-8 { gap: 2rem; }
+    .gap-12 { gap: 3rem; }
+    .mt-4 { margin-top: 1rem; }
+    .mt-6 { margin-top: 1.5rem; }
+    .mt-8 { margin-top: 2rem; }
+    .mt-10 { margin-top: 2.5rem; }
+    .mb-2 { margin-bottom: 0.5rem; }
+    .mb-3 { margin-bottom: 0.75rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .mb-8 { margin-bottom: 2rem; }
+    .mb-10 { margin-bottom: 2.5rem; }
+    .mb-12 { margin-bottom: 3rem; }
+    .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+    .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+    .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+    .px-5 { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .px-7 { padding-left: 1.75rem; padding-right: 1.75rem; }
+    .p-4 { padding: 1rem; }
+    .p-6 { padding: 1.5rem; }
+    .p-8 { padding: 2rem; }
+    .p-10 { padding: 2.5rem; }
+    .border { border: 1px solid var(--iw-rule); }
+    .border-b { border-bottom: 1px solid var(--iw-rule); }
+    .border-r { border-right: 1px solid var(--iw-rule); }
+    .border-gold { border-color: var(--iw-gold); }
+    .border-forest-mid { border-color: var(--iw-forest-mid); }
+    .rounded { border-radius: 0.5rem; }
+    .rounded-full { border-radius: 9999px; }
+    .bg-forest { background: var(--iw-forest); }
+    .bg-paper { background: var(--iw-paper); }
+    .bg-paper-warm { background: var(--iw-paper-warm); }
+    .bg-gold { background: var(--iw-gold); }
+    .text-paper { color: var(--iw-paper); }
+    .text-ink { color: var(--iw-ink); }
+    .text-forest { color: var(--iw-forest); }
+    .text-gold { color: var(--iw-gold); }
+    .text-gold-pale { color: var(--iw-gold-pale); }
+    .text-slate { color: var(--iw-slate); }
+    .text-red { color: var(--iw-red); }
+    .text-sm { font-size: 0.875rem; }
+    .text-base { font-size: 1rem; }
+    .text-lg { font-size: 1.125rem; }
+    .text-xl { font-size: 1.25rem; }
+    .text-2xl { font-size: 1.5rem; }
+    .text-3xl { font-size: 1.875rem; }
+    .text-4xl { font-size: 2.25rem; }
+    .text-5xl { font-size: 3rem; }
+    .font-semibold { font-weight: 600; }
+    .leading-relaxed { line-height: 1.625; }
+    .leading-none { line-height: 1; }
+    .italic { font-style: italic; }
+    .uppercase { text-transform: uppercase; }
+    .tracking-widest { letter-spacing: 0.15em; }
+    .opacity-50 { opacity: 0.5; }
+    .opacity-60 { opacity: 0.6; }
+    .opacity-70 { opacity: 0.7; }
+    .opacity-80 { opacity: 0.8; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.75rem 1.5rem; background: var(--iw-gold); color: var(--iw-forest);
+      font-weight: 600; font-size: 0.875rem; border-radius: 9999px;
+      text-decoration: none; transition: all 0.3s;
+    }
+    .btn-primary:hover { background: var(--iw-gold-pale); }
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.75rem 1.5rem; border: 2px solid rgba(244,240,232,0.3); color: var(--iw-paper);
+      font-weight: 600; font-size: 0.875rem; border-radius: 9999px;
+      text-decoration: none; transition: all 0.3s;
+    }
+    .btn-outline:hover { border-color: rgba(244,240,232,0.6); }
+    .btn-outline-dark {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.75rem 1.75rem; border: 2px solid var(--iw-ink); color: var(--iw-ink);
+      font-weight: 600; font-size: 0.875rem; border-radius: 9999px;
+      text-decoration: none; transition: all 0.3s;
+    }
+    .btn-outline-dark:hover { background: var(--iw-ink); color: var(--iw-paper); }
+    .section-label {
+      display: inline-block; font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em;
+      padding: 0.375rem 0.75rem; border-radius: 0.5rem; border: 1px solid var(--iw-rule);
+      color: var(--iw-forest); margin-bottom: 1rem;
+    }
+    .section-label-dark {
+      border-color: rgba(184,148,63,0.4); color: var(--iw-gold-pale);
+    }
+    .icon-circle {
+      width: 3rem; height: 3rem; border-radius: 9999px;
+      background: rgba(26,58,42,0.1); display: flex; align-items: center; justify-content: center;
+    }
+    .icon-circle-gold { background: rgba(244,240,232,0.1); }
+    .icon-circle-gold svg { color: var(--iw-gold); }
+    .icon-circle svg { color: var(--iw-forest); }
+    .hero { min-height: 80vh; display: flex; align-items: center; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    @media (max-width: 1024px) { .two-col { grid-template-columns: 1fr; } }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--iw-rule); }
+    @media (max-width: 768px) { .compare-grid { grid-template-columns: 1fr; } }
+    .svg-placeholder {
+      background: var(--iw-paper-warm); border: 2px solid var(--iw-rule);
+      border-radius: 0.5rem; padding: 2rem; text-align: center;
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem;
+      color: var(--iw-slate); min-height: 300px; display: flex;
+      align-items: center; justify-content: center; flex-direction: column;
+    }
+    .svg-placeholder svg { width: 100%; height: auto; max-width: 600px; margin-bottom: 1rem; }
+    .knowledge-node {
+      display: inline-block; padding: 0.25rem 0.75rem;
+      border: 1px solid var(--iw-rule); border-radius: 0.25rem;
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem;
+      margin: 0.25rem;
+    }
+    .timeline-dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--iw-forest); display: inline-block;
+    }
+    .check { color: var(--iw-gold); font-weight: 600; }
+    .cross { color: var(--iw-red); font-weight: 600; }
+    .sticky-header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(244,240,232,0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--iw-rule); padding: 1rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem;
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--iw-slate); text-decoration: none;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--iw-forest); }
+    .nav-cta {
+      padding: 0.5rem 1.25rem; background: var(--iw-forest); color: var(--iw-paper);
+      font-weight: 600; font-size: 0.75rem; border-radius: 9999px;
+      text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .sticky-header { padding: 1rem; }
+    }
+    .bridge-visual {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; padding: 2rem 0;
+    }
+    .bridge-bank {
+      flex: 1; padding: 1.5rem; border: 2px solid var(--iw-rule);
+      border-radius: 0.5rem; background: var(--iw-paper);
+    }
+    .bridge-bank h4 {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem;
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--iw-slate); margin-bottom: 1rem; text-align: center;
+    }
+    .bridge-center {
+      flex: 1.5; text-align: center;
+    }
+    .bridge-arch {
+      border: 2px solid var(--iw-forest); border-radius: 0.5rem;
+      padding: 1.5rem; background: rgba(26,58,42,0.06);
+      position: relative;
+    }
+    .bridge-arch::before {
+      content: ''; position: absolute; top: -20px; left: 50%;
+      transform: translateX(-50%); width: 60%; height: 20px;
+      border-top: 2px solid var(--iw-forest); border-left: 2px solid var(--iw-forest);
+      border-right: 2px solid var(--iw-forest); border-radius: 30px 30px 0 0;
+      opacity: 0.3;
+    }
+    .bridge-flow-dot {
+      display: inline-block; width: 8px; height: 8px;
+      background: var(--iw-gold); border-radius: 50%;
+      margin: 0 0.25rem;
+    }
+    .tool-tag {
+      display: inline-block; padding: 0.25rem 0.5rem;
+      border: 1px solid var(--iw-rule); border-radius: 0.25rem;
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem;
+      margin: 0.15rem; opacity: 0.6;
+    }
+    .tool-tag.connected {
+      border-color: var(--iw-forest); opacity: 1;
+    }
+    .team-icon {
+      display: inline-block; text-align: center; margin: 0 0.5rem;
+      opacity: 0.5;
+    }
+    .team-icon.persistent { opacity: 1; }
+    .team-icon svg { width: 24px; height: 24px; }
+    .survival-badge {
+      display: inline-block; padding: 0.375rem 1rem;
+      border: 1px solid var(--iw-rule); border-radius: 9999px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem;
+      margin: 0.25rem; opacity: 0.7;
+    }
+    .compounding-bar {
+      display: inline-block; width: 24px; background: rgba(26,58,42,0.08);
+      border-radius: 0.25rem; margin: 0 0.5rem; vertical-align: bottom;
+      border: 1px solid var(--iw-rule);
+    }
+    @media (max-width: 768px) {
+      .bridge-visual { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- STICKY HEADER -->
+<header class="sticky-header">
+  <div style="display:flex;align-items:center;gap:0.75rem;">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.25rem;letter-spacing:0.05em;">
+      <span style="color:var(--iw-ink);">INTEGRATE</span><span style="color:var(--iw-gold);">WISE</span>
+    </div>
+  </div>
+  <nav class="nav-links">
+    <a href="#">Platform</a>
+    <a href="#">Features</a>
+    <a href="#">Solutions</a>
+    <a href="#" class="active">Continuity</a>
+    <a href="#">Pricing</a>
+    <a href="#">About</a>
+    <a href="#" class="nav-cta">Book a Demo</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="section hero bg-forest text-paper">
+  <div class="max-w-4xl text-center">
+    <span class="section-label section-label-dark">Enterprise AI Capability Fabric</span>
+    <h1 class="font-display text-4xl text-paper leading-none" style="margin-top:1.5rem;">
+      THE MISSING LAYER IN ENTERPRISE AI
+    </h1>
+    <p class="font-serif text-lg text-paper opacity-70 mt-6 max-w-2xl mx-auto leading-relaxed italic">
+      One Memory. One Context. One Truth. Across Every AI, Every System, and Every Conversation.
+    </p>
+    <p class="text-sm text-paper opacity-60 mt-5 max-w-xl mx-auto leading-relaxed">
+      Organizations are adopting ChatGPT, Claude, Gemini, Copilot, internal agents, and dozens of AI-powered applications. But every interaction starts over. Enterprise AI Capability Fabric creates the continuity layer that allows humans, AI systems, and enterprise applications to operate from the same organizational reality.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center mt-10">
+      <a href="#" class="btn-primary">Request Demo</a>
+      <a href="#" class="btn-outline">See Architecture →</a>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="section bg-paper">
+  <div class="max-w-4xl mx-auto">
+    <span class="section-label">The Problem</span>
+    <h2 class="font-display text-3xl text-ink mt-4 mb-6">
+      THE AI ERA HAS RECREATED AN OLD PROBLEM
+    </h2>
+    <p class="text-base text-slate leading-relaxed mb-6">
+      Twenty years ago, enterprises struggled with application fragmentation. Every system connected directly to every other system. The result was complexity, duplication, and chaos. Integration platforms and API gateways solved that problem.
+    </p>
+    <p class="text-base text-slate leading-relaxed mb-6">
+      Today, AI is creating the same challenge again. Every AI maintains its own:
+    </p>
+    <div class="grid grid-5 mb-8">
+      <div class="font-mono text-forest border-l-2 border-gold pl-3 py-2">Memory</div>
+      <div class="font-mono text-forest border-l-2 border-gold pl-3 py-2">Context</div>
+      <div class="font-mono text-forest border-l-2 border-gold pl-3 py-2">Understanding</div>
+      <div class="font-mono text-forest border-l-2 border-gold pl-3 py-2">Conversation history</div>
+      <div class="font-mono text-forest border-l-2 border-gold pl-3 py-2">Work state</div>
+    </div>
+    <p class="text-base text-slate leading-relaxed italic">
+      Organizations now have intelligence everywhere, but continuity nowhere.
+    </p>
+  </div>
+</section>
+
+<!-- THE GAP -->
+<section class="section bg-paper-warm">
+  <div class="max-w-4xl mx-auto text-center">
+    <span class="section-label">The Gap</span>
+    <h2 class="font-display text-3xl text-ink mt-4 mb-6">
+      ENTERPRISES HAVE INTEGRATION INFRASTRUCTURE.<br>THEY DON'T HAVE CONTINUITY INFRASTRUCTURE.
+    </h2>
+    <p class="text-base text-slate leading-relaxed max-w-2xl mx-auto mb-10">
+      Modern organizations need more than AI access. They need a layer that exists independently of any model, application, or conversation.
+    </p>
+    <div class="grid grid-2 gap-0 border max-w-3xl mx-auto">
+      <div class="p-8 border-b border-r">
+        <h3 class="font-display text-xl text-ink mb-2">Shared memory</h3>
+        <p class="text-sm text-slate">Knowledge persists across every conversation and system</p>
+      </div>
+      <div class="p-8 border-b">
+        <h3 class="font-display text-xl text-ink mb-2">Shared context</h3>
+        <p class="text-sm text-slate">Work continues when tools, models, or teams change</p>
+      </div>
+      <div class="p-8 border-r">
+        <h3 class="font-display text-xl text-ink mb-2">Shared reasoning</h3>
+        <p class="text-sm text-slate">Organizational thinking compounds over time</p>
+      </div>
+      <div class="p-8">
+        <h3 class="font-display text-xl text-ink mb-2">Shared organizational truth</h3>
+        <p class="text-sm text-slate">One reality. Every participant. Always current.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PRODUCT — CONTINUITY BRIDGE SVG -->
+<section class="section bg-paper">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="section-label">The Product</span>
+      <h2 class="font-display text-3xl text-ink mt-4 mb-6">
+        INTRODUCING IW_CONTINUITY_BRIDGE
+      </h2>
+      <p class="text-base text-slate leading-relaxed max-w-2xl mx-auto">
+        Enterprise AI Capability Fabric is continuity infrastructure for the AI era. It sits between humans, AI systems, enterprise applications, and organizational knowledge — creating a persistent continuity layer that every participant can access.
+      </p>
+    </div>
+
+    <!-- CONTINUITY BRIDGE SVG VISUALIZATION -->
+    <div style="background:var(--iw-paper-warm);border:2px solid var(--iw-rule);border-radius:0.5rem;padding:1.5rem;overflow-x:auto;">
+      <svg viewBox="0 0 840 400" style="width:100%;height:auto;min-width:700px;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>
+            .cb-mono { font-family: 'IBM Plex Mono', monospace; }
+            .cb-display { font-family: 'Bebas Neue', sans-serif; }
+          </style>
+        </defs>
+        <rect width="840" height="400" fill="#F5F0E8" />
+
+        <!-- Title -->
+        <text x="420" y="22" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="9" letter-spacing="0.2em" opacity="0.5">CONTINUITY BRIDGE · KNOWLEDGE SURVIVES CHANGE</text>
+
+        <!-- LEFT BANK: FRAGMENTED -->
+        <text x="130" y="48" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="8" letter-spacing="0.12em" opacity="0.5">BEFORE · FRAGMENTED</text>
+
+        <!-- Scattered tool boxes -->
+        <g opacity="0.45">
+          <rect x="40" y="62" width="52" height="22" rx="3" fill="none" stroke="#1A3A2A" stroke-width="1.3" />
+          <text x="66" y="77" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6">CRM</text>
+        </g>
+        <g opacity="0.45">
+          <rect x="105" y="72" width="48" height="22" rx="3" fill="none" stroke="#1A3A2A" stroke-width="1.3" />
+          <text x="129" y="87" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6">Slack</text>
+        </g>
+        <g opacity="0.45">
+          <rect x="165" y="58" width="50" height="22" rx="3" fill="none" stroke="#1A3A2A" stroke-width="1.3" />
+          <text x="190" y="73" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6">Docs</text>
+        </g>
+        <g opacity="0.45">
+          <rect x="55" y="108" width="46" height="22" rx="3" fill="none" stroke="#1A3A2A" stroke-width="1.3" />
+          <text x="78" y="123" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6">Email</text>
+        </g>
+        <g opacity="0.45">
+          <rect x="120" y="118" width="50" height="22" rx="3" fill="none" stroke="#1A3A2A" stroke-width="1.3" />
+          <text x="145" y="133" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6">Tasks</text>
+        </g>
+        <g opacity="0.45">
+          <rect x="185" y="102" width="44" height="22" rx="3" fill="none" stroke="#1A3A2A" stroke-width="1.3" />
+          <text x="207" y="117" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6">Chat</text>
+        </g>
+
+        <!-- X marks -->
+        <g opacity="0.35">
+          <line x1="92" y1="85" x2="105" y2="98" stroke="#8B2020" stroke-width="1.2" />
+          <line x1="105" y1="85" x2="92" y2="98" stroke="#8B2020" stroke-width="1.2" />
+        </g>
+        <g opacity="0.35">
+          <line x1="153" y1="80" x2="165" y2="93" stroke="#8B2020" stroke-width="1.2" />
+          <line x1="165" y1="80" x2="153" y2="93" stroke="#8B2020" stroke-width="1.2" />
+        </g>
+        <g opacity="0.35">
+          <line x1="101" y1="130" x2="120" y2="143" stroke="#8B2020" stroke-width="1.2" />
+          <line x1="120" y1="130" x2="101" y2="143" stroke="#8B2020" stroke-width="1.2" />
+        </g>
+
+        <!-- Fading team silhouettes -->
+        <g opacity="0.4">
+          <circle cx="75" cy="158" r="5" fill="none" stroke="#1A3A2A" stroke-width="1.2" />
+          <line x1="75" y1="164" x2="75" y2="175" stroke="#1A3A2A" stroke-width="1.2" />
+          <line x1="68" y1="170" x2="82" y2="170" stroke="#1A3A2A" stroke-width="1.2" />
+          <text x="75" y="184" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5" opacity="0.5">Team A</text>
+        </g>
+        <g opacity="0.25">
+          <circle cx="130" cy="158" r="5" fill="none" stroke="#1A3A2A" stroke-width="1.2" />
+          <line x1="130" y1="164" x2="130" y2="175" stroke="#1A3A2A" stroke-width="1.2" />
+          <line x1="123" y1="170" x2="137" y2="170" stroke="#1A3A2A" stroke-width="1.2" />
+          <text x="130" y="184" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5" opacity="0.4">Team B</text>
+        </g>
+        <g opacity="0.15">
+          <circle cx="185" cy="158" r="5" fill="none" stroke="#1A3A2A" stroke-width="1.2" />
+          <line x1="185" y1="164" x2="185" y2="175" stroke="#1A3A2A" stroke-width="1.2" />
+          <line x1="178" y1="170" x2="192" y2="170" stroke="#1A3A2A" stroke-width="1.2" />
+          <text x="185" y="184" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5" opacity="0.3">Team C</text>
+        </g>
+
+        <!-- THE BRIDGE -->
+        <path d="M 260 200 Q 420 80 580 200" fill="none" stroke="#1A3A2A" stroke-width="2.5" opacity="0.15" />
+        <path d="M 260 200 Q 420 80 580 200" fill="none" stroke="#1A3A2A" stroke-width="2" />
+
+        <rect x="250" y="195" width="340" height="28" rx="4" fill="#1A3A2A" opacity="0.06" />
+        <rect x="250" y="195" width="340" height="28" rx="4" fill="none" stroke="#1A3A2A" stroke-width="2" />
+
+        <text x="420" y="214" text-anchor="middle" fill="#1A3A2A" class="cb-display" font-size="16" letter-spacing="0.08em">CONTINUITY BRIDGE</text>
+        <text x="310" y="214" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="7" opacity="0.5">SPINE</text>
+        <text x="530" y="214" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="7" opacity="0.5">MEMORY</text>
+
+        <!-- Flowing dots -->
+        <circle cx="270" cy="209" r="2.5" fill="#B8943F" />
+        <circle cx="300" cy="209" r="2.5" fill="#B8943F" opacity="0.7" />
+        <circle cx="330" cy="209" r="2.5" fill="#B8943F" opacity="0.5" />
+        <circle cx="360" cy="209" r="2.5" fill="#B8943F" opacity="0.7" />
+        <circle cx="390" cy="209" r="2.5" fill="#B8943F" />
+
+        <!-- Bridge supports -->
+        <line x1="290" y1="223" x2="290" y2="245" stroke="#1A3A2A" stroke-width="1.5" opacity="0.3" />
+        <line x1="420" y1="223" x2="420" y2="245" stroke="#1A3A2A" stroke-width="1.5" opacity="0.3" />
+        <line x1="550" y1="223" x2="550" y2="245" stroke="#1A3A2A" stroke-width="1.5" opacity="0.3" />
+
+        <!-- Knowledge nodes -->
+        <g>
+          <circle cx="300" cy="185" r="4" fill="#B8943F" />
+          <rect x="272" y="168" width="56" height="12" rx="2" fill="none" stroke="#1A3A2A" stroke-width="1" opacity="0.5" />
+          <text x="300" y="177" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5">DECISION</text>
+        </g>
+        <g>
+          <circle cx="360" cy="185" r="4" fill="#B8943F" />
+          <rect x="332" y="168" width="56" height="12" rx="2" fill="none" stroke="#1A3A2A" stroke-width="1" opacity="0.5" />
+          <text x="360" y="177" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5">PATTERN</text>
+        </g>
+        <g>
+          <circle cx="420" cy="185" r="4" fill="#B8943F" />
+          <rect x="392" y="168" width="56" height="12" rx="2" fill="none" stroke="#1A3A2A" stroke-width="1" opacity="0.5" />
+          <text x="420" y="177" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5">CONTEXT</text>
+        </g>
+        <g>
+          <circle cx="480" cy="185" r="4" fill="#B8943F" />
+          <rect x="452" y="168" width="56" height="12" rx="2" fill="none" stroke="#1A3A2A" stroke-width="1" opacity="0.5" />
+          <text x="480" y="177" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5">OUTCOME</text>
+        </g>
+        <g>
+          <circle cx="540" cy="185" r="4" fill="#B8943F" />
+          <rect x="512" y="168" width="56" height="12" rx="2" fill="none" stroke="#1A3A2A" stroke-width="1" opacity="0.5" />
+          <text x="540" y="177" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5">LESSON</text>
+        </g>
+
+        <!-- RIGHT BANK: UNIFIED -->
+        <text x="710" y="48" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="8" letter-spacing="0.12em" opacity="0.5">AFTER · UNIFIED</text>
+
+        <rect x="620" y="58" width="180" height="72" rx="4" fill="none" stroke="#1A3A2A" stroke-width="1.8" opacity="0.7" />
+        <rect x="620" y="58" width="180" height="72" rx="4" fill="#1A3A2A" opacity="0.04" />
+
+        <!-- Connected tools inside cluster -->
+        <g opacity="0.7">
+          <rect x="623" y="68" width="44" height="16" rx="2" fill="none" stroke="#1A3A2A" stroke-width="1" />
+          <text x="645" y="80" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5">CRM</text>
+        </g>
+        <g opacity="0.7">
+          <rect x="663" y="68" width="44" height="16" rx="2" fill="none" stroke="#1A3A2A" stroke-width="1" />
+          <text x="685" y="80" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5">Slack</text>
+        </g>
+        <g opacity="0.7">
+          <rect x="703" y="68" width="44" height="16" rx="2" fill="none" stroke="#1A3A2A" stroke-width="1" />
+          <text x="725" y="80" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5">Docs</text>
+        </g>
+        <g opacity="0.7">
+          <rect x="743" y="68" width="44" height="16" rx="2" fill="none" stroke="#1A3A2A" stroke-width="1" />
+          <text x="765" y="80" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5">Email</text>
+        </g>
+        <g opacity="0.7">
+          <rect x="643" y="98" width="44" height="16" rx="2" fill="none" stroke="#1A3A2A" stroke-width="1" />
+          <text x="665" y="110" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5">Tasks</text>
+        </g>
+        <g opacity="0.7">
+          <rect x="683" y="98" width="44" height="16" rx="2" fill="none" stroke="#1A3A2A" stroke-width="1" />
+          <text x="705" y="110" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5">Drive</text>
+        </g>
+        <g opacity="0.7">
+          <rect x="723" y="98" width="44" height="16" rx="2" fill="none" stroke="#1A3A2A" stroke-width="1" />
+          <text x="745" y="110" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5">Chat</text>
+        </g>
+
+        <!-- Connection lines inside cluster -->
+        <line x1="645" y1="85" x2="663" y2="85" stroke="#1A3A2A" stroke-width="1" opacity="0.25" />
+        <line x1="685" y1="85" x2="703" y2="85" stroke="#1A3A2A" stroke-width="1" opacity="0.25" />
+        <line x1="725" y1="85" x2="743" y2="85" stroke="#1A3A2A" stroke-width="1" opacity="0.25" />
+        <line x1="665" y1="100" x2="683" y2="100" stroke="#1A3A2A" stroke-width="1" opacity="0.25" />
+        <line x1="705" y1="100" x2="723" y2="100" stroke="#1A3A2A" stroke-width="1" opacity="0.25" />
+
+        <!-- Persistent teams -->
+        <g opacity="0.8">
+          <circle cx="660" cy="158" r="5" fill="#1A3A2A" />
+          <line x1="660" y1="164" x2="660" y2="175" stroke="#1A3A2A" stroke-width="1.2" />
+          <line x1="653" y1="170" x2="667" y2="170" stroke="#1A3A2A" stroke-width="1.2" />
+          <text x="660" y="184" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5" opacity="0.7">Team D</text>
+        </g>
+        <g opacity="0.8">
+          <circle cx="710" cy="158" r="5" fill="#1A3A2A" />
+          <line x1="710" y1="164" x2="710" y2="175" stroke="#1A3A2A" stroke-width="1.2" />
+          <line x1="703" y1="170" x2="717" y2="170" stroke="#1A3A2A" stroke-width="1.2" />
+          <text x="710" y="184" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5" opacity="0.7">Team E</text>
+        </g>
+        <g opacity="0.8">
+          <circle cx="760" cy="158" r="5" fill="#1A3A2A" />
+          <line x1="760" y1="164" x2="760" y2="175" stroke="#1A3A2A" stroke-width="1.2" />
+          <line x1="753" y1="170" x2="767" y2="170" stroke="#1A3A2A" stroke-width="1.2" />
+          <text x="760" y="184" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="6.5" opacity="0.7">Team F</text>
+        </g>
+
+        <!-- BOTTOM: COMPOUNDING TIMELINE -->
+        <text x="420" y="268" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="8" letter-spacing="0.15em" opacity="0.5">KNOWLEDGE COMPOUNDS OVER TIME</text>
+
+        <line x1="60" y1="290" x2="780" y2="290" stroke="#1A3A2A" stroke-width="2" opacity="0.3" />
+
+        <!-- Timeline nodes -->
+        <g>
+          <circle cx="100" cy="290" r="4" fill="#1A3A2A" opacity="0.2" />
+          <circle cx="100" cy="290" r="4" fill="none" stroke="#1A3A2A" stroke-width="1.5" />
+          <text x="100" y="310" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="7" opacity="0.6">M1</text>
+        </g>
+        <g>
+          <circle cx="220" cy="290" r="5" fill="#1A3A2A" opacity="0.2" />
+          <circle cx="220" cy="290" r="5" fill="none" stroke="#1A3A2A" stroke-width="1.5" />
+          <text x="220" y="310" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="7" opacity="0.6">M3</text>
+        </g>
+        <g>
+          <circle cx="340" cy="290" r="6" fill="#1A3A2A" opacity="0.2" />
+          <circle cx="340" cy="290" r="6" fill="none" stroke="#1A3A2A" stroke-width="1.5" />
+          <text x="340" y="310" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="7" opacity="0.6">M6</text>
+        </g>
+        <g>
+          <circle cx="480" cy="290" r="7" fill="#1A3A2A" opacity="0.2" />
+          <circle cx="480" cy="290" r="7" fill="none" stroke="#1A3A2A" stroke-width="1.5" />
+          <text x="480" y="310" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="7" opacity="0.6">M12</text>
+        </g>
+        <g>
+          <circle cx="620" cy="290" r="8" fill="#1A3A2A" opacity="0.2" />
+          <circle cx="620" cy="290" r="8" fill="none" stroke="#1A3A2A" stroke-width="1.5" />
+          <text x="620" y="310" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="7" opacity="0.6">M18</text>
+        </g>
+        <g>
+          <circle cx="740" cy="290" r="9" fill="#1A3A2A" opacity="0.2" />
+          <circle cx="740" cy="290" r="9" fill="none" stroke="#1A3A2A" stroke-width="1.5" />
+          <text x="740" y="310" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="7" opacity="0.6">M24</text>
+        </g>
+
+        <!-- Knowledge arcs -->
+        <path d="M 100 290 Q 160 260 220 290" fill="none" stroke="#B8943F" stroke-width="1" opacity="0.3" stroke-dasharray="4 4" />
+        <path d="M 220 290 Q 280 250 340 290" fill="none" stroke="#B8943F" stroke-width="1" opacity="0.3" stroke-dasharray="4 4" />
+        <path d="M 340 290 Q 410 240 480 290" fill="none" stroke="#B8943F" stroke-width="1" opacity="0.3" stroke-dasharray="4 4" />
+        <path d="M 480 290 Q 550 230 620 290" fill="none" stroke="#B8943F" stroke-width="1" opacity="0.3" stroke-dasharray="4 4" />
+        <path d="M 620 290 Q 680 220 740 290" fill="none" stroke="#B8943F" stroke-width="1" opacity="0.3" stroke-dasharray="4 4" />
+
+        <!-- Knowledge stack bars -->
+        <rect x="92" y="278" width="16" height="12" rx="2" fill="#1A3A2A" opacity="0.08" />
+        <rect x="212" y="270" width="16" height="20" rx="2" fill="#1A3A2A" opacity="0.08" />
+        <rect x="332" y="260" width="16" height="30" rx="2" fill="#1A3A2A" opacity="0.08" />
+        <rect x="472" y="248" width="16" height="42" rx="2" fill="#1A3A2A" opacity="0.08" />
+        <rect x="612" y="234" width="16" height="56" rx="2" fill="#1A3A2A" opacity="0.08" />
+        <rect x="732" y="218" width="16" height="72" rx="2" fill="#1A3A2A" opacity="0.08" />
+
+        <!-- Survival badges -->
+        <rect x="40" y="330" width="140" height="20" rx="10" fill="#1A3A2A" opacity="0.06" />
+        <rect x="40" y="330" width="140" height="20" rx="10" fill="none" stroke="#1A3A2A" stroke-width="1" opacity="0.3" />
+        <text x="110" y="344" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="7" letter-spacing="0.08em" opacity="0.6">SURVIVES TEAM CHANGES</text>
+
+        <rect x="200" y="330" width="140" height="20" rx="10" fill="#1A3A2A" opacity="0.06" />
+        <rect x="200" y="330" width="140" height="20" rx="10" fill="none" stroke="#1A3A2A" stroke-width="1" opacity="0.3" />
+        <text x="270" y="344" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="7" letter-spacing="0.08em" opacity="0.6">SURVIVES MODEL CHANGES</text>
+
+        <rect x="360" y="330" width="140" height="20" rx="10" fill="#1A3A2A" opacity="0.06" />
+        <rect x="360" y="330" width="140" height="20" rx="10" fill="none" stroke="#1A3A2A" stroke-width="1" opacity="0.3" />
+        <text x="430" y="344" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="7" letter-spacing="0.08em" opacity="0.6">SURVIVES PROVIDER CHANGES</text>
+
+        <rect x="520" y="330" width="140" height="20" rx="10" fill="#1A3A2A" opacity="0.06" />
+        <rect x="520" y="330" width="140" height="20" rx="10" fill="none" stroke="#1A3A2A" stroke-width="1" opacity="0.3" />
+        <text x="590" y="344" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="7" letter-spacing="0.08em" opacity="0.6">SURVIVES TOOL CHANGES</text>
+
+        <rect x="680" y="330" width="140" height="20" rx="10" fill="#1A3A2A" opacity="0.06" />
+        <rect x="680" y="330" width="140" height="20" rx="10" fill="none" stroke="#1A3A2A" stroke-width="1" opacity="0.3" />
+        <text x="750" y="344" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="7" letter-spacing="0.08em" opacity="0.6">SURVIVES STACK CHANGES</text>
+
+        <!-- Bottom tag -->
+        <rect x="220" y="370" width="400" height="18" rx="9" fill="#1A3A2A" opacity="0.04" />
+        <rect x="220" y="370" width="400" height="18" rx="9" fill="none" stroke="#1A3A2A" stroke-width="0.8" opacity="0.2" />
+        <text x="420" y="382" text-anchor="middle" fill="#1A3A2A" class="cb-mono" font-size="7" letter-spacing="0.12em" opacity="0.45">THE BRIDGE IS THE SPINE · KNOWLEDGE COMPOUNDS · NOTHING IS LOST</text>
+      </svg>
+    </div>
+
+    <p class="text-sm text-slate opacity-70 text-center mt-6 max-w-xl mx-auto">
+      Instead of every system operating from its own understanding, every system operates from the same organizational reality.
+    </p>
+  </div>
+</section>
+
+<!-- FOUR DIMENSIONS -->
+<section class="section bg-forest text-paper">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="section-label section-label-dark">What Continuity Means</span>
+      <h2 class="font-display text-3xl text-paper mt-4">FOUR DIMENSIONS OF CONTINUITY</h2>
+    </div>
+    <div class="grid grid-2 gap-0 border border-forest-mid">
+      <div class="p-8 border-b border-r">
+        <div class="icon-circle icon-circle-gold mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 class="font-display text-xl text-paper mb-3">Memory Continuity</h3>
+        <p class="text-sm text-paper opacity-70 leading-relaxed">Knowledge no longer lives inside individual conversations. Decisions, learnings, and organizational intelligence become persistent assets. Every interaction strengthens the same memory foundation.</p>
+      </div>
+      <div class="p-8 border-b">
+        <div class="icon-circle icon-circle-gold mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="font-display text-xl text-paper mb-3">Context Continuity</h3>
+        <p class="text-sm text-paper opacity-70 leading-relaxed">Work no longer resets when tools change. Start in ChatGPT. Continue in Claude. Move to OpenWebUI. Transition to an internal agent. The work continues because the context persists.</p>
+      </div>
+      <div class="p-8 border-r">
+        <div class="icon-circle icon-circle-gold mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <h3 class="font-display text-xl text-paper mb-3">Reasoning Continuity</h3>
+        <p class="text-sm text-paper opacity-70 leading-relaxed">Organizations develop ways of thinking, operating, and making decisions. Those patterns survive model changes, vendor changes, employee turnover, and technology shifts. Organizational reasoning compounds over time.</p>
+      </div>
+      <div class="p-8">
+        <div class="icon-circle icon-circle-gold mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 class="font-display text-xl text-paper mb-3">Execution Continuity</h3>
+        <p class="text-sm text-paper opacity-70 leading-relaxed">Workflows, tasks, approvals, and actions maintain state across systems. The organization continues the work — not the tool. Nothing is lost when you switch platforms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE CONTINUITY SPINE -->
+<section class="section bg-paper">
+  <div class="max-w-4xl mx-auto">
+    <span class="section-label">The Architecture</span>
+    <h2 class="font-display text-3xl text-ink mt-4 mb-6">THE CONTINUITY SPINE</h2>
+    <p class="text-base text-slate leading-relaxed mb-10 max-w-2xl">
+      At the center of Enterprise AI Capability Fabric is the Continuity Spine — a persistent organizational layer responsible for memory, context, knowledge, capabilities, policies, and governance.
+    </p>
+    <div class="grid grid-3 gap-0 border">
+      <div class="p-8 border-b border-r">
+        <span class="font-mono text-gold mb-3 block">01</span>
+        <h3 class="font-display text-xl text-ink mb-2">Memory</h3>
+        <p class="text-sm text-slate">Persistent organizational knowledge that survives any conversation or system change.</p>
+      </div>
+      <div class="p-8 border-b border-r">
+        <span class="font-mono text-gold mb-3 block">02</span>
+        <h3 class="font-display text-xl text-ink mb-2">Context</h3>
+        <p class="text-sm text-slate">Shared operational reality that every AI and human operates from.</p>
+      </div>
+      <div class="p-8 border-b">
+        <span class="font-mono text-gold mb-3 block">03</span>
+        <h3 class="font-display text-xl text-ink mb-2">Knowledge</h3>
+        <p class="text-sm text-slate">Institutional intelligence that compounds with every interaction.</p>
+      </div>
+      <div class="p-8 border-r">
+        <span class="font-mono text-gold mb-3 block">04</span>
+        <h3 class="font-display text-xl text-ink mb-2">Capabilities</h3>
+        <p class="text-sm text-slate">Skills and functions that can be invoked by any connected system.</p>
+      </div>
+      <div class="p-8 border-r">
+        <span class="font-mono text-gold mb-3 block">05</span>
+        <h3 class="font-display text-xl text-ink mb-2">Policies</h3>
+        <p class="text-sm text-slate">Governance rules that apply universally across all participants.</p>
+      </div>
+      <div class="p-8">
+        <span class="font-mono text-gold mb-3 block">06</span>
+        <h3 class="font-display text-xl text-ink mb-2">Governance</h3>
+        <p class="text-sm text-slate">Human approval, audit trails, and control over every action.</p>
+      </div>
+    </div>
+    <p class="text-sm text-slate opacity-70 mt-6 text-center max-w-xl mx-auto">
+      Every AI, application, and user interacts through the same continuity foundation. Fragmented interactions become continuous organizational intelligence.
+    </p>
+  </div>
+</section>
+
+<!-- ORGANIZATIONAL TWIN -->
+<section class="section bg-paper-warm">
+  <div class="max-w-4xl mx-auto">
+    <div class="two-col">
+      <div>
+        <span class="section-label">The Twin</span>
+        <h2 class="font-display text-3xl text-ink mt-4 mb-4">THE ORGANIZATIONAL TWIN</h2>
+        <p class="text-base text-slate leading-relaxed mb-6">
+          Continuity creates something larger: an Organizational Twin. A persistent digital representation of how the organization thinks, operates, decides, and executes.
+        </p>
+        <p class="text-base text-slate leading-relaxed mb-6">
+          The Twin continuously learns from conversations, meetings, decisions, documents, systems, and operational activity — creating a living organizational intelligence layer.
+        </p>
+        <a href="#" class="btn-primary" style="background:var(--iw-forest);color:var(--iw-paper);">Explore the Digital Twin →</a>
+      </div>
+      <div class="border p-8 bg-paper">
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div class="icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div><span class="font-mono text-gold">Conversations</span><p class="text-sm text-slate">Every dialogue enriches shared memory</p></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div class="icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div><span class="font-mono text-gold">Meetings</span><p class="text-sm text-slate">Decisions and outcomes persist</p></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div class="icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div><span class="font-mono text-gold">Decisions</span><p class="text-sm text-slate">Reasoning becomes reusable precedent</p></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div class="icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+            <div><span class="font-mono text-gold">Documents</span><p class="text-sm text-slate">Knowledge extracted and connected</p></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div class="icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg></div>
+            <div><span class="font-mono text-gold">Systems</span><p class="text-sm text-slate">Operational data feeds the Twin</p></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div class="icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+            <div><span class="font-mono text-gold">Activity</span><p class="text-sm text-slate">Real-time learning from every action</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE CONTINUITY -->
+<section class="section bg-forest text-paper">
+  <div class="max-w-4xl mx-auto">
+    <span class="section-label section-label-dark">Voice</span>
+    <h2 class="font-display text-3xl text-paper mt-4 mb-6">VOICE IS JUST THE ENTRY POINT</h2>
+    <p class="text-base text-paper opacity-70 leading-relaxed mb-8 max-w-2xl">
+      Most voice systems focus on speech: speech-to-text, text-to-speech, voice assistants. IW approaches voice differently.
+    </p>
+    <div class="border border-forest-mid p-10 max-w-3xl">
+      <h3 class="font-display text-2xl text-gold mb-4">Voice Continuity</h3>
+      <p class="text-base text-paper opacity-80 leading-relaxed mb-4">
+        When someone speaks, the organization should remember. Voice becomes an interface into shared memory, context, and organizational intelligence.
+      </p>
+      <p class="text-base text-paper opacity-80 leading-relaxed italic">
+        The conversation doesn't start. It continues.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN BY DESIGN -->
+<section class="section bg-paper">
+  <div class="max-w-4xl mx-auto text-center">
+    <span class="section-label">Open by Design</span>
+    <h2 class="font-display text-3xl text-ink mt-4 mb-6">MODEL AGNOSTIC. VENDOR INDEPENDENT.</h2>
+    <p class="text-base text-slate leading-relaxed max-w-2xl mx-auto mb-10">
+      Enterprise AI Capability Fabric is designed to work across every AI system you use today — and the ones you will adopt tomorrow.
+    </p>
+    <div class="grid grid-6 gap-4 max-w-4xl mx-auto">
+      <div class="p-4 border"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin:0 auto 0.5rem;color:var(--iw-forest);"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="font-mono text-forest">ChatGPT</span></div>
+      <div class="p-4 border"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin:0 auto 0.5rem;color:var(--iw-forest);"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="font-mono text-forest">Claude</span></div>
+      <div class="p-4 border"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin:0 auto 0.5rem;color:var(--iw-forest);"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="font-mono text-forest">Gemini</span></div>
+      <div class="p-4 border"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin:0 auto 0.5rem;color:var(--iw-forest);"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="font-mono text-forest">Open-source</span></div>
+      <div class="p-4 border"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin:0 auto 0.5rem;color:var(--iw-forest);"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="font-mono text-forest">OpenWebUI</span></div>
+      <div class="p-4 border"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin:0 auto 0.5rem;color:var(--iw-forest);"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="font-mono text-forest">Enterprise</span></div>
+    </div>
+    <p class="text-sm text-slate opacity-70 mt-8 max-w-xl mx-auto">
+      Organizations remain independent of any single vendor while preserving continuity across all of them.
+    </p>
+  </div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section class="section bg-paper-warm">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="section-label">Why It Matters</span>
+      <h2 class="font-display text-3xl text-ink mt-4">WITHOUT CONTINUITY VS. WITH CONTINUITY</h2>
+    </div>
+    <div class="compare-grid">
+      <div class="p-10" style="border-bottom:1px solid var(--iw-rule);border-right:1px solid var(--iw-rule);">
+        <h3 class="font-display text-xl text-red mb-6">Without Continuity</h3>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="display:flex;align-items:flex-start;gap:0.75rem;"><span class="cross">×</span><p class="text-sm text-slate">More AI creates more fragmentation</p></div>
+          <div style="display:flex;align-items:flex-start;gap:0.75rem;"><span class="cross">×</span><p class="text-sm text-slate">More conversations create more knowledge loss</p></div>
+          <div style="display:flex;align-items:flex-start;gap:0.75rem;"><span class="cross">×</span><p class="text-sm text-slate">More tools create more silos</p></div>
+          <div style="display:flex;align-items:flex-start;gap:0.75rem;"><span class="cross">×</span><p class="text-sm text-slate">Every model switch resets context</p></div>
+          <div style="display:flex;align-items:flex-start;gap:0.75rem;"><span class="cross">×</span><p class="text-sm text-slate">Employee turnover erases institutional memory</p></div>
+          <div style="display:flex;align-items:flex-start;gap:0.75rem;"><span class="cross">×</span><p class="text-sm text-slate">Organizations rebuild the same understanding repeatedly</p></div>
+        </div>
+      </div>
+      <div class="p-10">
+        <h3 class="font-display text-xl text-forest mb-6">With Continuity</h3>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="display:flex;align-items:flex-start;gap:0.75rem;"><span class="check">✓</span><p class="text-sm text-slate">More AI creates more organizational intelligence</p></div>
+          <div style="display:flex;align-items:flex-start;gap:0.75rem;"><span class="check">✓</span><p class="text-sm text-slate">More conversations strengthen memory</p></div>
+          <div style="display:flex;align-items:flex-start;gap:0.75rem;"><span class="check">✓</span><p class="text-sm text-slate">More interactions improve understanding</p></div>
+          <div style="display:flex;align-items:flex-start;gap:0.75rem;"><span class="check">✓</span><p class="text-sm text-slate">Model switches preserve full context</p></div>
+          <div style="display:flex;align-items:flex-start;gap:0.75rem;"><span class="check">✓</span><p class="text-sm text-slate">Employee turnover preserves institutional knowledge</p></div>
+          <div style="display:flex;align-items:flex-start;gap:0.75rem;"><span class="check">✓</span><p class="text-sm text-slate">Knowledge compounds instead of disappearing</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR VISION -->
+<section class="section bg-forest text-paper">
+  <div class="max-w-4xl mx-auto">
+    <span class="section-label section-label-dark">Our Vision</span>
+    <h2 class="font-display text-3xl text-paper mt-4 mb-8">THE FUTURE IS CONTINUOUS INTELLIGENCE</h2>
+    <p class="text-base text-paper opacity-70 leading-relaxed mb-10 max-w-2xl">
+      The future is not AI assistants. The future is continuous intelligence. A world where:
+    </p>
+    <div class="grid grid-2 gap-0 border border-forest-mid max-w-3xl">
+      <div class="p-6 border-b border-r"><span class="font-mono text-gold mb-2 block">01</span><p class="text-sm text-paper opacity-80">Organizations never lose context</p></div>
+      <div class="p-6 border-b"><span class="font-mono text-gold mb-2 block">02</span><p class="text-sm text-paper opacity-80">Knowledge compounds automatically</p></div>
+      <div class="p-6 border-b border-r"><span class="font-mono text-gold mb-2 block">03</span><p class="text-sm text-paper opacity-80">AI systems share organizational understanding</p></div>
+      <div class="p-6 border-b"><span class="font-mono text-gold mb-2 block">04</span><p class="text-sm text-paper opacity-80">Work persists across tools and conversations</p></div>
+      <div class="p-6 border-r"><span class="font-mono text-gold mb-2 block">05</span><p class="text-sm text-paper opacity-80">Intelligence becomes an organizational asset</p></div>
+      <div class="p-6"><span class="font-mono text-gold mb-2 block">06</span><p class="text-sm text-paper opacity-80">Every interaction makes the organization smarter</p></div>
+    </div>
+    <div class="mt-10 p-6 border border-forest-mid max-w-3xl">
+      <p class="text-sm text-paper opacity-60 leading-relaxed italic">
+        Just as API gateways became essential infrastructure for the application era, continuity infrastructure will become essential infrastructure for the AI era.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="section bg-paper">
+  <div class="max-w-2xl mx-auto text-center">
+    <h2 class="font-display text-3xl text-ink mb-4">
+      AI CREATES INTELLIGENCE.<br>CONTINUITY MAKES IT PERSISTENT.
+    </h2>
+    <p class="text-base text-slate leading-relaxed mb-8">
+      Enterprise AI Capability Fabric transforms disconnected conversations, systems, and AI models into a continuously learning organizational intelligence layer.
+    </p>
+    <p class="font-serif text-lg text-forest italic mb-10">
+      One Memory. One Context. One Truth.<br>
+      Across Every AI. Every System. Every Conversation.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="#" class="btn-primary">Request Demo →</a>
+      <a href="#" class="btn-outline-dark">See Architecture</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid var(--iw-rule);padding:2rem;text-align:center;">
+  <p class="font-mono text-slate opacity-50" style="font-size:0.65rem;">© 2026 INTEGRATEWISE · IW_CONTINUITY_BRIDGE</p>
+</footer>
+
+</body>
+</html>
