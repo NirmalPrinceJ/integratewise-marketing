@@ -7,3 +7,6 @@ node_modules/
 .wrangler/
 dist/
 v64_source_temp/
+
+# Firebase
+.firebase/
