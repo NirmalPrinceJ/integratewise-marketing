@@ -43,7 +43,7 @@ export default function SpinePillars() {
       <line x1="390" y1="175" x2="200" y2="95" stroke="#1A3A2A" strokeWidth="1.2" strokeDasharray="4 3" opacity="0.35" className="connect-line" />
       {/* Top-right: Memory */}
       <line x1="510" y1="175" x2="700" y2="95" stroke="#1A3A2A" strokeWidth="1.2" strokeDasharray="4 3" opacity="0.35" className="connect-line" />
-      {/* Middle-left: Operating Environment */}
+      {/* Middle-left: Follow-Through */}
       <line x1="365" y1="220" x2="120" y2="220" stroke="#1A3A2A" strokeWidth="1.2" strokeDasharray="4 3" opacity="0.35" className="connect-line" />
       {/* Middle-right: Governance */}
       <line x1="535" y1="220" x2="780" y2="220" stroke="#1A3A2A" strokeWidth="1.2" strokeDasharray="4 3" opacity="0.35" className="connect-line" />
@@ -75,13 +75,13 @@ export default function SpinePillars() {
         <text x="700" y="108" textAnchor="middle" fill="#1A3A2A" className="body-text" fontSize="6.5" opacity="0.6">Memory makes the Twin adaptive, not stateless.</text>
       </g>
 
-      {/* === PILLAR 3: OPERATING ENVIRONMENT (Middle Left) === */}
+      {/* === PILLAR 3: FOLLOW-THROUGH (Middle Left) === */}
       <g className="pillar">
         <rect x="20" y="164" width="260" height="72" rx="4" fill="none" stroke="#1A3A2A" strokeWidth="1.8" />
         <rect x="20" y="164" width="260" height="72" rx="4" fill="#1A3A2A" opacity="0.04" />
         <rect x="30" y="156" width="140" height="16" rx="8" fill="#F5F0E8" />
         <text x="100" y="168" textAnchor="middle" fill="#1A3A2A" className="body-text" fontSize="7.5" letterSpacing="0.15em" opacity="0.6">PILLAR 04</text>
-        <text x="150" y="190" textAnchor="middle" fill="#1A3A2A" className="pillar-label" fontSize="14">OPERATING ENVIRONMENT</text>
+        <text x="150" y="190" textAnchor="middle" fill="#1A3A2A" className="pillar-label" fontSize="14">FOLLOW-THROUGH</text>
         <text x="150" y="207" textAnchor="middle" fill="#1A3A2A" className="body-text" fontSize="6.5" opacity="0.6">Model-agnostic. ADK · MCP · Loader · Normalizer · Spine.</text>
         <text x="150" y="220" textAnchor="middle" fill="#1A3A2A" className="body-text" fontSize="6.5" opacity="0.6">AI proposes. Never executes blindly.</text>
       </g>

@@ -11,7 +11,7 @@ const principles = [
 ];
 
 export default function Governance() {
-  useSeo("Governance | IntegrateWise", "Nothing happens without your approval. Full audit trails, human-in-the-loop approval, and complete visibility into every action.");
+  useSeo("Governance | IntegrateWise", "It asks before it acts. After being burned by AI that did the wrong thing confidently, this is how you get control back: nothing happens without your approval.");
 
   return (
     <div>
@@ -19,7 +19,7 @@ export default function Governance() {
         <div className="max-w-4xl">
           <SectionLabel label="Governance" />
           <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">YOU ARE IN CONTROL. ALWAYS.</h1>
-          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">AI should assist, not replace, human judgment. Every action carries an audit trail. Every decision requires your approval. Every data source is visible.</p>
+          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">You were burned by AI that did the wrong thing — confidently. So control is the whole point here: it proposes, you decide. Every action carries an audit trail, every decision needs your approval, every source is visible.</p>
         </div>
       </section>
 

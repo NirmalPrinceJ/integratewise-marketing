@@ -10,15 +10,15 @@ const views = [
 ];
 
 export default function Workbench() {
-  useSeo("Workbench | IntegrateWise", "One workspace for everything. Switch between views, not tools. Your CRM, support, billing, and projects — all in one connected surface.");
+  useSeo("Workbench | IntegrateWise", "Stop being the integration between your own tools. One surface where everything — and your AI — already shares the same context.");
 
   return (
     <div>
       <section className="pt-32 pb-16 section-padding">
         <div className="max-w-4xl">
           <SectionLabel label="One Surface" />
-          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">ONE WORKSPACE. EVERYTHING CONNECTED.</h1>
-          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">Stop switching between tabs. Your workbench brings every tool into one surface — so you can focus on work, not on finding things.</p>
+          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">STOP BEING THE GLUE BETWEEN YOUR TOOLS.</h1>
+          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">You became the integration. You copy-paste from Salesforce into Slack, summarise threads into the CRM, re-paste context into a fresh AI chat every morning. The workbench ends that — every tool, and your Twin, working from one shared context.</p>
         </div>
       </section>
 

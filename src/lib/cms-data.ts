@@ -259,7 +259,7 @@ const localResources: ResourceItem[] = [
   { _id: 'r2', title: 'Account Success Playbook', description: 'Step-by-step playbook for managing renewals and spotting churn risk', resourceType: 'guide', category: 'Playbooks', link: '/solutions', publishedAt: '2026-06-01', featured: true },
   { _id: 'r3', title: 'Governance Configuration Guide', description: 'How to set up approval workflows and audit trails for your team', resourceType: 'documentation', category: 'Governance', link: '/governance', publishedAt: '2026-06-01', featured: true },
   { _id: 'r4', title: 'Integration Setup: Salesforce', description: 'Connect Salesforce in under 5 minutes with our step-by-step guide', resourceType: 'guide', category: 'Integrations', link: '/integrations', publishedAt: '2026-06-01', featured: false },
-  { _id: 'r5', title: 'Product Walkthrough Video', description: 'See IntegrateWise in action — 10-minute overview of the full platform', resourceType: 'video', category: 'Walkthroughs', link: 'https://calendar.app.google/EcRkSqxwtchuF4Qf6', externalLink: true, publishedAt: '2026-06-01', featured: false },
+  { _id: 'r5', title: 'Product Walkthrough Video', description: 'See IntegrateWise in action — 10-minute overview of the full product', resourceType: 'video', category: 'Walkthroughs', link: 'https://calendar.app.google/EcRkSqxwtchuF4Qf6', externalLink: true, publishedAt: '2026-06-01', featured: false },
   { _id: 'r6', title: 'Team Handover Template', description: 'Standard template for capturing context when team members transition', resourceType: 'template', category: 'Templates', publishedAt: '2026-06-01', featured: false },
 ];
 

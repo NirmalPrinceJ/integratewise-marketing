@@ -4,22 +4,22 @@ import { useSeo } from '../hooks/useSeo';
 
 const capabilities = [
   { icon: Brain, title: 'Knows Your Business', desc: 'Your Twin reads from the same connected data you do. It understands relationships, history, and context across every tool.' },
-  { icon: Sparkles, title: 'Evidence-Backed Answers', desc: 'Every recommendation your Twin makes carries evidence. You can trace any insight back to its source.' },
+  { icon: Sparkles, title: 'Does Not Make Things Up', desc: 'Every answer is grounded in your verified data and carries its evidence. You can trace any insight back to its source.' },
   { icon: MessageSquare, title: 'Natural Conversations', desc: 'Ask questions in plain English. Your Twin translates your intent into queries across all your connected tools.' },
-  { icon: Clock, title: 'Remembers Over Time', desc: 'The longer you use it, the smarter it gets. Your Twin builds a living memory of decisions, patterns, and outcomes.' },
+  { icon: Clock, title: 'Never Makes You Repeat Yourself', desc: 'Tell it once and it holds — decisions, patterns, and context persist across sessions, tools, and other AIs.' },
   { icon: ShieldCheck, title: 'Proposes, Never Assumes', desc: 'Your Twin recommends actions but never executes without your approval. You are always in control.' },
 ];
 
 export default function Twin() {
-  useSeo("Digital Twin | IntegrateWise", "Your AI companion that knows your business. Evidence-backed answers, natural conversations, and a memory that grows over time.");
+  useSeo("Digital Twin | IntegrateWise", "A chatbot forgets you the moment you close the tab. Your Twin remembers what you told it, follows through on the work, and never makes things up.");
 
   return (
     <div>
       <section className="pt-32 pb-16 section-padding">
         <div className="max-w-4xl">
           <SectionLabel label="Digital Twin" />
-          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">YOUR AI COMPANION THAT KNOWS YOUR BUSINESS</h1>
-          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">Most AI tools are generic. Your Digital Twin is personal. It learns your business, remembers your decisions, and gives you answers backed by evidence from your actual tools.</p>
+          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">THE AI THAT REMEMBERS — AND FINISHES THE WORK</h1>
+          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">A chatbot answers a question and forgets you the moment you close the tab. Your Twin is different: it remembers what you told it, grounds every answer in your real data, and follows the work through to the end — then comes back tomorrow still knowing your business.</p>
         </div>
       </section>
 

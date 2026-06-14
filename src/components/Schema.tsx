@@ -8,7 +8,7 @@ export function OrganizationSchema() {
       name: 'IntegrateWise',
       url: 'https://integratewise.ai',
       logo: 'https://integratewise.ai./images/logo-dark.png',
-      description: 'One connected workspace for humans and their Digital Twin — with shared memory, governance, and continuity across every tool, AI, and operation.',
+      description: 'AI that remembers what you told it, follows through on the work, and never makes things up — across every tool, AI, and session.',
       sameAs: [
         'https://linkedin.com/company/integratewise',
       ],
@@ -39,7 +39,7 @@ export function SoftwareApplicationSchema() {
       '@type': 'SoftwareApplication',
       name: 'IntegrateWise',
       applicationCategory: 'BusinessApplication',
-      description: 'A continuity operating system that connects your CRM, support desk, billing, and AI agents into one unified workspace with shared memory and governance.',
+      description: 'AI that remembers what you told it, follows through on the work, and never makes things up — your tools, memory, and governance in one connected workspace.',
       offers: {
         '@type': 'Offer',
         price: '49',

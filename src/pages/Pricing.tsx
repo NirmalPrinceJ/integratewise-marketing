@@ -83,7 +83,7 @@ export default function Pricing() {
       <section className="pt-32 pb-16 section-padding">
         <div className="max-w-4xl">
           <SectionLabel label="Pricing" />
-          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">PAY FOR SCOPE. NOT COMPLEXITY.</h1>
+          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">TRUST RESTORED. PRICED BY SCOPE.</h1>
           <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">Account Success starts at $49 per user per month. Business Operations at $89. No hidden fees. No usage limits. Governance and your Digital Twin are included in every tier.</p>
         </div>
       </section>

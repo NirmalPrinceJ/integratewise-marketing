@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Linkedin, Twitter } from 'lucide-react';
 
 const productLinks = [
-  { label: 'Platform', href: '/platform' },
+  { label: 'How It Works', href: '/platform' },
   { label: 'Features', href: '/features' },
   { label: 'Architecture', href: '/architecture' },
   { label: 'Governance', href: '/governance' },
@@ -48,7 +48,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="font-iw-sans text-sm text-iw-paper/60 leading-relaxed max-w-xs mb-6">
-              One connected workspace for humans and their Digital Twin.
+              AI that doesn't forget what you told it — and finishes what you started.
             </p>
             <div className="flex items-center gap-4">
               <a href="https://linkedin.com/company/integratewise" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-iw-paper/20 flex items-center justify-center text-iw-paper/50 hover:text-iw-paper transition-colors" aria-label="LinkedIn">

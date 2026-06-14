@@ -12,15 +12,15 @@ const solutions = [
 ];
 
 export default function Solutions() {
-  useSeo("Solutions | IntegrateWise", "Account Success, Business Operations, Team Handovers, Documentation, and AI-Assisted Workflows. All powered by the Spine.");
+  useSeo("Solutions | IntegrateWise", "Same demotion, different desk. Whatever the job, AI that remembers what you told it, finishes the work, and asks before it acts.");
 
   return (
     <div>
       <section className="pt-32 pb-16 section-padding">
         <div className="max-w-4xl">
           <SectionLabel label="Solutions" />
-          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">FIVE PROBLEMS. ONE ANSWER.</h1>
-          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">Every growing team faces these challenges. IntegrateWise solves them with one approach: connect your tools, power your AI with context, and keep humans in control.</p>
+          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">SAME DEMOTION. DIFFERENT DESK.</h1>
+          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">Founder, head of sales, ops lead — different jobs, same story. They tried AI, believed in it, and got burned when it forgot, drifted, or made things up. Every solution below restores the same four things: memory, follow-through, grounded answers, and your approval.</p>
         </div>
       </section>
       <section className="section-padding-y border-t border-iw-paper-deep">
@@ -46,7 +46,7 @@ export default function Solutions() {
       </section>
       <section className="section-padding-y bg-iw-forest text-iw-paper">
         <div className="section-padding text-center max-w-2xl mx-auto">
-          <h2 className="editorial-heading text-2xl sm:text-3xl text-iw-paper mb-4">WHICH SOLUTION DO YOU NEED FIRST?</h2>
+          <h2 className="editorial-heading text-2xl sm:text-3xl text-iw-paper mb-4">WHERE DID AI LET YOU DOWN FIRST?</h2>
           <p className="font-iw-sans text-base text-iw-paper/70 leading-relaxed mb-8">Talk to us. No sales script. Just a conversation about your operational reality.</p>
           <a href="https://calendar.app.google/EcRkSqxwtchuF4Qf6" className="inline-flex items-center justify-center px-6 py-3 bg-iw-paper text-iw-forest font-iw-sans font-semibold text-sm rounded-full hover:bg-iw-gold-pale">Book a Demo <ArrowRight size={16} className="ml-2" /></a>
         </div>

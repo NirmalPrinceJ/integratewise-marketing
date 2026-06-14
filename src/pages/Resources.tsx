@@ -5,15 +5,15 @@ import { useSeo } from '../hooks/useSeo';
 import { blogPosts } from '../data/blog';
 
 const categories = [
-  { icon: BookOpen, title: 'Blog', desc: 'Thoughts on connected work, AI governance, and the future of business operations.', href: '/blog', count: '6 posts' },
+  { icon: BookOpen, title: 'Blog', desc: 'Thoughts on trust in AI, why people demoted it, and how to earn it back.', href: '/blog', count: '6 posts' },
   { icon: FileText, title: 'Case Studies', desc: 'See how teams use IntegrateWise to connect their tools and power their Digital Twin.', href: '/case-study', count: '3 studies' },
-  { icon: Video, title: 'Video Guides', desc: 'Walkthroughs of the platform, features, and best practices for getting started.', href: '/docs', count: 'Coming soon' },
+  { icon: Video, title: 'Video Guides', desc: 'Walkthroughs of the product, features, and best practices for getting started.', href: '/docs', count: 'Coming soon' },
   { icon: Wrench, title: 'Documentation', desc: 'Technical docs, API references, and integration guides for developers.', href: '/docs', count: 'Available' },
   { icon: Newspaper, title: 'Press & Media', desc: 'Company news, media mentions, and press kit.', href: '/about', count: 'Coming soon' },
 ];
 
 export default function Resources() {
-  useSeo("Resources | IntegrateWise", "Blog, case studies, documentation, and video guides. Everything you need to understand IntegrateWise and get the most from your connected workspace.");
+  useSeo("Resources | IntegrateWise", "Blog, case studies, documentation, and video guides. Everything you need to understand IntegrateWise and the AI you were promised the first time.");
 
   const latestPosts = blogPosts.slice(0, 3);
 
@@ -23,7 +23,7 @@ export default function Resources() {
         <div className="max-w-4xl">
           <SectionLabel label="Resources" />
           <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">EVERYTHING YOU NEED TO KNOW.</h1>
-          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">Blog posts, case studies, documentation, and video guides. Learn how connected work changes everything.</p>
+          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">Blog posts, case studies, documentation, and video guides. Learn how AI earns your trust back.</p>
         </div>
       </section>
 
