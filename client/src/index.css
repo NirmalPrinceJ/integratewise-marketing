@@ -40,47 +40,65 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-paper-warm: var(--paper-warm);
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
 }
 
 :root {
-  /* Organic Futurism Color Palette */
-  --primary: #2d1b4e;
-  --primary-foreground: #fafaf9;
-  --secondary: #ff6b5b;
-  --secondary-foreground: #fafaf9;
-  --accent: #a8d5ba;
-  --accent-foreground: #1f2937;
+  /* Paper & Forest Color Palette */
+  --ink: #0C0C0C;
+  --paper: #F4F0EB;
+  --paper-warm: #EDE9E2;
+  --forest: #232D42;
+  --forest-deep: #1A2233;
+  --gold: #C9A96E;
+  --gold-light: #DFC28F;
+  --muted: #6B7280;
+  --border-color: #DDD8CF;
+  
+  --primary: #232D42;
+  --primary-foreground: #F4F0EB;
+  --secondary: #C9A96E;
+  --secondary-foreground: #0C0C0C;
+  --accent: #C9A96E;
+  --accent-foreground: #232D42;
   --destructive: #ff6b5b;
   --destructive-foreground: #fafaf9;
-  --ring: #d4af37;
-  --sidebar-primary: #2d1b4e;
-  --sidebar-primary-foreground: #fafaf9;
-  --chart-1: #ff6b5b;
-  --chart-2: #a8d5ba;
-  --chart-3: #d4af37;
-  --chart-4: #2d1b4e;
-  --chart-5: #8b5cf6;
+  --ring: #C9A96E;
+  --sidebar-primary: #232D42;
+  --sidebar-primary-foreground: #F4F0EB;
+  --chart-1: #C9A96E;
+  --chart-2: #232D42;
+  --chart-3: #1A2233;
+  --chart-4: #EDE9E2;
+  --chart-5: #DDD8CF;
   
-  --radius: 0.75rem;
+  --radius: 0.5rem;
   
-  /* Light theme - off-white background */
-  --background: #fafaf9;
-  --foreground: #1f2937;
-  --card: #ffffff;
-  --card-foreground: #1f2937;
-  --popover: #ffffff;
-  --popover-foreground: #1f2937;
-  --muted: #f3f4f6;
-  --muted-foreground: #6b7280;
-  --border: #e5e7eb;
-  --input: #f3f4f6;
+  /* Light theme - paper background */
+  --background: #F4F0EB;
+  --foreground: #0C0C0C;
+  --card: #F4F0EB;
+  --card-foreground: #0C0C0C;
+  --popover: #FFFFFF;
+  --popover-foreground: #0C0C0C;
+  --muted: #EDE9E2;
+  --muted-foreground: #6B7280;
+  --border: #DDD8CF;
+  --input: #EDE9E2;
   
   /* Custom variables for design system */
-  --color-indigo-dark: #2d1b4e;
-  --color-coral: #ff6b5b;
-  --color-sage: #a8d5ba;
-  --color-gold: #d4af37;
-  --color-off-white: #fafaf9;
+  --color-ink: #0C0C0C;
+  --color-paper: #F4F0EB;
+  --color-forest: #232D42;
+  --color-forest-deep: #1A2233;
+  --color-gold: #C9A96E;
+  --color-muted: #6B7280;
   
   /* Animation easings */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
@@ -182,40 +200,24 @@
     }
   }
   
-  /* Organic Futurism Design Components */
+  /* Paper & Forest Design Components */
   
-  /* Wave Divider - creates flowing organic separation */
-  .wave-divider {
-    position: relative;
-    height: 100px;
-    background: linear-gradient(to bottom, transparent, var(--color-off-white));
-    overflow: hidden;
-  }
-  
-  .wave-divider svg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-  }
-  
-  /* Floating card with soft shadow */
+  /* Floating card with subtle shadow */
   .floating-card {
-    @apply rounded-2xl bg-card text-card-foreground p-8;
-    box-shadow: 0 20px 40px rgba(45, 27, 78, 0.08);
-    transition: all 300ms var(--ease-out);
-    border: 1px solid rgba(255, 107, 91, 0.1);
+    @apply rounded-xl bg-card text-card-foreground p-8;
+    box-shadow: 0 2px 8px rgba(12, 12, 12, 0.06);
+    transition: all 200ms var(--ease-out);
+    border: 1px solid var(--border);
   }
   
   .floating-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 30px 60px rgba(45, 27, 78, 0.12);
+    box-shadow: 0 8px 16px rgba(12, 12, 12, 0.1);
+    border-color: var(--color-gold);
   }
   
-  /* Gradient text - warm to cool transition */
+  /* Gradient text - forest to gold */
   .gradient-text {
-    background: linear-gradient(135deg, var(--color-coral) 0%, var(--color-gold) 50%, var(--color-sage) 100%);
+    background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-gold) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -224,7 +226,7 @@
   /* Accent highlight with glow */
   .accent-highlight {
     position: relative;
-    color: var(--color-coral);
+    color: var(--color-gold);
     font-weight: 600;
   }
   
@@ -232,55 +234,43 @@
     content: '';
     position: absolute;
     inset: -2px;
-    background: linear-gradient(135deg, var(--color-coral), var(--color-gold));
-    border-radius: 0.5rem;
-    opacity: 0.1;
+    background: rgba(201, 169, 110, 0.1);
+    border-radius: 0.25rem;
     z-index: -1;
   }
   
-  /* CTA Button - premium styling */
+  /* CTA Button - forest with gold accent */
   .cta-button {
-    @apply px-8 py-4 rounded-full font-semibold text-lg;
-    background: linear-gradient(135deg, var(--color-coral), var(--color-gold));
-    color: white;
+    @apply px-8 py-3 rounded font-semibold text-base;
+    background: var(--color-forest);
+    color: var(--color-paper);
     border: none;
-    transition: all 200ms var(--ease-out);
-    box-shadow: 0 10px 30px rgba(255, 107, 91, 0.3);
+    transition: all 150ms var(--ease-out);
+    box-shadow: 0 4px 12px rgba(35, 45, 66, 0.15);
     position: relative;
-    overflow: hidden;
-  }
-  
-  .cta-button::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--color-gold), var(--color-coral));
-    opacity: 0;
-    transition: opacity 200ms var(--ease-out);
   }
   
   .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 40px rgba(255, 107, 91, 0.4);
+    background: var(--color-forest-deep);
+    box-shadow: 0 6px 16px rgba(35, 45, 66, 0.2);
   }
   
   .cta-button:active {
-    transform: scale(0.97);
+    transform: scale(0.98);
   }
   
   /* Secondary button */
   .secondary-button {
-    @apply px-8 py-4 rounded-full font-semibold text-lg;
+    @apply px-8 py-3 rounded font-semibold text-base;
     background: transparent;
-    color: var(--color-indigo-dark);
-    border: 2px solid var(--color-indigo-dark);
-    transition: all 200ms var(--ease-out);
+    color: var(--color-forest);
+    border: 1.5px solid var(--color-forest);
+    transition: all 150ms var(--ease-out);
   }
   
   .secondary-button:hover {
-    background: var(--color-indigo-dark);
-    color: white;
-    transform: translateY(-2px);
+    background: var(--color-forest);
+    color: var(--color-paper);
   }
   
   /* Section with flowing background */
