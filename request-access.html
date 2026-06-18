@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-77Q6GJTFK0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-77Q6GJTFK0');
+  </script>
+  <title>Book a Live Demo — IntegrateWise</title>
+  <meta name="description" content="Schedule a live demo with the IntegrateWise team. See how the Continuity Operating System preserves organizational memory, governance, and execution." />
+  <link rel="canonical" href="https://integratewise.ai/request-access" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/continuity/styles.css" />
+  <style>
+    .book-split{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:start}
+    @media(min-width:980px){.book-split{grid-template-columns:0.85fr 1.15fr}}
+    .book-points{list-style:none;display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem}
+    .book-points li{display:flex;gap:0.75rem;font-size:0.95rem;color:var(--slate);line-height:1.5}
+    .book-points li b{color:var(--ink)}
+    .book-points li span{color:var(--gold);font-weight:700;flex-shrink:0;font-family:'IBM Plex Mono',monospace}
+    .cal-shell{border:1px solid var(--rule);border-radius:0.75rem;background:#fff;overflow:hidden;min-height:620px;box-shadow:0 10px 30px rgba(0,0,0,0.08)}
+    #cal-inline{width:100%;min-height:620px}
+    .cal-fallback{padding:2.5rem;text-align:center}
+    .cal-fallback h3{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--forest);margin-bottom:0.6rem}
+    .cal-fallback p{font-size:0.9rem;color:var(--slate);margin-bottom:1.5rem}
+    .back-link{display:inline-flex;align-items:center;gap:0.4rem;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--forest);margin-bottom:1.5rem}
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo-dark.svg" alt="IntegrateWise" onerror="this.style.display='none'">
+    <span>INTEGRATEWISE</span>
+  </a>
+  <div class="nav-links">
+    <a href="/continuity/#why">Why</a>
+    <a href="/continuity/#platform">Platform</a>
+    <a href="/continuity/#solutions">Solutions</a>
+    <a href="/request-access" class="nav-cta">Book a Demo</a>
+  </div>
+</nav>
+
+<section class="section section-paper" style="padding-top:3rem">
+  <div class="wrap">
+    <a href="/" class="back-link">← Back to home</a>
+    <div class="book-split">
+      <div>
+        <span class="label">Book a Live Demo</span>
+        <h1 class="section-title" style="font-size:clamp(1.9rem,4.5vw,2.8rem)">SEE CONTINUITY<br>IN ACTION</h1>
+        <p class="lead" style="margin-bottom:0.5rem">A 30-minute working session with our team — not a sales pitch. Pick a time and you'll get an instant calendar invite and confirmation email.</p>
+        <ul class="book-points">
+          <li><span>01</span><div><b>Map your continuity gaps</b> — where context dies across time, people, and systems.</div></li>
+          <li><span>02</span><div><b>See the Spine &amp; Memory</b> — how organizational intelligence is captured and owned.</div></li>
+          <li><span>03</span><div><b>Meet your Twin</b> — the persistent counterpart, governed by humans.</div></li>
+          <li><span>04</span><div><b>Watch the Continuity Bridge</b> — reasoning become coordinated, audited action.</div></li>
+        </ul>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--slate);margin-top:2rem;opacity:0.8">A confirmation email is sent automatically when you book.</p>
+      </div>
+
+      <div class="cal-shell">
+        <div id="cal-inline"></div>
+        <div class="cal-fallback" id="cal-fallback">
+          <h3>Loading scheduler…</h3>
+          <p>If the calendar doesn't appear, reach us directly and we'll find a time.</p>
+          <a href="mailto:connect@integratewise.ai?subject=Demo%20Request" class="btn btn-gold">Email to Schedule</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bottom" style="border-top:none;padding-top:0">
+    <p>© 2026 IntegrateWise, Inc. · The Continuity Operating System</p>
+    <p><a href="/continuity/security" style="color:var(--forest)">Security</a> · <a href="/continuity/privacy" style="color:var(--forest)">Privacy</a></p>
+  </div>
+</footer>
+
+<!-- Cal.com inline embed -->
+<script type="text/javascript">
+  (function () {
+    var CAL_LINK = "integratewise/30min";
+    try {
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "demo", { origin: "https://app.cal.com" });
+      Cal.ns.demo("inline", {
+        elementOrSelector: "#cal-inline",
+        config: { layout: "month_view" },
+        calLink: CAL_LINK,
+      });
+      Cal.ns.demo("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      var obs = new MutationObserver(function () {
+        var el = document.querySelector('#cal-inline iframe');
+        if (el) { var fb = document.getElementById('cal-fallback'); if (fb) fb.style.display = 'none'; obs.disconnect(); }
+      });
+      obs.observe(document.getElementById('cal-inline'), { childList: true, subtree: true });
+    } catch (e) { /* fallback stays visible */ }
+  })();
+</script>
+
+</body>
+</html>

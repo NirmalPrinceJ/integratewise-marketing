@@ -7,4 +7,6 @@ node_modules/
 .wrangler/
 dist/
 v64_source_temp/
-scratch/
+
+# Firebase
+.firebase/

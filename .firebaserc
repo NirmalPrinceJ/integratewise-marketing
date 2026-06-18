@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "integratewise-4a649"
+  },
+  "targets": {
+    "integratewise-4a649": {
+      "hosting": {
+        "marketing": [
+          "integratewise-marketing"
+        ]
+      }
+    }
+  }
+}

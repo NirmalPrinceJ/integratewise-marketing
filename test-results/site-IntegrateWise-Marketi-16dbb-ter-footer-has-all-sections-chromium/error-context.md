@@ -1,0 +1,165 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: site.spec.ts >> IntegrateWise Marketing Site >> Footer >> footer has all sections
+- Location: tests/site.spec.ts:193:9
+
+# Error details
+
+```
+Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8788/
+Call log:
+  - navigating to "http://localhost:8788/", waiting until "load"
+
+```
+
+# Test source
+
+```ts
+  94  | 
+  95  |     test('has stats section', async ({ page }) => {
+  96  |       await page.goto(`${BASE_URL}/features`);
+  97  |       await expect(page.locator('.stats-grid')).toBeVisible();
+  98  |       await expect(page.locator('.stat')).toHaveCount(4);
+  99  |       await expect(page.locator('.stat-num').first()).toBeVisible();
+  100 |     });
+  101 |   });
+  102 | 
+  103 |   test.describe('How It Works Page', () => {
+  104 |     test('has N×M to N+M diagrams', async ({ page }) => {
+  105 |       await page.goto(`${BASE_URL}/how-it-works`);
+  106 |       await expect(page.locator('text=N×M CHAOS')).toBeVisible();
+  107 |       await expect(page.locator('text=N+M ELEGANCE')).toBeVisible();
+  108 |     });
+  109 | 
+  110 |     test('has 6-step technical flow', async ({ page }) => {
+  111 |       await page.goto(`${BASE_URL}/how-it-works`);
+  112 |       const steps = page.locator('.step-card');
+  113 |       await expect(steps).toHaveCount(6);
+  114 |     });
+  115 | 
+  116 |     test('has comparison table', async ({ page }) => {
+  117 |       await page.goto(`${BASE_URL}/how-it-works`);
+  118 |       await expect(page.locator('.compare-table')).toBeVisible();
+  119 |     });
+  120 |   });
+  121 | 
+  122 |   test.describe('Pricing Page', () => {
+  123 |     test('has 4 pricing tiers', async ({ page }) => {
+  124 |       await page.goto(`${BASE_URL}/pricing`);
+  125 |       await expect(page.locator('.price-card')).toHaveCount(4);
+  126 |     });
+  127 | 
+  128 |     test('Pro tier is featured', async ({ page }) => {
+  129 |       await page.goto(`${BASE_URL}/pricing`);
+  130 |       await expect(page.locator('.price-card.featured')).toBeVisible();
+  131 |       await expect(page.locator('.price-card.featured')).toContainText('Pro');
+  132 |     });
+  133 | 
+  134 |     test('has feature comparison table', async ({ page }) => {
+  135 |       await page.goto(`${BASE_URL}/pricing`);
+  136 |       await expect(page.locator('.compare-table')).toBeVisible();
+  137 |     });
+  138 | 
+  139 |     test('has FAQ section', async ({ page }) => {
+  140 |       await page.goto(`${BASE_URL}/pricing`);
+  141 |       await expect(page.locator('.faq-item')).toHaveCount(10);
+  142 |     });
+  143 |   });
+  144 | 
+  145 |   test.describe('About Page', () => {
+  146 |     test('has founder section', async ({ page }) => {
+  147 |       await page.goto(`${BASE_URL}/about`);
+  148 |       await expect(page.locator('.founder-card')).toBeVisible();
+  149 |       await expect(page.locator('.founder-info h3')).toContainText('Nirmal');
+  150 |     });
+  151 | 
+  152 |     test('has link to founder website', async ({ page }) => {
+  153 |       await page.goto(`${BASE_URL}/about`);
+  154 |       const founderLink = page.locator('a[href="https://nirmalprince.com/"]');
+  155 |       await expect(founderLink).toBeVisible();
+  156 |     });
+  157 | 
+  158 |     test('has 4 values', async ({ page }) => {
+  159 |       await page.goto(`${BASE_URL}/about`);
+  160 |       await expect(page.locator('.value-card')).toHaveCount(4);
+  161 |     });
+  162 |   });
+  163 | 
+  164 |   test.describe('Contact Page', () => {
+  165 |     test('has contact form', async ({ page }) => {
+  166 |       await page.goto(`${BASE_URL}/contact`);
+  167 |       await expect(page.locator('form#contact-form')).toBeVisible();
+  168 |     });
+  169 | 
+  170 |     test('form has required fields', async ({ page }) => {
+  171 |       await page.goto(`${BASE_URL}/contact`);
+  172 |       await expect(page.locator('input#name')).toBeVisible();
+  173 |       await expect(page.locator('input#email')).toBeVisible();
+  174 |       await expect(page.locator('textarea#challenge')).toBeVisible();
+  175 |     });
+  176 | 
+  177 |     test('has contact info sidebar', async ({ page }) => {
+  178 |       await page.goto(`${BASE_URL}/contact`);
+  179 |       await expect(page.locator('text=hello@integratewise.ai')).toBeVisible();
+  180 |       await expect(page.locator('text=connect@integratewise.ai')).toBeVisible();
+  181 |     });
+  182 |   });
+  183 | 
+  184 |   test.describe('Footer', () => {
+  185 |     test('footer is present on all pages', async ({ page }) => {
+  186 |       const pages = ['/', '/features', '/how-it-works', '/pricing', '/about', '/contact'];
+  187 |       for (const path of pages) {
+  188 |         await page.goto(`${BASE_URL}${path}`);
+  189 |         await expect(page.locator('footer.footer').first()).toBeVisible();
+  190 |       }
+  191 |     });
+  192 | 
+  193 |     test('footer has all sections', async ({ page }) => {
+> 194 |       await page.goto(BASE_URL);
+      |                  ^ Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8788/
+  195 |       await expect(page.locator('footer h4:has-text("Product")')).toBeVisible();
+  196 |       await expect(page.locator('footer h4:has-text("Developers")')).toBeVisible();
+  197 |       await expect(page.locator('footer h4:has-text("Company")')).toBeVisible();
+  198 |       await expect(page.locator('footer h4:has-text("Legal")')).toBeVisible();
+  199 |     });
+  200 | 
+  201 |     test('footer has compliance badges', async ({ page }) => {
+  202 |       await page.goto(BASE_URL);
+  203 |       await expect(page.locator('footer')).toContainText('SOC 2');
+  204 |       await expect(page.locator('footer')).toContainText('GDPR');
+  205 |       await expect(page.locator('footer')).toContainText('ISO 27001');
+  206 |     });
+  207 |   });
+  208 | 
+  209 |   test.describe('Visual Consistency', () => {
+  210 |     test('all pages use correct fonts', async ({ page }) => {
+  211 |       const pages = ['/', '/features', '/how-it-works', '/pricing', '/about', '/contact'];
+  212 |       for (const path of pages) {
+  213 |         await page.goto(`${BASE_URL}${path}`);
+  214 |         const fontFamily = await page.evaluate(() => {
+  215 |           return getComputedStyle(document.body).fontFamily;
+  216 |         });
+  217 |         expect(fontFamily).toContain('Instrument Sans');
+  218 |       }
+  219 |     });
+  220 | 
+  221 |     test('all pages have paper texture background', async ({ page }) => {
+  222 |       const pages = ['/', '/features'];
+  223 |       for (const path of pages) {
+  224 |         await page.goto(`${BASE_URL}${path}`);
+  225 |         const bgImage = await page.evaluate(() => {
+  226 |           return getComputedStyle(document.body).backgroundImage;
+  227 |         });
+  228 |         expect(bgImage).toContain('fractalNoise');
+  229 |       }
+  230 |     });
+  231 |   });
+  232 | });
+  233 | 
+```

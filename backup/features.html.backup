@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features — IntegrateWise | Enterprise AI Capability Fabric</title>
+  <meta name="description" content="The continuity layer that solves N×M integration explosion. Connect N tools + M AI models = N+M, not N×M. MCP-native architecture, persistent memory, enterprise governance.">
+  <meta name="keywords" content="Enterprise AI Features, MCP Architecture, AI Capability Fabric, N×M Integration Problem, AI Memory, AI Governance">
+  <link rel="canonical" href="https://integratewise.ai/features">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://integratewise.ai/features">
+  <meta property="og:title" content="Features — IntegrateWise | Enterprise AI Capability Fabric">
+  <meta property="og:description" content="The continuity layer: N tools + M AI models = N+M, not N×M. Connect once, authorize any AI, own the memory.">
+  <meta property="og:image" content="https://integratewise.ai/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root{--ink:#0C0C0C;--paper:#F4F0E8;--paper-warm:#EBE5D8;--rule:#C4BAA8;--forest:#1A3A2A;--forest-mid:#2D5A3D;--gold:#B8943F;--gold-pale:#F0E0B0;--slate:#1A2E4A;--red:#8B2020}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Instrument Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E")}
+.display{font-family:'Bebas Neue',sans-serif;letter-spacing:0.02em}
+.serif{font-family:'DM Serif Display',serif}
+.mono{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em}
+a{color:inherit;text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:0.8rem 1.75rem;font-weight:600;font-size:0.875rem;border-radius:9999px;transition:all 0.2s;cursor:pointer;border:none}
+.btn-gold{background:var(--gold);color:var(--forest)}.btn-gold:hover{background:var(--gold-pale)}
+.btn-outline{border:2px solid rgba(244,240,232,0.4);color:var(--paper);background:transparent}.btn-outline:hover{border-color:var(--paper)}
+.btn-forest{background:var(--forest);color:var(--paper)}.btn-forest:hover{background:var(--forest-mid)}
+.label{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;padding:0.35rem 0.75rem;border-radius:0.375rem;border:1px solid var(--rule);color:var(--forest);margin-bottom:1rem}
+.label-dark{border-color:rgba(184,148,63,0.4);color:var(--gold-pale)}
+.wrap{max-width:80rem;margin:0 auto;padding:0 1.5rem}
+@media(min-width:768px){.wrap{padding:0 2.5rem}}
+
+/* UI MOCKS */
+.mock-line{height:6px;background:rgba(244,240,232,0.2);border-radius:3px;margin-bottom:6px}
+.mock-line.short{width:60%}
+.mock-line.med{width:80%}
+.mock-line.gold{background:var(--gold)}
+.mock-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block}
+.mock-node{display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0.6rem;background:rgba(244,240,232,0.1);border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--paper);margin-bottom:4px}
+.mock-node .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.mock-badge{display:inline-block;padding:0.2rem 0.5rem;background:var(--gold);color:var(--forest);font-family:'IBM Plex Mono',monospace;font-size:0.5rem;border-radius:3px;text-transform:uppercase}
+.mock-flow{display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap}
+.mock-arrow{color:var(--gold);font-size:0.75rem}
+.mock-card{background:rgba(244,240,232,0.1);border-radius:4px;padding:0.5rem;margin-bottom:0.25rem}
+.mock-card-title{font-family:'IBM Plex Mono',monospace;font-size:0.5rem;color:rgba(244,240,232,0.8);margin-bottom:0.25rem;text-transform:uppercase}
+.mock-card-val{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--paper)}
+
+/* FEATURE DEEP DIVE */
+.feature-deep{padding:4rem 1.5rem;border-bottom:1px solid var(--rule)}
+@media(min-width:768px){.feature-deep{padding:5rem 2.5rem}}
+.feature-deep:last-of-type{border-bottom:none}
+.feature-deep.alt{background:var(--paper-warm)}
+.fd-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:start}
+@media(min-width:1024px){.fd-grid{grid-template-columns:1fr 1fr}}
+.fd-content .fd-num{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem}
+.fd-content h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,3vw,2rem);color:var(--ink);margin-bottom:1rem;letter-spacing:0.01em}
+.fd-content .lead{font-size:1rem;color:var(--slate);line-height:1.7;margin-bottom:1.5rem}
+.fd-list{list-style:none}
+.fd-list li{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.875rem;color:var(--slate);line-height:1.5;margin-bottom:0.6rem}
+.fd-list li::before{content:'→';color:var(--gold);font-weight:700;flex-shrink:0}
+.fd-mock{background:var(--forest);border-radius:0.75rem;padding:1.5rem;min-height:280px}
+.fd-mock-light{background:var(--paper);border:1px solid var(--rule)}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(244,240,232,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:0.75rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:0.75rem}
+.nav-logo img{height:32px;width:auto}
+.nav-logo span{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.04em;color:var(--forest)}
+.nav-links{display:none;gap:1.5rem;align-items:center}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--slate)}
+.nav-links a:hover{color:var(--forest)}
+.nav-cta{padding:0.5rem 1.25rem;background:var(--forest);color:var(--paper);font-weight:600;font-size:0.75rem;border-radius:9999px}
+@media(min-width:768px){.nav-links{display:flex}}
+
+/* HERO */
+.hero{min-height:50vh;display:flex;align-items:center;background:var(--forest);color:var(--paper);padding:4rem 1.5rem}
+@media(min-width:768px){.hero{padding:5rem 2.5rem}}
+.hero-inner{max-width:64rem;margin:0 auto;text-align:center}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,6vw,4rem);line-height:1.05;letter-spacing:0.02em;margin-bottom:1.5rem}
+.hero .sub{font-family:'DM Serif Display',serif;font-size:clamp(0.95rem,2vw,1.15rem);opacity:0.85;max-width:42rem;margin:0 auto 2rem;line-height:1.6;font-style:italic}
+
+/* BENTO GRID */
+.bento-section{padding:4rem 0}
+.bento-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:640px){.bento-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.bento-grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(180px,auto)}}
+.bento-card{background:var(--paper-warm);border:1px solid var(--rule);border-radius:1rem;padding:1.5rem;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.bento-card.span-2{grid-column:span 1}
+@media(min-width:640px){.bento-card.span-2{grid-column:span 2}}
+.bento-card.span-3{grid-column:span 1}
+@media(min-width:1024px){.bento-card.span-3{grid-column:span 3}}
+.bento-card.span-4{grid-column:span 1}
+@media(min-width:1024px){.bento-card.span-4{grid-column:span 4}}
+.bento-card.row-2{grid-row:span 2}
+.bento-card.dark{background:var(--forest);color:var(--paper);border-color:var(--forest-mid)}
+.bento-card.accent{background:linear-gradient(135deg,var(--gold) 0%,#D4A84A 100%);color:var(--forest);border-color:var(--gold)}
+.bento-num{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem}
+.bento-card.dark .bento-num{color:var(--gold-pale)}
+.bento-card.accent .bento-num{color:var(--forest);opacity:0.7}
+.bento-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.01em;margin-bottom:0.75rem;line-height:1.15}
+.bento-desc{font-size:0.85rem;line-height:1.6;opacity:0.85;flex:1}
+.bento-card.dark .bento-desc{opacity:0.75}
+
+/* STATS GRID */
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+@media(min-width:768px){.stats-grid{grid-template-columns:repeat(4,1fr)}}
+.stat{text-align:center;padding:1.5rem 1rem;background:var(--paper);border:1px solid var(--rule);border-radius:0.5rem}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3rem);color:var(--gold);line-height:1}
+.stat-label{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--slate);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--rule);padding:3rem 2rem 2rem;background:var(--paper-warm)}
+.footer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;max-width:72rem;margin:0 auto}
+@media(min-width:768px){.footer-grid{grid-template-columns:repeat(4,1fr)}}
+.footer-col h4{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--forest);margin-bottom:1rem}
+.footer-col a{display:block;font-size:0.8rem;color:var(--slate);margin-bottom:0.5rem}
+.footer-col a:hover{color:var(--forest)}
+.footer-bottom{max-width:72rem;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
+.footer-bottom p{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--slate);opacity:0.6;letter-spacing:0.08em}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo-dark.svg" alt="IntegrateWise">
+    <span>INTEGRATEWISE</span>
+  </a>
+  <div class="nav-links">
+    <a href="/features">Features</a>
+    <a href="/how-it-works">How It Works</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact" class="nav-cta">Book a Demo</a>
+  </div>
+</nav>
+
+/* UI MOCK STYLES */
+.ui-mock{background:var(--paper);border:1px solid var(--rule);border-radius:0.5rem;padding:0.75rem;margin-top:1rem;font-size:0.7rem}
+.ui-mock-header{display:flex;gap:0.35rem;margin-bottom:0.5rem}
+.ui-mock-dot{width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.ui-mock-dot.red{background:#E5534B}
+.ui-mock-dot.yellow{background:#D4A84A}
+.ui-mock-dot.green{background:#3D8B40}
+.ui-mock-row{display:flex;gap:0.5rem;margin-bottom:0.35rem;align-items:center}
+.ui-mock-block{height:8px;border-radius:2px;background:var(--rule)}
+.ui-mock-block.w1{width:30%}
+.ui-mock-block.w2{width:50%}
+.ui-mock-block.w3{width:70%}
+.ui-mock-block.gold{background:var(--gold)}
+.ui-mock-block.forest{background:var(--forest)}
+.ui-mock-icon{width:16px;height:16px;border-radius:4px;background:var(--forest);flex-shrink:0}
+.ui-mock-icon.gold{background:var(--gold)}
+.ui-mock-card{background:var(--paper-warm);border:1px solid var(--rule);border-radius:4px;padding:0.5rem;margin-top:0.5rem}
+.ui-mock-badge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.55rem;padding:0.15rem 0.4rem;border-radius:3px;background:var(--forest);color:var(--paper);text-transform:uppercase;letter-spacing:0.08em}
+.ui-mock-badge.pending{background:var(--gold);color:var(--forest)}
+.ui-mock-badge.approved{background:#3D8B40;color:var(--paper)}
+
+/* DIAGRAM STYLES */
+.diagram{padding:1.5rem 0}
+.diagram-flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0.75rem}
+.diagram-node{background:var(--paper);border:2px solid var(--rule);border-radius:0.5rem;padding:0.6rem 1rem;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;text-align:center}
+.diagram-node.highlight{border-color:var(--gold);background:var(--gold-pale)}
+.diagram-node.dark{background:var(--forest);border-color:var(--forest);color:var(--paper)}
+.diagram-arrow{color:var(--gold);font-size:1.2rem;font-weight:bold}
+.diagram-plus{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--forest)}
+.diagram-equals{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--gold)}
+
+/* FEATURE DETAIL SECTIONS */
+.feature-section{padding:5rem 0;border-bottom:1px solid var(--rule)}
+.feature-section:last-of-type{border-bottom:none}
+.feature-section.alt{background:var(--paper-warm)}
+.feature-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
+@media(min-width:768px){.feature-grid{grid-template-columns:1fr 1fr}}
+.feature-grid.reverse .feature-content{order:1}
+@media(min-width:768px){.feature-grid.reverse .feature-content{order:2}.feature-grid.reverse .feature-visual{order:1}}
+.feature-num{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem}
+.feature-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,3vw,2rem);color:var(--ink);margin-bottom:1rem;letter-spacing:0.01em;line-height:1.15}
+.feature-desc{font-size:0.95rem;color:var(--slate);line-height:1.7;margin-bottom:1.5rem}
+.feature-list{list-style:none}
+.feature-list li{display:flex;align-items:flex-start;gap:0.6rem;font-size:0.875rem;color:var(--slate);line-height:1.5;margin-bottom:0.6rem}
+.feature-list li::before{content:'→';color:var(--gold);font-weight:700;flex-shrink:0}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="label label-dark">Platform Features</span>
+    <h1>THE CONTINUITY LAYER<br>FOR ENTERPRISE AI</h1>
+    <p class="sub">Six pillars of infrastructure that transform the N×M integration explosion into an N+M capability fabric. Connect once. Authorize any AI. Own the intelligence layer forever.</p>
+  </div>
+</section>
+
+<!-- N+M TRANSFORMATION -->
+<section class="section" style="background:var(--paper)">
+  <div class="wrap-md">
+    <div style="text-align:center;margin-bottom:2rem">
+      <span class="label">Core Innovation</span>
+      <h2 class="display" style="font-size:clamp(1.6rem,3.5vw,2.2rem);margin-top:0.5rem">THE N+M TRANSFORMATION</h2>
+      <p style="font-size:0.95rem;color:var(--slate);margin-top:1rem;max-width:36rem;margin-left:auto;margin-right:auto">IntegrateWise turns multiplicative integration complexity into additive simplicity.</p>
+    </div>
+    
+    <div class="nm-visual">
+      <div class="nm-grid">
+        <div class="nm-box nm-bad">
+          <div class="nm-title" style="color:var(--red)">Without IntegrateWise</div>
+          <div class="nm-formula" style="color:var(--red)">N × M</div>
+          <div class="nm-result">10 AIs × 100 Systems = <strong style="color:var(--red)">1,000 integrations</strong></div>
+        </div>
+        <div class="nm-arrow">→</div>
+        <div class="nm-box nm-good">
+          <div class="nm-title" style="color:var(--gold)">With IntegrateWise</div>
+          <div class="nm-formula" style="color:var(--gold)">N + M</div>
+          <div class="nm-result">10 AIs + 100 Systems = <strong style="color:var(--forest)">110 connections</strong></div>
+        </div>
+      </div>
+    </div>
+    
+    <p style="font-size:0.95rem;color:var(--slate);text-align:center;line-height:1.7">Each AI connects once to the Capability Fabric. Each system connects once to the Capability Fabric. The fabric handles the translation, normalization, and routing. Complexity stays <strong>additive</strong>, not multiplicative.</p>
+  </div>
+</section>
+
+<!-- BENTO GRID OVERVIEW -->
+<section class="section" style="background:var(--paper-warm)">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:2.5rem">
+      <span class="label">Platform Capabilities</span>
+      <h2 class="display" style="font-size:clamp(1.6rem,3.5vw,2.2rem);margin-top:0.5rem">SIX PILLARS OF ENTERPRISE AI INFRASTRUCTURE</h2>
+    </div>
+    
+    <div class="bento">
+      <!-- 1. MCP-Native Architecture - Tall -->
+      <div class="bento-item tall">
+        <div class="bento-num">01 · Architecture</div>
+        <div class="bento-title">MCP-Native Protocol</div>
+        <div class="bento-desc">Built from first principles on Model Context Protocol. Every connection speaks MCP natively — no translation layers.</div>
+        <div class="bento-mock">
+          <div class="mock-node"><span class="dot"></span>POST /mcp</div>
+          <div class="mock-node"><span class="dot"></span>OAuth 2.0 RS256</div>
+          <div class="mock-node"><span class="dot"></span>18 Canonical Tools</div>
+          <div style="margin-top:0.5rem">
+            <span class="mock-badge">MCP 1.0</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 2. Capability Fabric - Span 2 -->
+      <div class="bento-item span-2">
+        <div class="bento-num">02 · Core Engine</div>
+        <div class="bento-title">Capability Fabric (The Spine)</div>
+        <div class="bento-desc">Canonical entity resolution. One Person exists once across all systems. Relationships resolved once, compounded forever.</div>
+        <div class="bento-mock" style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center">
+          <div class="mock-card" style="flex:1;min-width:120px">
+            <div class="mock-card-title">Entities</div>
+            <div class="mock-card-val">12,847</div>
+          </div>
+          <div class="mock-card" style="flex:1;min-width:120px">
+            <div class="mock-card-title">Relationships</div>
+            <div class="mock-card-val">45,293</div>
+          </div>
+          <div class="mock-card" style="flex:1;min-width:120px">
+            <div class="mock-card-title">Signals/day</div>
+            <div class="mock-card-val">2,341</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 3. Memory Loop -->
+      <div class="bento-item">
+        <div class="bento-num">03 · Memory</div>
+        <div class="bento-title">Memory Loop</div>
+        <div class="bento-desc">Three-tier memory: conversational, organizational, personal. Governed by humans, owned by you.</div>
+        <div class="bento-mock-gold bento-mock" style="background:rgba(184,148,63,0.1);border:1px solid rgba(184,148,63,0.3)">
+          <div class="mock-flow">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--forest)">Conv</span>
+            <span class="mock-arrow">→</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--forest)">Org</span>
+            <span class="mock-arrow">→</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--forest)">Personal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Multi-AI Orchestration - Span 2 -->
+      <div class="bento-item span-2">
+        <div class="bento-num">04 · Orchestration</div>
+        <div class="bento-title">Multi-AI Orchestration</div>
+        <div class="bento-desc">Authorize Claude, ChatGPT, Gemini, or any MCP-compatible AI. One fabric. Unlimited AI consumers. Zero lock-in.</div>
+        <div class="bento-mock mock-dark" style="background:var(--slate)">
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+            <div class="mock-node" style="background:rgba(244,240,232,0.15)"><span class="dot"></span>Claude</div>
+            <div class="mock-node" style="background:rgba(244,240,232,0.15)"><span class="dot"></span>ChatGPT</div>
+            <div class="mock-node" style="background:rgba(244,240,232,0.15)"><span class="dot"></span>Gemini</div>
+            <div class="mock-node" style="background:rgba(244,240,232,0.15)"><span class="dot"></span>Perplexity</div>
+            <div class="mock-node" style="background:rgba(244,240,232,0.15)"><span class="dot"></span>Local LLM</div>
+          </div>
+          <div style="margin-top:0.75rem;text-align:center">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:0.5rem;color:rgba(244,240,232,0.5);letter-spacing:0.1em">ALL → CAPABILITY FABRIC</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 5. Governance -->
+      <div class="bento-item">
+        <div class="bento-num">05 · Governance</div>
+        <div class="bento-title">Enterprise Governance</div>
+        <div class="bento-desc">AI proposes. Humans approve. Organization owns. Complete audit trails.</div>
+        <div class="bento-mock">
+          <div class="mock-flow" style="flex-direction:column;align-items:flex-start;gap:0.4rem">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:rgba(244,240,232,0.8)">Draft → Pending</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:rgba(244,240,232,0.8)">Pending → <span style="color:var(--gold)">Approved</span></span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:rgba(244,240,232,0.8)">Approved → Published</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 6. Developer Experience - Tall -->
+      <div class="bento-item tall">
+        <div class="bento-num">06 · DevEx</div>
+        <div class="bento-title">Developer Experience</div>
+        <div class="bento-desc">TypeScript-first. Edge-native. 30+ connectors. Deploy in minutes.</div>
+        <div class="bento-mock" style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem">
+          <div style="color:rgba(244,240,232,0.5);margin-bottom:0.5rem">// Connect a system</div>
+          <div style="color:var(--paper)">npx iw connector add</div>
+          <div style="color:var(--gold);margin-left:1rem">→ hubspot</div>
+          <div style="color:rgba(244,240,232,0.5);margin-top:0.75rem;margin-bottom:0.5rem">// Deploy</div>
+          <div style="color:var(--paper)">npx iw deploy</div>
+          <div style="color:var(--gold);margin-left:1rem">✓ Live in 47s</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+/* VISUAL PANEL */
+.visual-panel{background:var(--paper);border:1px solid var(--rule);border-radius:1rem;padding:1.25rem;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+.visual-panel.dark{background:var(--forest);border-color:var(--forest-mid)}
+
+/* CTA SECTION */
+.cta-section{padding:5rem 0;background:var(--forest);color:var(--paper);text-align:center}
+.cta-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1rem}
+.cta-desc{font-size:1rem;opacity:0.75;max-width:32rem;margin:0 auto 2rem;line-height:1.7}
+.cta-buttons{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--rule);padding:3rem 2rem 2rem;background:var(--paper-warm)}
+.footer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;max-width:72rem;margin:0 auto}
+@media(min-width:768px){.footer-grid{grid-template-columns:repeat(4,1fr)}}
+.footer-col h4{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--forest);margin-bottom:1rem}
+.footer-col a{display:block;font-size:0.8rem;color:var(--slate);margin-bottom:0.5rem}
+.footer-col a:hover{color:var(--forest)}
+.footer-bottom{max-width:72rem;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
+.footer-bottom p{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--slate);opacity:0.6;letter-spacing:0.08em}
+
+/* EQUATION DISPLAY */
+.equation{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem;padding:2rem;background:var(--paper);border:1px solid var(--rule);border-radius:1rem;margin:1.5rem 0}
+.equation-term{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,4vw,2.5rem);color:var(--forest)}
+.equation-term.highlight{color:var(--gold)}
+.equation-operator{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,4vw,2.5rem);color:var(--rule)}
+.equation-result{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,4vw,2.5rem);color:var(--gold);padding:0.5rem 1rem;background:var(--gold-pale);border-radius:0.5rem}
+.equation-vs{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--slate);text-transform:uppercase;letter-spacing:0.1em}
+.equation-bad{text-decoration:line-through;color:var(--red);opacity:0.6}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo-dark.svg" alt="IntegrateWise">
+    <span>INTEGRATEWISE</span>
+  </a>
+  <div class="nav-links">
+    <a href="/features">Features</a>
+    <a href="/how-it-works">How It Works</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact" class="nav-cta">Book a Demo</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="label label-dark">Platform Features</span>
+    <h1>THE CONTINUITY LAYER THAT<br>SOLVES N×M INTEGRATION</h1>
+    <p class="sub">Connect N tools to one Capability Fabric. Connect M AI models to the same fabric. Result: N + M connections, not N × M. Own the memory. Switch AI anytime.</p>
+  </div>
+</section>
+
+<!-- N+M EQUATION VISUAL -->
+<section class="bento-section">
+  <div class="wrap">
+    <div class="equation">
+      <span class="equation-term">N TOOLS</span>
+      <span class="equation-operator">×</span>
+      <span class="equation-term">M AI MODELS</span>
+      <span class="equation-operator">=</span>
+      <span class="equation-term equation-bad">N × M</span>
+      <span class="equation-vs">vs</span>
+      <span class="equation-term">N TOOLS</span>
+      <span class="equation-operator">+</span>
+      <span class="equation-term">M AI MODELS</span>
+      <span class="equation-operator">=</span>
+      <span class="equation-result">N + M</span>
+    </div>
+
+    <!-- BENTO GRID -->
+    <div class="bento-grid">
+      <!-- Card 1: Core Problem -->
+      <div class="bento-card span-2 dark">
+        <div class="bento-num">The Problem</div>
+        <div class="bento-title">THE N×M INTEGRATION EXPLOSION</div>
+        <div class="bento-desc">Every tool talks to every AI. Every AI needs every tool. 10 tools × 5 AI models = 50 integration points. Each breaks independently. Each requires separate memory.</div>
+        <div class="diagram">
+          <div class="diagram-flow">
+            <div class="diagram-node">HubSpot</div>
+            <div class="diagram-node">Jira</div>
+            <div class="diagram-node">Slack</div>
+          </div>
+          <div style="text-align:center;padding:0.5rem 0;font-family:'IBM Plex Mono';font-size:0.6rem;color:var(--gold-pale)">↓ × ↓ × ↓</div>
+          <div class="diagram-flow">
+            <div class="diagram-node">Claude</div>
+            <div class="diagram-node">GPT</div>
+            <div class="diagram-node">Gemini</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Solution -->
+      <div class="bento-card span-2 accent">
+        <div class="bento-num">The Solution</div>
+        <div class="bento-title">ONE CAPABILITY FABRIC</div>
+        <div class="bento-desc">Tools connect once to the Spine. AI models connect once to the Spine. Memory stays in the fabric. Switch models in a day, not six months.</div>
+        <div class="diagram">
+          <div class="diagram-flow">
+            <div class="diagram-node">All Tools</div>
+            <div class="diagram-arrow">→</div>
+            <div class="diagram-node highlight">THE SPINE</div>
+            <div class="diagram-arrow">←</div>
+            <div class="diagram-node">All AI</div>
+          </div>
+        </div>
+      </div>
+
+<!-- FEATURE 1: MCP-Native Architecture DEEP DIVE -->
+<section class="feature-deep">
+  <div class="wrap-md">
+    <div class="fd-grid">
+      <div class="fd-content">
+        <div class="fd-num">01 · Architecture</div>
+        <h2>MCP-NATIVE ARCHITECTURE</h2>
+        <p class="lead">Built from first principles on the Model Context Protocol. Every connection, every capability, every memory operation speaks MCP natively — no translation layers, no adapters, no protocol debt.</p>
+        <ul class="fd-list">
+          <li>Native MCP transport from first byte to last</li>
+          <li>OAuth 2.0 with RS256 JWTs for every client</li>
+          <li>18 canonical tools: memory.*, spine.*, signal.*, proposal.*, search.*</li>
+          <li>Any MCP-compatible AI client connects in minutes</li>
+          <li>Service bindings for zero-latency inter-worker communication</li>
+          <li>Discovery endpoint for automatic client configuration</li>
+          <li>Grant types: authorization_code, client_credentials, refresh_token</li>
+          <li>Scope enforcement: per-tool filtering and tenant isolation</li>
+        </ul>
+      </div>
+      <div class="fd-mock">
+        <div style="margin-bottom:1rem">
+          <span class="mock-badge">MCP Protocol</span>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--paper)">
+          <div style="color:rgba(244,240,232,0.5)">// OAuth Discovery</div>
+          <div>GET /.well-known/oauth-authorization-server</div>
+          <div style="margin-top:1rem;color:rgba(244,240,232,0.5)">// Token Request</div>
+          <div>POST /oauth/token</div>
+          <div style="color:var(--gold);margin-left:1rem">→ RS256 JWT (1hr TTL)</div>
+          <div style="margin-top:1rem;color:rgba(244,240,232,0.5)">// MCP Call</div>
+          <div>POST /mcp</div>
+          <div style="margin-left:1rem;color:rgba(244,240,232,0.7)">{ "tool": "memory.read",</div>
+          <div style="margin-left:1.5rem;color:rgba(244,240,232,0.7)">"tenant_id": "...",</div>
+          <div style="margin-left:1.5rem;color:rgba(244,240,232,0.7)">"session_id": "..." }</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE 2: Capability Fabric DEEP DIVE -->
+<section class="feature-deep alt">
+  <div class="wrap-md">
+    <div class="fd-grid">
+      <div class="fd-content">
+        <div class="fd-num">02 · Core Engine</div>
+        <h2>CAPABILITY FABRIC — THE SPINE</h2>
+        <p class="lead">The Spine is the canonical entity resolution substrate. One Person exists once — across HubSpot, Jira, Gmail, Salesforce, and every tool you connect. Relationships, traits, and signals are resolved once and compounded forever.</p>
+        <ul class="fd-list">
+          <li>Entity Resolution: one entity across all connected systems</li>
+          <li>18 core traits + 7 canonical resource types</li>
+          <li>Relationship graph that exists nowhere else in your stack</li>
+          <li>Signal layer: change → think → approve → act → loop</li>
+          <li>Eight-stage cognitive normalization pipeline</li>
+          <li>LLM-in-the-loop at stages 2, 3, 4, 6 for intelligence</li>
+          <li>Normalization paid once per entity — compounding begins immediately</li>
+          <li>Object identity by nature, not label (Contact = Lead = Reporter = Person)</li>
+        </ul>
+      </div>
+      <div class="fd-mock">
+        <div style="text-align:center;margin-bottom:1rem">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:rgba(244,240,232,0.5);letter-spacing:0.1em">ENTITY RESOLUTION</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem">
+          <div class="mock-card"><div class="mock-card-title">HubSpot Contact</div><div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--paper)">john@acme.com</div></div>
+          <div class="mock-card"><div class="mock-card-title">Salesforce Lead</div><div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--paper)">john@acme.com</div></div>
+          <div class="mock-card"><div class="mock-card-title">Jira Reporter</div><div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--paper)">john@acme.com</div></div>
+        </div>
+        <div style="text-align:center;margin:1rem 0">
+          <span style="font-size:1.5rem;color:var(--gold)">↓</span>
+        </div>
+        <div class="mock-card" style="background:rgba(184,148,63,0.2);border:1px solid var(--gold)">
+          <div class="mock-card-title" style="color:var(--gold)">Spine Entity</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--paper)">John Smith</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:0.5rem;color:rgba(244,240,232,0.7)">Person · 3 sources · 12 relationships</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- Card 3: MCP Native -->
+      <div class="bento-card">
+        <div class="bento-num">01 · Architecture</div>
+        <div class="bento-title">MCP-NATIVE</div>
+        <div class="bento-desc">Built on Model Context Protocol from first byte. Native OAuth 2.0. Any MCP client connects in minutes.</div>
+        <div class="ui-mock">
+          <div class="ui-mock-header">
+            <div class="ui-mock-dot red"></div>
+            <div class="ui-mock-dot yellow"></div>
+            <div class="ui-mock-dot green"></div>
+          </div>
+          <div class="ui-mock-row">
+            <div class="ui-mock-badge">MCP</div>
+            <div class="ui-mock-block w2"></div>
+          </div>
+          <div class="ui-mock-row">
+            <div class="ui-mock-block w3 gold"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Entity Resolution -->
+      <div class="bento-card">
+        <div class="bento-num">02 · Spine</div>
+        <div class="bento-title">ENTITY RESOLUTION</div>
+        <div class="bento-desc">One Person exists once — across HubSpot, Jira, Gmail, Salesforce. Resolved once, compounded forever.</div>
+        <div class="ui-mock">
+          <div style="font-size:0.6rem;color:var(--slate);margin-bottom:0.35rem">Entity: Person</div>
+          <div class="ui-mock-row">
+            <div class="ui-mock-icon"></div>
+            <div class="ui-mock-block w2"></div>
+          </div>
+          <div style="font-size:0.55rem;color:var(--gold);margin-top:0.35rem">↳ HubSpot · Jira · Gmail</div>
+        </div>
+      </div>
+
+      <!-- Card 5: Memory -->
+      <div class="bento-card row-2">
+        <div class="bento-num">03 · Memory</div>
+        <div class="bento-title">THREE-TIER MEMORY</div>
+        <div class="bento-desc">Conversational. Organizational. Personal. Switch AI models and pick up exactly where you left off.</div>
+        <div class="ui-mock" style="flex:1">
+          <div class="ui-mock-card">
+            <div style="font-size:0.55rem;color:var(--forest);font-weight:600;margin-bottom:0.25rem">Conversational</div>
+            <div class="ui-mock-block w3"></div>
+          </div>
+          <div class="ui-mock-card">
+            <div style="font-size:0.55rem;color:var(--forest);font-weight:600;margin-bottom:0.25rem">Organizational</div>
+            <div class="ui-mock-block w2 gold"></div>
+          </div>
+          <div class="ui-mock-card">
+            <div style="font-size:0.55rem;color:var(--forest);font-weight:600;margin-bottom:0.25rem">Personal</div>
+            <div class="ui-mock-block w1 forest"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Governance -->
+      <div class="bento-card row-2 dark">
+        <div class="bento-num">04 · Governance</div>
+        <div class="bento-title">AI PROPOSES.<br>HUMANS APPROVE.</div>
+        <div class="bento-desc">Nothing important auto-lands into shared truth. Mandatory approval flows. Complete audit trails.</div>
+        <div class="ui-mock" style="background:rgba(244,240,232,0.95);flex:1">
+          <div class="ui-mock-card">
+            <div class="ui-mock-row">
+              <div class="ui-mock-badge pending">Pending</div>
+              <div class="ui-mock-block w1"></div>
+            </div>
+            <div style="font-size:0.5rem;color:var(--slate);margin-top:0.25rem">Update account status...</div>
+          </div>
+          <div class="ui-mock-card">
+            <div class="ui-mock-row">
+              <div class="ui-mock-badge approved">Approved</div>
+              <div class="ui-mock-block w2"></div>
+            </div>
+            <div style="font-size:0.5rem;color:var(--slate);margin-top:0.25rem">Contact promoted...</div>
+          </div>
+        </div>
+      </div>
+
+<!-- FEATURE 3: Memory Loop DEEP DIVE -->
+<section class="feature-deep">
+  <div class="wrap-md">
+    <div class="fd-grid">
+      <div class="fd-content">
+        <div class="fd-num">03 · Memory</div>
+        <h2>THE MEMORY LOOP</h2>
+        <p class="lead">Conversational context becomes institutional knowledge. Three memory tiers — conversational, organizational, and personal — governed by humans and owned by your organization. Switch AI models and pick up exactly where you left off.</p>
+        <ul class="fd-list">
+          <li>Conversational memory: session-scoped, role-tagged (user/assistant/system)</li>
+          <li>Organizational memory: promoted, governed, immutable once approved</li>
+          <li>Personal memory: behavioral patterns, preferences, decisions per user</li>
+          <li>pgvector similarity search across all memory tiers</li>
+          <li>Memory persists across AI model switches — no context loss</li>
+          <li>Dual-write synchronization: edge cache + fortress database</li>
+          <li>Governance state machine: draft → pending → approved → published</li>
+          <li>30-day, 1-year, or unlimited retention based on tier</li>
+        </ul>
+      </div>
+      <div class="fd-mock">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;margin-bottom:1rem">
+          <span style="color:rgba(244,240,232,0.5)">MEMORY TIERS</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem">
+          <div style="display:flex;align-items:center;gap:0.75rem">
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--gold)"></div>
+            <div style="flex:1">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:rgba(244,240,232,0.5)">CONVERSATIONAL</div>
+              <div style="font-size:0.7rem;color:var(--paper)">Session context, chat history</div>
+            </div>
+          </div>
+          <div style="margin-left:5px;border-left:1px dashed rgba(244,240,232,0.2);height:20px"></div>
+          <div style="display:flex;align-items:center;gap:0.75rem">
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--gold)"></div>
+            <div style="flex:1">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:rgba(244,240,232,0.5)">ORGANIZATIONAL</div>
+              <div style="font-size:0.7rem;color:var(--paper)">Governed institutional knowledge</div>
+            </div>
+          </div>
+          <div style="margin-left:5px;border-left:1px dashed rgba(244,240,232,0.2);height:20px"></div>
+          <div style="display:flex;align-items:center;gap:0.75rem">
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--gold)"></div>
+            <div style="flex:1">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:rgba(244,240,232,0.5)">PERSONAL</div>
+              <div style="font-size:0.7rem;color:var(--paper)">User preferences & patterns</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem;padding:0.75rem;background:rgba(184,148,63,0.15);border-radius:4px;border:1px solid rgba(184,148,63,0.3)">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:0.5rem;color:var(--gold)">PGVECTOR SIMILARITY</div>
+          <div style="font-size:0.65rem;color:var(--paper);margin-top:0.25rem">Semantic search across all tiers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE 4: Multi-AI Orchestration DEEP DIVE -->
+<section class="feature-deep alt">
+  <div class="wrap-md">
+    <div class="fd-grid">
+      <div class="fd-content">
+        <div class="fd-num">04 · Orchestration</div>
+        <h2>MULTI-AI ORCHESTRATION</h2>
+        <p class="lead">Authorize Claude, ChatGPT, Gemini, Perplexity, local LLMs, or any MCP-compatible AI as clients of your Capability Fabric. One integration surface. Unlimited AI consumers. Zero vendor lock-in.</p>
+        <ul class="fd-list">
+          <li>Any AI connects via standard OAuth 2.0 authorization</li>
+          <li>Tenant-isolated, scope-enforced access per AI client</li>
+          <li>Switch AI models in 1 day instead of 6 months</li>
+          <li>Context transfer: memory follows the conversation, not the vendor</li>
+          <li>Parallel AI evaluation: same capability, different models</li>
+          <li>Graceful degradation: if one AI goes down, others continue</li>
+          <li>No rebuilding integrations when you change AI providers</li>
+          <li>Run evaluations across models with identical context</li>
+        </ul>
+      </div>
+      <div class="fd-mock">
+        <div style="text-align:center;margin-bottom:1.5rem">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:rgba(244,240,232,0.5);letter-spacing:0.1em">AI CLIENTS → CAPABILITY FABRIC</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.5rem;margin-bottom:1rem">
+          <div class="mock-node"><span class="dot"></span>Claude</div>
+          <div class="mock-node"><span class="dot"></span>ChatGPT</div>
+          <div class="mock-node"><span class="dot"></span>Gemini</div>
+          <div class="mock-node"><span class="dot"></span>Perplexity</div>
+          <div class="mock-node"><span class="dot"></span>Cursor</div>
+          <div class="mock-node"><span class="dot"></span>Kiro</div>
+        </div>
+        <div style="text-align:center;margin:1rem 0">
+          <span style="font-size:1.2rem;color:var(--gold)">↓ OAuth 2.0 ↓</span>
+        </div>
+        <div style="background:rgba(184,148,63,0.2);border:1px solid var(--gold);border-radius:4px;padding:0.75rem;text-align:center">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--paper)">CAPABILITY FABRIC</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:0.5rem;color:rgba(244,240,232,0.7)">mcp.integratewise.ai</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- Card 7: Multi-AI -->
+      <div class="bento-card span-2">
+        <div class="bento-num">05 · Orchestration</div>
+        <div class="bento-title">ANY AI. ONE MEMORY.</div>
+        <div class="bento-desc">Claude, GPT, Gemini, Perplexity, local LLMs — all connect via OAuth 2.0. Context transfers. Memory follows the conversation, not the vendor.</div>
+        <div class="diagram">
+          <div class="diagram-flow">
+            <div class="diagram-node">Claude</div>
+            <div class="diagram-node">GPT-4</div>
+            <div class="diagram-node">Gemini</div>
+            <div class="diagram-node">Local LLM</div>
+          </div>
+          <div style="text-align:center;padding:0.5rem 0;color:var(--gold);font-size:1rem">↓</div>
+          <div class="diagram-flow">
+            <div class="diagram-node highlight" style="padding:0.8rem 2rem">SHARED MEMORY LAYER</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8: Developer Experience -->
+      <div class="bento-card">
+        <div class="bento-num">06 · DX</div>
+        <div class="bento-title">TYPESCRIPT-FIRST</div>
+        <div class="bento-desc">30+ connector adapters. Edge-native on Cloudflare. Type-safe contracts.</div>
+        <div class="ui-mock">
+          <div style="font-family:'IBM Plex Mono';font-size:0.55rem;color:var(--forest)">
+            <div style="color:var(--slate)">// connector</div>
+            <div><span style="color:var(--gold)">import</span> { Spine }</div>
+            <div>Spine.<span style="color:var(--gold)">connect</span>()</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 9: User Operating Surface -->
+      <div class="bento-card span-3">
+        <div class="bento-num">Surface</div>
+        <div class="bento-title">THE USER OPERATING SURFACE</div>
+        <div class="bento-desc">Not a dashboard. An interactive operating environment where customer, account, departmental, and operational context lives together. Edit, approve, act — without leaving.</div>
+        <div class="ui-mock">
+          <div class="ui-mock-header">
+            <div class="ui-mock-dot red"></div>
+            <div class="ui-mock-dot yellow"></div>
+            <div class="ui-mock-dot green"></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 2fr 1fr;gap:0.5rem">
+            <div class="ui-mock-card">
+              <div style="font-size:0.5rem;font-weight:600;margin-bottom:0.25rem">Accounts</div>
+              <div class="ui-mock-block w3"></div>
+              <div class="ui-mock-block w2" style="margin-top:0.25rem"></div>
+            </div>
+            <div class="ui-mock-card">
+              <div style="font-size:0.5rem;font-weight:600;margin-bottom:0.25rem">Entity 360</div>
+              <div class="ui-mock-row">
+                <div class="ui-mock-icon gold"></div>
+                <div class="ui-mock-block w2"></div>
+              </div>
+              <div class="ui-mock-block w3" style="margin-top:0.25rem"></div>
+              <div class="ui-mock-block w1 gold" style="margin-top:0.25rem"></div>
+            </div>
+            <div class="ui-mock-card">
+              <div style="font-size:0.5rem;font-weight:600;margin-bottom:0.25rem">Signals</div>
+              <div class="ui-mock-badge">Risk</div>
+              <div class="ui-mock-block w2" style="margin-top:0.35rem"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 10: Twin -->
+      <div class="bento-card dark">
+        <div class="bento-num">Twin Layer</div>
+        <div class="bento-title">YOUR DIGITAL TWIN</div>
+        <div class="bento-desc">AI continuity layer that proposes, prepares, and hands work to humans.</div>
+        <div class="ui-mock" style="background:rgba(244,240,232,0.1);border-color:var(--forest-mid)">
+          <div style="font-size:0.55rem;color:var(--gold-pale);margin-bottom:0.35rem">Twin suggests:</div>
+          <div class="ui-mock-block w3" style="background:var(--gold);opacity:0.5"></div>
+          <div class="ui-mock-block w2" style="background:var(--gold);opacity:0.3;margin-top:0.25rem"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE 5: Enterprise Governance DEEP DIVE -->
+<section class="feature-deep">
+  <div class="wrap-md">
+    <div class="fd-grid">
+      <div class="fd-content">
+        <div class="fd-num">05 · Governance</div>
+        <h2>ENTERPRISE GOVERNANCE</h2>
+        <p class="lead">AI proposes. Humans approve. The organization owns. One governance layer spans every AI platform your teams use — with complete audit trails, approval workflows, and compliance surfaces.</p>
+        <ul class="fd-list">
+          <li>Human-in-the-Loop (HITL) approval for high-risk actions</li>
+          <li>Auto-approve policies for low-risk, routine operations</li>
+          <li>Complete audit trail: who proposed, who approved, what changed</li>
+          <li>Governance state machine: draft → pending → approved → published</li>
+          <li>Role-based access control (RBAC) + SSO integration</li>
+          <li>One compliance surface for SOC 2, GDPR, ISO 27001</li>
+          <li>Triage Bot queue for proposal review and routing</li>
+          <li>Evidence chains and source context for every decision</li>
+        </ul>
+      </div>
+      <div class="fd-mock">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:rgba(244,240,232,0.5);margin-bottom:1rem">GOVERNANCE FLOW</div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem">
+          <div style="display:flex;align-items:center;gap:0.5rem">
+            <div style="background:rgba(244,240,232,0.1);padding:0.4rem 0.6rem;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--paper)">AI Proposes</div>
+            <span style="color:var(--gold)">→</span>
+            <div style="background:rgba(184,148,63,0.2);padding:0.4rem 0.6rem;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--gold)">DRAFT</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem">
+            <div style="background:rgba(244,240,232,0.1);padding:0.4rem 0.6rem;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--paper)">Triage Reviews</div>
+            <span style="color:var(--gold)">→</span>
+            <div style="background:rgba(184,148,63,0.3);padding:0.4rem 0.6rem;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--gold)">PENDING</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem">
+            <div style="background:rgba(244,240,232,0.1);padding:0.4rem 0.6rem;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--paper)">Human Approves</div>
+            <span style="color:var(--gold)">→</span>
+            <div style="background:var(--gold);padding:0.4rem 0.6rem;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--forest)">APPROVED</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem">
+            <div style="background:rgba(244,240,232,0.1);padding:0.4rem 0.6rem;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--paper)">System Writes</div>
+            <span style="color:var(--gold)">→</span>
+            <div style="background:var(--forest-mid);padding:0.4rem 0.6rem;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--paper)">PUBLISHED</div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:0.5rem;background:rgba(244,240,232,0.05);border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:0.5rem;color:rgba(244,240,232,0.6)">
+          ✓ Complete audit trail<br>
+          ✓ Evidence chain preserved<br>
+          ✓ Rollback available
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE 6: Developer Experience DEEP DIVE -->
+<section class="feature-deep alt">
+  <div class="wrap-md">
+    <div class="fd-grid">
+      <div class="fd-content">
+        <div class="fd-num">06 · Developer Experience</div>
+        <h2>DEVELOPER EXPERIENCE</h2>
+        <p class="lead">Built by developers, for developers. TypeScript-first, edge-native, with comprehensive SDKs and documentation. Deploy connectors in minutes. Extend the Spine with custom traits. Build on infrastructure that scales.</p>
+        <ul class="fd-list">
+          <li>TypeScript-first SDKs and type-safe Zod contracts</li>
+          <li>30+ pre-built connector adapters (HubSpot, Salesforce, Jira, etc.)</li>
+          <li>Edge-native: Cloudflare Workers, D1, KV, Queues</li>
+          <li>Comprehensive API documentation at docs.integratewise.ai</li>
+          <li>GitHub-native: open source connectors, community contributions</li>
+          <li>Local development with Wrangler + Miniflare</li>
+          <li>CLI tools for connector scaffolding and deployment</li>
+          <li>Zero cold start — edge-deployed globally</li>
+        </ul>
+      </div>
+      <div class="fd-mock" style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem">
+        <div style="color:rgba(244,240,232,0.5);margin-bottom:0.75rem">$ npm install @integratewise/sdk</div>
+        <div style="color:rgba(244,240,232,0.5);margin-bottom:0.5rem">// Create a connector</div>
+        <div style="color:var(--paper)">import { createConnector } from '@iw/sdk'</div>
+        <div style="color:var(--paper);margin-top:0.5rem">const hubspot = createConnector({</div>
+        <div style="color:var(--paper);margin-left:1rem">name: 'hubspot',</div>
+        <div style="color:var(--paper);margin-left:1rem">traits: ['crm', 'contact', 'deal'],</div>
+        <div style="color:var(--paper);margin-left:1rem">auth: 'oauth2',</div>
+        <div style="color:var(--paper)">})</div>
+        <div style="margin-top:1rem;color:rgba(244,240,232,0.5)">// Deploy to edge</div>
+        <div style="color:var(--paper)">$ npx iw deploy</div>
+        <div style="color:var(--gold);margin-top:0.25rem">✓ Deployed to 300+ edge locations</div>
+        <div style="color:var(--gold)">✓ Live at connector.integratewise.ai</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE DETAIL: MCP NATIVE -->
+<section class="feature-section">
+  <div class="wrap">
+    <div class="feature-grid">
+      <div class="feature-content">
+        <div class="feature-num">01 · Architecture</div>
+        <h2 class="feature-title">MCP-NATIVE ARCHITECTURE</h2>
+        <p class="feature-desc">Built from first principles on the Model Context Protocol. Every connection, every capability, every memory operation speaks MCP natively — no translation layers, no adapters, no protocol debt.</p>
+        <ul class="feature-list">
+          <li>Native MCP transport from first byte to last</li>
+          <li>OAuth 2.0 with RS256 JWTs for every client</li>
+          <li>18 canonical tools across memory, spine, signal, and proposal namespaces</li>
+          <li>Any MCP-compatible AI client connects in minutes</li>
+          <li>Service bindings for zero-latency inter-worker communication</li>
+          <li>Discovery endpoint for automatic client configuration</li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <div class="visual-panel">
+          <div class="ui-mock" style="border:none;padding:0">
+            <div style="font-family:'IBM Plex Mono';font-size:0.65rem;color:var(--slate);margin-bottom:1rem">
+              <div style="color:var(--gold);margin-bottom:0.5rem">// mcp.integratewise.ai</div>
+              <div style="background:var(--paper-warm);padding:0.75rem;border-radius:0.5rem;border:1px solid var(--rule)">
+                <div><span style="color:var(--forest)">POST</span> / → MCP Protocol</div>
+                <div><span style="color:var(--forest)">GET</span> /oauth/authorize</div>
+                <div><span style="color:var(--forest)">POST</span> /oauth/token</div>
+                <div><span style="color:var(--forest)">GET</span> /.well-known/jwks.json</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem">
+              <div class="ui-mock-badge">kb.*</div>
+              <div class="ui-mock-badge">memory.*</div>
+              <div class="ui-mock-badge">spine.*</div>
+              <div class="ui-mock-badge">signal.*</div>
+              <div class="ui-mock-badge">proposal.*</div>
+              <div class="ui-mock-badge">search.*</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE DETAIL: CAPABILITY FABRIC -->
+<section class="feature-section alt">
+  <div class="wrap">
+    <div class="feature-grid reverse">
+      <div class="feature-content">
+        <div class="feature-num">02 · Core Engine</div>
+        <h2 class="feature-title">CAPABILITY FABRIC — THE SPINE</h2>
+        <p class="feature-desc">The Spine is the canonical entity resolution substrate. One Person exists once — across HubSpot, Jira, Gmail, Salesforce, and every tool you connect. Relationships, traits, and signals are resolved once and compounded forever.</p>
+        <ul class="feature-list">
+          <li>Entity Resolution: one entity across all connected systems</li>
+          <li>18 core traits + 7 canonical resource types</li>
+          <li>Relationship graph that exists nowhere else</li>
+          <li>Signal layer: change → think → approve → act → loop</li>
+          <li>Eight-stage cognitive normalization pipeline</li>
+          <li>Normalization paid once per entity — compounding begins immediately</li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <div class="visual-panel">
+          <div style="text-align:center;padding:1rem 0">
+            <div style="font-family:'IBM Plex Mono';font-size:0.6rem;color:var(--slate);margin-bottom:1rem">ENTITY: PERSON</div>
+            <div style="display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem">
+              <div class="diagram-node" style="font-size:0.55rem">HubSpot Contact</div>
+              <div class="diagram-node" style="font-size:0.55rem">Jira Reporter</div>
+              <div class="diagram-node" style="font-size:0.55rem">Gmail Sender</div>
+              <div class="diagram-node" style="font-size:0.55rem">Salesforce Lead</div>
+            </div>
+            <div style="color:var(--gold);font-size:1.5rem;margin:0.5rem 0">↓</div>
+            <div class="diagram-node highlight" style="font-size:0.65rem;padding:1rem 2rem">
+              <strong>ONE RESOLVED ENTITY</strong><br>
+              <span style="font-size:0.5rem;opacity:0.8">John Smith · Engineering · Acme Corp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section" style="background:var(--paper)">
+  <div class="wrap-md">
+    <div style="text-align:center;margin-bottom:2.5rem">
+      <span class="label">By The Numbers</span>
+      <h2 class="display" style="font-size:clamp(1.6rem,3.5vw,2.2rem);margin-top:0.5rem">INFRASTRUCTURE THAT SCALES</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num">30+</div>
+        <div class="stat-label">Pre-built Connectors</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">18</div>
+        <div class="stat-label">Canonical MCP Tools</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">300+</div>
+        <div class="stat-label">Edge Locations</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">&lt;50ms</div>
+        <div class="stat-label">Global Latency</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="background:var(--forest);color:var(--paper);text-align:center">
+  <div style="max-width:42rem;margin:0 auto">
+    <h2 class="display" style="font-size:clamp(1.8rem,4vw,2.8rem);color:var(--paper);margin-bottom:1rem">READY TO TRANSFORM N×M INTO N+M?</h2>
+    <p style="font-size:1rem;opacity:0.75;max-width:32rem;margin:0 auto 2rem;line-height:1.7">Start free. Connect your first system. See the Capability Fabric in action.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center">
+      <a href="/pricing" class="btn btn-gold">Start Free</a>
+      <a href="/contact" class="btn btn-outline">Book a Demo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">How It Works</a>
+      <a href="/pricing">Pricing</a>
+      <a href="#">Changelog</a>
+      <a href="#">Roadmap</a>
+    </div>
+    <div class="footer-col">
+      <h4>Developers</h4>
+      <a href="https://docs.integratewise.ai">Documentation</a>
+      <a href="#">API Reference</a>
+      <a href="#">SDKs</a>
+      <a href="https://github.com/integratewise">GitHub</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/about">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="#">Careers</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Security</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 IntegrateWise, Inc. All rights reserved.</p>
+    <p>SOC 2 Ready · GDPR Compliant · ISO 27001</p>
+  </div>
+</footer>
+
+</body>
+</html>
+
+<!-- FEATURE DETAIL: MEMORY LOOP -->
+<section class="feature-section">
+  <div class="wrap">
+    <div class="feature-grid">
+      <div class="feature-content">
+        <div class="feature-num">03 · Memory</div>
+        <h2 class="feature-title">THE MEMORY LOOP</h2>
+        <p class="feature-desc">Conversational context becomes institutional knowledge. Three memory tiers — conversational, organizational, and personal — governed by humans and owned by your organization. Switch AI models and pick up exactly where you left off.</p>
+        <ul class="feature-list">
+          <li>Conversational memory: session-scoped, role-tagged</li>
+          <li>Organizational memory: promoted, governed, immutable once approved</li>
+          <li>Personal memory: behavioral patterns, preferences, decisions</li>
+          <li>pgvector similarity search across all memory tiers</li>
+          <li>Memory persists across AI model switches</li>
+          <li>Dual-write synchronization: edge cache + fortress database</li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <div class="visual-panel">
+          <div style="display:flex;flex-direction:column;gap:0.75rem">
+            <div style="background:var(--paper-warm);border:1px solid var(--rule);border-radius:0.5rem;padding:1rem">
+              <div style="font-family:'IBM Plex Mono';font-size:0.55rem;color:var(--gold);margin-bottom:0.35rem">CONVERSATIONAL</div>
+              <div style="font-size:0.75rem;color:var(--slate)">Session context, chat history, role-tagged interactions</div>
+            </div>
+            <div style="text-align:center;color:var(--gold)">↓ promote</div>
+            <div style="background:var(--gold-pale);border:1px solid var(--gold);border-radius:0.5rem;padding:1rem">
+              <div style="font-family:'IBM Plex Mono';font-size:0.55rem;color:var(--forest);margin-bottom:0.35rem">ORGANIZATIONAL</div>
+              <div style="font-size:0.75rem;color:var(--forest)">Approved decisions, policies, institutional knowledge</div>
+            </div>
+            <div style="text-align:center;color:var(--gold)">↓ learn</div>
+            <div style="background:var(--forest);border:1px solid var(--forest-mid);border-radius:0.5rem;padding:1rem">
+              <div style="font-family:'IBM Plex Mono';font-size:0.55rem;color:var(--gold-pale);margin-bottom:0.35rem">PERSONAL</div>
+              <div style="font-size:0.75rem;color:var(--paper)">Preferences, patterns, decision history</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE DETAIL: MULTI-AI ORCHESTRATION -->
+<section class="feature-section alt">
+  <div class="wrap">
+    <div class="feature-grid reverse">
+      <div class="feature-content">
+        <div class="feature-num">04 · Orchestration</div>
+        <h2 class="feature-title">MULTI-AI ORCHESTRATION</h2>
+        <p class="feature-desc">Authorize Claude, ChatGPT, Gemini, Perplexity, local LLMs, or any MCP-compatible AI as clients of your Capability Fabric. One integration surface. Unlimited AI consumers. Zero vendor lock-in.</p>
+        <ul class="feature-list">
+          <li>Any AI connects via standard OAuth 2.0 authorization</li>
+          <li>Tenant-isolated, scope-enforced access per AI</li>
+          <li>Switch AI models in 1 day instead of 6 months</li>
+          <li>Context transfer: memory follows the conversation, not the vendor</li>
+          <li>Parallel AI evaluation: same capability, different models</li>
+          <li>Graceful degradation: if one AI goes down, others continue</li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <div class="visual-panel">
+          <div style="text-align:center">
+            <div style="font-family:'IBM Plex Mono';font-size:0.55rem;color:var(--slate);margin-bottom:1rem">MODEL SWITCHING — MEMORY RETAINED</div>
+            <div style="display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem">
+              <div class="diagram-node" style="opacity:0.5">Claude 3</div>
+              <div class="diagram-node highlight">GPT-4</div>
+              <div class="diagram-node" style="opacity:0.5">Gemini</div>
+            </div>
+            <div style="color:var(--gold);font-size:1rem;margin:0.5rem 0">↕</div>
+            <div style="background:var(--gold-pale);border:2px solid var(--gold);border-radius:0.5rem;padding:1rem;margin:0 auto;max-width:200px">
+              <div style="font-family:'Bebas Neue';font-size:1rem;color:var(--forest)">MEMORY LAYER</div>
+              <div style="font-size:0.6rem;color:var(--slate)">Always retained</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE DETAIL: ENTERPRISE GOVERNANCE -->
+<section class="feature-section">
+  <div class="wrap">
+    <div class="feature-grid">
+      <div class="feature-content">
+        <div class="feature-num">05 · Governance</div>
+        <h2 class="feature-title">ENTERPRISE GOVERNANCE</h2>
+        <p class="feature-desc">AI proposes. Humans approve. The organization owns. One governance layer spans every AI platform your teams use — with complete audit trails, approval workflows, and compliance surfaces. Nothing important auto-lands into shared truth.</p>
+        <ul class="feature-list">
+          <li>Human-in-the-Loop (HITL) approval for high-risk actions</li>
+          <li>Auto-approve policies for low-risk, routine operations</li>
+          <li>Complete audit trail: who proposed, who approved, what changed</li>
+          <li>Governance state machine: draft → pending → approved → published</li>
+          <li>Role-based access control (RBAC) + SSO integration</li>
+          <li>One compliance surface for SOC 2, GDPR, ISO 27001</li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <div class="visual-panel dark">
+          <div style="padding:0.5rem">
+            <div style="font-family:'IBM Plex Mono';font-size:0.55rem;color:var(--gold-pale);margin-bottom:1rem">GOVERNANCE QUEUE</div>
+            <div style="background:rgba(244,240,232,0.1);border:1px solid var(--forest-mid);border-radius:0.5rem;padding:0.75rem;margin-bottom:0.5rem">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem">
+                <span style="font-size:0.65rem;color:var(--paper)">Update account risk score</span>
+                <span class="ui-mock-badge pending">Pending</span>
+              </div>
+              <div style="font-size:0.55rem;color:var(--gold-pale)">Proposed by Twin · 2 min ago</div>
+            </div>
+            <div style="background:rgba(244,240,232,0.1);border:1px solid var(--forest-mid);border-radius:0.5rem;padding:0.75rem;margin-bottom:0.5rem">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem">
+                <span style="font-size:0.65rem;color:var(--paper)">Promote contact to org memory</span>
+                <span class="ui-mock-badge approved">Approved</span>
+              </div>
+              <div style="font-size:0.55rem;color:var(--gold-pale)">Approved by Nirmal · 5 min ago</div>
+            </div>
+            <div style="background:rgba(244,240,232,0.1);border:1px solid var(--forest-mid);border-radius:0.5rem;padding:0.75rem">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem">
+                <span style="font-size:0.65rem;color:var(--paper)">Sync deal stage to HubSpot</span>
+                <span class="ui-mock-badge" style="background:var(--forest-mid)">Auto</span>
+              </div>
+              <div style="font-size:0.55rem;color:var(--gold-pale)">Auto-approved (low risk)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE DETAIL: DEVELOPER EXPERIENCE -->
+<section class="feature-section alt">
+  <div class="wrap">
+    <div class="feature-grid reverse">
+      <div class="feature-content">
+        <div class="feature-num">06 · Developer Experience</div>
+        <h2 class="feature-title">DEVELOPER EXPERIENCE</h2>
+        <p class="feature-desc">Built by developers, for developers. TypeScript-first, edge-native, with comprehensive SDKs and documentation. Deploy connectors in minutes. Extend the Spine with custom traits. Build on infrastructure that scales.</p>
+        <ul class="feature-list">
+          <li>TypeScript-first SDKs and type-safe contracts</li>
+          <li>30+ pre-built connector adapters</li>
+          <li>Edge-native: Cloudflare Workers, D1, KV, Queues</li>
+          <li>Comprehensive API documentation at docs.integratewise.ai</li>
+          <li>GitHub-native: open source connectors, community contributions</li>
+          <li>Local development with Wrangler + Miniflare</li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <div class="visual-panel">
+          <div style="font-family:'IBM Plex Mono';font-size:0.65rem;background:var(--forest);color:var(--paper);padding:1rem;border-radius:0.5rem">
+            <div style="color:var(--slate);margin-bottom:0.5rem">// Connect in 3 lines</div>
+            <div><span style="color:var(--gold)">import</span> { IntegrateWise } <span style="color:var(--gold)">from</span> <span style="color:var(--gold-pale)">'@integratewise/sdk'</span></div>
+            <div style="margin-top:0.35rem"><span style="color:var(--gold)">const</span> spine = <span style="color:var(--gold)">new</span> IntegrateWise()</div>
+            <div style="margin-top:0.35rem"><span style="color:var(--gold)">const</span> entity = <span style="color:var(--gold)">await</span> spine.<span style="color:var(--gold-pale)">resolve</span>(email)</div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem">
+            <div class="diagram-node" style="font-size:0.55rem">HubSpot</div>
+            <div class="diagram-node" style="font-size:0.55rem">Jira</div>
+            <div class="diagram-node" style="font-size:0.55rem">Salesforce</div>
+            <div class="diagram-node" style="font-size:0.55rem">Gmail</div>
+            <div class="diagram-node" style="font-size:0.55rem">Slack</div>
+            <div class="diagram-node" style="font-size:0.55rem">+25 more</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap">
+    <h2 class="cta-title">READY TO OWN YOUR AI INFRASTRUCTURE?</h2>
+    <p class="cta-desc">Start free. Connect your first system. See the Capability Fabric in action. Switch AI models without losing a byte of context.</p>
+    <div class="cta-buttons">
+      <a href="/pricing" class="btn btn-gold">Start Free</a>
+      <a href="/contact" class="btn btn-outline">Book a Demo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="/features">Features</a>
+      <a href="/how-it-works">How It Works</a>
+      <a href="/pricing">Pricing</a>
+      <a href="#">Changelog</a>
+      <a href="#">Roadmap</a>
+    </div>
+    <div class="footer-col">
+      <h4>Developers</h4>
+      <a href="https://docs.integratewise.ai">Documentation</a>
+      <a href="#">API Reference</a>
+      <a href="#">SDKs</a>
+      <a href="https://github.com/integratewise">GitHub</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/about">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="#">Careers</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Security</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 IntegrateWise, Inc. All rights reserved.</p>
+    <p>SOC 2 Ready · GDPR Compliant · ISO 27001</p>
+  </div>
+</footer>
+
+</body>
+</html>
