@@ -1,670 +1,390 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Brain, Network, Lightbulb } from "lucide-react";
-import { useState } from "react";
-import HeroSpine from "@/components/HeroSpine";
-import SpinePillars from "@/components/SpinePillars";
-
-/**
- * Design Philosophy: Organic Futurism with Fluid Abstraction
- * 
- * Key Design Elements:
- * - Deep indigo (#2d1b4e) primary with warm coral (#ff6b5b) and sage (#a8d5ba) accents
- * - Flowing organic shapes and curves suggesting continuous intelligence
- * - Smooth animations and transitions (300-400ms ease-out)
- * - Floating cards with soft shadows and subtle depth
- * - Gradient text and glowing highlights for premium feel
- * - Wave dividers between sections for organic flow
- */
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
-  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/92 backdrop-blur-md border-b border-border">
         <div className="container flex items-center justify-between py-4">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-coral to-gold flex items-center justify-center">
-              <span className="text-white font-bold text-sm">IW</span>
+          <a href="/" className="flex items-center gap-2 hover:opacity-75 transition-opacity">
+            <div className="w-8 h-8 rounded bg-forest flex items-center justify-center">
+              <span className="text-paper font-bold text-sm">IW</span>
             </div>
-            <span className="font-bold text-lg hidden sm:inline">IW_Continuity_Bridge</span>
-          </div>
+            <span className="font-semibold text-forest hidden sm:inline">IntegrateWise</span>
+          </a>
           <div className="flex items-center gap-4">
-            <a href="#architecture" className="text-sm font-medium hover:text-accent transition-colors">
-              Architecture
+            <a href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Product
             </a>
-            <a href="#features" className="text-sm font-medium hover:text-accent transition-colors">
-              Features
+            <a href="/pricing" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Pricing
             </a>
+            <button className="px-4 py-2 rounded bg-forest text-paper font-medium text-sm hover:bg-forest-deep transition-colors">
+              Get Early Access
+            </button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
-        {/* Background image with overlay */}
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: 'url(https://d2xsxph8kpxj0f.cloudfront.net/310519663504733993/B3RNNJUm56N9pHUdu8Mgo7/hero-continuity-flow-Ec493qMwneCJ92LxNNJ6WC.webp)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/80"></div>
-        </div>
-
-        <div className="container relative z-10">
-          <div className="max-w-3xl mx-auto text-center fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 gradient-text">
-              The Missing Layer in Enterprise AI
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-              <span className="block font-semibold text-foreground mb-4">
-                One Memory. One Context. One Truth.
-              </span>
-              Across Every AI, Every System, and Every Conversation.
-            </p>
-
-            <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-              Organizations are adopting ChatGPT, Claude, Gemini, Copilot, internal agents, and dozens of AI-powered applications. But every interaction starts over.
-            </p>
-
-            <p className="text-lg font-semibold text-foreground mb-12 max-w-2xl mx-auto">
-              IW_Continuity_Bridge creates the continuity layer that allows humans, AI systems, and enterprise applications to operate from the same organizational reality.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <button className="cta-button">
-                Request Demo
-                <ArrowRight className="inline ml-2 w-5 h-5" />
-              </button>
-              <button className="secondary-button">
-                See Architecture
-              </button>
-            </div>
-
-            <p className="text-lg font-bold text-accent">
-              Stop rebuilding context. Start compounding intelligence.
-            </p>
+      {/* Hero */}
+      <section className="pt-32 pb-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-xs font-mono text-gold tracking-wider uppercase mb-6">The Missing Layer in Enterprise AI</p>
+          <h1 className="text-5xl md:text-6xl font-bold text-forest mb-8 leading-tight">
+            Brief it once. It <span className="text-gold">remembers</span>. It finishes.
+          </h1>
+          <p className="text-xl text-muted mb-8 leading-relaxed max-w-2xl">
+            IntegrateWise connects your tools, builds a memory of your business, and hands off approved decisions to your execution environment. AI that doesn't forget what you told it.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 items-start">
+            <button className="cta-button">
+              Request Demo
+              <ArrowRight className="inline ml-2 w-4 h-4" />
+            </button>
+            <button className="secondary-button">
+              See Architecture
+            </button>
           </div>
-        </div>
-      </section>
-
-      {/* The Problem Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-background via-muted/30 to-background">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-              The AI Era Has Recreated an Old Problem
-            </h2>
-
-            <div className="prose prose-invert max-w-none space-y-8">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Twenty years ago, enterprises struggled with application fragmentation. Every system connected directly to every other system. The result was complexity, duplication, and chaos.
-              </p>
-
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Integration platforms and API gateways solved that problem.
-              </p>
-
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Today, AI is creating the same challenge again. Every AI maintains its own:
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-6 my-8">
-                {[
-                  { icon: Brain, label: "Memory" },
-                  { icon: Network, label: "Context" },
-                  { icon: Lightbulb, label: "Understanding" },
-                  { icon: Zap, label: "Conversation History" }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border hover:border-accent transition-colors">
-                    <item.icon className="w-6 h-6 text-coral flex-shrink-0 mt-1" />
-                    <span className="font-semibold text-lg">{item.label}</span>
-                  </div>
-                ))}
+          <div className="mt-12 pt-12 border-t border-border">
+            <div className="flex flex-col sm:flex-row gap-8">
+              <div>
+                <p className="text-2xl font-bold text-forest">60%+</p>
+                <p className="text-sm text-muted">Pilot conversion rate with paid pilots in India</p>
               </div>
-
-              <p className="text-lg font-semibold text-foreground bg-gradient-to-r from-coral/10 to-sage/10 p-6 rounded-xl border border-coral/20">
-                Organizations now have intelligence everywhere, but continuity nowhere.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Infrastructure Gap Section */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: 'url(https://d2xsxph8kpxj0f.cloudfront.net/310519663504733993/B3RNNJUm56N9pHUdu8Mgo7/context-continuity-pattern-5JiveBuu63iqhMFeY8kcdm.webp)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0.03
-          }}
-        ></div>
-
-        <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
-              The Missing Infrastructure
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-              <div className="space-y-6">
-                <h3 className="text-3xl font-bold">
-                  Enterprises Have Integration Infrastructure.
-                </h3>
-                <p className="text-lg text-muted-foreground">
-                  They've solved the problem of application fragmentation through integration platforms and API gateways.
-                </p>
-              </div>
-
-              <div className="space-y-6 md:border-l-2 md:border-coral md:pl-8">
-                <h3 className="text-3xl font-bold">
-                  They Don't Have Continuity Infrastructure.
-                </h3>
-                <p className="text-lg text-muted-foreground">
-                  Modern organizations need more than AI access. They need shared memory, context, reasoning, and organizational truth.
-                </p>
-              </div>
-            </div>
-
-            <div className="floating-card">
-              <h3 className="text-2xl font-bold mb-8">What Organizations Need</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                {[
-                  "Shared memory",
-                  "Shared context",
-                  "Shared reasoning",
-                  "Shared organizational truth"
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-coral"></div>
-                    <span className="text-lg font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="text-muted-foreground mt-8 pt-8 border-t border-border">
-                A layer that exists independently of any model, application, or conversation.
-              </p>
-              <p className="text-lg font-bold text-coral mt-4">
-                That layer is IW_Continuity_Bridge.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Introducing IW_Continuity_Bridge */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-muted/20 to-background">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-              Introducing IW_Continuity_Bridge
-            </h2>
-
-            <p className="text-xl text-muted-foreground mb-12 text-center leading-relaxed">
-              Continuity infrastructure for the AI era.
-            </p>
-
-            <div className="mb-12 p-8 rounded-2xl bg-card border border-border">
-              <HeroSpine />
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div className="floating-card">
-                <h3 className="text-2xl font-bold mb-4 text-coral">Sits Between</h3>
-                <ul className="space-y-3">
-                  {["Humans", "AI Systems", "Enterprise Applications", "Organizational Knowledge"].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-sage"></div>
-                      <span className="font-medium">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="floating-card">
-                <h3 className="text-2xl font-bold mb-4 text-sage">Creates</h3>
-                <p className="text-lg leading-relaxed">
-                  A persistent continuity layer that every participant can access.
-                </p>
-                <p className="text-lg font-semibold mt-6 text-coral">
-                  Instead of every system operating from its own understanding, every system operates from the same organizational reality.
-                </p>
+              <div>
+                <p className="text-2xl font-bold text-forest">₹9L–13L</p>
+                <p className="text-sm text-muted">Monthly problem cost IntegrateWise replaces</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What Continuity Means */}
-      <section id="features" className="py-20 md:py-32 relative overflow-hidden">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
-            What Continuity Means
+      {/* Thesis */}
+      <section className="py-20 md:py-32 px-4 bg-forest text-paper">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs font-mono text-gold tracking-wider uppercase mb-6">Our Thesis</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            Organizations are adopting AI without <span className="text-gold">continuity infrastructure.</span>
           </h2>
+          <p className="text-lg text-paper/75 leading-relaxed mb-12">
+            ChatGPT, Claude, Gemini, Copilot, internal agents, and dozens of AI applications. But every interaction resets. Every conversation loses context. Every AI maintains its own memory.
+          </p>
+          <div className="inline-flex flex-col gap-4">
+            <div className="bg-forest-deep border border-gold/20 rounded-xl px-8 py-6">
+              <p className="text-3xl font-bold text-gold mb-2">Organizations now have</p>
+              <p className="text-2xl font-semibold text-paper">intelligence everywhere, but continuity nowhere.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto stagger-fade-in">
+      {/* Frustrations */}
+      <section className="py-20 md:py-32 px-4">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-xs font-mono text-gold tracking-wider uppercase mb-2">Frustrations</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-forest mb-4 leading-tight">
+            What this looks like in practice.
+          </h2>
+          <p className="text-lg text-muted mb-12 max-w-2xl">
+            Teams rebuilding context. AI systems operating from different truths. Critical context lost between conversations and tools.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                title: "Memory Continuity",
-                description: "Knowledge no longer lives inside individual conversations. Decisions, learnings, and organizational intelligence become persistent assets. Every interaction strengthens the same memory foundation.",
-                icon: Brain,
-                color: "coral"
+                name: "The Sales Lead",
+                quote: "\"I spend 30 minutes every meeting explaining the same deal context to ChatGPT.\"",
+                desc: "Client backstory. Deal milestones. Approval history. Every conversation asks the same questions. Memory gets lost when switching to Claude or Copilot."
               },
               {
-                title: "Context Continuity",
-                description: "Work no longer resets when tools change. Start in ChatGPT, continue in Claude, move to OpenWebUI, transition to an internal agent. The work continues because the context persists.",
-                icon: Network,
-                color: "sage"
+                name: "The Operations Head",
+                quote: "\"Our five AIs don't talk to each other. Each one has its own version of truth.\"",
+                desc: "Salesforce says one thing. Internal agents think another. Team members manually sync between systems. No single source of context."
               },
               {
-                title: "Reasoning Continuity",
-                description: "Organizations develop ways of thinking, operating, and making decisions. Those patterns survive model changes, vendor changes, employee turnover, and technology shifts.",
-                icon: Lightbulb,
-                color: "coral"
-              },
-              {
-                title: "Execution Continuity",
-                description: "Workflows, tasks, approvals, and actions maintain state across systems. The organization continues the work—not the tool.",
-                icon: Zap,
-                color: "sage"
+                name: "The Engineering Lead",
+                quote: "\"We've built 7 custom integrations. We're maintaining 7 different memories.\"",
+                desc: "n8n pipelines. Zapier automations. Custom scripts. Each one duplicates context. Adding a new tool means rebuilding everything again."
               }
-            ].map((feature, idx) => (
-              <div
-                key={idx}
-                className="floating-card cursor-pointer"
-                onMouseEnter={() => setHoveredFeature(idx)}
-                onMouseLeave={() => setHoveredFeature(null)}
-              >
-                <feature.icon className={`w-8 h-8 mb-4 ${feature.color === 'coral' ? 'text-coral' : 'text-sage'}`} />
-                <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
+            ].map((frustration, idx) => (
+              <div key={idx} className="bg-paper-warm border border-border rounded-xl p-6 hover:border-gold transition-colors">
+                <p className="font-semibold text-forest mb-3">{frustration.name}</p>
+                <p className="italic text-ink mb-4">{frustration.quote}</p>
+                <p className="text-sm text-muted">{frustration.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* The Continuity Spine */}
-      <section className="py-20 md:py-32 bg-gradient-to-r from-indigo-dark/5 to-coral/5">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-              The Continuity Spine
-            </h2>
+      {/* Wanted/Got/Gives */}
+      <section className="py-20 md:py-32 px-4 bg-paper-warm border-y border-border">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-xs font-mono text-gold tracking-wider uppercase mb-2">Solution</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-forest mb-4 leading-tight">
+            What IntegrateWise changes.
+          </h2>
+          <p className="text-lg text-muted mb-12">Teams now have one continuity layer. One memory. One context. One truth.</p>
 
-            <p className="text-xl text-muted-foreground mb-12 text-center leading-relaxed">
-              At the center of IW_Continuity_Bridge is the Continuity Spine. A persistent organizational layer responsible for:
-            </p>
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b-2 border-forest">
+                  <th className="text-left py-4 px-4 font-mono text-xs text-gold uppercase tracking-wider">They Wanted</th>
+                  <th className="text-left py-4 px-4 font-mono text-xs text-gold uppercase tracking-wider">They Had Before</th>
+                  <th className="text-left py-4 px-4 font-mono text-xs text-gold uppercase tracking-wider">IntegrateWise Gives Them</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-border">
+                  <td className="py-4 px-4 font-semibold text-forest">Shared organizational memory</td>
+                  <td className="py-4 px-4 text-muted italic">Each AI maintains its own memory in its own format</td>
+                  <td className="py-4 px-4 text-ink">One canonical memory that every AI, app, and human can access</td>
+                </tr>
+                <tr className="border-b border-border">
+                  <td className="py-4 px-4 font-semibold text-forest">Context that persists across tools</td>
+                  <td className="py-4 px-4 text-muted italic">Switching to Claude means explaining everything again</td>
+                  <td className="py-4 px-4 text-ink">Work continues seamlessly across tools because context is external</td>
+                </tr>
+                <tr className="border-b border-border">
+                  <td className="py-4 px-4 font-semibold text-forest">Governed, auditable AI decisions</td>
+                  <td className="py-4 px-4 text-muted italic">No visibility into what the AI decided or why</td>
+                  <td className="py-4 px-4 text-ink">Every decision routes through approval layers with full audit trails</td>
+                </tr>
+                <tr>
+                  <td className="py-4 px-4 font-semibold text-forest">One source of truth for decisions</td>
+                  <td className="py-4 px-4 text-muted italic">7 integrations = 7 different data truths</td>
+                  <td className="py-4 px-4 text-ink">One governed continuity layer that systems pull from</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
-            <div className="floating-card">
-              <div className="grid md:grid-cols-3 gap-6">
-                {[
-                  "Memory",
-                  "Context",
-                  "Knowledge",
-                  "Capabilities",
-                  "Policies",
-                  "Governance"
-                ].map((item, idx) => (
-                  <div key={idx} className="text-center p-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-coral to-gold mx-auto mb-3 flex items-center justify-center">
-                      <span className="text-white font-bold text-sm">✓</span>
-                    </div>
-                    <p className="font-semibold text-lg">{item}</p>
-                  </div>
-                ))}
+      {/* Product Features */}
+      <section className="py-20 md:py-32 px-4 bg-forest text-paper">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-xs font-mono text-gold tracking-wider uppercase mb-2">Product</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+            How it works.
+          </h2>
+          <p className="text-lg text-paper/75 mb-12 max-w-2xl">
+            A continuity layer that sits between humans, AI systems, and enterprise applications. Every interaction strengthens the same memory foundation.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              {
+                name: "Workbench",
+                desc: "Chat with your organizational memory. Start a conversation, pull context, build on what's already known.",
+                emoji: "💼"
+              },
+              {
+                name: "Twin",
+                desc: "Your operational AI agent. Knows your business rules, your approval patterns, your way of working.",
+                emoji: "👥"
+              },
+              {
+                name: "Memory",
+                desc: "Persistent organizational intelligence. Not embeddings. Real semantic memory of decisions, patterns, and context.",
+                emoji: "🧠"
+              },
+              {
+                name: "Approval",
+                desc: "Governance layer. Every decision gets routed through your approval workflows before execution.",
+                emoji: "✓"
+              },
+              {
+                name: "Handoff",
+                desc: "Execute into your systems. JSON, webhooks, MCP, or custom adapters. Decisions become actions.",
+                emoji: "🚀"
+              },
+              {
+                name: "Integrations",
+                desc: "Connect your tools once. Salesforce, Jira, Slack, Notion, GitHub, custom APIs. The memory grows from every interaction.",
+                emoji: "🔗"
+              }
+            ].map((feature, idx) => (
+              <div key={idx} className="bg-forest-deep border border-paper/10 rounded-xl p-6 hover:border-gold hover:bg-forest-deep/60 transition-all">
+                <p className="text-2xl mb-3">{feature.emoji}</p>
+                <p className="font-semibold text-paper mb-3">{feature.name}</p>
+                <p className="text-sm text-paper/75">{feature.desc}</p>
               </div>
-              <p className="text-center mt-8 pt-8 border-t border-border text-muted-foreground">
-                Every AI, application, and user interacts through the same continuity foundation. This transforms fragmented interactions into continuous organizational intelligence.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* The Organizational Twin */}
-      <section className="py-20 md:py-32">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-              The Organizational Twin
-            </h2>
+      {/* Personas */}
+      <section className="py-20 md:py-32 px-4">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-xs font-mono text-gold tracking-wider uppercase mb-2">Personas</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-forest mb-12 leading-tight">
+            Built for the India market.
+          </h2>
 
-            <div 
-              className="relative rounded-2xl overflow-hidden mb-12 h-96"
-              style={{
-                backgroundImage: 'url(https://d2xsxph8kpxj0f.cloudfront.net/310519663504733993/B3RNNJUm56N9pHUdu8Mgo7/organizational-twin-abstract-GbGM3ZNRfRLyj43ucUAJYo.webp)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
-            </div>
-
-            <div className="floating-card">
-              <p className="text-lg leading-relaxed mb-6">
-                Continuity creates something larger. An Organizational Twin—a persistent digital representation of how the organization thinks, operates, decides, and executes.
-              </p>
-
-              <p className="text-lg font-semibold text-coral mb-6">
-                The Twin continuously learns from:
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-4 mb-8">
-                {[
-                  "Conversations",
-                  "Meetings",
-                  "Decisions",
-                  "Documents",
-                  "Systems",
-                  "Operational activity"
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-sage"></div>
-                    <span className="font-medium">{item}</span>
-                  </div>
-                ))}
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Aisha",
+                role: "VP Sales at mid-market SaaS",
+                story: "Manages 5-10 large deals simultaneously. Works across Salesforce, Slack, email, and custom tools. Needs organizational context to carry deals forward when team members change or deals stall."
+              },
+              {
+                name: "Rajesh",
+                role: "Operations Director, Indian services firm",
+                story: "Coordinates between sales, delivery, finance, and compliance. Decisions need audit trails for regulations. Currently maintains 3 separate systems with manual reconciliation."
+              },
+              {
+                name: "Priya",
+                role: "Founder, AI-first startup",
+                story: "Building internal agents, chatbots, and automation. Drowning in custom integrations. Each agent has its own memory layer. Needs one unified memory the whole organization can build on."
+              }
+            ].map((persona, idx) => (
+              <div key={idx} className="border border-border rounded-xl p-6 bg-paper hover:bg-paper-warm transition-colors">
+                <div className="h-1 w-8 bg-gold rounded mb-4"></div>
+                <p className="text-xs font-mono text-muted uppercase tracking-wider mb-2">Persona</p>
+                <p className="text-xl font-bold text-forest mb-1">{persona.name}</p>
+                <p className="text-sm text-muted mb-4">{persona.role}</p>
+                <p className="text-sm text-ink leading-relaxed">{persona.story}</p>
               </div>
-
-              <p className="text-lg font-bold text-foreground">
-                Creating a living organizational intelligence layer.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Voice Is Just the Entry Point */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-muted/20 to-background">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-              Voice Is Just the Entry Point
-            </h2>
-
-            <p className="text-lg text-muted-foreground mb-12 text-center leading-relaxed">
-              Most voice systems focus on speech. Speech-to-text. Text-to-speech. Voice assistants. IW approaches voice differently.
+      {/* Why Now */}
+      <section className="py-20 md:py-32 px-4">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-xs font-mono text-gold tracking-wider uppercase mb-6">Why Now</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-forest mb-8 leading-tight">
+            The moment for continuity infrastructure.
+          </h2>
+          <p className="text-lg text-muted leading-relaxed mb-8">
+            Twenty years ago, enterprises solved application fragmentation with integration platforms. Today, AI is recreating the same problem. Organizations need continuity infrastructure the same way they needed API gateways for the application era.
+          </p>
+          <div className="bg-gold/10 border border-gold/30 rounded-xl p-8">
+            <p className="text-forest font-semibold text-lg">
+              API gateways solved fragmentation between systems.
             </p>
-
-            <div className="floating-card">
-              <h3 className="text-3xl font-bold mb-8 text-coral">Voice Continuity</h3>
-              
-              <p className="text-lg leading-relaxed mb-6">
-                When someone speaks, the organization should remember.
-              </p>
-
-              <p className="text-lg leading-relaxed mb-6">
-                Voice becomes an interface into shared memory, context, and organizational intelligence.
-              </p>
-
-              <p className="text-lg font-semibold text-foreground bg-gradient-to-r from-coral/10 to-sage/10 p-6 rounded-xl border border-coral/20">
-                The conversation doesn't start. It continues.
-              </p>
-            </div>
+            <p className="text-lg font-bold text-gold mt-4">
+              Continuity infrastructure solves fragmentation between AIs, systems, and conversations.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Architecture: Six Pillars */}
-      <section id="architecture" className="py-20 md:py-32">
-        <div className="container">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-              The Six Pillars Architecture
-            </h2>
+      {/* Audience Hooks */}
+      <section className="py-20 md:py-32 px-4 bg-paper-warm">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-xs font-mono text-gold tracking-wider uppercase mb-2">For Your Team</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-forest mb-12 leading-tight">
+            Different entry points, same platform.
+          </h2>
 
-            <p className="text-xl text-muted-foreground mb-12 text-center leading-relaxed">
-              IW_Continuity_Bridge is built on six interconnected pillars, all resting on the canonical context layer—the Spine.
-            </p>
-
-            <div className="mb-12 p-8 rounded-2xl bg-card border border-border">
-              <SpinePillars />
-            </div>
-
-            <div className="floating-card">
-              <h3 className="text-2xl font-bold mb-6 text-coral">The Spine: Canonical Context Layer</h3>
-              <p className="text-lg leading-relaxed mb-6">
-                At the heart of the architecture is the Spine—a persistent, normalized, and governed layer that serves as the single source of truth for organizational context. Every pillar depends on it.
-              </p>
-              <div className="grid md:grid-cols-3 gap-6">
-                {[
-                  { label: "Normalized", desc: "Data flows in, gets transformed to canonical form" },
-                  { label: "Governed", desc: "Every change requires approval and audit trail" },
-                  { label: "Persistent", desc: "Context survives model changes, vendor changes, team changes" }
-                ].map((item, idx) => (
-                  <div key={idx} className="p-4 rounded-lg bg-gradient-to-br from-coral/5 to-transparent border border-coral/20">
-                    <p className="font-bold text-coral mb-2">{item.label}</p>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </div>
-                ))}
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                role: "Sales Leader",
+                hook: "Never start from scratch. Every deal has its context."
+              },
+              {
+                role: "Operations Head",
+                hook: "One system. One source of truth. Full audit trail."
+              },
+              {
+                role: "AI Engineer",
+                hook: "Build once. Deploy everywhere. Let your memory compound."
+              },
+              {
+                role: "CFO/Procurement",
+                hook: "Replaces ₹9L of friction. ROI in quarter one."
+              },
+              {
+                role: "Compliance Officer",
+                hook: "Governed AI decisions. Full audit trail. Regulatory ready."
+              },
+              {
+                role: "CISO",
+                hook: "On-premise option. VPC deployment. No data leaves your network."
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="border border-border rounded-xl p-6 bg-paper hover:border-gold transition-colors">
+                <p className="text-xs font-mono text-gold uppercase tracking-wider mb-2">{item.role}</p>
+                <p className="text-lg italic text-ink">{item.hook}</p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Open by Design */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-muted/20 to-background">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-              Open by Design
-            </h2>
-
-            <p className="text-xl text-muted-foreground mb-12 text-center leading-relaxed">
-              IW_Continuity_Bridge is model agnostic. Designed to work across:
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-6 mb-12">
-              {[
-                "ChatGPT",
-                "Claude",
-                "Gemini",
-                "Open-source models",
-                "OpenWebUI",
-                "Enterprise agents",
-                "Future AI systems"
-              ].map((model, idx) => (
-                <div key={idx} className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border hover:border-accent transition-colors">
-                  <div className="w-2 h-2 rounded-full bg-coral"></div>
-                  <span className="font-medium text-lg">{model}</span>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-lg text-muted-foreground text-center font-semibold">
-              Organizations remain independent of any single vendor while preserving continuity across all of them.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Why It Matters */}
-      <section className="py-20 md:py-32 bg-gradient-to-r from-indigo-dark/5 to-coral/5">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
-              Why It Matters
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-12">
-              <div className="floating-card border-coral/30 bg-gradient-to-br from-coral/5 to-transparent">
-                <h3 className="text-2xl font-bold mb-6 text-coral">Without Continuity</h3>
-                <ul className="space-y-4">
-                  {[
-                    "More AI creates more fragmentation",
-                    "More conversations create more knowledge loss",
-                    "More tools create more silos"
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <span className="text-coral font-bold mt-1">✕</span>
-                      <span className="text-lg">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="floating-card border-sage/30 bg-gradient-to-br from-sage/5 to-transparent">
-                <h3 className="text-2xl font-bold mb-6 text-sage">With Continuity</h3>
-                <ul className="space-y-4">
-                  {[
-                    "More AI creates more organizational intelligence",
-                    "More conversations strengthen memory",
-                    "More interactions improve understanding"
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <span className="text-sage font-bold mt-1">✓</span>
-                      <span className="text-lg">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <p className="text-center mt-12 text-lg font-semibold text-foreground">
-              Knowledge compounds instead of disappearing.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Vision */}
-      <section className="py-20 md:py-32">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-              Our Vision
-            </h2>
-
-            <p className="text-xl text-muted-foreground mb-12 text-center leading-relaxed">
-              The future is not AI assistants. The future is continuous intelligence.
-            </p>
-
-            <div className="floating-card mb-12">
-              <h3 className="text-2xl font-bold mb-8 text-coral">A world where:</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                {[
-                  "Organizations never lose context",
-                  "Knowledge compounds automatically",
-                  "AI systems share organizational understanding",
-                  "Work persists across tools and conversations",
-                  "Intelligence becomes an organizational asset"
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-coral to-gold flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-white text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-lg font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <p className="text-lg text-muted-foreground text-center leading-relaxed mb-8">
-              Just as API gateways became essential infrastructure for the application era,
-            </p>
-
-            <p className="text-2xl font-bold text-center text-coral">
-              Continuity infrastructure will become essential infrastructure for the AI era.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Closing CTA */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-muted/20 to-background">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 gradient-text">
-              AI Creates Intelligence.
-            </h2>
-
-            <h2 className="text-4xl md:text-5xl font-bold mb-12">
-              Continuity Makes It Persistent.
-            </h2>
-
-            <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-              IW_Continuity_Bridge transforms disconnected conversations, systems, and AI models into a continuously learning organizational intelligence layer.
-            </p>
-
-            <div className="floating-card mb-12">
-              <p className="text-3xl font-bold mb-4">
-                <span className="block text-coral mb-2">One Memory.</span>
-                <span className="block text-sage mb-2">One Context.</span>
-                <span className="block text-gold">One Truth.</span>
-              </p>
-              <p className="text-2xl font-bold mt-8 pt-8 border-t border-border">
-                Across Every AI. Every System. Every Conversation.
-              </p>
-            </div>
-
-            <button className="cta-button">
-              Get Started
-              <ArrowRight className="inline ml-2 w-5 h-5" />
-            </button>
-          </div>
+      {/* CTA */}
+      <section className="py-20 md:py-32 px-4 bg-forest text-paper text-center">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            The AI era needs continuity.
+          </h2>
+          <p className="text-lg text-paper/75 mb-10">
+            Start with one team. Prove value in 30 days. Scale when it's proven.
+          </p>
+          <button className="px-8 py-3 rounded bg-gold text-forest font-semibold text-base hover:bg-gold-light transition-colors inline-flex items-center gap-2">
+            Get Started Today
+            <ArrowRight className="w-5 h-5" />
+          </button>
+          <p className="text-sm text-paper/50 mt-8">
+            Pilot pricing: ₹25,000/month. Includes your first team, all features, 90-day engagement.
+          </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-card border-t border-border py-12">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-4 gap-8 mb-12">
-              <div>
-                <h4 className="font-bold mb-4">Product</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li><a href="#" className="hover:text-foreground transition-colors">Features</a></li>
-                  <li><a href="#" className="hover:text-foreground transition-colors">Architecture</a></li>
-                  <li><a href="#" className="hover:text-foreground transition-colors">Pricing</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-bold mb-4">Company</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li><a href="#" className="hover:text-foreground transition-colors">About</a></li>
-                  <li><a href="#" className="hover:text-foreground transition-colors">Blog</a></li>
-                  <li><a href="#" className="hover:text-foreground transition-colors">Contact</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-bold mb-4">Resources</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li><a href="#" className="hover:text-foreground transition-colors">Documentation</a></li>
-                  <li><a href="#" className="hover:text-foreground transition-colors">API Reference</a></li>
-                  <li><a href="#" className="hover:text-foreground transition-colors">Support</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-bold mb-4">Legal</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li><a href="#" className="hover:text-foreground transition-colors">Privacy</a></li>
-                  <li><a href="#" className="hover:text-foreground transition-colors">Terms</a></li>
-                  <li><a href="#" className="hover:text-foreground transition-colors">Security</a></li>
-                </ul>
-              </div>
+      <footer className="bg-forest-deep text-paper border-t border-paper/10 py-12 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+            <div>
+              <h4 className="font-bold mb-4">Product</h4>
+              <ul className="space-y-2 text-sm text-paper/70">
+                <li><a href="#" className="hover:text-paper transition-colors">Features</a></li>
+                <li><a href="#" className="hover:text-paper transition-colors">Pricing</a></li>
+                <li><a href="#" className="hover:text-paper transition-colors">Architecture</a></li>
+              </ul>
             </div>
+            <div>
+              <h4 className="font-bold mb-4">Company</h4>
+              <ul className="space-y-2 text-sm text-paper/70">
+                <li><a href="#" className="hover:text-paper transition-colors">About</a></li>
+                <li><a href="#" className="hover:text-paper transition-colors">Blog</a></li>
+                <li><a href="#" className="hover:text-paper transition-colors">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Resources</h4>
+              <ul className="space-y-2 text-sm text-paper/70">
+                <li><a href="#" className="hover:text-paper transition-colors">Documentation</a></li>
+                <li><a href="#" className="hover:text-paper transition-colors">API Docs</a></li>
+                <li><a href="#" className="hover:text-paper transition-colors">Support</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Legal</h4>
+              <ul className="space-y-2 text-sm text-paper/70">
+                <li><a href="#" className="hover:text-paper transition-colors">Privacy</a></li>
+                <li><a href="#" className="hover:text-paper transition-colors">Terms</a></li>
+                <li><a href="#" className="hover:text-paper transition-colors">Security</a></li>
+              </ul>
+            </div>
+          </div>
 
-            <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between">
-              <p className="text-sm text-muted-foreground mb-4 md:mb-0">
-                © 2026 IntegrateWise. All rights reserved.
-              </p>
-              <div className="flex gap-4">
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Twitter</a>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">LinkedIn</a>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">GitHub</a>
-              </div>
+          <div className="border-t border-paper/10 pt-8 flex flex-col md:flex-row items-center justify-between">
+            <p className="text-sm text-paper/50 mb-4 md:mb-0">
+              © 2026 IntegrateWise. All rights reserved.
+            </p>
+            <div className="flex gap-6 text-sm">
+              <a href="#" className="text-paper/70 hover:text-paper transition-colors">Twitter</a>
+              <a href="#" className="text-paper/70 hover:text-paper transition-colors">LinkedIn</a>
+              <a href="#" className="text-paper/70 hover:text-paper transition-colors">GitHub</a>
             </div>
           </div>
         </div>
