@@ -38,7 +38,7 @@ export default function Footer() {
   return (
     <footer className="bg-iw-forest">
       <div className="section-padding py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-flex items-center gap-3 mb-4">
