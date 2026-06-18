@@ -5,15 +5,15 @@ import ControlPlaneArch from '../components/svgs/ControlPlaneArch';
 import { useSeo } from '../hooks/useSeo';
 
 export default function Platform() {
-  useSeo("Platform | IntegrateWise", "IntegrateWise sits between your tools — connecting them into one workspace where your data stays in sync and your AI knows your business.");
+  useSeo("How It Works | IntegrateWise", "You tell it once. It remembers. It follows through. Here is how IntegrateWise makes AI behave the way you expected it to the first time.");
 
   return (
     <div>
       <section className="pt-32 pb-16 section-padding">
         <div className="max-w-4xl">
-          <SectionLabel label="The Platform" />
-          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">THE LAYER BETWEEN YOUR TOOLS</h1>
-          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">IntegrateWise is not another tool you have to manage. It is the connective tissue that sits between the tools you already use — syncing data, powering your AI, and making sure every decision carries context.</p>
+          <SectionLabel label="How It Works" />
+          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">THE PART THAT FINALLY REMEMBERS</h1>
+          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">You didn't want another tool to manage. You wanted the AI you already have to stop forgetting, stop stopping halfway, and stop making things up. IntegrateWise is the layer underneath that makes that happen — it holds what you told it, grounds every answer in your real data, and follows the work through to the end.</p>
         </div>
       </section>
       <section className="section-padding pb-16"><ControlPlaneArch /></section>
@@ -40,13 +40,13 @@ export default function Platform() {
       <section className="section-padding-y border-t border-iw-paper-deep">
         <div className="section-padding">
           <SectionLabel label="What Makes It Different" />
-          <h2 className="editorial-heading text-2xl sm:text-3xl text-iw-ink mt-4 mb-10">NOT ANOTHER DASHBOARD. A CONNECTED WORKSPACE.</h2>
+          <h2 className="editorial-heading text-2xl sm:text-3xl text-iw-ink mt-4 mb-10">NOT ANOTHER TOOL TO BABYSIT.</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-iw-rule max-w-4xl">
             {[
-              { title: 'Your data stays in your tools', desc: 'We do not replace Salesforce or Slack. We connect them.' },
-              { title: 'Your AI knows your business', desc: 'Your Twin reads from the same connected data you do.' },
-              { title: 'You approve every action', desc: 'Nothing executes without your say.' },
-              { title: 'Knowledge compounds over time', desc: 'Every decision becomes memory. Every insight becomes precedent.' },
+              { title: 'It remembers what you told it', desc: 'Brief it once. It holds — so you never repeat yourself in a new thread again.' },
+              { title: 'It does not make things up', desc: 'Every answer is grounded in your real data, with the evidence to back it.' },
+              { title: 'It finishes what it starts', desc: 'No more nudging it to the finish line. It follows the work through — and asks before it acts.' },
+              { title: 'It comes back tomorrow still knowing', desc: 'Every decision becomes memory. The trust you rebuild today compounds.' },
             ].map((item, i) => (
               <div key={i} className="p-6 sm:p-8 border border-iw-rule"><h3 className="font-iw-display text-lg tracking-wide text-iw-ink mb-3">{item.title}</h3><p className="font-iw-sans text-sm text-iw-slate leading-relaxed">{item.desc}</p></div>
             ))}
@@ -56,7 +56,7 @@ export default function Platform() {
       <section className="section-padding-y">
         <div className="section-padding text-center">
           <div className="max-w-2xl mx-auto">
-            <h2 className="editorial-heading text-2xl sm:text-3xl text-iw-ink mb-6">CONNECT YOUR TOOLS. SEE THE FULL PICTURE.</h2>
+            <h2 className="editorial-heading text-2xl sm:text-3xl text-iw-ink mb-6">STOP REPEATING YOURSELF. WATCH IT REMEMBER.</h2>
             <a href="https://calendar.app.google/EcRkSqxwtchuF4Qf6" className="btn-primary mr-4">Book a Demo <ArrowRight size={16} className="ml-2" /></a>
             <Link to="/" className="btn-outline">Back to Home</Link>
           </div>

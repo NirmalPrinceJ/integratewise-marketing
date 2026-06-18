@@ -49,8 +49,8 @@ export default function Integrations() {
       <section className="pt-32 pb-16 section-padding">
         <div className="max-w-4xl">
           <SectionLabel label="Integrations" />
-          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">CONNECTS TO THE TOOLS YOU ALREADY USE.</h1>
-          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">{liveCount} live integrations. More on the way. Connect once, and IntegrateWise keeps everything in sync.</p>
+          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">CONNECT ONCE. STOP BEING THE GLUE.</h1>
+          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">{liveCount} live integrations. More on the way. You stop being the copy-paste between your own tools — connect once, and they share one memory.</p>
         </div>
       </section>
 

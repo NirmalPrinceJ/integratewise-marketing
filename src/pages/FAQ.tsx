@@ -56,7 +56,7 @@ export default function FAQ() {
         <div className="max-w-4xl">
           <SectionLabel label="FAQ" />
           <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">QUESTIONS? ANSWERED.</h1>
-          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">Everything you need to know about IntegrateWise, how it works, and what it means for your team.</p>
+          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">Everything you need to know about IntegrateWise — how it remembers, how it follows through, and why you stay in control.</p>
         </div>
       </section>
 

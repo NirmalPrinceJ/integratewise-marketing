@@ -7,11 +7,11 @@ const layers = [
   { icon: Database, title: 'The Spine', desc: 'The connected context layer that links all your tools. It matches records across systems, keeps data in sync, and gives your Twin a complete picture of your business.' },
   { icon: Layers, title: 'One Surface', desc: 'One workspace where you see everything. Switch between views without switching tools. Your CRM, support, billing, and projects — all in one place.' },
   { icon: Infinity, title: 'Memory', desc: 'Every decision, every pattern, every outcome is remembered. Your Twin builds institutional knowledge that compounds over time.' },
-  { icon: Cpu, title: 'Operating Environment', desc: 'The engine that connects your tools, runs your Twin, and keeps everything in sync. You do not manage it. It just works.' },
+  { icon: Cpu, title: 'Follow-Through', desc: 'The engine that connects your tools, runs your Twin, and carries the work through to the end. You do not manage it. It just works.' },
 ];
 
 export default function Architecture() {
-  useSeo("Architecture | IntegrateWise", "The Spine connects your tools into one layer. One Surface gives you a single workspace. Memory compounds knowledge. The Operating Environment keeps it all running.");
+  useSeo("Architecture | IntegrateWise", "The mechanism beneath the promise: the Spine remembers, One Surface ends the glue work, Memory compounds, and Follow-Through finishes what you started.");
 
   return (
     <div>
@@ -19,7 +19,7 @@ export default function Architecture() {
         <div className="max-w-4xl">
           <SectionLabel label="Architecture" />
           <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">BUILT TO CONNECT. DESIGNED TO LAST.</h1>
-          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">IntegrateWise is not a monolithic platform. It is a connected system of four layers — each solving a specific problem, working together as one.</p>
+          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">This is the mechanism beneath the promise. Not a monolithic platform — a connected system of four layers, each closing one of the gaps that made you stop trusting AI.</p>
         </div>
       </section>
 

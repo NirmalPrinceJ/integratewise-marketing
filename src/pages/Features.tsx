@@ -4,24 +4,24 @@ import SectionLabel from '../components/SectionLabel';
 import { useSeo } from '../hooks/useSeo';
 
 const features = [
-  { num: '01', icon: Database, title: 'The Spine', desc: 'One connected context layer that keeps all your tools in sync.', tags: ['Connected data', 'One source of context', 'Powers your Twin'], href: '/architecture' },
-  { num: '02', icon: Layers, title: 'One Surface', desc: 'One workspace for everything. Switch between views, not tools.', tags: ['Unified workspace', 'No tab switching'], href: '/workbench' },
-  { num: '03', icon: Brain, title: 'Digital Twin', desc: 'Your AI companion that knows your business.', tags: ['Knows your business', 'Evidence-backed'], href: '/twin' },
-  { num: '04', icon: Infinity, title: 'Memory', desc: 'Your Twin remembers what matters. The longer you use it, the smarter it gets.', tags: ['Learns over time', 'Team knowledge'], href: '/architecture' },
+  { num: '01', icon: Database, title: 'The Spine', desc: 'One verified memory across every tool — so it never forgets what you told it.', tags: ['Connected data', 'One source of context', 'Powers your Twin'], href: '/architecture' },
+  { num: '02', icon: Layers, title: 'One Surface', desc: 'Stop being the glue. Everything in one place, instead of fifteen open tabs.', tags: ['Unified workspace', 'No tab switching'], href: '/workbench' },
+  { num: '03', icon: Brain, title: 'Digital Twin', desc: 'AI that knows your business and follows through — not a chatbot that forgets you.', tags: ['Knows your business', 'Evidence-backed'], href: '/twin' },
+  { num: '04', icon: Infinity, title: 'Memory', desc: 'Tell it once. It holds. You never repeat yourself again.', tags: ['Learns over time', 'Team knowledge'], href: '/architecture' },
   { num: '05', icon: ShieldCheck, title: 'Governance', desc: 'Nothing happens without your approval. Every action is recorded.', tags: ['You are in control', 'Full audit trail'], href: '/governance' },
-  { num: '06', icon: Cpu, title: 'Operating Environment', desc: 'The engine that makes everything work. You do not manage it. It just works.', tags: ['Connects any tool', 'Keeps data in sync'], href: '/architecture' },
+  { num: '06', icon: Cpu, title: 'Follow-Through', desc: 'It finishes what it starts. No more nudging half-done work to the finish line.', tags: ['Connects any tool', 'Keeps data in sync'], href: '/architecture' },
 ];
 
 export default function Features() {
-  useSeo("Features | IntegrateWise", "The Spine, One Surface, Digital Twin, Memory, Governance, and Continuity. Six foundations that connect your tools and power your AI.");
+  useSeo("Features | IntegrateWise", "Six reasons to trust AI again: it remembers what you told it, finishes what it starts, never makes things up, and asks before it acts.");
 
   return (
     <div>
       <section className="pt-32 pb-16 section-padding">
         <div className="max-w-4xl">
           <SectionLabel label="Features" />
-          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">SIX FOUNDATIONS. ONE CONNECTED SYSTEM.</h1>
-          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">Every feature serves one purpose: connecting your tools, powering your AI, and keeping your team in control.</p>
+          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">SIX REASONS TO TRUST IT AGAIN.</h1>
+          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">Every feature here fixes one of the four reasons you quietly demoted AI: it forgot what you told it, it stopped halfway, it made things up, and it left you as the glue between your tools.</p>
         </div>
       </section>
       <section className="section-padding-y border-t border-iw-paper-deep">

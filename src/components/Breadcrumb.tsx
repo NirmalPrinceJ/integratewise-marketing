@@ -5,7 +5,7 @@ import { getCaseStudyBySlug } from '../data/caseStudies';
 
 const routeLabels: Record<string, string> = {
   '': 'Home',
-  platform: 'Platform',
+  platform: 'How It Works',
   features: 'Features',
   workbench: 'Workbench',
   solutions: 'Solutions',

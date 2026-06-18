@@ -10,26 +10,26 @@ const values = [
 ];
 
 export default function About() {
-  useSeo("About | IntegrateWise", "We are building the connected workspace for humans and their Digital Twin. Our mission: eliminate fragmented tools and give every team the context they need to make better decisions.");
+  useSeo("About | IntegrateWise", "We are restoring trust in AI. Our mission: give every team back the AI they were promised — one that remembers, follows through, and never makes things up.");
 
   return (
     <div>
       <section className="pt-32 pb-16 section-padding">
         <div className="max-w-4xl">
           <SectionLabel label="About" />
-          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">WE BUILD THE LAYER BETWEEN YOUR TOOLS.</h1>
-          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">IntegrateWise was founded on a simple observation: the more tools teams use, the less connected they become. We are fixing that with one connected workspace — powered by a Digital Twin that knows your business.</p>
+          <h1 className="editorial-heading text-4xl sm:text-5xl md:text-6xl text-iw-ink mt-6">WE ARE RESTORING TRUST IN AI.</h1>
+          <p className="font-iw-sans text-base sm:text-lg text-iw-slate mt-6 leading-relaxed max-w-2xl">IntegrateWise was founded on a simple observation: most people did not stop using AI — they quietly demoted it. They tried it, believed in it, and got burned when it forgot, drifted, or made things up. We exist to give them back the AI they were promised.</p>
         </div>
       </section>
 
       <section className="section-padding-y border-t border-iw-paper-deep">
         <div className="section-padding max-w-4xl">
           <SectionLabel label="Our Story" />
-          <h2 className="editorial-heading text-2xl sm:text-3xl text-iw-ink mt-4 mb-6">FROM FRAGMENTATION TO FOCUS.</h2>
+          <h2 className="editorial-heading text-2xl sm:text-3xl text-iw-ink mt-4 mb-6">FROM DEMOTED AI TO TRUSTED AI.</h2>
           <div className="space-y-4 font-iw-sans text-base text-iw-slate leading-relaxed">
-            <p>We have seen it at every company: the CRM has one version of the customer, the support tool has another, and billing has a third. Teams waste hours reconciling data that should already be connected.</p>
-            <p>We built IntegrateWise to solve this. Not by replacing the tools you rely on — but by connecting them into one layer where your data stays in sync, your AI understands your business, and you stay in control.</p>
-            <p>The result: less time switching tabs, more time making decisions. Less guessing, more knowing. Less chaos, more clarity.</p>
+            <p>We have seen the same moment at every company: someone adopted AI six months ago, believed in it, told the team about it — and today only trusts it to write emails. Not because they stopped believing, but because every time they handed it something real, it let them down.</p>
+            <p>We built IntegrateWise to close that gap. Not by selling a new tool to manage — but by giving the AI you already use a memory that holds, answers grounded in your real data, follow-through to the end, and your approval before it acts.</p>
+            <p>The result is the sentence we are building everything toward: this is what you wanted, and how you wanted it to work.</p>
           </div>
         </div>
       </section>
