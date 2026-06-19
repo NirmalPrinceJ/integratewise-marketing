@@ -1,6 +1,13 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "wouter";
+import { useEffect } from "react";
+import { updateMetaTags, SITE_METADATA } from "../lib/seo";
 
 export default function Home() {
+  useEffect(() => {
+    updateMetaTags(SITE_METADATA.home);
+  }, []);
+
   return (
     <div className="bg-background text-foreground">
 
@@ -17,11 +24,10 @@ export default function Home() {
 
           {/* Nav links */}
           <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-            <a href="#solutions" className="hover:text-foreground transition-colors">Solutions</a>
-            <a href="#platform" className="hover:text-foreground transition-colors">Platform</a>
-            <a href="#how-it-works" className="hover:text-foreground transition-colors">How It Works</a>
-            <a href="/pricing" className="hover:text-foreground transition-colors">Pricing</a>
-            <a href="#company" className="hover:text-foreground transition-colors">Company</a>
+            <Link href="/solutions" className="hover:text-foreground transition-colors">Solutions</Link>
+            <Link href="/platform" className="hover:text-foreground transition-colors">Platform</Link>
+            <Link href="/pricing" className="hover:text-foreground transition-colors">Pricing</Link>
+            <Link href="/company" className="hover:text-foreground transition-colors">Company</Link>
           </div>
 
           {/* CTA */}
@@ -514,13 +520,13 @@ export default function Home() {
           {/* Footer columns */}
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
-              <h4 className="font-bold mb-4 text-paper">Product</h4>
+              <h4 className="font-bold mb-4 text-paper">Solutions</h4>
               <ul className="space-y-2 text-sm text-paper/60">
-                <li><a href="#platform" className="hover:text-paper transition-colors">Workbench</a></li>
-                <li><a href="#platform" className="hover:text-paper transition-colors">Twin</a></li>
-                <li><a href="#platform" className="hover:text-paper transition-colors">Memory</a></li>
-                <li><a href="#platform" className="hover:text-paper transition-colors">Approval Center</a></li>
-                <li><a href="#platform" className="hover:text-paper transition-colors">Handoff Layer</a></li>
+                <li><Link href="/solutions/account-success" className="hover:text-paper transition-colors">Account Success</Link></li>
+                <li><Link href="/solutions/sales-continuity" className="hover:text-paper transition-colors">Sales Continuity</Link></li>
+                <li><Link href="/solutions/founder-ops" className="hover:text-paper transition-colors">Founder Ops</Link></li>
+                <li><Link href="/solutions/engineering-product" className="hover:text-paper transition-colors">Engineering & Product</Link></li>
+                <li><Link href="/solutions/ai-governance" className="hover:text-paper transition-colors">AI Governance</Link></li>
               </ul>
             </div>
             <div>
