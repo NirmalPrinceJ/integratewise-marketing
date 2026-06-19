@@ -1,0 +1,18 @@
+{
+  "_source": "Imported from integratewise-lg/content/changelog/index.ts on 2026-06-19",
+  "_note": "Changelog timeline data from the v0.app build. The marketing site already has continuity/changelog.html with its own entries; this is the alternative content source.",
+  "entries": [
+    {
+      "date": "April 2026",
+      "title": "Launch",
+      "items": [
+        "Website live with full product, solutions, and pricing pages",
+        "Firebase Analytics integrated",
+        "Contact form with email fallback",
+        "Privacy policy and terms of service",
+        "Blog with first two posts",
+        "Changelog and documentation pages"
+      ]
+    }
+  ]
+}
