@@ -30,13 +30,21 @@ export default function Home() {
             <Link href="/company" className="hover:text-foreground transition-colors">Company</Link>
           </div>
 
-          {/* CTA */}
-          <a
-            href="mailto:hello@integratewise.ai"
-            className="px-4 py-2 rounded bg-forest text-paper font-medium text-sm hover:bg-forest-deep transition-colors"
-          >
-            Apply for Pilot
-          </a>
+          {/* CTAs */}
+          <div className="flex items-center gap-2">
+            <a
+              href="/twin"
+              className="px-3 py-2 rounded border border-forest text-forest font-medium text-sm hover:bg-forest hover:text-paper transition-colors hidden sm:inline-flex items-center gap-1"
+            >
+              <span className="text-xs">🧠</span> Twin
+            </a>
+            <a
+              href="mailto:hello@integratewise.ai"
+              className="px-4 py-2 rounded bg-forest text-paper font-medium text-sm hover:bg-forest-deep transition-colors"
+            >
+              Apply for Pilot
+            </a>
+          </div>
         </div>
       </nav>
 
