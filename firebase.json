@@ -1,0 +1,34 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "client/**",
+      "server/**",
+      "shared/**",
+      "sanity/**",
+      "scratch/**",
+      "functions/**",
+      "dist/**",
+      "package.json",
+      "package-lock.json",
+      "pnpm-lock.yaml",
+      "tsconfig.json",
+      "tsconfig.node.json",
+      "vite.config.ts",
+      "wrangler.toml",
+      "_redirects",
+      "_routes.json",
+      "README.md",
+      "Kimi_Agent_Deployment_v64 (1).zip"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
