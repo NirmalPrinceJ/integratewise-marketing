@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "integratewise-marketing",
     "public": ".",
     "ignore": [
       "firebase.json",
