@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Pricing from "./pages/Pricing";
 import Platform from "./pages/Platform";
+import Capabilities from "./pages/Capabilities";
 import Company from "./pages/Company";
 import Blog from "./pages/Blog";
 import Documentation from "./pages/Documentation";
@@ -24,6 +25,7 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/pricing"} component={Pricing} />
       <Route path={"/platform"} component={Platform} />
+      <Route path={"/capabilities"} component={Capabilities} />
       <Route path={"/company"} component={Company} />
       <Route path={"/blog"} component={Blog} />
       <Route path={"/documentation"} component={Documentation} />

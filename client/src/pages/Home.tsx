@@ -26,6 +26,8 @@ import {
 import { Link } from "wouter";
 import { useEffect } from "react";
 import { updateMetaTags, SITE_METADATA } from "../lib/seo";
+import SiteNav from "../components/SiteNav";
+import SiteFooter from "../components/SiteFooter";
 
 const LOGOS: Record<string, string> = {
   ChatGPT: "/images/logos/chatgpt.svg",
@@ -64,37 +66,7 @@ export default function Home() {
   return (
     <div className="bg-background text-foreground">
 
-      {/* ─── NAVIGATION ─────────────────────────────────────────────────── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/92 backdrop-blur-md border-b border-border">
-        <div className="container flex items-center justify-between py-3 px-6 max-w-7xl mx-auto">
-          {/* Logo */}
-          <a href="/" className="flex items-center gap-2 hover:opacity-75 transition-opacity">
-            <div className="w-8 h-8 rounded bg-forest flex items-center justify-center">
-              <span className="text-paper font-bold text-sm">IW</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="font-semibold text-forest block leading-tight">IntegrateWise</span>
-              <span className="text-[10px] text-muted-foreground tracking-wide">Operational Continuity. Governed Intelligence.</span>
-            </div>
-          </a>
-
-          {/* Nav links */}
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-            <Link href="/platform" className="hover:text-foreground transition-colors">Platform</Link>
-            <Link href="/solutions" className="hover:text-foreground transition-colors">Workbenches</Link>
-            <Link href="/pricing" className="hover:text-foreground transition-colors">Pricing</Link>
-            <Link href="/company" className="hover:text-foreground transition-colors">Company</Link>
-          </div>
-
-          {/* CTA */}
-          <a
-            href="mailto:hello@integratewise.ai"
-            className="px-4 py-2 rounded bg-forest text-paper font-medium text-sm hover:bg-forest-deep transition-colors"
-          >
-            Start Free
-          </a>
-        </div>
-      </nav>
+      <SiteNav />
 
       {/* ─── SECTION 1 · HERO ───────────────────────────────────────────── */}
       <section className="pt-28 pb-16 px-4 bg-gradient-to-b from-paper to-paper-warm">
@@ -368,52 +340,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── SECTION 7 · FOOTER ─────────────────────────────────────────── */}
-      <footer className="bg-forest-deep text-paper border-t border-paper/10 py-14 px-4">
-        <div className="max-w-6xl mx-auto">
-
-          {/* Footer columns */}
-          <div className="grid md:grid-cols-3 gap-12 mb-12">
-            <div>
-              <h4 className="font-bold mb-4 text-paper">Workbenches</h4>
-              <ul className="space-y-2 text-sm text-paper/60">
-                <li><Link href="/solutions/account-success" className="hover:text-paper transition-colors">Account Success</Link></li>
-                <li><Link href="/solutions/sales-continuity" className="hover:text-paper transition-colors">Sales Continuity</Link></li>
-                <li><Link href="/solutions/founder-ops" className="hover:text-paper transition-colors">Founder Ops</Link></li>
-                <li><Link href="/solutions/engineering-product" className="hover:text-paper transition-colors">Engineering & Product</Link></li>
-                <li><Link href="/solutions/ai-governance" className="hover:text-paper transition-colors">AI Governance</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 text-paper">Company</h4>
-              <ul className="space-y-2 text-sm text-paper/60">
-                <li><Link href="/company" className="hover:text-paper transition-colors">About</Link></li>
-                <li><a href="#" className="hover:text-paper transition-colors">Careers</a></li>
-                <li><a href="mailto:invest@integratewise.ai" className="hover:text-paper transition-colors">Investors</a></li>
-                <li><a href="mailto:hello@integratewise.ai" className="hover:text-paper transition-colors">Contact</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 text-paper">Legal</h4>
-              <ul className="space-y-2 text-sm text-paper/60">
-                <li><a href="#" className="hover:text-paper transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-paper transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-paper transition-colors">Security</a></li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Bottom bar */}
-          <div className="border-t border-paper/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-paper/40">
-              © 2026 IntegrateWise LLP. All rights reserved.
-            </p>
-            <p className="text-sm text-paper/40">
-              integratewise.ai
-            </p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
 
     </div>
   );
