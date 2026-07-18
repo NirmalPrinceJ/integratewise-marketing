@@ -203,13 +203,13 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-// Manus runtime/debug plugins are dev-only; keeping them out of `vite build`
-// stops the ~360 KB manus-runtime script from being inlined into the
-// production index.html.
+// Manus runtime/debug plugins and jsx-loc are dev-only; keeping them out of
+// `vite build` stops the ~360 KB manus-runtime script from being inlined into
+// the production index.html and keeps data-loc attributes out of the bundle.
 const plugins = (command: "build" | "serve") =>
   command === "serve"
     ? [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()]
-    : [react(), tailwindcss(), jsxLocPlugin()];
+    : [react(), tailwindcss()];
 
 export default defineConfig(({ command }) => ({
   plugins: plugins(command),
