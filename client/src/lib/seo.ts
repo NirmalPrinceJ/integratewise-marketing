@@ -60,9 +60,9 @@ function updateOrCreateMetaTag(attrName: string, attrValue: string, content: str
 
 export const SITE_METADATA = {
   home: {
-    title: 'Digital Memory Operating Layer',
-    description: 'IntegrateWise connects your tools, builds a memory of your business, and hands off approved decisions to your execution environment. Memory over models.',
-    keywords: ['operational continuity', 'digital memory', 'AI governance', 'business continuity', 'AI adoption']
+    title: 'Your Last Auth to Complete Your Ecosystem',
+    description: 'One authentication. Every capability. Everywhere you work. IntegrateWise connects your AI, business applications, and teams into a single operational capability fabric that securely executes work across your connected ecosystem.',
+    keywords: ['operational capability platform', 'universal capability fabric', 'AI execution', 'last auth', 'operational reach', 'enterprise AI governance']
   },
   solutions: {
     title: 'Solutions',
