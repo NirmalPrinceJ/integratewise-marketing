@@ -12,7 +12,7 @@ export default function Documentation() {
       items: [
         { title: "Create Your Workspace", desc: "Set up your IntegrateWise workspace and connect your first tools." },
         { title: "Connect Your Tools", desc: "Integrate Salesforce, email, Slack, GitHub, and other systems." },
-        { title: "Brief Your Twin", desc: "Teach your Twin about your business, context, and rules." },
+        { title: "Brief Your Silent Twin", desc: "Teach your Silent Twin about your business, context, and rules." },
         { title: "Your First Decision", desc: "Walk through making your first approved decision." }
       ]
     },
@@ -20,11 +20,11 @@ export default function Documentation() {
       id: "concepts",
       title: "Core Concepts",
       items: [
-        { title: "Workbench", desc: "Your unified workspace connecting all your tools and data." },
-        { title: "Twin", desc: "Your AI layer that reasons over context and proposes decisions." },
-        { title: "Memory", desc: "Your searchable knowledge base of decisions and learnings." },
-        { title: "Approval Center", desc: "Where every proposal is reviewed before execution." },
-        { title: "Handoff", desc: "How decisions get executed in your existing systems." }
+        { title: "User Workbench", desc: "Your unified workspace projecting your tools and data by role." },
+        { title: "Silent Twin", desc: "Your quiet AI participant that reasons over context and proposes decisions." },
+        { title: "Adaptive Spine", desc: "The canonical operational model of truth and Single Source of Truth." },
+        { title: "Governance Gates", desc: "Where proposals are gated, and audit trails and policies are enforced." },
+        { title: "Hermes & Sync", desc: "How approved actions get synchronized with your systems." }
       ]
     },
     {
@@ -42,10 +42,10 @@ export default function Documentation() {
       id: "best-practices",
       title: "Best Practices",
       items: [
-        { title: "Memory Organization", desc: "How to structure your institutional knowledge for maximum value." },
+        { title: "Spine Memory Organization", desc: "How to structure your institutional knowledge for maximum value." },
         { title: "Decision Templates", desc: "Creating reusable templates for common decisions." },
-        { title: "Approval Workflows", desc: "Setting up governance that scales without blocking." },
-        { title: "Team Onboarding", desc: "Bringing new team members into the Twin's context." },
+        { title: "Governance Workflows", desc: "Setting up governance that scales without blocking." },
+        { title: "Team Onboarding", desc: "Bringing new team members into the Silent Twin's context." },
         { title: "Continuity Patterns", desc: "Establishing patterns that compound learning over time." }
       ]
     },
@@ -55,9 +55,9 @@ export default function Documentation() {
       items: [
         { title: "Authentication", desc: "How to authenticate with the IntegrateWise API." },
         { title: "Workbench Queries", desc: "Query unified data across your connected tools." },
-        { title: "Twin Proposals", desc: "Request proposals from your Twin programmatically." },
-        { title: "Approval Workflows", desc: "Approve or reject proposals via API." },
-        { title: "Memory Search", desc: "Search your institutional knowledge base." }
+        { title: "Silent Twin Proposals", desc: "Request proposals from your Twin programmatically." },
+        { title: "Governance Workflows", desc: "Approve or reject proposals via API." },
+        { title: "Spine Search", desc: "Search your canonical operational memory." }
       ]
     },
     {
@@ -65,9 +65,9 @@ export default function Documentation() {
       title: "Troubleshooting",
       items: [
         { title: "Integration Issues", desc: "Debugging tool connection problems." },
-        { title: "Twin Not Learning", desc: "Why your Twin might not be improving as expected." },
-        { title: "Approval Bottlenecks", desc: "Fixing approval workflows that are too slow." },
-        { title: "Memory Queries", desc: "Getting better results from your knowledge base." },
+        { title: "Silent Twin Not Learning", desc: "Why your Silent Twin might not be improving as expected." },
+        { title: "Governance Bottlenecks", desc: "Fixing governance workflows that are too slow." },
+        { title: "Spine Queries", desc: "Getting better results from your canonical operational memory." },
         { title: "Performance Optimization", desc: "Speeding up your workspace." }
       ]
     }
@@ -197,7 +197,7 @@ export default function Documentation() {
               <span className="font-bold text-paper text-lg">IntegrateWise</span>
             </div>
             <p className="text-sm text-paper/50 max-w-md leading-relaxed">
-              Digital Memory + Reasoning + Governance + Handoff.
+              Continuity + Silent Twin + Governance + Sync.
             </p>
           </div>
 

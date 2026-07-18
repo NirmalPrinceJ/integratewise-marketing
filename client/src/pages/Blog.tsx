@@ -33,7 +33,7 @@ export default function Blog() {
     },
     {
       id: "governance-first",
-      title: "Governance First: Why Your AI Needs Approval Centers",
+      title: "Governance First: Why Your AI Needs Governance Gates",
       excerpt: "You cannot scale AI safely without human oversight. Here's how to build governance that enables instead of blocks.",
       date: "Apr 28, 2026",
       category: "Best Practices"
@@ -158,7 +158,7 @@ export default function Blog() {
               <span className="font-bold text-paper text-lg">IntegrateWise</span>
             </div>
             <p className="text-sm text-paper/50 max-w-md leading-relaxed">
-              Digital Memory + Reasoning + Governance + Handoff.
+              Continuity + Silent Twin + Governance + Sync.
             </p>
           </div>
 

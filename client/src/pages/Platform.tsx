@@ -3,72 +3,72 @@ import { Link } from "wouter";
 import { useState } from "react";
 
 export default function Platform() {
-  const [expandedLayer, setExpandedLayer] = useState<string | null>("l1");
+  const [expandedLayer, setExpandedLayer] = useState<string | null>("workbench");
 
   const layers = [
     {
-      id: "l1",
-      label: "L1 · Workbench",
-      name: "Everything you need to know. One place to act.",
-      description: "Everything you work across — accounts, pipeline, sprints, tasks, documents — unified from all your tools into one surface. No tab-switching. No reconciling. No copy-pasting. Just the full picture, ready to act on.",
-      kills: "→ Kills Human API",
+      id: "workbench",
+      label: "User Workbench",
+      name: "The role-specific projection of work and context.",
+      description: "Everything you work across — accounts, pipeline, sprints, tasks, documents — projected into a single unified surface. No tab-switching, no context fragmentation. Just the full picture, ready to act on.",
+      kills: "→ Kills Context Loss",
       details: [
-        "Connects your CRM, project management, email, Slack, and data sources",
-        "Shows account/deal/sprint context at a glance",
-        "Search across all tools and documents",
-        "One source of truth for your workspace"
+        "Unifies CRM, project management, email, Slack, and docs into one view",
+        "Presents a role-specific layout customized to active objectives",
+        "Includes unified search across all connected tools and systems",
+        "Operates as the human-facing control surface of the platform"
       ]
     },
     {
-      id: "l2",
-      label: "L2 · Twin",
-      name: "An AI that knows your business as well as you do.",
-      description: "Your Twin is briefed once and stays briefed. It reasons over your actual data, surfaces what matters, proposes what to do next — with the evidence to back it up. You review. You decide. It learns. It doesn't forget by morning.",
-      kills: "→ Kills Amnesia & Hallucination",
+      id: "twin",
+      label: "Silent Twin",
+      name: "A non-authoritative cognitive participant.",
+      description: "Quiet by default. It observes the pipeline, gathers context, and surfaces inline only when there is material value, or when engaged via the Four Buttons (Orient, Decide, Act). It does not clutter your workspace with low-value commentary.",
+      kills: "→ Kills AI Hallucination & Noise",
       details: [
-        "Persistent memory of your business context",
-        "Reasons over real data from your Workbench",
-        "Learns from every decision you make",
-        "Proposes actions with evidence and reasoning"
+        "Monitors background data pipeline and entities silently",
+        "Assembles context automatically without human prompt engineering",
+        "Prepares drafts, plans, and actions for human review",
+        "Surfaces contextually to provide grounded recommendations"
       ]
     },
     {
-      id: "l3",
-      label: "L3 · Memory",
-      name: "Every instruction. Every decision. Every outcome. Remembered.",
-      description: "IntegrateWise remembers what your team knows — the brief you gave, the rule you set, the decision you made, the outcome that came back. Every approved action compounds the memory. Search it. Build on it. Stop starting over.",
-      kills: "→ Kills Amnesia",
+      id: "spine",
+      label: "Adaptive Spine",
+      name: "The canonical operational model of truth.",
+      description: "The Single Source of Truth (SSOT) of the platform. A continuously evolving schema that stores normalized operational entity states, timelines, and relationships, ensuring all systems and participants are perfectly aligned.",
+      kills: "→ Kills Data Amnesia",
       details: [
-        "Searchable institutional knowledge base",
-        "Tracks all decisions and their reasoning",
-        "Records outcomes and learnings",
-        "Survives team changes and personnel transitions"
+        "Stores canonical entity types: Connections, SyncJobs, Webhooks, Schemas, Timelines",
+        "Resolves entity relationships across your entire connected ecosystem",
+        "Tracks history, state mutations, and telemetry events reliably",
+        "Maintains structural data consistency across all applications"
       ]
     },
     {
-      id: "l4",
-      label: "L4 · Approval Center",
-      name: "AI proposes. You approve. Nothing moves without you.",
-      description: "Every proposed action sits here before anything happens. Review the reasoning. See the evidence. Approve or reject. Complete audit trail. Nothing automatic. You are always in control — and you always know what actually ran.",
-      kills: "→ Kills Babysitting",
+      id: "governance",
+      label: "Governance Gates",
+      name: "AI proposes. You approve. Governance is a hard gate.",
+      description: "Every proposed action sits in the Governance Center before execution. Review reasoning, audit lines, see evidence, and authorize actions. No execution token is granted, and no system is updated, without human approval.",
+      kills: "→ Kills Rogue Execution",
       details: [
-        "Every AI proposal reviewed before execution",
-        "Full audit trail of approvals and rejections",
-        "Evidence-based decision making",
-        "Compliance and governance built-in"
+        "Enforces strict role-based controls and policy checks",
+        "Maintains a complete, tamper-proof audit trail of all approved changes",
+        "Provides clear lineage and attribution for every AI recommendation",
+        "Guarantees that human authority remains the final barrier"
       ]
     },
     {
-      id: "l5",
-      label: "Handoff",
-      name: "IntegrateWise prepares. Your systems execute.",
-      description: "Approved actions become precise, vendor-neutral packages ready for your existing systems. IntegrateWise doesn't execute on your behalf. It prepares execution perfectly — then hands off to whatever you already run.",
-      kills: "→ Kills Human API",
+      id: "sync",
+      label: "Hermes & Sync",
+      name: "Platform prepares. Your systems execute.",
+      description: "Approved actions are coordinated via Hermes and synced downstream to your existing systems. IntegrateWise doesn't bypass or duplicate your tools; it prepares execution packages and reconciles states automatically.",
+      kills: "→ Kills Brittle Integrations",
       details: [
-        "Prepares execution packages for your systems",
-        "Integrates with Zapier, n8n, Make, webhooks",
-        "Updates your CRM, email, Slack automatically",
-        "You stay in control of all execution"
+        "Triggers secure, governed sync jobs downstream to connected apps",
+        "Communicates via pre-built connectors and the Capability Fabric",
+        "Ensures eventual consistency without blocking client operations",
+        "Uses the Transactional Outbox pattern to survive network drops"
       ]
     }
   ];
@@ -105,10 +105,10 @@ export default function Platform() {
         <div className="max-w-4xl mx-auto">
           <p className="text-xs font-mono text-gold tracking-widest uppercase mb-4">Platform</p>
           <h1 className="text-5xl md:text-6xl font-bold text-forest mb-8 leading-tight">
-            Five surfaces. One connected workspace.
+            Five layers. One unified workspace.
           </h1>
           <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl">
-            Every layer is built to remove one of the four failures. Together they close the full loop — from raw data to approved decision to organisational memory.
+            Every layer is built to resolve context fragmentation. Together they close the full loop—from raw data in the Adaptive Spine to approved actions gated by Governance.
           </p>
         </div>
       </section>
@@ -131,7 +131,7 @@ export default function Platform() {
                   </div>
                   <div>
                     <p className="font-semibold">Connect</p>
-                    <p className="text-sm text-paper/70">All your tools feed into Workbench</p>
+                    <p className="text-sm text-paper/70">All your tools feed into User Workbench</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -140,7 +140,7 @@ export default function Platform() {
                   </div>
                   <div>
                     <p className="font-semibold">Build Context</p>
-                    <p className="text-sm text-paper/70">Your Twin learns your business</p>
+                    <p className="text-sm text-paper/70">Silent Twin resolves entity context</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -149,7 +149,7 @@ export default function Platform() {
                   </div>
                   <div>
                     <p className="font-semibold">Propose</p>
-                    <p className="text-sm text-paper/70">Twin suggests what to do next</p>
+                    <p className="text-sm text-paper/70">Silent Twin proposes plans and actions</p>
                   </div>
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default function Platform() {
                   </div>
                   <div>
                     <p className="font-semibold">Approve</p>
-                    <p className="text-sm text-paper/70">You review and approve in Approval Center</p>
+                    <p className="text-sm text-paper/70">You review and authorize in Governance Gates</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -170,7 +170,7 @@ export default function Platform() {
                   </div>
                   <div>
                     <p className="font-semibold">Execute</p>
-                    <p className="text-sm text-paper/70">Handoff prepares and your systems run it</p>
+                    <p className="text-sm text-paper/70">Hermes coordinates sync downstream</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -179,7 +179,7 @@ export default function Platform() {
                   </div>
                   <div>
                     <p className="font-semibold">Learn</p>
-                    <p className="text-sm text-paper/70">Outcome feeds back to Memory</p>
+                    <p className="text-sm text-paper/70">Outcome feeds back to Adaptive Spine</p>
                   </div>
                 </div>
               </div>
@@ -248,35 +248,45 @@ export default function Platform() {
           </h2>
 
           <div className="bg-white/5 border border-white/10 rounded-xl p-8 mb-8">
-            <h3 className="font-semibold text-paper mb-6">Data flows through the system:</h3>
+            <h3 className="font-semibold text-paper mb-6">Governed flow of execution (OODA runtime):</h3>
             <div className="space-y-6">
               <div className="flex gap-4 items-start">
                 <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-xs text-gold font-semibold">IN</span>
+                  <span className="text-xs text-gold font-semibold">OBS</span>
                 </div>
                 <div>
-                  <p className="font-semibold mb-2">Data ingestion</p>
-                  <p className="text-paper/70">All your tools continuously sync with Workbench. Salesforce, email, Slack, spreadsheets, APIs — everything stays current.</p>
+                  <p className="font-semibold mb-2">Observe · Store in Spine</p>
+                  <p className="text-paper/70">Raw data is ingested, normalized, and stored securely as the Single Source of Truth (SSOT) in the Adaptive Spine.</p>
                 </div>
               </div>
 
               <div className="flex gap-4 items-start">
                 <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-xs text-gold font-semibold">UP</span>
+                  <span className="text-xs text-gold font-semibold">ORI</span>
                 </div>
                 <div>
-                  <p className="font-semibold mb-2">Twin reasoning</p>
-                  <p className="text-paper/70">Your Twin analyzes the Workbench data and Memory. It surfaces opportunities, flags risks, proposes actions with evidence.</p>
+                  <p className="font-semibold mb-2">Orient · Ask Your Twin</p>
+                  <p className="text-paper/70">The Silent Twin interprets active context, resolves entity relationships, and structures a grounded overview of the work.</p>
                 </div>
               </div>
 
               <div className="flex gap-4 items-start">
                 <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-xs text-gold font-semibold">DECIDE</span>
+                  <span className="text-xs text-gold font-semibold">DEC</span>
                 </div>
                 <div>
-                  <p className="font-semibold mb-2">Approval</p>
-                  <p className="text-paper/70">Every proposal sits in Approval Center. You see reasoning, evidence, and risk. You approve or reject. Nothing moves without you.</p>
+                  <p className="font-semibold mb-2">Decide · Assign Your Twin</p>
+                  <p className="text-paper/70">You delegate intent; the Twin plans the execution path and packages it into a standard proposed execution contract.</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-start">
+                <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
+                  <span className="text-xs text-gold font-semibold">ACT</span>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">Act · Approve Twin's Action</p>
+                  <p className="text-paper/70">Proposals sit behind Governance Gates. Review evidence, see the trace, and authorize sync. Hermes coordinates downstream runtimes.</p>
                 </div>
               </div>
 
@@ -285,18 +295,8 @@ export default function Platform() {
                   <span className="text-xs text-gold font-semibold">OUT</span>
                 </div>
                 <div>
-                  <p className="font-semibold mb-2">Execution</p>
-                  <p className="text-paper/70">Handoff prepares the action for your systems. Updates Salesforce. Sends emails. Triggers workflows. Your systems stay in control.</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 items-start">
-                <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-xs text-gold font-semibold">LEARN</span>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">Memory update</p>
-                  <p className="text-paper/70">Outcomes feed back into Memory. What happened? What was learned? This compounds your institutional knowledge forever.</p>
+                  <p className="font-semibold mb-2">Sync & Outcome</p>
+                  <p className="text-paper/70">Downstream mutations are synchronized, and the observed outcome feeds back to compound institutional memory.</p>
                 </div>
               </div>
             </div>
@@ -343,7 +343,7 @@ export default function Platform() {
               <span className="font-bold text-paper text-lg">IntegrateWise</span>
             </div>
             <p className="text-sm text-paper/50 max-w-md leading-relaxed">
-              Digital Memory + Reasoning + Governance + Handoff.
+              Continuity + Silent Twin + Governance + Sync.
             </p>
           </div>
 

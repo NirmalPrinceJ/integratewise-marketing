@@ -92,12 +92,12 @@ export const SITE_METADATA = {
   aiGovernance: {
     title: 'AI Governance Solution',
     description: 'AI proposes. Humans approve. Every decision auditable. Scale AI safely with complete governance and audit trails.',
-    keywords: ['AI governance', 'approval center', 'audit trail', 'compliance', 'risk management']
+    keywords: ['AI governance', 'governance gates', 'audit trail', 'compliance', 'risk management']
   },
   platform: {
     title: 'Platform Architecture',
-    description: 'Five surfaces. One connected workspace. The Digital Memory Operating Layer connecting your data, decisions, and institutional knowledge.',
-    keywords: ['platform', 'architecture', 'workbench', 'twin', 'memory', 'approval center', 'handoff']
+    description: 'Five layers. One unified workspace. The Operational Continuity Layer connecting your data, decisions, and institutional knowledge.',
+    keywords: ['platform', 'architecture', 'user workbench', 'silent twin', 'adaptive spine', 'governance gates', 'hermes sync']
   },
   pricing: {
     title: 'Pricing',

@@ -37,7 +37,7 @@ export default function AIGovernance() {
             AI proposes. Humans approve. Every decision auditable.
           </h1>
           <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl">
-            AI is powerful, but teams can&apos;t deploy it at scale without governance. IntegrateWise&apos;s Approval Center means every proposed action is reviewed, evidence is shown, and outcomes are tracked. No black boxes. No surprises. Complete audit trail.
+            AI is powerful, but teams can&apos;t deploy it at scale without governance. IntegrateWise&apos;s Governance Gates ensure every proposed action is reviewed, evidence is shown, and outcomes are tracked. No black boxes. No surprises. Complete audit trail.
           </p>
 
           <a
@@ -83,10 +83,10 @@ export default function AIGovernance() {
         <div className="max-w-4xl mx-auto">
           <p className="text-xs font-mono text-gold tracking-widest uppercase mb-6">How IntegrateWise Fixes It</p>
           <h2 className="text-4xl md:text-5xl font-bold text-forest mb-8 leading-tight">
-            The Approval Center. Every proposal. Full visibility. Complete control.
+            Governance Gates. Every proposal. Full visibility. Complete control.
           </h2>
           <p className="text-lg text-muted-foreground mb-12">
-            IntegrateWise doesn&apos;t execute decisions. It prepares proposals. Every proposal sits in the Approval Center where humans review, approve, or reject before anything moves.
+            IntegrateWise doesn&apos;t execute decisions. It prepares proposals. Every proposal sits behind Governance Gates where humans review, approve, or reject before anything moves.
           </p>
 
           <div className="space-y-6 mb-12">
@@ -107,8 +107,8 @@ export default function AIGovernance() {
           <div className="bg-forest-deep rounded-xl p-8 text-paper mb-12">
             <p className="mb-4 font-semibold text-lg">How it works in practice:</p>
             <ol className="space-y-3 text-sm">
-              <li className="flex gap-3"><span className="text-gold font-semibold">1.</span> <span>Your Twin proposes an action. Send customer an upsell. Update a deal status. Flag a renewal risk.</span></li>
-              <li className="flex gap-3"><span className="text-gold font-semibold">2.</span> <span>Proposal sits in Approval Center. You see: what&apos;s proposed, the evidence, the reasoning.</span></li>
+              <li className="flex gap-3"><span className="text-gold font-semibold">1.</span> <span>Your Silent Twin proposes an action. Send customer an upsell. Update a deal status. Flag a renewal risk.</span></li>
+              <li className="flex gap-3"><span className="text-gold font-semibold">2.</span> <span>Proposal sits behind Governance Gates. You see: what&apos;s proposed, the evidence, the reasoning.</span></li>
               <li className="flex gap-3"><span className="text-gold font-semibold">3.</span> <span>You approve or reject. You decide. Nothing is automatic.</span></li>
               <li className="flex gap-3"><span className="text-gold font-semibold">4.</span> <span>If approved: action executes in your system. If rejected: you learn from it.</span></li>
               <li className="flex gap-3"><span className="text-gold font-semibold">5.</span> <span>Complete audit trail. Every decision. Every outcome. Forever.</span></li>
@@ -121,7 +121,7 @@ export default function AIGovernance() {
               <span className="font-semibold">Without IntegrateWise:</span> You deploy AI to send upsell offers. You don&apos;t review each one. Some go out to customers mid-contract. Some are tone-deaf. Some are profitable. Weeks later, you realize the system has been sending thousands of offers but you have no visibility into which are working or why.
             </p>
             <p className="text-foreground mt-4">
-              <span className="font-semibold">With IntegrateWise:</span> Your Twin proposes an upsell. You see: "Recommended Acme Corp for Feature X upgrade. They&apos;re 40% through current contract. Usage shows they need it. Similar customers had 60% acceptance at this point. Estimated MRR impact: +$5k." You approve or reject. Every proposal tracked. You scale confidently.
+              <span className="font-semibold">With IntegrateWise:</span> Your Silent Twin proposes an upsell. You see: "Recommended Acme Corp for Feature X upgrade. They&apos;re 40% through current contract. Usage shows they need it. Similar customers had 60% acceptance at this point. Estimated MRR impact: +$5k." You approve or reject. Every proposal tracked. You scale confidently.
             </p>
           </div>
         </div>
@@ -238,7 +238,7 @@ export default function AIGovernance() {
               <span className="font-bold text-paper text-lg">IntegrateWise</span>
             </div>
             <p className="text-sm text-paper/50 max-w-md leading-relaxed">
-              Digital Memory + Reasoning + Governance + Handoff.
+              Continuity + Silent Twin + Governance + Sync.
             </p>
           </div>
 

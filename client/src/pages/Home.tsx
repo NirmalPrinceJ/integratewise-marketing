@@ -44,11 +44,11 @@ export default function Home() {
       <section className="pt-32 pb-20 px-4">
         <div className="max-w-4xl mx-auto">
 
-          {/* Tag line */}
+           {/* Tag line */}
           <p className="text-xs font-mono text-gold tracking-widest uppercase mb-8">
-            Digital Memory · Twin · Governance · Handoff
+            Continuity · Silent Twin · Governance · Sync
           </p>
-
+ 
           {/* Opening story */}
           <div className="mb-10 pl-6 border-l-2 border-border">
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -58,16 +58,16 @@ export default function Home() {
               <em>Today he uses it to write emails.</em>
             </p>
           </div>
-
+ 
           {/* H1 */}
           <h1 className="text-5xl md:text-6xl font-bold text-forest mb-8 leading-tight max-w-3xl">
             This is what you wanted.<br />
             How you <span className="text-gold">wanted</span> it to work.
           </h1>
-
+ 
           {/* Sub */}
           <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl">
-            IntegrateWise connects your tools, builds a memory of your business, and hands off approved decisions to your execution environment. Brief it once. It remembers. It finishes.
+            IntegrateWise unifies your tools, builds a continuous operational memory, and synchronizes approved decisions with your systems. Brief it once. It remembers. It executes.
           </p>
 
           {/* CTAs */}
@@ -167,12 +167,12 @@ export default function Home() {
               {
                 name: "Babysitting",
                 quote: '"I still have to check everything it does."',
-                desc: "No governed execution. He became the quality control layer. IntegrateWise's Approval Center means nothing moves without your explicit review — and you always know what ran.",
+                desc: "No governed execution. He became the quality control layer. IntegrateWise's Governance Gates ensure nothing moves without your explicit review — and you always know what ran.",
               },
               {
                 name: "Hallucination",
                 quote: '"It gave me a confident, completely wrong answer."',
-                desc: "No grounded context. It made things up rather than saying it didn't know. IntegrateWise's Twin reasons over your actual data, not guesswork.",
+                desc: "No grounded context. It made things up rather than saying it didn't know. IntegrateWise's Silent Twin reasons over your actual data, not guesswork.",
               },
               {
                 name: "Human API",
@@ -226,7 +226,7 @@ export default function Home() {
               {
                 name: "AI Governance",
                 hook: "AI proposes. Humans approve.",
-                items: ["Approval Center", "Audit trail", "Evidence", "Handoff"],
+                items: ["Governance Gates", "Audit trail", "Evidence", "Hermes & Sync"],
               },
             ].map((solution, idx) => (
               <div
@@ -254,43 +254,43 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <p className="text-xs font-mono text-gold tracking-widest uppercase mb-2">Platform</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            Five surfaces. One connected workspace.
+            Five layers. One unified workspace.
           </h2>
           <p className="text-lg text-paper/75 mb-12 max-w-2xl">
-            Every layer is built to remove one of the four failures. Together they close the full loop — from raw data to approved decision to organisational memory.
+            Every layer is built to resolve context fragmentation. Together they close the full loop—from raw data in the Adaptive Spine to approved actions gated by Governance.
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 rounded-xl overflow-hidden border border-white/10">
             {[
               {
-                label: "L1 · Workbench",
-                name: "Everything you need to know. One place to act.",
-                desc: "Everything you work across — accounts, pipeline, sprints, tasks, documents — unified from all your tools into one surface. No tab-switching. No reconciling. No copy-pasting. Just the full picture, ready to act on.",
-                kills: "→ Kills Human API",
+                label: "User Workbench",
+                name: "The role-specific projection of work and context.",
+                desc: "Everything you work across — accounts, pipeline, sprints, tasks, documents — projected into a single unified surface. No tab-switching, no context fragmentation. Just the full picture, ready to act on.",
+                kills: "→ Kills Context Loss",
               },
               {
-                label: "L2 · Twin",
-                name: "An AI that knows your business as well as you do.",
-                desc: "Your Twin is briefed once and stays briefed. It reasons over your actual data, surfaces what matters, proposes what to do next — with the evidence to back it up. You review. You decide. It learns. It doesn't forget by morning.",
-                kills: "→ Kills Amnesia",
+                label: "Silent Twin",
+                name: "A non-authoritative cognitive participant.",
+                desc: "Quiet by default. It observes the pipeline, gathers context, and surfaces inline only when there is material value, or when engaged via the Four Buttons (Orient, Decide, Act). It does not clutter your workspace.",
+                kills: "→ Kills AI Hallucination & Noise",
               },
               {
-                label: "L3 · Memory",
-                name: "Every instruction. Every decision. Every outcome. Remembered.",
-                desc: "IntegrateWise remembers what your team knows — the brief you gave, the rule you set, the decision you made, the outcome that came back. Every approved action compounds the memory. Search it. Build on it. Stop starting over.",
-                kills: "→ Kills Amnesia",
+                label: "Adaptive Spine",
+                name: "The canonical operational model of truth.",
+                desc: "The Single Source of Truth (SSOT) of the platform. A continuously evolving schema that stores normalized operational entity states, timelines, and relationships, ensuring all systems and participants are perfectly aligned.",
+                kills: "→ Kills Data Amnesia",
               },
               {
-                label: "L4 · Approval Center",
-                name: "AI proposes. You approve. Nothing moves without you.",
-                desc: "Every proposed action sits here before anything happens. Review the reasoning. See the evidence. Approve or reject. Complete audit trail. Nothing automatic. You are always in control — and you always know what actually ran.",
-                kills: "→ Kills Babysitting",
+                label: "Governance Gates",
+                name: "AI proposes. You approve. Governance is a hard gate.",
+                desc: "Every proposed action sits in the Governance Center before execution. Review reasoning, audit lines, see evidence, and authorize actions. No execution token is granted without human approval.",
+                kills: "→ Kills Rogue Execution",
               },
               {
-                label: "Handoff",
-                name: "IntegrateWise prepares. Your systems execute.",
-                desc: "Approved actions become precise, vendor-neutral packages ready for your existing systems. IntegrateWise doesn't execute on your behalf. It prepares execution perfectly — then hands off to whatever you already run.",
-                kills: "→ Kills Human API",
+                label: "Hermes & Sync",
+                name: "Platform prepares. Your systems execute.",
+                desc: "Approved actions are coordinated via Hermes and synced downstream to your existing systems. IntegrateWise doesn't bypass or duplicate your tools; it prepares execution packages and reconciles states automatically.",
+                kills: "→ Kills Brittle Integrations",
               },
             ].map((item, idx) => (
               <div key={idx} className="bg-forest-deep p-8 hover:bg-forest-deep/80 transition-colors border-t border-white/5">
@@ -345,7 +345,7 @@ export default function Home() {
 
           {/* Flow steps */}
           <div className="flex flex-wrap justify-center items-center gap-3 mb-10">
-            {["Connect", "Spine", "Twin", "Approve", "Handoff", "Memory"].map((step, idx) => (
+            {["Workbench", "Spine", "Twin", "Governance", "Sync", "Continuity"].map((step, idx) => (
               <div key={idx} className="flex items-center gap-3">
                 <div className="flex flex-col items-center gap-2">
                   <div className="w-14 h-14 rounded-full border-2 border-gold/30 bg-gold/10 flex items-center justify-center">
@@ -512,8 +512,8 @@ export default function Home() {
               </div>
               <span className="font-bold text-paper text-lg">IntegrateWise</span>
             </div>
-            <p className="text-sm text-paper/50 max-w-md leading-relaxed">
-              Digital Memory + Reasoning + Governance + Handoff. Execution belongs to the customer. IntegrateWise prepares it.
+             <p className="text-sm text-paper/50 max-w-md leading-relaxed">
+              Continuity + Silent Twin + Governance + Sync. Execution belongs to the customer. IntegrateWise prepares it.
             </p>
           </div>
 

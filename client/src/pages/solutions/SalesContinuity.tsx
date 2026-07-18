@@ -202,7 +202,7 @@ export default function SalesContinuity() {
               <span className="font-bold text-paper text-lg">IntegrateWise</span>
             </div>
             <p className="text-sm text-paper/50 max-w-md leading-relaxed">
-              Digital Memory + Reasoning + Governance + Handoff.
+              Continuity + Silent Twin + Governance + Sync.
             </p>
           </div>
 

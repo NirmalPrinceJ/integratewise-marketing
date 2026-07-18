@@ -79,7 +79,7 @@ export default function Solutions() {
       id: "ai-governance",
       name: "AI Governance",
       tagline: "AI proposes. Humans approve. Every decision auditable.",
-      description: "AI is powerful, but teams can't deploy it at scale without governance. IntegrateWise's Approval Center means every proposed action is reviewed, evidence is shown, and outcomes are tracked. No black boxes. No surprises. Complete audit trail.",
+      description: "AI is powerful, but teams can't deploy it at scale without governance. IntegrateWise's Governance Gates ensure every proposed action is reviewed, evidence is shown, and outcomes are tracked. No black boxes. No surprises. Complete audit trail.",
       problems: [
         "Can't trust AI with high-stakes decisions without review",
         "No audit trail for decisions made or actions taken",
@@ -186,7 +186,7 @@ export default function Solutions() {
               <span className="font-bold text-paper text-lg">IntegrateWise</span>
             </div>
             <p className="text-sm text-paper/50 max-w-md leading-relaxed">
-              Digital Memory + Reasoning + Governance + Handoff.
+              Continuity + Silent Twin + Governance + Sync.
             </p>
           </div>
 

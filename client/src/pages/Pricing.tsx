@@ -54,22 +54,22 @@ export default function Pricing() {
             {[
               {
                 title: "Base: Workspace Access",
-                description: "Your connected workspace with all tools unified. Memory storage. Twin reasoning. Approval Center. Governance layer.",
+                description: "Your connected workspace with all tools unified. Spine storage. Silent Twin reasoning. Governance Gates. Continuity layer.",
                 note: "Custom pricing based on team size and data volume"
               },
               {
                 title: "Outcomes: Decisions Made",
-                description: "Each approved decision executed through Handoff creates value. Pricing scales with your decision velocity.",
+                description: "Each approved decision executed through Hermes & Sync creates value. Pricing scales with your decision velocity.",
                 note: "Tiered: 100 decisions/month → 1000+ decisions/month"
               },
               {
-                title: "Memory: Institutional Knowledge",
-                description: "Searchable memory that compounds over time. Each decision adds to your institutional knowledge base.",
+                title: "Spine: Institutional Knowledge",
+                description: "Searchable Adaptive Spine that compounds over time. Each decision adds to your institutional knowledge base.",
                 note: "Included in base pricing; grows with your usage"
               },
               {
-                title: "Twin: Context Accuracy",
-                description: "Your Twin's accuracy improves with usage. More context fed in = better proposals = higher approval rate.",
+                title: "Silent Twin: Context Accuracy",
+                description: "Your Silent Twin's accuracy improves with usage. More context fed in = better proposals = higher approval rate.",
                 note: "Performance-based: better outcomes, higher value"
               }
             ].map((item, idx) => (
@@ -170,7 +170,7 @@ export default function Pricing() {
               },
               {
                 q: "What's included in workspace access?",
-                a: "Workbench (all-tools unified view), Twin reasoning, Memory storage, Approval Center, Handoff preparation, audit trails, and base integrations."
+                a: "User Workbench (unified view), Silent Twin reasoning, Adaptive Spine storage, Governance Gates, Hermes & Sync coordination, audit trails, and base connectors."
               },
               {
                 q: "Are there setup or implementation fees?",
@@ -229,7 +229,7 @@ export default function Pricing() {
               <span className="font-bold text-paper text-lg">IntegrateWise</span>
             </div>
             <p className="text-sm text-paper/50 max-w-md leading-relaxed">
-              Digital Memory + Reasoning + Governance + Handoff.
+              Continuity + Silent Twin + Governance + Sync.
             </p>
           </div>
 
