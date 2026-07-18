@@ -60,14 +60,19 @@ function updateOrCreateMetaTag(attrName: string, attrValue: string, content: str
 
 export const SITE_METADATA = {
   home: {
-    title: 'Digital Memory Operating Layer',
-    description: 'IntegrateWise connects your tools, builds a memory of your business, and hands off approved decisions to your execution environment. Memory over models.',
-    keywords: ['operational continuity', 'digital memory', 'AI governance', 'business continuity', 'AI adoption']
+    title: 'Your Last Auth to Complete Your Ecosystem',
+    description: 'One authentication. Every capability. Everywhere you work. IntegrateWise connects your AI, business applications, and teams into a single operational capability fabric that securely executes work across your connected ecosystem.',
+    keywords: ['operational capability platform', 'universal capability fabric', 'AI execution', 'last auth', 'operational reach', 'enterprise AI governance']
   },
   solutions: {
-    title: 'Solutions',
-    description: 'IntegrateWise solves one cross-functional problem: context loss. Account Success, Sales Continuity, Founder Ops, Engineering & Product, and AI Governance.',
-    keywords: ['account success', 'sales continuity', 'founder operations', 'engineering continuity', 'AI governance']
+    title: 'Workbenches',
+    description: 'Twelve operational workbenches. One unified capability fabric. Role-aware, contextual, and governed — every workbench is powered by the Adaptive Spine and connected to your complete ecosystem.',
+    keywords: ['operational workbenches', 'account success', 'sales workbench', 'engineering workbench', 'governance workbench']
+  },
+  capabilities: {
+    title: 'Capabilities',
+    description: 'Built for operational continuity and governed intelligence. Universal Capability Fabric, Adaptive Spine, enterprise governance, connected ecosystem, and operational continuity — everything you need, unified.',
+    keywords: ['capabilities', 'universal capability fabric', 'adaptive spine', 'enterprise governance', 'operational continuity']
   },
   accountSuccess: {
     title: 'Account Success Solution',
@@ -95,9 +100,9 @@ export const SITE_METADATA = {
     keywords: ['AI governance', 'approval center', 'audit trail', 'compliance', 'risk management']
   },
   platform: {
-    title: 'Platform Architecture',
-    description: 'Five surfaces. One connected workspace. The Digital Memory Operating Layer connecting your data, decisions, and institutional knowledge.',
-    keywords: ['platform', 'architecture', 'workbench', 'twin', 'memory', 'approval center', 'handoff']
+    title: 'The Operational Capability Platform',
+    description: 'The operational capability platform for the AI era. IntegrateWise unifies your AI, applications, data, and teams into a single governed fabric — so work gets done seamlessly, securely, and at scale.',
+    keywords: ['platform', 'architecture', 'universal capability fabric', 'adaptive spine', 'MCP', 'connectors', 'governance']
   },
   pricing: {
     title: 'Pricing',

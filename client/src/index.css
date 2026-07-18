@@ -54,27 +54,27 @@
   --ink: #0C0C0C;
   --paper: #F4F0EB;
   --paper-warm: #EDE9E2;
-  --forest: #232D42;
-  --forest-deep: #1A2233;
+  --forest: #1E3A29;
+  --forest-deep: #142B1D;
   --gold: #C9A96E;
   --gold-light: #DFC28F;
   --muted: #6B7280;
   --border-color: #DDD8CF;
   
-  --primary: #232D42;
+  --primary: #1E3A29;
   --primary-foreground: #F4F0EB;
   --secondary: #C9A96E;
   --secondary-foreground: #0C0C0C;
   --accent: #C9A96E;
-  --accent-foreground: #232D42;
+  --accent-foreground: #1E3A29;
   --destructive: #ff6b5b;
   --destructive-foreground: #fafaf9;
   --ring: #C9A96E;
-  --sidebar-primary: #232D42;
+  --sidebar-primary: #1E3A29;
   --sidebar-primary-foreground: #F4F0EB;
   --chart-1: #C9A96E;
-  --chart-2: #232D42;
-  --chart-3: #1A2233;
+  --chart-2: #1E3A29;
+  --chart-3: #142B1D;
   --chart-4: #EDE9E2;
   --chart-5: #DDD8CF;
   
@@ -95,8 +95,8 @@
   /* Custom variables for design system */
   --color-ink: #0C0C0C;
   --color-paper: #F4F0EB;
-  --color-forest: #232D42;
-  --color-forest-deep: #1A2233;
+  --color-forest: #1E3A29;
+  --color-forest-deep: #142B1D;
   --color-gold: #C9A96E;
   --color-muted: #6B7280;
   
@@ -132,12 +132,12 @@
   
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Instrument Sans', sans-serif;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
   }
   
   h1 {

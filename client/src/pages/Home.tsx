@@ -1,7 +1,62 @@
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Calendar,
+  Check,
+  CheckSquare,
+  Code2,
+  DollarSign,
+  HeartHandshake,
+  Leaf,
+  LifeBuoy,
+  Lock,
+  Mail,
+  Megaphone,
+  Package,
+  Phone,
+  PlayCircle,
+  Scale,
+  Search,
+  Settings,
+  ShieldCheck,
+  TrendingUp,
+  User,
+  UserCheck,
+  Users,
+} from "lucide-react";
 import { Link } from "wouter";
 import { useEffect } from "react";
 import { updateMetaTags, SITE_METADATA } from "../lib/seo";
+import SiteNav from "../components/SiteNav";
+import SiteFooter from "../components/SiteFooter";
+
+const LOGOS: Record<string, string> = {
+  ChatGPT: "/images/logos/chatgpt.svg",
+  Claude: "/images/logos/claude.svg",
+  Salesforce: "/images/logos/salesforce.svg",
+  HubSpot: "/images/logos/hubspot.svg",
+  Slack: "/images/logos/slack.svg",
+  Notion: "/images/logos/notion.svg",
+  "Google Drive": "/images/logos/googledrive.svg",
+  GitHub: "/images/logos/github.svg",
+  Jira: "/images/logos/jira.svg",
+  Teams: "/images/logos/microsoft.svg",
+};
+
+function AppTile({ name }: { name: string }) {
+  const logo = LOGOS[name];
+  return (
+    <div className="flex flex-col items-center gap-1.5 bg-paper border border-border rounded-lg px-2 py-3 min-w-[4.5rem]">
+      {logo ? (
+        <img src={logo} alt={name} className="w-6 h-6" loading="lazy" />
+      ) : (
+        <span className="w-6 h-6 rounded bg-forest/10 text-forest text-xs font-bold flex items-center justify-center">
+          {name === "200+ more" ? "+" : name.charAt(0)}
+        </span>
+      )}
+      <span className="text-[10px] font-medium text-foreground/80 text-center leading-tight">{name}</span>
+    </div>
+  );
+}
 
 export default function Home() {
   useEffect(() => {
@@ -11,554 +66,281 @@ export default function Home() {
   return (
     <div className="bg-background text-foreground">
 
-      {/* ─── NAVIGATION ─────────────────────────────────────────────────── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/92 backdrop-blur-md border-b border-border">
-        <div className="container flex items-center justify-between py-4 px-6 max-w-7xl mx-auto">
-          {/* Logo */}
-          <a href="/" className="flex items-center gap-2 hover:opacity-75 transition-opacity">
-            <div className="w-8 h-8 rounded bg-forest flex items-center justify-center">
-              <span className="text-paper font-bold text-sm">IW</span>
-            </div>
-            <span className="font-semibold text-forest hidden sm:inline">IntegrateWise</span>
-          </a>
-
-          {/* Nav links */}
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-            <Link href="/solutions" className="hover:text-foreground transition-colors">Solutions</Link>
-            <Link href="/platform" className="hover:text-foreground transition-colors">Platform</Link>
-            <Link href="/pricing" className="hover:text-foreground transition-colors">Pricing</Link>
-            <Link href="/company" className="hover:text-foreground transition-colors">Company</Link>
-          </div>
-
-          {/* CTA */}
-          <a
-            href="mailto:hello@integratewise.ai"
-            className="px-4 py-2 rounded bg-forest text-paper font-medium text-sm hover:bg-forest-deep transition-colors"
-          >
-            Apply for Pilot
-          </a>
-        </div>
-      </nav>
+      <SiteNav />
 
       {/* ─── SECTION 1 · HERO ───────────────────────────────────────────── */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="max-w-4xl mx-auto">
+      <section className="pt-28 pb-16 px-4 bg-gradient-to-b from-paper to-paper-warm">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
 
-          {/* Tag line */}
-          <p className="text-xs font-mono text-gold tracking-widest uppercase mb-8">
-            Digital Memory · Twin · Governance · Handoff
-          </p>
+          {/* Left column */}
+          <div className="pt-8">
+            {/* Badge */}
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-forest/20 bg-paper text-[11px] font-mono tracking-widest uppercase text-forest mb-8">
+              <Leaf className="w-3.5 h-3.5" />
+              AI-Native. Operational. Governed.
+            </span>
 
-          {/* Opening story */}
-          <div className="mb-10 pl-6 border-l-2 border-border">
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              He adopted AI six months ago. He told his team about it.<br />
-              He genuinely believed it would change how he works.<br />
-              <br />
-              <em>Today he uses it to write emails.</em>
+            {/* H1 */}
+            <h1 className="text-5xl md:text-6xl text-ink mb-6 leading-[1.08]">
+              Your <span className="text-forest italic">Last Auth</span><br />
+              to Complete<br />
+              Your Ecosystem.
+            </h1>
+
+            {/* Sub-headline */}
+            <p className="text-lg font-semibold text-forest mb-5">
+              One authentication. Every capability. Everywhere you work.
+            </p>
+
+            {/* Body */}
+            <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-md">
+              IntegrateWise connects your AI, business applications, and teams into a single operational capability fabric.
+              Stay in ChatGPT, Claude, Hermes, or your Workbench while IntegrateWise securely executes work across your connected ecosystem.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 items-start mb-8">
+              <a
+                href="mailto:hello@integratewise.ai"
+                className="px-7 py-3 rounded-lg bg-forest text-paper font-semibold hover:bg-forest-deep transition-colors inline-flex items-center gap-2"
+              >
+                Start Free
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="mailto:hello@integratewise.ai?subject=Demo%20Request"
+                className="px-7 py-3 rounded-lg font-semibold border border-forest/30 text-forest hover:bg-forest hover:text-paper transition-colors inline-flex items-center gap-2"
+              >
+                Watch Demo
+                <PlayCircle className="w-4 h-4" />
+              </a>
+            </div>
+
+            {/* Trust line */}
+            <p className="flex items-center gap-2 text-xs text-muted-foreground">
+              <ShieldCheck className="w-4 h-4 text-forest" />
+              Enterprise grade security · SOC 2 · GDPR · HIPAA · ISO 27001
             </p>
           </div>
 
-          {/* H1 */}
-          <h1 className="text-5xl md:text-6xl font-bold text-forest mb-8 leading-tight max-w-3xl">
-            This is what you wanted.<br />
-            How you <span className="text-gold">wanted</span> it to work.
-          </h1>
+          {/* Right column — capability fabric diagram */}
+          <div className="flex flex-col items-center gap-0">
+            {/* AI Surfaces */}
+            <p className="text-[11px] font-mono tracking-widest uppercase text-forest mb-3">AI Surfaces</p>
+            <div className="flex flex-wrap justify-center gap-2 mb-3">
+              {["ChatGPT", "Claude", "Perplexity", "Hermes", "More"].map((name) => (
+                <AppTile key={name} name={name} />
+              ))}
+            </div>
 
-          {/* Sub */}
-          <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl">
-            IntegrateWise connects your tools, builds a memory of your business, and hands off approved decisions to your execution environment. Brief it once. It remembers. It finishes.
-          </p>
+            <span className="text-forest/50 text-xl leading-none py-1">↓</span>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 items-start mb-14">
-            <a
-              href="mailto:hello@integratewise.ai"
-              className="px-8 py-3 rounded bg-forest text-paper font-semibold hover:bg-forest-deep transition-colors inline-flex items-center gap-2"
-            >
-              Apply for Pilot
-              <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
-              href="#solutions"
-              className="px-8 py-3 rounded font-semibold border-2 border-forest text-forest hover:bg-forest hover:text-paper transition-colors"
-            >
-              Explore Solutions
-            </a>
-          </div>
+            {/* Fabric */}
+            <div className="w-full max-w-md bg-paper border border-forest/20 rounded-xl px-6 py-4 text-center shadow-sm my-2">
+              <p className="font-bold text-forest tracking-wide text-sm uppercase">Universal Capability Fabric</p>
+              <p className="text-xs text-muted-foreground mt-1">Human intent → Governed execution</p>
+            </div>
 
-          {/* Stats */}
-          <div className="pt-8 border-t border-border">
-            <div className="grid sm:grid-cols-3 gap-8">
-              <div>
-                <p className="text-3xl font-bold text-forest mb-1">80%</p>
-                <p className="text-sm text-muted-foreground">of AI adopters quietly demoted AI to low-stakes tasks</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-forest mb-1">15+</p>
-                <p className="text-sm text-muted-foreground">tools the average team uses with zero shared context</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-forest mb-1">0</p>
-                <p className="text-sm text-muted-foreground">sessions should start from a blank slate</p>
-              </div>
+            <span className="text-forest/50 text-xl leading-none py-1">↓</span>
+
+            {/* Connected ecosystem */}
+            <p className="text-[11px] font-mono tracking-widest uppercase text-forest my-3">Your Connected Ecosystem</p>
+            <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 mb-3">
+              {[
+                "Salesforce", "HubSpot", "Slack", "Teams", "Gmail", "Outlook", "Notion", "Google Drive",
+                "GitHub", "Jira", "Linear", "Confluence", "Zoom", "Twilio", "Aircall", "200+ more",
+              ].map((name) => (
+                <AppTile key={name} name={name} />
+              ))}
+            </div>
+
+            <span className="text-forest/50 text-xl leading-none py-1">↓</span>
+
+            {/* Adaptive Spine */}
+            <div className="w-full max-w-lg bg-paper border border-border rounded-xl px-6 py-4 text-center mt-2">
+              <p className="font-bold text-forest tracking-wide text-sm uppercase mb-1">Adaptive Spine</p>
+              <p className="text-xs text-muted-foreground">
+                Memory · Context · Intelligence · Governance · Continuity
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── SECTION 2 · WHAT HUMANS ACTUALLY NEED FROM AI ─────────────── */}
-      <section className="py-20 md:py-32 px-4 bg-forest text-paper">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xs font-mono text-gold tracking-widest uppercase mb-6">The Reality</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-            AI was supposed to be the new hire who never sleeps.
-          </h2>
-          <p className="text-lg text-paper/75 leading-relaxed mb-12">
-            Instead it became the intern who forgets everything overnight, needs constant supervision, occasionally lies with confidence, and still makes you do the actual work.
-            <br /><br />
-            That is not intelligence. That is extra work.
-          </p>
+      {/* ─── SECTION 2 · TRUST BAR ──────────────────────────────────────── */}
+      <section className="py-8 px-4 border-y border-border bg-paper">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-[11px] font-mono tracking-widest uppercase text-muted-foreground mb-5">Trusted by innovative teams</p>
+          <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-4">
+            {["GrowthX", "Rocketlane", "Razorpay", "Chargebee", "redBus", "Postman", "Zeta", "Whatfix"].map((name) => (
+              <span key={name} className="text-lg font-bold text-ink/40 tracking-tight">{name}</span>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          {/* Five needs */}
-          <div className="space-y-6 mb-12">
+      {/* ─── SECTION 3 · HUMAN INTENT → EXECUTION ──────────────────────── */}
+      <section className="py-20 px-4 bg-background" id="execution">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-[11px] font-mono tracking-widest uppercase text-forest mb-3">Human Intent → Execution</p>
+          <h2 className="text-3xl md:text-4xl text-ink mb-12">You think in work. We handle the rest.</h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
             {[
-              { num: "01", title: "Remembers what you told it", sub: "So you stop repeating yourself in every meeting" },
-              { num: "02", title: "Connects what you already use", sub: "So you stop being the copy-paste layer between your own tools" },
-              { num: "03", title: "Shows its work before acting", sub: "So you can trust it with decisions that matter" },
-              { num: "04", title: "Gets smarter as you use it", sub: "So knowledge stays when people leave" },
-              { num: "05", title: "Never acts without your say", sub: "So you stay in control, always" },
+              { icon: Phone, title: "Call Sarah", sub: "Best available calling provider" },
+              { icon: Mail, title: "Email the customer", sub: "Gmail, Outlook, or CRM Email" },
+              { icon: CheckSquare, title: "Create a task", sub: "Jira, GitHub, Linear, or Notion" },
+              { icon: Search, title: "Find the roadmap", sub: "Notion, Confluence, Google Docs" },
+              { icon: Calendar, title: "Schedule follow-up", sub: "Google Calendar or Outlook" },
+              { icon: ShieldCheck, title: "Approve renewal", sub: "CRM + Governance workflow" },
             ].map((item) => (
-              <div key={item.num} className="flex gap-6 items-start border-b border-paper/10 pb-6 last:border-0 last:pb-0">
-                <span className="text-xs font-mono text-gold shrink-0 mt-1">{item.num}</span>
+              <div key={item.title} className="bg-paper border border-border rounded-xl p-5 flex flex-col items-center gap-3 hover:border-forest/40 transition-colors">
+                <item.icon className="w-6 h-6 text-forest" />
                 <div>
-                  <p className="font-semibold text-paper mb-1">{item.title}</p>
-                  <p className="text-sm text-paper/60">{item.sub}</p>
+                  <p className="font-semibold text-ink text-sm mb-1">{item.title}</p>
+                  <p className="text-xs text-muted-foreground leading-snug">{item.sub}</p>
                 </div>
+                <span className="mt-auto px-2.5 py-1 rounded bg-forest/10 text-forest text-[10px] font-bold tracking-widest uppercase">
+                  Executed
+                </span>
               </div>
             ))}
           </div>
 
-          <p className="text-lg text-paper/75 leading-relaxed">
-            That is not a chatbot. That is not automation.<br />
-            That is <span className="text-gold font-semibold">continuity.</span>
+          <p className="text-sm text-muted-foreground">
+            IntegrateWise securely resolves the intent, selects the right provider, executes the action, and maintains operational continuity.
           </p>
         </div>
       </section>
 
-      {/* ─── SECTION 3 · FOUR FRUSTRATIONS ─────────────────────────────── */}
-      <section className="py-20 md:py-32 px-4 bg-background" id="problem">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-mono text-gold tracking-widest uppercase mb-2">Why AI Fails Them</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-forest mb-4 leading-tight">
-            Four failures. One root cause. One fix.
-          </h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-2xl">
-            Every person who demoted AI hit the same four walls. IntegrateWise was built specifically to remove each one.
-          </p>
+      {/* ─── SECTION 4 · WORKBENCHES ────────────────────────────────────── */}
+      <section className="py-20 px-4 bg-paper-warm border-y border-border" id="workbenches">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-[11px] font-mono tracking-widest uppercase text-forest mb-3">Built for Every Workbench</p>
+          <h2 className="text-3xl md:text-4xl text-ink mb-12">One platform. Twelve operational workbenches.</h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 mb-10">
             {[
-              {
-                name: "Amnesia",
-                quote: '"I told it once. It forgot. I had to repeat myself — again."',
-                desc: "No persistent memory. Every session starts blank. The brief you gave, the rules you set, the client context you explained — gone. IntegrateWise maintains persistent memory across every session.",
-              },
-              {
-                name: "Babysitting",
-                quote: '"I still have to check everything it does."',
-                desc: "No governed execution. He became the quality control layer. IntegrateWise's Approval Center means nothing moves without your explicit review — and you always know what ran.",
-              },
-              {
-                name: "Hallucination",
-                quote: '"It gave me a confident, completely wrong answer."',
-                desc: "No grounded context. It made things up rather than saying it didn't know. IntegrateWise's Twin reasons over your actual data, not guesswork.",
-              },
-              {
-                name: "Human API",
-                quote: '"I\'m copy-pasting between tabs more than before I had AI."',
-                desc: "No connected workspace. He became the integration layer between AI and his own tools. IntegrateWise connects everything into one surface — so you stop being the middleware.",
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-paper-warm border border-border rounded-xl p-6 hover:border-gold transition-colors">
-                <p className="font-semibold text-forest mb-3">{item.name}</p>
-                <p className="italic text-foreground mb-4 text-sm">{item.quote}</p>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
+              { icon: User, name: "Founder" },
+              { icon: TrendingUp, name: "Sales" },
+              { icon: Megaphone, name: "Marketing" },
+              { icon: HeartHandshake, name: "Customer Success" },
+              { icon: UserCheck, name: "Account Success" },
+              { icon: Package, name: "Product" },
+              { icon: Code2, name: "Engineering" },
+              { icon: Settings, name: "Operations" },
+              { icon: LifeBuoy, name: "Support" },
+              { icon: DollarSign, name: "Finance" },
+              { icon: Users, name: "HR" },
+              { icon: Scale, name: "Governance" },
+            ].map((item) => (
+              <div key={item.name} className="bg-paper border border-border rounded-xl p-5 flex flex-col items-center gap-3 hover:border-forest/40 transition-colors">
+                <item.icon className="w-6 h-6 text-forest" />
+                <p className="font-medium text-ink text-xs">{item.name}</p>
               </div>
             ))}
           </div>
+
+          <Link
+            href="/solutions"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-forest/30 text-forest font-semibold hover:bg-forest hover:text-paper transition-colors"
+          >
+            Explore All Workbenches
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 
-      {/* ─── SECTION 4 · SOLUTIONS ──────────────────────────────────────── */}
-      <section className="py-20 md:py-32 px-4 bg-paper-warm border-y border-border" id="solutions">
+      {/* ─── SECTION 5 · WHY INTEGRATEWISE ─────────────────────────────── */}
+      <section className="py-20 px-4 bg-background" id="why">
         <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-mono text-gold tracking-widest uppercase mb-2">Solutions</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-forest mb-4 leading-tight">
-            Continuity by outcome.
-          </h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-2xl">
-            IntegrateWise solves one cross-functional problem: context loss. Here is how it shows up in your work.
-          </p>
+          <p className="text-[11px] font-mono tracking-widest uppercase text-forest mb-10 text-center">Why IntegrateWise</p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               {
-                name: "Account Success",
-                hook: "Know everything about every customer without opening five tools.",
-                items: ["Renewal risk", "Customer memory", "Account timelines", "Twin recommendations"],
+                icon: Leaf,
+                name: "Adaptive Spine",
+                desc: "A continuously evolving operational memory across your organization.",
               },
               {
-                name: "Sales Continuity",
-                hook: "Never re-brief AI on a customer again.",
-                items: ["Deal memory", "Proposal generation", "Context-aware follow-ups", "Customer history"],
+                icon: Settings,
+                name: "Universal Capability Fabric",
+                desc: "Translate human intent into governed execution across any system.",
               },
               {
-                name: "Founder & Business Operations",
-                hook: "One place to understand what is happening.",
-                items: ["Cross-team visibility", "Organisational memory", "Decision continuity", "Executive Twin"],
+                icon: Check,
+                name: "AI-Native",
+                desc: "Works where users already work—inside their AI assistants.",
               },
               {
-                name: "Engineering & Product",
-                hook: "Keep decisions, incidents, and roadmap context connected.",
-                items: ["Sprint memory", "Incident context", "Engineering Twin", "Build continuity"],
+                icon: ShieldCheck,
+                name: "Enterprise Governance",
+                desc: "Policies, approvals, audit trails, and operational trust built in.",
               },
-              {
-                name: "AI Governance",
-                hook: "AI proposes. Humans approve.",
-                items: ["Approval Center", "Audit trail", "Evidence", "Handoff"],
-              },
-            ].map((solution, idx) => (
-              <div
-                key={idx}
-                className="bg-paper border border-border rounded-xl p-6 hover:border-gold transition-colors relative overflow-hidden before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gold"
-              >
-                <p className="font-semibold text-forest mb-3 text-lg">{solution.name}</p>
-                <p className="text-sm text-foreground mb-4">{solution.hook}</p>
-                <ul className="space-y-2">
-                  {solution.items.map((item, i) => (
-                    <li key={i} className="text-sm text-muted-foreground flex items-center gap-2">
-                      <span className="w-1 h-1 rounded-full bg-gold shrink-0"></span>
+            ].map((item) => (
+              <div key={item.name} className="bg-paper border border-border rounded-xl p-6 hover:border-forest/40 transition-colors">
+                <item.icon className="w-6 h-6 text-forest mb-4" />
+                <p className="font-semibold text-ink mb-2">{item.name}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+
+            {/* Data control panel */}
+            <div className="md:col-span-2 bg-forest text-paper rounded-xl p-6 flex items-start justify-between gap-6">
+              <div>
+                <p className="font-semibold text-lg mb-4">Your data. Your control.</p>
+                <ul className="space-y-2.5">
+                  {["Zero data training", "Tenant isolation", "Role-based access", "Full audit history"].map((item) => (
+                    <li key={item} className="flex items-center gap-2.5 text-sm text-paper/85">
+                      <Check className="w-4 h-4 text-gold shrink-0" />
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
-            ))}
+              <Lock className="w-12 h-12 text-paper/25 shrink-0 mt-2" />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── SECTION 5 · PLATFORM ───────────────────────────────────────── */}
-      <section className="py-20 md:py-32 px-4 bg-forest text-paper" id="platform">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-mono text-gold tracking-widest uppercase mb-2">Platform</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            Five surfaces. One connected workspace.
-          </h2>
-          <p className="text-lg text-paper/75 mb-12 max-w-2xl">
-            Every layer is built to remove one of the four failures. Together they close the full loop — from raw data to approved decision to organisational memory.
-          </p>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 rounded-xl overflow-hidden border border-white/10">
-            {[
-              {
-                label: "L1 · Workbench",
-                name: "Everything you need to know. One place to act.",
-                desc: "Everything you work across — accounts, pipeline, sprints, tasks, documents — unified from all your tools into one surface. No tab-switching. No reconciling. No copy-pasting. Just the full picture, ready to act on.",
-                kills: "→ Kills Human API",
-              },
-              {
-                label: "L2 · Twin",
-                name: "An AI that knows your business as well as you do.",
-                desc: "Your Twin is briefed once and stays briefed. It reasons over your actual data, surfaces what matters, proposes what to do next — with the evidence to back it up. You review. You decide. It learns. It doesn't forget by morning.",
-                kills: "→ Kills Amnesia",
-              },
-              {
-                label: "L3 · Memory",
-                name: "Every instruction. Every decision. Every outcome. Remembered.",
-                desc: "IntegrateWise remembers what your team knows — the brief you gave, the rule you set, the decision you made, the outcome that came back. Every approved action compounds the memory. Search it. Build on it. Stop starting over.",
-                kills: "→ Kills Amnesia",
-              },
-              {
-                label: "L4 · Approval Center",
-                name: "AI proposes. You approve. Nothing moves without you.",
-                desc: "Every proposed action sits here before anything happens. Review the reasoning. See the evidence. Approve or reject. Complete audit trail. Nothing automatic. You are always in control — and you always know what actually ran.",
-                kills: "→ Kills Babysitting",
-              },
-              {
-                label: "Handoff",
-                name: "IntegrateWise prepares. Your systems execute.",
-                desc: "Approved actions become precise, vendor-neutral packages ready for your existing systems. IntegrateWise doesn't execute on your behalf. It prepares execution perfectly — then hands off to whatever you already run.",
-                kills: "→ Kills Human API",
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-forest-deep p-8 hover:bg-forest-deep/80 transition-colors border-t border-white/5">
-                <p className="text-xs font-mono text-gold tracking-wider mb-4 uppercase">{item.label}</p>
-                <p className="font-semibold text-paper mb-3 text-lg">{item.name}</p>
-                <p className="text-sm text-paper/70 mb-4 leading-relaxed">{item.desc}</p>
-                <p className="text-xs text-gold font-medium">{item.kills}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 6 · WHAT INTEGRATEWISE IS NOT ─────────────────────── */}
-      <section className="py-20 md:py-32 px-4 bg-background">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-mono text-gold tracking-widest uppercase mb-2">Positioning</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-forest mb-4 leading-tight">
-            What IntegrateWise is not.
-          </h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-2xl">
-            Most visitors will think Zapier, n8n, agent platform, chatbot, or CRM. This is the clarification.
-          </p>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { strong: "Not an automation platform", span: "We don't run workflows. We prepare them and hand them to yours." },
-              { strong: "Not an agent framework", span: "Your agents run in your environment. Ours prepares what they receive." },
-              { strong: "Not a BI tool", span: "We don't visualize data. We unify context so decisions have a foundation." },
-              { strong: "Not a chatbot", span: "Your Twin knows your business, reasons over real data, and proposes real actions." },
-              { strong: "Not a CRM, PM tool, or inbox", span: "It's the layer that connects all of them." },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-paper-warm border border-border rounded-xl p-6 hover:border-gold transition-colors">
-                <p className="font-semibold text-forest mb-2">{item.strong}</p>
-                <p className="text-sm text-muted-foreground">{item.span}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 7 · HOW IT WORKS ───────────────────────────────────── */}
-      <section className="py-20 md:py-32 px-4 bg-forest-deep text-paper" id="how-it-works">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-mono text-gold tracking-widest uppercase mb-6">How It Works</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Execution becomes knowledge.
-          </h2>
-          <p className="text-lg text-paper/75 leading-relaxed mb-12">
-            Every approved action feeds back into memory. Every outcome compounds what IntegrateWise knows about your business. The loop closes — and it never resets.
-          </p>
-
-          {/* Flow steps */}
-          <div className="flex flex-wrap justify-center items-center gap-3 mb-10">
-            {["Connect", "Spine", "Twin", "Approve", "Handoff", "Memory"].map((step, idx) => (
-              <div key={idx} className="flex items-center gap-3">
-                <div className="flex flex-col items-center gap-2">
-                  <div className="w-14 h-14 rounded-full border-2 border-gold/30 bg-gold/10 flex items-center justify-center">
-                    <span className="text-gold font-semibold text-sm">{step.charAt(0)}</span>
-                  </div>
-                  <span className="text-xs text-paper/50 uppercase font-mono">{step}</span>
-                </div>
-                {idx < 5 && <span className="text-gold/40 text-xl hidden sm:inline">→</span>}
-              </div>
-            ))}
+      {/* ─── SECTION 6 · CLOSING ────────────────────────────────────────── */}
+      <section className="py-16 px-4 bg-forest-deep text-paper">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 items-center">
+          <div>
+            <p className="text-sm text-paper/60 mb-2">Your AI already knows language.</p>
+            <h2 className="text-3xl md:text-4xl text-paper leading-tight">Now let it know your business.</h2>
           </div>
 
-          <p className="text-sm text-paper/40 italic">
-            Execution happens in your environment. Outcomes feed back to IntegrateWise. The workspace gets smarter with every cycle.
-          </p>
-        </div>
-      </section>
-
-      {/* ─── SECTION 8 · THE MOAT ───────────────────────────────────────── */}
-      <section className="py-20 md:py-32 px-4 bg-forest text-paper">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-mono text-gold tracking-widest uppercase mb-6">The Moat</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-            ChatGPT gives <span className="text-gold">intelligence.</span><br />
-            IntegrateWise gives <span className="text-gold">continuity.</span>
-          </h2>
-          <p className="text-lg text-paper/75 leading-relaxed mb-12">
-            The model is rented. Your business context is not. IntegrateWise owns the layer that persists when everything else changes.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-12">
-            {[
-              { change: "Models change", stays: "Memory stays" },
-              { change: "Tools change", stays: "Context stays" },
-              { change: "Employees change", stays: "Knowledge stays" },
-              { change: "AI is rented", stays: "Truth is owned" },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-6 text-left">
-                <p className="text-xs text-paper/50 font-mono uppercase mb-2">{item.change}</p>
-                <p className="text-2xl font-bold text-gold">{item.stays}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-xl font-semibold text-paper leading-relaxed">
-            That is the moat. That is the category.
-          </p>
-        </div>
-      </section>
-
-      {/* ─── SECTION 9 · BUILT FOR ──────────────────────────────────────── */}
-      <section className="py-20 md:py-32 px-4 bg-background" id="company">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-mono text-gold tracking-widest uppercase mb-2">Built For</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-forest mb-4 leading-tight">
-            Three cities. Three jobs. One story.
-          </h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-2xl">
-            The frustration is identical whether you&apos;re running accounts in Mumbai, sprints in Bengaluru, or strategy in Delhi.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                location: "Bengaluru · Engineering",
-                name: "Arjun",
-                role: "Engineering Lead · 12-person team",
-                story:
-                  "Manages sprints, incidents, and a roadmap across Jira, Slack, and GitHub. Tried AI for standup summaries and risk flagging. Worked for two weeks — then it started contradicting itself, ignoring the rules he'd set, and losing context between sessions.",
-                quote: '"I still use it. For writing release notes."',
-              },
-              {
-                location: "Mumbai · Sales",
-                name: "Priya",
-                role: "Head of Sales · 40+ active accounts",
-                story:
-                  "Runs a 12-person team, 40+ active accounts. Uses AI for proposals and follow-up sequences. Has to re-brief client context every single session. Spent 45 minutes last week re-explaining a client's history before getting a usable draft. Faster to write it herself.",
-                quote: '"I just write it myself now. It\'s quicker."',
-              },
-              {
-                location: "Delhi · Leadership",
-                name: "Vikram",
-                role: "Founder · Wears five hats",
-                story:
-                  "Thought AI would be the senior hire he couldn't afford. Instead it's a junior who forgets everything overnight, needs constant supervision, and occasionally gets facts wrong. Done trusting it with anything that matters.",
-                quote: '"It\'s a toy. Not a tool."',
-              },
-            ].map((persona, idx) => (
-              <div
-                key={idx}
-                className="border border-border rounded-xl p-6 bg-paper hover:bg-paper-warm transition-colors relative before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:rounded-t-xl before:bg-gold"
-              >
-                <p className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">{persona.location}</p>
-                <p className="text-xl font-bold text-forest mb-1">{persona.name}</p>
-                <p className="text-sm text-muted-foreground mb-4">{persona.role}</p>
-                <p className="text-sm text-foreground leading-relaxed mb-4">{persona.story}</p>
-                <p className="text-sm bg-paper-warm border border-border rounded p-3 text-muted-foreground italic">{persona.quote}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 10 · PROOF ─────────────────────────────────────────── */}
-      <section className="py-20 md:py-32 px-4 bg-paper-warm border-y border-border">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-mono text-gold tracking-widest uppercase mb-6">Proof</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-forest mb-12 leading-tight">
-            Continuity in production.
-          </h2>
-
-          <blockquote className="bg-paper border border-border rounded-xl p-8 text-left">
-            <p className="text-lg text-foreground italic leading-relaxed mb-6">
-              "IntegrateWise reduced our pre-call preparation from 45 minutes to 4 minutes. The Twin knew the account history before I opened my laptop."
-            </p>
-            <footer className="text-sm text-muted-foreground font-medium">
-              — Head of Sales, B2B SaaS, Mumbai
-            </footer>
-          </blockquote>
-        </div>
-      </section>
-
-      {/* ─── SECTION 11 · CTA ───────────────────────────────────────────── */}
-      <section className="py-20 md:py-32 px-4 bg-forest text-paper text-center">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-            Brief it once. It remembers. It finishes.
-          </h2>
-          <p className="text-lg text-paper/75 mb-10 leading-relaxed">
-            We are accepting 5 design partners for the IntegrateWise pilot program. One workspace. Every tool. Total control.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="mailto:hello@integratewise.ai"
-              className="px-8 py-3 rounded bg-gold text-forest font-semibold text-base hover:bg-gold-light transition-colors inline-flex items-center justify-center gap-2"
-            >
-              Apply for Pilot
-              <ArrowRight className="w-5 h-5" />
-            </a>
-            <a
-              href="mailto:invest@integratewise.ai"
-              className="px-8 py-3 rounded border-2 border-paper/30 text-paper font-semibold text-base hover:border-paper/60 transition-colors inline-flex items-center justify-center gap-2"
-            >
-              Investor Enquiry
-            </a>
-          </div>
-
-          <p className="text-sm text-paper/40 mt-6">
-            Apply for Pilot → hello@integratewise.ai &nbsp;·&nbsp; Investor Enquiry → invest@integratewise.ai
-          </p>
-        </div>
-      </section>
-
-      {/* ─── SECTION 12 · FOOTER ────────────────────────────────────────── */}
-      <footer className="bg-forest-deep text-paper border-t border-paper/10 py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-
-          {/* Brand + description */}
-          <div className="mb-12">
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded bg-gold/20 flex items-center justify-center">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 mb-3">
+              <div className="w-9 h-9 rounded bg-gold/20 flex items-center justify-center">
                 <span className="text-gold font-bold text-sm">IW</span>
               </div>
-              <span className="font-bold text-paper text-lg">IntegrateWise</span>
+              <span className="font-bold text-paper text-xl">IntegrateWise</span>
             </div>
-            <p className="text-sm text-paper/50 max-w-md leading-relaxed">
-              Digital Memory + Reasoning + Governance + Handoff. Execution belongs to the customer. IntegrateWise prepares it.
-            </p>
+            <p className="text-sm text-paper/70">Your Last Auth to Complete Your Ecosystem.</p>
+            <p className="text-sm text-paper/70">Connect once. Work everywhere.</p>
           </div>
 
-          {/* Footer columns */}
-          <div className="grid md:grid-cols-3 gap-12 mb-12">
-            <div>
-              <h4 className="font-bold mb-4 text-paper">Solutions</h4>
-              <ul className="space-y-2 text-sm text-paper/60">
-                <li><Link href="/solutions/account-success" className="hover:text-paper transition-colors">Account Success</Link></li>
-                <li><Link href="/solutions/sales-continuity" className="hover:text-paper transition-colors">Sales Continuity</Link></li>
-                <li><Link href="/solutions/founder-ops" className="hover:text-paper transition-colors">Founder Ops</Link></li>
-                <li><Link href="/solutions/engineering-product" className="hover:text-paper transition-colors">Engineering & Product</Link></li>
-                <li><Link href="/solutions/ai-governance" className="hover:text-paper transition-colors">AI Governance</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 text-paper">Company</h4>
-              <ul className="space-y-2 text-sm text-paper/60">
-                <li><a href="#company" className="hover:text-paper transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-paper transition-colors">Careers</a></li>
-                <li><a href="mailto:invest@integratewise.ai" className="hover:text-paper transition-colors">Investors</a></li>
-                <li><a href="mailto:hello@integratewise.ai" className="hover:text-paper transition-colors">Contact</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 text-paper">Legal</h4>
-              <ul className="space-y-2 text-sm text-paper/60">
-                <li><a href="#" className="hover:text-paper transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-paper transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-paper transition-colors">Security</a></li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Bottom bar */}
-          <div className="border-t border-paper/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-paper/40">
-              © 2026 IntegrateWise LLP. All rights reserved.
-            </p>
-            <p className="text-sm text-paper/40">
-              integratewise.ai
+          <div className="flex flex-col items-center md:items-end gap-3">
+            <a
+              href="mailto:hello@integratewise.ai"
+              className="px-7 py-3 rounded-lg bg-gold text-forest-deep font-semibold hover:bg-gold-light transition-colors inline-flex items-center gap-2"
+            >
+              Start Your Free Trial
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <p className="flex items-center gap-1.5 text-xs text-paper/60">
+              <Check className="w-3.5 h-3.5 text-gold" />
+              No credit card required
             </p>
           </div>
         </div>
-      </footer>
+      </section>
+
+      <SiteFooter />
 
     </div>
   );

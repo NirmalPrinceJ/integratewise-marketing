@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "site": "integratewise-marketing",
+    "public": "dist/public",
+    "ignore": ["**/.*"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
