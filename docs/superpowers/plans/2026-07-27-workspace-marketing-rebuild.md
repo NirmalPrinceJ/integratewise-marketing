@@ -1,602 +1,437 @@
-# Workspace Marketing Rebuild Implementation Plan
+# IntegrateWise Marketing Go-Live Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use `superpowers:executing-plans` or `superpowers:subagent-driven-development` to execute this plan task-by-task. Every gate must be evidenced before the release proceeds.
 
-**Goal:** Rebuild `integratewise-marketing` around the canonical Adaptive Operational Workspace narrative and route every conversion through Marketplace Activation rather than demos or sales-led funnels.
+**Goal:** Take `integratewise-marketing` from the current committed baseline to a verified production launch where the public site presents IntegrateWise as an Adaptive Operational Workspace and routes all conversion through Marketplace Activation.
 
-**Architecture:** Keep the marketing repository autonomous from Product and Platform implementation. The site owns public positioning, routing, presentation, content, SEO, analytics and marketplace activation handoff links. It consumes only public, versioned activation/catalog contracts where dynamic data is required; it never owns Spine, connector, MCP, capability, governance, execution, memory or tenant logic.
+**Architecture:** Marketing remains a standalone frontend. It owns public positioning, navigation, SEO, analytics, public content and marketplace activation handoff. It must not own Product, Platform, Spine, connector, MCP, capability, governance, execution, memory or tenant logic.
 
-**Tech Stack:** React 19, Vite 7, TypeScript 5.6, Tailwind CSS 4, Wouter, Framer Motion, Vitest, Express production wrapper.
+**Tech Stack:** React 19, Vite 7, TypeScript 5.6, Tailwind CSS 4, Wouter, Framer Motion, Vitest and Express production wrapper.
 
-## Global Constraints
+## Global Go-Live Constraints
 
 - Primary category: **Adaptive Operational Workspace**.
 - Primary promise: **The workspace that organizes itself around your work.**
 - Primary CTA: **Activate IntegrateWise**.
-- Activation path: marketing site → marketplace selection → IW Spine Network installation → identity/OAuth → initial connectors → Base Spine activation → hydration → Adaptive Workbench.
-- No `Book a Demo`, `Request a Demo`, `Talk to Sales`, or sales-calendar funnel.
-- Product documentation and developer documentation link to the separate `integratewise-docs` property.
-- Product application and onboarding link to `integratewise-product` or the marketplace activation endpoint.
-- Marketing code must not contain provider credentials, OAuth implementations, canonical schemas, connector runtimes, MCP routing, governance decisions, execution logic or organizational memory.
+- Conversion path: Marketing → marketplace selection → IW Spine Network installation → identity/OAuth → initial connectors → Base Spine activation → hydration → Adaptive Workbench.
+- No demo, sales-calendar or sales-led funnel.
+- No `Book a Demo`, `Request a Demo`, `Talk to Sales` or equivalent CTA.
+- Documentation routes to the separate Docs property.
+- Product onboarding routes to Marketplace Activation or Product.
+- Marketing must not contain secrets, OAuth implementation, provider credentials, platform schemas, connector runtime, MCP routing, governance logic, execution logic or organizational memory.
 - Twin is contextual intelligence inside the workspace, not a generic chatbot or collection of named agents.
-- Different roles receive different projections over one operational Spine; they are not separate products.
+- Different roles are projections over one operational Spine, not separate products.
 - Adaptive behavior must be explained as visible, governed and reversible.
+- Production release is blocked while required CI or deployment checks are failing.
 
 ---
 
-## File Structure
-
-The first implementation task must confirm actual paths before editing. Use the existing project conventions and keep each module focused.
-
-Expected responsibilities:
-
-- `src/pages/Home.tsx` — canonical homepage narrative and conversion path.
-- `src/pages/Product*.tsx` — Adaptive Workbench, Twin, Continuity, Memory and Auto-Tuning pages.
-- `src/pages/Platform*.tsx` — Spine, Capability Fabric, Discovery Engine, Governance and Spine Network pages.
-- `src/pages/Marketplace*.tsx` — activation overview, marketplace selector, connector/MCP/domain-app explanations.
-- `src/components/navigation/*` or current equivalent — canonical public navigation and activation CTA.
-- `src/components/marketing/*` — reusable hero, transformation flow, role projections, trust and activation components.
-- `src/lib/routes.ts` or current equivalent — canonical route registry.
-- `src/lib/activation.ts` — marketplace activation destination registry with no secrets.
-- `src/content/*` — typed marketing content where the current application supports content modules.
-- `src/**/*.test.tsx` — route, CTA, content and accessibility regression tests.
-- `README.md` — repository purpose, boundaries, local commands and deployment ownership.
-
----
-
-### Task 1: Establish the Canonical Marketing Contract
-
-**Files:**
-- Create: `docs/marketing/CANONICAL_MARKETING_CONTRACT.md`
-- Modify: `README.md`
-- Test: repository text scan
-
-**Interfaces:**
-- Consumes: approved workspace narrative and repository boundaries.
-- Produces: frozen vocabulary, conversion rules and prohibited claims for all later tasks.
-
-- [ ] **Step 1: Record the canonical message hierarchy**
-
-Document, in order:
+## Release State Model
 
 ```text
-1. One adaptive workspace
-2. Formed from tools and work already in use
-3. Activated through the marketplace
-4. Organized by the Spine
-5. Rendered through the Adaptive Workbench
-6. Assisted contextually by the Twin
-7. Extended through connectors, MCP and Domain Apps
-8. Governed before sensitive execution
-9. Preserved through continuity and memory
-10. Improved through controlled auto-tuning
+NOT_READY
+  → CONTENT_LOCKED
+  → CODE_COMPLETE
+  → BUILD_VERIFIED
+  → PREVIEW_ACCEPTED
+  → PRODUCTION_APPROVED
+  → DEPLOYED
+  → SMOKE_VERIFIED
+  → STABLE
 ```
 
-- [ ] **Step 2: Record prohibited positioning**
-
-Explicitly prohibit demo funnels, separate-product framing, 16-agent narratives, chatbot-first Twin positioning, manual dashboard-building claims, browser-local memory as architecture, and autonomous execution without governance.
-
-- [ ] **Step 3: Update the repository README**
-
-State that this repository owns public acquisition and marketplace activation handoff only. Link Product, Docs and Platform ownership boundaries.
-
-- [ ] **Step 4: Run the wording scan**
-
-Run:
-
-```bash
-rg -n -i "book a demo|request a demo|talk to sales|schedule a call|16 agents|specialized agents" src README.md docs
-```
-
-Expected: matches are either absent or documented only inside the prohibited-copy section.
-
-- [ ] **Step 5: Commit**
-
-```bash
-git add README.md docs/marketing/CANONICAL_MARKETING_CONTRACT.md
-git commit -m "docs: lock workspace marketing contract"
-```
+A failed mandatory gate returns the release to `NOT_READY` or `CODE_COMPLETE`, depending on the failure.
 
 ---
 
-### Task 2: Inventory Current Routes, Components and Copy Drift
+## Phase 0 — Establish the Release Baseline
 
-**Files:**
-- Create: `docs/marketing/CURRENT_SITE_AUDIT.md`
-- Create: `docs/marketing/ROUTE_MIGRATION_MATRIX.md`
-- Test: route inventory command
+**Deliverable:** One documented release candidate, one rollback commit and no unknown working-tree changes.
 
-**Interfaces:**
-- Consumes: current router, pages, navigation and CTA components.
-- Produces: keep/rewrite/redirect/remove decision for every public route.
+- [ ] Record the current `main` commit as the pre-release baseline.
+- [ ] Inspect the actual local working tree with `git status --short`.
+- [ ] Review every staged and unstaged diff.
+- [ ] Commit all intended code and content changes in coherent commits.
+- [ ] Remove or exclude generated files, secrets and local-only artifacts.
+- [ ] Record the release-candidate commit SHA.
+- [ ] Record the rollback commit SHA.
+- [ ] Confirm branch protection and deployment source branch.
 
-- [ ] **Step 1: Enumerate source files**
+**Evidence file:** `docs/marketing/GO_LIVE_EVIDENCE.md`
 
-Run:
-
-```bash
-find src -maxdepth 4 -type f | sort
-```
-
-Record the page, route, navigation, CTA, SEO, analytics and shared-section files.
-
-- [ ] **Step 2: Inventory public routes**
-
-Search the router and all route declarations. Record current path, component, current message, canonical destination and migration action.
-
-- [ ] **Step 3: Audit message drift**
-
-Search for:
-
-```bash
-rg -n -i "demo|pilot|agent|dashboard|operating system|three products|browser memory|sales call|calendar" src
-```
-
-Classify every result as retain, rewrite or remove.
-
-- [ ] **Step 4: Audit conversion destinations**
-
-Record every CTA and destination. No primary or secondary CTA may terminate at a demo form or scheduling service.
-
-- [ ] **Step 5: Commit**
-
-```bash
-git add docs/marketing/CURRENT_SITE_AUDIT.md docs/marketing/ROUTE_MIGRATION_MATRIX.md
-git commit -m "docs: audit marketing routes and content drift"
-```
-
----
-
-### Task 3: Implement the Marketplace Activation Contract
-
-**Files:**
-- Create: `src/lib/activation.ts`
-- Create: `src/lib/activation.test.ts`
-- Modify: current CTA/button components
-- Modify: environment example file if present
-
-**Interfaces:**
-- Produces:
-
-```ts
-export type ActivationChannel =
-  | "marketplace"
-  | "chatgpt"
-  | "claude"
-  | "mcp"
-  | "connectors";
-
-export interface ActivationDestination {
-  channel: ActivationChannel;
-  label: string;
-  href: string;
-  external: boolean;
-  enabled: boolean;
-}
-
-export function getActivationDestination(
-  channel?: ActivationChannel,
-): ActivationDestination;
-```
-
-- [ ] **Step 1: Write the failing activation test**
-
-Test that the default destination is marketplace activation, that disabled channels fall back to marketplace selection, and that no destination points to a demo/calendar route.
-
-- [ ] **Step 2: Run the test and verify failure**
-
-```bash
-pnpm vitest run src/lib/activation.test.ts
-```
-
-- [ ] **Step 3: Implement the typed destination registry**
-
-Use public environment variables only for destination URLs. Never include provider secrets or OAuth implementation details.
-
-- [ ] **Step 4: Replace global CTA destinations**
-
-All primary CTA instances must use `getActivationDestination()` and display `Activate IntegrateWise`.
-
-- [ ] **Step 5: Verify tests and typecheck**
-
-```bash
-pnpm vitest run src/lib/activation.test.ts
-pnpm check
-```
-
-- [ ] **Step 6: Commit**
-
-```bash
-git add src/lib/activation.ts src/lib/activation.test.ts src
-git commit -m "feat: route marketing conversion through marketplace activation"
-```
-
----
-
-### Task 4: Rebuild Global Navigation and Information Architecture
-
-**Files:**
-- Modify: current header/navigation component
-- Modify: current footer component
-- Modify: router configuration
-- Test: navigation component tests
-
-**Interfaces:**
-- Consumes: activation destination registry.
-- Produces: stable public navigation for Product, Platform, Solutions, Marketplace, Security and Resources.
-
-- [ ] **Step 1: Write failing navigation tests**
-
-Assert the presence of:
+**Required evidence:**
 
 ```text
-Product
-Platform
-Solutions
-Marketplace
-Security
-Resources
-Activate IntegrateWise
+baseline_commit:
+release_candidate_commit:
+rollback_commit:
+working_tree_status:
+deployment_source_branch:
 ```
 
-Assert the absence of demo-oriented actions.
-
-- [ ] **Step 2: Implement canonical navigation groups**
-
-Product: Adaptive Workbench, Twin, Continuity, Memory, Auto-Tuning.
-
-Platform: Spine, Capability Fabric, Discovery Engine, Governance, Spine Network.
-
-Marketplace: Activate IntegrateWise, Connector Marketplace, MCP Marketplace, Domain Apps.
-
-Resources: Blog, Documentation, Architecture, Release Notes.
-
-- [ ] **Step 3: Route documentation externally**
-
-Documentation and developer references must link to the separate Docs property rather than being implemented as technical documentation inside this repository.
-
-- [ ] **Step 4: Run tests and build**
-
-```bash
-pnpm vitest run
-pnpm check
-pnpm build
-```
-
-- [ ] **Step 5: Commit**
-
-```bash
-git add src
- git commit -m "feat: align navigation with workspace and marketplace architecture"
-```
+**Gate:** No unknown or uncommitted release changes.
 
 ---
 
-### Task 5: Rebuild the Homepage Around Workspace Formation
+## Phase 1 — Lock the Production Scope
 
-**Files:**
-- Modify: `src/pages/Home.tsx` or actual homepage path
-- Create/modify: reusable marketing sections
-- Test: homepage content and interaction tests
+**Deliverable:** A precise list of routes and capabilities included in launch.
 
-**Interfaces:**
-- Consumes: global navigation and activation registry.
-- Produces: canonical homepage with one coherent acquisition story.
+### Required public scope
 
-- [ ] **Step 1: Write failing homepage assertions**
+- Homepage
+- Product overview
+- Adaptive Workbench
+- Twin
+- Continuity
+- Memory
+- Auto-Tuning
+- Platform overview
+- Spine
+- Capability Fabric
+- Discovery Engine
+- Governance
+- Spine Network
+- Marketplace Activation
+- Connector Marketplace
+- MCP Marketplace
+- Domain Apps
+- Security
+- Pricing, when retained
+- Blog/resources, when production-ready
+- Legal pages
+- 404 route
 
-Assert the hero contains:
+### Explicitly excluded from launch
 
-```text
-Your work, organized into one adaptive workspace.
-Activate IntegrateWise
-See How the Workspace Forms
-```
+- Demo booking
+- Sales calendar
+- Unfinished placeholder pages
+- Technical documentation duplicated from Docs
+- Product application screens
+- Admin screens
+- Provider OAuth logic
+- Unverified marketplace links
 
-Assert that forbidden demo language is absent.
+- [ ] Create the production route inventory.
+- [ ] Classify every route as `launch`, `redirect`, `remove` or `defer`.
+- [ ] Verify every launch route has final copy, metadata and CTA behavior.
+- [ ] Verify deferred pages are inaccessible or clearly redirected.
 
-- [ ] **Step 2: Implement the homepage sequence**
+**Evidence:** `docs/marketing/PRODUCTION_ROUTE_MATRIX.md`
 
-Use this exact narrative order:
-
-1. Hero: adaptive workspace.
-2. Work is fragmented, not missing.
-3. Marketplace activation.
-4. Workspace forms automatically.
-5. Stable shell, adaptive work surfaces.
-6. One operational truth projected for different roles.
-7. Contextual Twin and governed OODA cycle.
-8. Continuity and memory.
-9. Security and controlled adaptation.
-10. Final marketplace activation CTA.
-
-- [ ] **Step 3: Implement the transformation visual**
-
-Represent:
-
-```text
-Connected tools → Workspace Activation → Operational context → Adaptive Workbench → Twin-assisted governed action
-```
-
-Do not use a generic analytics dashboard as the primary visual.
-
-- [ ] **Step 4: Verify responsive and accessibility behavior**
-
-Check keyboard navigation, heading hierarchy, contrast, reduced-motion behavior and narrow-screen layout.
-
-- [ ] **Step 5: Run verification**
-
-```bash
-pnpm vitest run
-pnpm check
-pnpm build
-```
-
-- [ ] **Step 6: Commit**
-
-```bash
-git add src
- git commit -m "feat: rebuild homepage around adaptive workspace formation"
-```
+**Gate:** No placeholder or ambiguous public route remains.
 
 ---
 
-### Task 6: Build Canonical Product Narrative Pages
+## Phase 2 — Lock Marketing Content and Conversion
 
-**Files:**
-- Create/modify: Adaptive Workbench page
-- Create/modify: Twin page
-- Create/modify: Continuity page
-- Create/modify: Memory page
-- Create/modify: Auto-Tuning page
-- Test: route and content tests
+**Deliverable:** Canonical content with one conversion model.
 
-**Interfaces:**
-- Produces: public explanations of the Product experience without leaking backend implementation.
+- [ ] Confirm homepage hero uses the Adaptive Operational Workspace concept.
+- [ ] Confirm all primary CTA labels are `Activate IntegrateWise`.
+- [ ] Confirm primary CTA routes to Marketplace Activation.
+- [ ] Confirm secondary CTAs explain workspace formation, Spine Network or security.
+- [ ] Remove demo, pilot, sales-call and scheduling language.
+- [ ] Remove three-product framing.
+- [ ] Remove 16-agent and named-agent core positioning.
+- [ ] Remove chatbot-first Twin framing.
+- [ ] Remove generic dashboard-builder positioning.
+- [ ] Remove browser-local-memory architecture claims.
+- [ ] Remove uncontrolled autonomous-execution claims.
+- [ ] Verify roles and industries are explained as projections over one workspace.
+- [ ] Verify adaptive behavior is described as governed and reversible.
 
-- [ ] **Step 1: Implement Adaptive Workbench page**
-
-Explain stable navigation, adaptive work surfaces, generated tables/views/pages/queues and role-aware projections.
-
-- [ ] **Step 2: Implement Twin page**
-
-Explain contextual Observe → Orient → Decide → Act → Verify → Continue behavior. Do not present the Twin as a general chatbot.
-
-- [ ] **Step 3: Implement Continuity page**
-
-Explain Signal → Context → Decision → Approval → Execution → Verification → Follow-up → Closure → Memory.
-
-- [ ] **Step 4: Implement Memory page**
-
-Explain operational, continuity, Twin, organizational, knowledge and audit memory. State that inference cannot silently become organizational truth.
-
-- [ ] **Step 5: Implement Auto-Tuning page**
-
-Explain visible, measurable and reversible optimization under explicit policy.
-
-- [ ] **Step 6: Run verification and commit**
+**Required scan:**
 
 ```bash
-pnpm vitest run
-pnpm check
-pnpm build
-git add src
-git commit -m "feat: add canonical adaptive workspace product narratives"
+rg -n -i "book a demo|request a demo|talk to sales|schedule a call|pilot|16 agents|specialized agents|three products|browser memory" src README.md docs
 ```
+
+**Gate:** Zero prohibited production-copy matches outside explicit historical or policy documentation.
 
 ---
 
-### Task 7: Build Canonical Platform and Marketplace Pages
+## Phase 3 — Marketplace Activation Readiness
 
-**Files:**
-- Create/modify: Spine, Capability Fabric, Discovery Engine, Governance and Spine Network pages
-- Create/modify: Marketplace Activation, Connector Marketplace, MCP Marketplace and Domain Apps pages
-- Test: route, CTA and content tests
+**Deliverable:** Every conversion safely reaches a valid activation destination.
 
-**Interfaces:**
-- Consumes: marketplace activation registry and public terminology contract.
-- Produces: progressive technical explanation beneath the workspace narrative.
+- [ ] Define the public activation destination registry.
+- [ ] Set Marketplace Activation as the default destination.
+- [ ] Verify IW Spine Network destination.
+- [ ] Verify ChatGPT, Claude, MCP and connector-marketplace destinations only when actually available.
+- [ ] Disable unavailable activation channels rather than exposing broken links.
+- [ ] Add fallback to the marketplace selector.
+- [ ] Confirm no secret or OAuth logic is present in Marketing.
+- [ ] Confirm external links use appropriate target and rel attributes.
+- [ ] Add automated checks preventing demo/calendar destinations.
 
-- [ ] **Step 1: Implement Spine page**
-
-Explain operational identity, relationships, provenance and continuity without opening with database terminology.
-
-- [ ] **Step 2: Implement Capability Fabric and Discovery Engine pages**
-
-Explain normalized business capabilities and discovery of schemas/tools/providers without claiming ungoverned execution.
-
-- [ ] **Step 3: Implement Governance and Spine Network pages**
-
-Explain identity-bound access, consent, evidence, approvals, scoped execution, audit and hosted marketplace federation.
-
-- [ ] **Step 4: Implement Marketplace pages**
-
-Clearly distinguish Connector Marketplace, MCP Marketplace and Domain Apps, while keeping IW Spine Network as the single activation entry point.
-
-- [ ] **Step 5: Run verification and commit**
-
-```bash
-pnpm vitest run
-pnpm check
-pnpm build
-git add src
-git commit -m "feat: add platform and marketplace activation narratives"
-```
+**Gate:** Every CTA resolves successfully and no disabled marketplace appears active.
 
 ---
 
-### Task 8: Reframe Solutions, Roles and Industries
+## Phase 4 — Code Quality and Build Verification
 
-**Files:**
-- Create/modify: solution pages
-- Create/modify: role pages
-- Create/modify: industry pages
-- Test: route matrix and copy tests
+**Deliverable:** A reproducible release build from a clean checkout.
 
-**Interfaces:**
-- Produces: domain-specific projections over one workspace, not independent products.
-
-- [ ] **Step 1: Implement work-pattern solutions**
-
-Create: Run the Company, Manage Customer Continuity, Coordinate Delivery, Connect Operational Systems, Preserve Organizational Knowledge.
-
-- [ ] **Step 2: Implement role projection content**
-
-Cover Founder/Operator, Sales, Customer Success, Support, Product/Engineering and Administration as different projections over one operational truth.
-
-- [ ] **Step 3: Implement initial industry content**
-
-Prioritize B2B SaaS, Professional Services, Enterprise Operations, Manufacturing, Aerospace/Space Systems and Technology/Engineering.
-
-- [ ] **Step 4: Verify no separate-product framing**
-
-```bash
-rg -n -i "separate app|separate product|agent for each|dashboard for each" src
-```
-
-- [ ] **Step 5: Run verification and commit**
-
-```bash
-pnpm vitest run
-pnpm check
-pnpm build
-git add src
-git commit -m "feat: position roles and industries as workspace projections"
-```
-
----
-
-### Task 9: Align Security, Pricing, Blog and Resource Boundaries
-
-**Files:**
-- Modify: Security page
-- Modify: Pricing page
-- Modify: Blog/resource routes
-- Modify: SEO metadata registry
-- Test: metadata and external-link tests
-
-**Interfaces:**
-- Produces: trustworthy supporting content that respects repository boundaries.
-
-- [ ] **Step 1: Rewrite Security around governed adaptation**
-
-Cover identity, tenant isolation, consent, vault references, evidence, approvals, scoped execution, immutable audit and reversible tuning.
-
-- [ ] **Step 2: Remove demo-dependent pricing conversion**
-
-Pricing may explain plans or activation eligibility, but every action must terminate at Marketplace Activation or public documentation.
-
-- [ ] **Step 3: Keep thought leadership; move technical instruction out**
-
-The blog remains in Marketing. Product/API/SDK/MCP/ADK instructions route to Docs.
-
-- [ ] **Step 4: Update SEO metadata**
-
-Use Adaptive Operational Workspace, marketplace activation, continuity, contextual Twin, governed execution and Spine Network terminology.
-
-- [ ] **Step 5: Run verification and commit**
-
-```bash
-pnpm vitest run
-pnpm check
-pnpm build
-git add src
-git commit -m "feat: align trust pricing and resources with marketplace activation"
-```
-
----
-
-### Task 10: Remove Superseded Content and Add Regression Gates
-
-**Files:**
-- Remove or redirect: superseded routes/components
-- Create: `scripts/check-marketing-canon.mjs`
-- Modify: `package.json`
-- Create: `src/marketing-canon.test.ts`
-
-**Interfaces:**
-- Produces: automated protection against future narrative drift.
-
-- [ ] **Step 1: Write the canon checker**
-
-Fail when source files contain prohibited CTA or positioning phrases outside explicitly allowed fixtures.
-
-- [ ] **Step 2: Add the script**
-
-Add:
-
-```json
-{
-  "scripts": {
-    "check:canon": "node scripts/check-marketing-canon.mjs"
-  }
-}
-```
-
-Preserve all existing scripts.
-
-- [ ] **Step 3: Redirect or remove obsolete routes**
-
-Use permanent redirects only where the production host supports them. Otherwise retain a small route component that redirects to the canonical page.
-
-- [ ] **Step 4: Run full verification**
-
-```bash
-pnpm check:canon
-pnpm vitest run
-pnpm check
-pnpm build
-```
-
-- [ ] **Step 5: Commit**
-
-```bash
-git add .
-git commit -m "chore: enforce canonical workspace marketing language"
-```
-
----
-
-### Task 11: Production Acceptance and Release
-
-**Files:**
-- Create: `docs/marketing/RELEASE_ACCEPTANCE.md`
-- Modify: deployment configuration only where required
-
-**Interfaces:**
-- Produces: verified, deployable marketplace-led marketing release.
-
-- [ ] **Step 1: Verify all routes**
-
-Confirm every route renders, all internal links resolve and all documentation links leave the marketing property correctly.
-
-- [ ] **Step 2: Verify conversion behavior**
-
-Confirm every primary CTA enters Marketplace Activation and no demo/calendar destination remains.
-
-- [ ] **Step 3: Verify technical quality**
+Run from a fresh checkout of the release candidate:
 
 ```bash
 pnpm install --frozen-lockfile
-pnpm check:canon
 pnpm vitest run
 pnpm check
 pnpm build
 ```
 
-Expected: all commands exit `0`.
-
-- [ ] **Step 4: Record acceptance evidence**
-
-Record commit SHA, build output, tested routes, activation destinations, known limitations and rollback commit.
-
-- [ ] **Step 5: Commit**
+Where the repository includes a canonical-copy checker, also run:
 
 ```bash
-git add docs/marketing/RELEASE_ACCEPTANCE.md
-git commit -m "docs: record marketing release acceptance"
+pnpm check:canon
 ```
 
-- [ ] **Step 6: Release through the repository’s existing deployment workflow**
+- [ ] Record Node and pnpm versions.
+- [ ] Record command output and exit status.
+- [ ] Fix all TypeScript errors.
+- [ ] Fix all test failures.
+- [ ] Fix all build failures.
+- [ ] Verify the production server starts from `dist`.
+- [ ] Verify no runtime environment variable is required unless documented.
+- [ ] Verify source maps and public build artifacts do not expose secrets.
 
-Do not introduce a second hosting path during this rebuild. Verify the deployment points only to the marketing domain and does not host Product or Docs content.
+**Gate:** All mandatory commands exit `0` from a clean checkout.
+
+---
+
+## Phase 5 — Functional Acceptance
+
+**Deliverable:** Verified behavior across all launch routes.
+
+### Route checks
+
+- [ ] Every production route returns the intended page.
+- [ ] Unknown routes return the 404 experience.
+- [ ] Redirected legacy routes resolve once and do not loop.
+- [ ] Browser refresh works on nested routes.
+
+### Navigation checks
+
+- [ ] Desktop navigation works with mouse and keyboard.
+- [ ] Mobile navigation opens, closes and routes correctly.
+- [ ] Header and footer links are valid.
+- [ ] Docs links point to the separate Docs property.
+- [ ] Product and activation links point to their correct external owners.
+
+### Content checks
+
+- [ ] Headings follow one logical hierarchy per page.
+- [ ] No placeholder or draft copy is visible.
+- [ ] No demo CTA remains.
+- [ ] Workspace, Spine, Twin and activation terms are used consistently.
+
+### Interaction checks
+
+- [ ] All buttons and links are actionable.
+- [ ] Forms, if retained, have validation and success/error handling.
+- [ ] Animations respect reduced-motion preferences.
+- [ ] Focus states are visible.
+
+**Gate:** Zero severity-1 or severity-2 functional defects.
+
+---
+
+## Phase 6 — SEO, Analytics, Legal and Trust Readiness
+
+**Deliverable:** Public launch metadata and compliance basics are complete.
+
+- [ ] Unique page title and description for every launch route.
+- [ ] Canonical URL for every indexable route.
+- [ ] Open Graph and social metadata.
+- [ ] Sitemap contains launch routes only.
+- [ ] Robots rules match production intent.
+- [ ] Structured data is valid where used.
+- [ ] Favicon, application icons and social image are present.
+- [ ] Analytics runs only after consent where required.
+- [ ] Activation CTA events are tracked without sensitive payloads.
+- [ ] Privacy, Terms and Cookie pages are reachable.
+- [ ] Security page accurately describes current controls without unsupported claims.
+- [ ] No customer logo, metric or testimonial is published without approval.
+
+**Gate:** SEO, analytics and legal checklist signed off.
+
+---
+
+## Phase 7 — Performance and Accessibility Readiness
+
+**Deliverable:** Production experience is usable and stable on common devices.
+
+- [ ] Test desktop and mobile breakpoints.
+- [ ] Test latest Chrome, Safari, Firefox and Edge.
+- [ ] Test keyboard-only navigation.
+- [ ] Test screen-reader landmarks and accessible names.
+- [ ] Verify contrast for text, links, buttons and focus states.
+- [ ] Verify images include correct alt behavior.
+- [ ] Verify layout does not shift materially after load.
+- [ ] Optimize oversized images, fonts and JavaScript bundles.
+- [ ] Verify reduced-motion mode.
+- [ ] Verify slow-network loading states.
+
+**Target:** No known critical accessibility defect and no obvious production-blocking performance regression.
+
+**Gate:** Accessibility and responsive acceptance recorded.
+
+---
+
+## Phase 8 — Preview Deployment and Acceptance
+
+**Deliverable:** A production-equivalent preview accepted by the release owner.
+
+- [ ] Create preview deployment from the release candidate.
+- [ ] Verify deployment build logs.
+- [ ] Confirm preview uses production-equivalent configuration without production secrets being exposed.
+- [ ] Run complete route and CTA smoke tests on preview.
+- [ ] Test marketplace activation from preview.
+- [ ] Test social metadata and public assets.
+- [ ] Record screenshots of key routes.
+- [ ] Record known non-blocking defects.
+- [ ] Obtain explicit release approval.
+
+**Current blocker:** The latest GitHub commit reports failed Vercel checks for both linked Vercel projects. Those failures must be resolved or the deployment ownership must be corrected before production release.
+
+**Gate:** Preview deployment is green and explicitly accepted.
+
+---
+
+## Phase 9 — Production Deployment
+
+**Deliverable:** Controlled production deployment with rollback prepared.
+
+### Pre-deployment
+
+- [ ] Confirm release-candidate SHA.
+- [ ] Confirm rollback SHA.
+- [ ] Confirm production domain and DNS ownership.
+- [ ] Confirm environment variables and public activation URLs.
+- [ ] Freeze unrelated merges during deployment.
+- [ ] Announce deployment window internally.
+
+### Deployment
+
+- [ ] Deploy the exact release-candidate commit.
+- [ ] Monitor build and deployment logs.
+- [ ] Confirm production alias/domain assignment.
+- [ ] Confirm TLS and redirects.
+- [ ] Do not make unrelated code changes during release.
+
+### Immediate rollback conditions
+
+Rollback immediately when any of these occurs:
+
+- Homepage unavailable.
+- Critical navigation failure.
+- Primary activation CTA broken.
+- Wrong production domain or redirect loop.
+- Sensitive information exposed.
+- Widespread JavaScript runtime failure.
+- Major mobile rendering failure.
+
+**Rollback action:** Redeploy the recorded rollback commit and verify homepage, navigation and activation.
+
+**Gate:** Deployment completes without rollback condition.
+
+---
+
+## Phase 10 — Production Smoke Test
+
+**Deliverable:** Verified live site.
+
+Run immediately after deployment:
+
+- [ ] Homepage returns `200`.
+- [ ] Product, Platform, Marketplace, Security and legal routes return expected responses.
+- [ ] Primary `Activate IntegrateWise` CTA works.
+- [ ] Marketplace selector works.
+- [ ] Docs external link works.
+- [ ] Product/onboarding external link works.
+- [ ] Mobile navigation works.
+- [ ] 404 route works.
+- [ ] No console-blocking runtime errors.
+- [ ] Analytics event reaches the expected destination without personal or secret data.
+- [ ] Social metadata is present.
+- [ ] Production domain and HTTPS are correct.
+
+**Gate:** Production smoke test signed off.
+
+---
+
+## Phase 11 — Post-Go-Live Monitoring
+
+**Deliverable:** Stable release with recorded outcomes.
+
+### First hour
+
+- [ ] Monitor deployment/runtime errors.
+- [ ] Monitor 4xx and 5xx rates.
+- [ ] Monitor activation-link failures.
+- [ ] Review analytics ingestion.
+- [ ] Check major routes from a second network/device.
+
+### First 24 hours
+
+- [ ] Review broken-link reports.
+- [ ] Review client-side runtime errors.
+- [ ] Review activation conversion events.
+- [ ] Review search indexing and robots behavior.
+- [ ] Record production issues and owners.
+
+### First seven days
+
+- [ ] Review route engagement and activation drop-off.
+- [ ] Review recurring errors.
+- [ ] Close or prioritize known defects.
+- [ ] Record release retrospective.
+
+**Evidence:** `docs/marketing/GO_LIVE_REPORT.md`
+
+**Final state:** `STABLE` only after the 24-hour review has no unresolved critical defect.
+
+---
+
+## Go/No-Go Decision
+
+### GO only when
+
+- Working tree and release SHA are known.
+- All intended code is committed.
+- Production scope is locked.
+- Canonical copy and Marketplace Activation are verified.
+- Tests, typecheck and build pass.
+- Preview deployment is green.
+- Vercel ownership/deployment checks are resolved.
+- Rollback commit is recorded.
+- Production acceptance owner approves release.
+
+### NO-GO when
+
+- Any mandatory check fails.
+- Any required marketplace link is broken.
+- Demo conversion remains.
+- Deployment project ownership is unresolved.
+- Production environment or domain is ambiguous.
+- Rollback is not prepared.
+- Secrets or platform logic are present in Marketing.
+
+---
+
+## Required Release Records
+
+Create and maintain:
+
+```text
+docs/marketing/CANONICAL_MARKETING_CONTRACT.md
+docs/marketing/PRODUCTION_ROUTE_MATRIX.md
+docs/marketing/GO_LIVE_EVIDENCE.md
+docs/marketing/RELEASE_ACCEPTANCE.md
+docs/marketing/GO_LIVE_REPORT.md
+```
+
+Each file must identify its author/owner, date, release-candidate SHA and approval state.
