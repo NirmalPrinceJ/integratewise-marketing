@@ -64,6 +64,16 @@ export const SITE_METADATA = {
     description: 'Start with one workspace and the systems required for your first continuity flow. Establish the trust boundary, hydrate real context, and form the initial Spine.',
     keywords: ['activate workspace', 'connected workspace', 'continuity platform', 'ecosystem connection', 'operational spine']
   },
+  continuity: {
+    title: 'Continuity, Not Just Connection',
+    description: 'Understand how IntegrateWise preserves operational meaning, knowledge, handoffs, AI context, and verified state after systems are connected.',
+    keywords: ['operational continuity', 'knowledge continuity', 'people continuity', 'AI continuity', 'connected work']
+  },
+  security: {
+    title: 'Security and Governance',
+    description: 'Learn how IntegrateWise separates tenant state, provider credentials, AI reasoning, approval, execution, retention, and canonical write paths.',
+    keywords: ['tenant isolation', 'least privilege', 'AI governance', 'approval center', 'credential separation', 'audit trail']
+  },
   solutions: {
     title: 'Role-Specific Workbenches on One Operational Spine',
     description: 'Explore Account Success, Sales, Founder Operations, Engineering, and AI Governance workbenches projected from one shared operational Spine.',
