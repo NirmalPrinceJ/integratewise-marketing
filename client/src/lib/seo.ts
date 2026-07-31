@@ -8,10 +8,8 @@ export interface SEOMetadata {
 }
 
 export function updateMetaTags(metadata: SEOMetadata) {
-  // Update title
   document.title = `${metadata.title} | IntegrateWise`;
 
-  // Update or create meta description
   let descriptionMeta = document.querySelector('meta[name="description"]');
   if (!descriptionMeta) {
     descriptionMeta = document.createElement('meta');
@@ -20,7 +18,6 @@ export function updateMetaTags(metadata: SEOMetadata) {
   }
   descriptionMeta.setAttribute('content', metadata.description);
 
-  // Update or create keywords
   if (metadata.keywords && metadata.keywords.length > 0) {
     let keywordsMeta = document.querySelector('meta[name="keywords"]');
     if (!keywordsMeta) {
@@ -31,7 +28,6 @@ export function updateMetaTags(metadata: SEOMetadata) {
     keywordsMeta.setAttribute('content', metadata.keywords.join(', '));
   }
 
-  // Update or create Open Graph tags
   updateOrCreateMetaTag('property', 'og:title', `${metadata.title} | IntegrateWise`);
   updateOrCreateMetaTag('property', 'og:description', metadata.description);
   updateOrCreateMetaTag('property', 'og:type', metadata.ogType || 'website');
@@ -39,7 +35,6 @@ export function updateMetaTags(metadata: SEOMetadata) {
     updateOrCreateMetaTag('property', 'og:image', metadata.ogImage);
   }
 
-  // Update or create Twitter tags
   updateOrCreateMetaTag('name', 'twitter:card', metadata.twitterCard || 'summary_large_image');
   updateOrCreateMetaTag('name', 'twitter:title', `${metadata.title} | IntegrateWise`);
   updateOrCreateMetaTag('name', 'twitter:description', metadata.description);
@@ -60,63 +55,78 @@ function updateOrCreateMetaTag(attrName: string, attrValue: string, content: str
 
 export const SITE_METADATA = {
   home: {
-    title: 'Digital Memory Operating Layer',
-    description: 'IntegrateWise connects your tools, builds a memory of your business, and hands off approved decisions to your execution environment. Memory over models.',
-    keywords: ['operational continuity', 'digital memory', 'AI governance', 'business continuity', 'AI adoption']
+    title: 'One Connected Workspace, Powered by Continuity',
+    description: 'IntegrateWise connects your tools, operational context, knowledge, and AI into one governed workspace where truth stays owned, actions stay approved, and work keeps moving.',
+    keywords: ['continuity platform', 'connected workspace', 'operational continuity', 'governed AI', 'operational context', 'organisational memory']
+  },
+  activation: {
+    title: 'Activate Your Connected Workspace',
+    description: 'Start with one workspace and the systems required for your first continuity flow. Establish the trust boundary, hydrate real context, and form the initial Spine.',
+    keywords: ['activate workspace', 'connected workspace', 'continuity platform', 'ecosystem connection', 'operational spine']
+  },
+  continuity: {
+    title: 'Continuity, Not Just Connection',
+    description: 'Understand how IntegrateWise preserves operational meaning, knowledge, handoffs, AI context, and verified state after systems are connected.',
+    keywords: ['operational continuity', 'knowledge continuity', 'people continuity', 'AI continuity', 'connected work']
+  },
+  security: {
+    title: 'Security and Governance',
+    description: 'Learn how IntegrateWise separates tenant state, provider credentials, AI reasoning, approval, execution, retention, and canonical write paths.',
+    keywords: ['tenant isolation', 'least privilege', 'AI governance', 'approval center', 'credential separation', 'audit trail']
   },
   solutions: {
-    title: 'Solutions',
-    description: 'IntegrateWise solves one cross-functional problem: context loss. Account Success, Sales Continuity, Founder Ops, Engineering & Product, and AI Governance.',
-    keywords: ['account success', 'sales continuity', 'founder operations', 'engineering continuity', 'AI governance']
+    title: 'Role-Specific Workbenches on One Operational Spine',
+    description: 'Explore Account Success, Sales, Founder Operations, Engineering, and AI Governance workbenches projected from one shared operational Spine.',
+    keywords: ['account success workbench', 'sales continuity', 'founder operations', 'engineering continuity', 'AI governance']
   },
   accountSuccess: {
-    title: 'Account Success Solution',
-    description: 'Know everything about every customer without opening five tools. CSM continuity powered by unified context and decision memory.',
-    keywords: ['customer success', 'account management', 'renewal risk', 'customer context', 'CSM platform']
+    title: 'Account Success Continuity',
+    description: 'Connect customer health, commitments, conversations, cases, stakeholders, risks, and next actions into one governed account picture.',
+    keywords: ['customer success', 'account continuity', 'renewal context', 'customer memory', 'account workbench']
   },
   salesContinuity: {
-    title: 'Sales Continuity Solution',
-    description: 'Never re-brief AI on a customer again. Sales proposals that know customer history, objections, and deal context.',
-    keywords: ['sales enablement', 'proposal generation', 'deal continuity', 'sales AI', 'customer history']
+    title: 'Sales Continuity',
+    description: 'Keep account and deal context continuous across prospecting, opportunity movement, proposals, handoff, onboarding, and expansion.',
+    keywords: ['sales continuity', 'deal context', 'sales handoff', 'account history', 'sales workbench']
   },
   founderOps: {
-    title: 'Founder & Business Operations',
-    description: 'One place to understand what is happening. Executive Twin synthesizes data from every department into one coherent picture.',
-    keywords: ['business operations', 'executive dashboard', 'cross-functional visibility', 'business continuity', 'operations']
+    title: 'Founder Operations Workbench',
+    description: 'See material signals, commitments, risks, dependencies, and pending decisions across the organisation without reconstructing another status report.',
+    keywords: ['founder operations', 'executive workbench', 'operational visibility', 'decision continuity', 'business operations']
   },
   engineering: {
-    title: 'Engineering & Product Continuity',
-    description: 'Keep decisions, incidents, and roadmap context connected. Engineering Twin remembers what your team knows.',
-    keywords: ['engineering continuity', 'incident management', 'sprint planning', 'technical decisions', 'engineering memory']
+    title: 'Engineering and Product Continuity',
+    description: 'Connect customer evidence, incidents, roadmap context, technical decisions, delivery state, and ownership without replacing engineering tools.',
+    keywords: ['engineering continuity', 'product context', 'incident continuity', 'technical decisions', 'delivery context']
   },
   aiGovernance: {
-    title: 'AI Governance Solution',
-    description: 'AI proposes. Humans approve. Every decision auditable. Scale AI safely with complete governance and audit trails.',
-    keywords: ['AI governance', 'governance gates', 'audit trail', 'compliance', 'risk management']
+    title: 'Governed AI for Connected Work',
+    description: 'Give AI governed operational context and a controlled path to proposal, approval, execution, audit, and reconciliation.',
+    keywords: ['AI governance', 'approval center', 'governed AI action', 'audit trail', 'risk based governance']
   },
   platform: {
-    title: 'Platform Architecture',
-    description: 'Five layers. One unified workspace. The Operational Continuity Layer connecting your data, decisions, and institutional knowledge.',
-    keywords: ['platform', 'architecture', 'user workbench', 'silent twin', 'adaptive spine', 'governance gates', 'hermes sync']
+    title: 'Continuity Platform Architecture',
+    description: 'See how IntegrateWise connects systems, normalizes operational context into a Spine, projects role-specific workbenches, governs AI proposals, and reconciles execution.',
+    keywords: ['continuity architecture', 'operational spine', 'entity 360', 'AI governance', 'integration manager', 'workbench']
   },
   pricing: {
-    title: 'Pricing',
-    description: 'Not per-seat. Not per-message. Based on outcomes. IntegrateWise pricing reflects value created, not usage consumed.',
-    keywords: ['pricing', 'plans', 'enterprise', 'pilot program', 'subscription']
+    title: 'Workspace Activation and Pricing',
+    description: 'Start with one operational continuity flow and expand through the same workspace, trust boundary, and tenant Spine.',
+    keywords: ['workspace pricing', 'continuity platform pricing', 'workspace activation', 'connected systems', 'operational flow']
   },
   company: {
     title: 'About IntegrateWise',
-    description: 'Building the layer that remembers. Memory over models. Continuity over capability. We believe AI adoption is failing not because AI isn\'t smart, but because it\'s not continuous.',
-    keywords: ['about', 'company', 'mission', 'values', 'team']
+    description: 'IntegrateWise is building the continuity layer that keeps organisational context durable, governed, and usable across systems, people, workflows, and AI.',
+    keywords: ['IntegrateWise', 'continuity platform', 'connected work', 'operational memory', 'governed AI']
   },
   blog: {
-    title: 'Blog',
-    description: 'Thoughts on continuity, memory, and the future of AI. Read our latest articles on AI adoption, business continuity, and operational memory.',
-    keywords: ['blog', 'articles', 'AI adoption', 'business continuity', 'thought leadership']
+    title: 'IntegrateWise Field Notes',
+    description: 'Architecture, product thinking, and field lessons on continuity, connected work, governed AI, operational memory, and integration design.',
+    keywords: ['continuity architecture', 'connected work', 'governed AI', 'operational memory', 'integration design']
   },
   documentation: {
-    title: 'Documentation',
-    description: 'Complete guides, API reference, best practices, and troubleshooting to help you build your digital memory operating layer.',
-    keywords: ['documentation', 'guides', 'API', 'integration', 'help', 'support']
+    title: 'IntegrateWise Documentation',
+    description: 'Guides for workspace activation, ecosystem connections, the Spine, Entity360, workbenches, Twin context, governance, capabilities, and reconciliation.',
+    keywords: ['IntegrateWise documentation', 'workspace activation', 'Spine entities', 'Entity360', 'governance', 'reconciliation']
   }
 };
