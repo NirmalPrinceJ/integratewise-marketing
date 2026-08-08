@@ -16,6 +16,7 @@ import SalesContinuity from "./pages/solutions/SalesContinuity";
 import FounderOps from "./pages/solutions/FounderOps";
 import EngineeringProduct from "./pages/solutions/EngineeringProduct";
 import AIGovernance from "./pages/solutions/AIGovernance";
+import TwinPage from "./pages/twin/TwinPage";
 
 
 function Router() {
@@ -33,6 +34,7 @@ function Router() {
       <Route path={"/solutions/founder-ops"} component={FounderOps} />
       <Route path={"/solutions/engineering-product"} component={EngineeringProduct} />
       <Route path={"/solutions/ai-governance"} component={AIGovernance} />
+      <Route path={"/twin"} component={TwinPage} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
